@@ -1,0 +1,37 @@
+.slick-prev,
+.slick-next {
+	width: 25px;
+	height: 25px;
+	background: rgba(0,0,0,1);
+	border: 0px solid var(--color-white);
+	border-radius: 100%;
+	z-index: 2;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	@media all and (max-width: 600px) {
+		width: 35px;
+		height: 35px;
+	}
+}
+.slick-prev {
+	left:-20px;
+	&::before {
+		content: '<';
+		@media all and (max-width: 600px) {
+			font-size: 14px !important;;
+		}
+	}
+}
+.slick-next {
+	right: -20px;
+	&::before {
+		content: '>';
+		@media all and (max-width: 600px) {
+			font-size: 12px !important;;
+		}
+	}
+}
+.slick-prev:before, .slick-next:before {
+	font-size: 12px;
+}

@@ -1,0 +1,52 @@
+.d-none {
+	display: none;
+}
+.d-block {
+	display: block;
+}
+.d-flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+.justify-center {
+	justify-content: center;
+}
+.align-center {
+	align-items: center;
+}
+
+.d-grid {
+	display: grid;
+	grid-gap: 30px;
+}
+
+.absolute-center {
+//	@include absolute-center();
+}
+
+.has-dash-before-after {
+	//@include has-dash-before-after();
+}
+
+.has-dash-before {
+//	@include has-dash-before-after();
+	padding-right: 0;
+	&:after {
+		display: none;
+	}
+}
+
+.has-dash-after {
+	//@include has-dash-before-after();
+	padding-left: 0;
+	&:before {
+		display: none;
+	}
+}
