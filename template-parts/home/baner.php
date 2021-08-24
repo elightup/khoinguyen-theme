@@ -6,5 +6,7 @@ if (empty($banners)) {
 }
 ?>
 <section class="home__banner row">
-    
+    <div class="home-sidebar">
+        <?php dynamic_sidebar('menu') ?>
+    </div>
 </section>
