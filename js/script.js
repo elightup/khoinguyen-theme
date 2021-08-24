@@ -1,17 +1,17 @@
 jQuery(function($){
 
 
- slickSlider=()=>{
-    $().slick({
+ let slickSlider = () =>{
+    $('').slick({
         autoplay:true,
-			autoplaySpeed:5000,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			dots: true,
-			arrows: false,
-			rows: 0,
-			adaptiveHeight: true
-    })
+		autoplaySpeed:5000,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true,
+		arrows: false,
+		rows: 0,
+		adaptiveHeight: true
+    });
 };
 
 slickSlider();
