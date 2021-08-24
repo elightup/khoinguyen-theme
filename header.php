@@ -22,6 +22,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 
 <body <?php body_class(); ?>>
