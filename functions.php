@@ -53,11 +53,7 @@ if ( ! function_exists( 'khoinguyen_setup' ) ) :
 				'menu-1' => esc_html__( 'Primary', 'khoinguyen' ),
 			)
 		);
-		register_nav_menus(
-			array(
-				'menu-top' => esc_html__( 'menu-top', 'khoinguyen' ),
-			)
-		);
+		
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -206,4 +202,5 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+require get_template_directory() . '/inc/shortcode.php';
 

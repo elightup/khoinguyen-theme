@@ -5,6 +5,7 @@
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
+@import "content/product";
 
 /* Comments
 --------------------------------------------- */
@@ -21,6 +22,12 @@
 /* _header
 --------------------------------------------- */
 @import "header/header";
+
+
+/* home
+--------------------------------------------- */
+@import "home/banner";
+@import "home/banchay";
 
 /* Galleries
 --------------------------------------------- */

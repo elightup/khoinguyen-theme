@@ -33,9 +33,9 @@
 		<header id="masthead" class="site-header ">
 			<div class="header-sidebar">
 				<div class="sidebar-top container">
-				<?php dynamic_sidebar('menu-top') ?> 
+					<?php dynamic_sidebar('menu-top') ?>
 				</div>
-		
+
 			</div>
 			<div class="header_top container">
 				<div class="header_top-logo">
@@ -48,13 +48,13 @@
 						<input type="hidden" name="post_type" value="product">
 						<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm nhanh...">
 						<div class="btn-search">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
 
 						</div>
 					</form>
 				</div>
 				<div class="header_top-contact">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/support.png" alt="">
+				
 					<p class="contact">
 						<strong>
 							<span>Tổng đài:</span>
@@ -63,32 +63,34 @@
 							<span>0966 000 862</span>
 						</strong>
 					</p>
+					<img src="<?php echo get_template_directory_uri(); ?>/images/support.png" alt="">
 				</div>
 			</div>
 			<div class="header_bottom ">
-			
-					<div class="header_bottom-categrory container">
-						<?php khoinguyen_get_categrory(); ?>
-					</div>
-					<nav id="site-navigation" class="main-navigation">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_id'        => 'primary-menu',
-							)
-						);
-						?>
-					</nav><!-- #site-navigation -->
+
+				<div class="header_bottom-categrory container">
+					<?php khoinguyen_get_categrory(); ?>
+				</div>
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
 				<div class="header_bottom-cart">
 					<a href="#" class="btn-cart">
 						<span>Giỏ hàng</span>
 						<div class="icon-cart">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/cart.png" alt="">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/cart.png" alt="">
 						</div>
 
 					</a>
 				</div>
 			</div>
 		</header><!-- #masthead -->
+		<div class="content container" id="content">

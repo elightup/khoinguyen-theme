@@ -1,10 +1,17 @@
 <?php
+
 /**
  * Template Name: Home page
  *
  * @package khoinguyen
  */
-get_header();
 
+if ( 'posts' === get_option( 'show_on_front' ) ) {
+	get_template_part( 'index' );
+	return;
+}
+get_header();
+    get_template_part('template-parts/home/baner');
+    get_template_part('template-parts/home/banchay');
 
 get_footer();

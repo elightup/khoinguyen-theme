@@ -174,7 +174,7 @@ function khoinguyen_get_categrory()
 {
 
 	$terms = get_terms(array(
-		'taxonomy'   => 'danh-muc',
+		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
 
 	));
@@ -205,4 +205,7 @@ function khoinguyen_get_categrory()
 		</div>
 	<?php
 
+}
+function kn_entry_title() {
+	the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 }
