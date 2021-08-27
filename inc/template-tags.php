@@ -206,6 +206,40 @@ function khoinguyen_get_categrory()
 	<?php
 
 }
-function kn_entry_title() {
-	the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+function kn_entry_title()
+{
+	the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h3>');
 }
+function kn_filter_home()
+{
+
+	$terms = get_terms(array(
+		'taxonomy'   => 'nganh-hang',
+		'hide_empty' => false,
+
+	));
+	?>
+
+		<div class="filter-categroty">
+			<h4>Danh mục</h4>
+			<ul>
+				<?php
+				foreach ($terms as $term) {
+				?>
+					<li data-tab="<?php echo $term->slug ?>">
+						<a href="<?php echo $term->slug ?>"><?php echo $term->name; ?></a>
+					</li>
+				<?php
+				}
+				?>
+			</ul>
+		</div>
+
+	<?php
+}
+function kn_get_path(){
+	echo	'<div class="box_path">';
+	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	echo	'</div>';
+}
+

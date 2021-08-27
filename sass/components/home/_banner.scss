@@ -149,3 +149,11 @@
     }
   }
 }
+.home_banner-bottom{
+  display: flex;
+  margin: 15px 0;
+  .box-image{
+    display: flex;
+    flex: 1;
+  }
+}

@@ -1,7 +1,11 @@
 .home_banchay{
     width: 100%;
     margin-top: 15px;
+    .product-item{
+        width: auto !important;
+    }
 }
+
 .box_title{
     width:100%;
     display: flex;
@@ -24,6 +28,7 @@
 }
 .product_list{
     margin-top: 15px;
+    height: 450px;
     .slick-prev, .slick-next{
         width: 50px;
         height: 50px;
@@ -33,5 +38,10 @@
             color: #333;
         }
     }
-    
+    .slick-track{
+        height: 100%;
+    }
+    .slick-list{
+        height: 100%;
+    }
 } 

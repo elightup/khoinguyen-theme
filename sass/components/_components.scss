@@ -6,6 +6,7 @@
 --------------------------------------------- */
 @import "content/posts-and-pages";
 @import "content/product";
+@import "content/path";
 
 /* Comments
 --------------------------------------------- */
@@ -28,7 +29,15 @@
 --------------------------------------------- */
 @import "home/banner";
 @import "home/banchay";
+@import "home/filteproduct";
+/* single
+--------------------------------------------- */
+@import "single/singleproduct";
 
+
+/* footer
+--------------------------------------------- */
+@import "footer/footer";
 /* Galleries
 --------------------------------------------- */
 @import "media/galleries";

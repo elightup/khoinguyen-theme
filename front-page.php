@@ -13,5 +13,6 @@ if ( 'posts' === get_option( 'show_on_front' ) ) {
 get_header();
     get_template_part('template-parts/home/baner');
     get_template_part('template-parts/home/banchay');
+    get_template_part('template-parts/home/filterProduct');
 
 get_footer();

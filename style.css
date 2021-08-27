@@ -192,7 +192,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	transition: box-shadow 0.2s, transform 0.2s;
 	will-change: box-shadow, transform;
 	display: flex;
-	width: 96%;
+	margin: 0 5px;
+	width: 100%;
 	flex-direction: column;
 }
 
@@ -219,6 +220,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .product-item .product-thumb img {
 	max-height: 100%;
+}
+
+.product-item .product-meta {
+	margin-top: auto;
 }
 
 .product-item .entry-title {
@@ -253,6 +258,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	text-align: center;
 	color: #fff;
 	margin: 0;
+}
+
+.box_path {
+	width: 100%;
+	padding: 20px 0;
+}
+
+.box_path p {
+	font-size: 18px;
+}
+
+.box_path p a {
+	color: #60BB46;
 }
 
 /* Comments
@@ -762,9 +780,23 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	font-size: 16px;
 }
 
+.home_banner-bottom {
+	display: flex;
+	margin: 15px 0;
+}
+
+.home_banner-bottom .box-image {
+	display: flex;
+	flex: 1;
+}
+
 .home_banchay {
 	width: 100%;
 	margin-top: 15px;
+}
+
+.home_banchay .product-item {
+	width: auto !important;
 }
 
 .box_title {
@@ -791,6 +823,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .product_list {
 	margin-top: 15px;
+	height: 450px;
 }
 
 .product_list .slick-prev, .product_list .slick-next {
@@ -802,6 +835,162 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .product_list .slick-prev::before, .product_list .slick-next::before {
 	font-size: 25px;
 	color: #333;
+}
+
+.product_list .slick-track {
+	height: 100%;
+}
+
+.product_list .slick-list {
+	height: 100%;
+}
+
+.home_filter {
+	width: 100%;
+}
+
+.home_filter .filter-categroty {
+	display: flex;
+	margin-top: 15px;
+}
+
+.home_filter .filter-categroty h4 {
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 40px;
+	margin: 0;
+	text-align: center;
+	letter-spacing: 0.1px;
+	color: #5a5a5a;
+}
+
+.home_filter .filter-categroty ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: auto 0 5px 25px;
+}
+
+.home_filter .filter-categroty ul li {
+	padding: 5px;
+	border: #5A5A5A 1px solid;
+	border-radius: 10px;
+	margin: 0 15px;
+}
+
+.home_filter .product_list-filter {
+	margin-top: 15px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+}
+
+.home_filter .box-btn {
+	width: 100%;
+	margin: 20px 0;
+}
+
+.home_filter .box-btn .btn-xemthem {
+	display: block;
+	padding: 10px;
+	background: #E5E5E5;
+	border-radius: 10px;
+	margin: auto;
+	width: fit-content;
+}
+
+/* single
+--------------------------------------------- */
+.box_single-top {
+	background: #fff;
+	margin: 0 !important;
+}
+
+.single-image {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.single-image::after {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.single-image img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	object-fit: contain;
+}
+
+.box_product-content .box_product-title {
+	width: 100%;
+}
+
+.box_product-content .box_product-title .product-title {
+	color: #5a5a5a;
+	font-size: 24px;
+}
+
+.box_product-content .box_product-title .box_product-status {
+	width: 100%;
+}
+
+.box_product-content .box_product-title .box_product-status .status {
+	display: flex;
+	color: #60bb46;
+	justify-content: space-around;
+}
+
+.box_product-content .box_product-price {
+	width: 100%;
+	background: #f8f8f8;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+}
+
+.box_product-content .box_product-price .product-price {
+	display: flex;
+}
+
+.box_product-content .box_product-price .product-price .price {
+	font-size: 20px;
+	color: #c4c4c4;
+	text-decoration: line-through;
+	margin: auto 15px 0 15px;
+}
+
+.box_product-content .box_product-price .product-price .price-sale {
+	font-size: 30px;
+	color: #f43a3a;
+	font-weight: bold;
+	margin: auto 0 0 0;
+}
+
+.box_product-content .box_product-price .Product-compare {
+	margin-right: 20px;
+}
+
+.box_product-content .box_product-price .Product-compare a {
+	margin: 0;
+	font-size: 20px;
+	font-style: italic;
+}
+
+/* footer
+--------------------------------------------- */
+.site-footer {
+	height: 500px;
+	background: #23282D;
 }
 
 /* Galleries
@@ -1044,6 +1233,9 @@ html {
 
 body {
 	font-family: Roboto, sans-serif;
+}
+
+.home {
 	background: #fff;
 }
 

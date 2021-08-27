@@ -5,7 +5,7 @@
     <div class="product_list ">
         <?php
         ob_start();
-        $args=[
+        $args = [
             'post_type'      => 'product',
             'tax_query' => array(
                 'relation' => 'AND',
@@ -27,7 +27,25 @@
         endwhile;
         wp_reset_postdata();
 
-      
+
         ?>
     </div>
 </section>
+<?php
+$banners = rwmb_meta('group_Banner_bottom');
+if (empty($banners)) {
+    return;
+}
+
+    $img_1 = wp_get_attachment_image_url($banners['banner_image_1'], 'full');
+    $img_2 = wp_get_attachment_image_url($banners['banner_image_2'], 'full');
+?>
+
+    <div class="home_banner-bottom">
+        <div class="box-image">
+            <img src="<?=  $img_1 ?>" loading="lazy">
+        </div>
+        <div class="box-image">
+            <img src="<?= $img_2 ?>" loading="lazy">
+        </div>
+    </div>
