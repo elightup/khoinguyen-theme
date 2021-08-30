@@ -31,7 +31,7 @@ if ( ! function_exists( 'khoinguyen_setup' ) ) :
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
-
+		add_filter( 'use_block_editor_for_post', '__return_false' );
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -156,6 +156,28 @@ function khoinguyen_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'sidebar Sản phẩm', 'khoinguyen' ),
+			'id'            => 'sidebar-product',
+			'description'   => esc_html__( 'Add widgets here.', 'khoinguyen' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'sidebar rigth', 'khoinguyen' ),
+			'id'            => 'sidebar-rigth',
+			'description'   => esc_html__( 'Add widgets here.', 'khoinguyen' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'khoinguyen_widgets_init' );
 
@@ -169,6 +191,8 @@ function khoinguyen_scripts() {
 
 	wp_enqueue_script( 'khoinguyen-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'khoinguyen-slick', get_template_directory_uri() . '/js/slick.js', array(), _S_VERSION, true );
+	wp_enqueue_script('khoinguyen-magnific', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js', array(), '1.0', true);
+
 	wp_enqueue_script( 'khoinguyen-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

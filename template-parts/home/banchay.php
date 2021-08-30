@@ -10,7 +10,7 @@
             'tax_query' => array(
                 'relation' => 'AND',
                 array(
-                    'taxonomy' => 'nganh-hang',
+                    'taxonomy' => 'tag',
                     'field' => 'slug',
                     'terms' => array('noi-bat'),
                     'include_children' => true,

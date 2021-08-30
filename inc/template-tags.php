@@ -242,4 +242,37 @@ function kn_get_path(){
 	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
 	echo	'</div>';
 }
+function kn_get_mota(){
+	$mota=rwmb_meta('mo_ta',get_queried_object_id());
+	if(empty($mota)){
+		return;
+	}
+	?>
+	<div class="content-mota">
+		<?php echo $mota ?>
+	</div>
+	<?php
+}
+function kn_get_posts_categrory(){
+	$terms = get_the_category(get_queried_object_id());
 
+	
+	$ids = array_map(function ($term) {
+		return $term->term_id;
+	}, $terms);
+	$args  = array(
+		'posts_per_page'   	=> 10,
+		'post_type'      => 'product',
+		'post__not_in'     	=> array(get_the_ID()),
+		'category__in'		=> $ids,
+	);
+	$query = new WP_Query($args);
+	if (!$query->have_posts()) {
+		return;
+	}
+	while ($query->have_posts()) :
+		$query->the_post();
+		get_template_part('template-parts/content', 'product');
+	endwhile;
+	wp_reset_postdata();
+}
