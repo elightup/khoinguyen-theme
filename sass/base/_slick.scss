@@ -2,12 +2,12 @@
 .slick-next {
 	width: 25px;
 	height: 25px;
-	background: rgba(0,0,0,1);
+	background: #E5E5E5;
 	border: 0px solid var(--color-white);
 	border-radius: 100%;
 	z-index: 2;
 	display: flex !important;
-	align-items: center;
+	padding: 5px;
 	justify-content: center;
 	@media all and (max-width: 600px) {
 		width: 35px;
@@ -17,7 +17,13 @@
 .slick-prev {
 	left:-20px;
 	&::before {
-		content: '<';
+		content: '';
+		background: url( 'images/angle-left-solid.svg') no-repeat;
+		background-size: contain;
+	width: 30px;
+    height: 30px;
+	display: block;
+	margin: 0 auto;
 		@media all and (max-width: 600px) {
 			font-size: 14px !important;;
 		}
@@ -26,7 +32,13 @@
 .slick-next {
 	right: -20px;
 	&::before {
-		content: '>';
+		content: '';
+		background: url( 'images/angle-right-solid.svg') no-repeat;
+		background-size: contain;
+	width: 30px;
+    height: 30px;
+	display: block;
+	margin: 0 auto;
 		@media all and (max-width: 600px) {
 			font-size: 12px !important;;
 		}

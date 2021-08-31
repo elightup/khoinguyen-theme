@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,32 @@
 
 ?>
 </div>
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'khoinguyen' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'khoinguyen' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'khoinguyen' ), 'khoinguyen', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+<footer id="colophon" class="site-footer">
+	<div class="footer-widgets container">
+		<div class="logo">
+			<?php
+			the_custom_logo();
+			?>
+		</div>
+		<div class="footer-widgets__wrapper row ">
+
+			<div class="footer-left col-6">
+
+				<?php dynamic_sidebar('sidebar-footer-left') ?>
+			</div>
+			<div class="footer-rigth col-6">
+				<?php dynamic_sidebar('sidebar-footer-rigth') ?>
+			</div>
+		</div>
+	</div>
+	<div class="site-info">
+		Copyright © <?= date('Y') ?> giathuoctot.vn. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
+	</div>
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
