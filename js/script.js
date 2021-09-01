@@ -65,7 +65,25 @@ jQuery(function ($) {
 
 		})
 	}
+	const filterproduct=()=>{
+		$('.filter-categroty li').on('click',function(){
+			$('.filter-categroty li').removeClass('active');
+			$(this).addClass('active');
+			$data=$(this).data('tab');
+			
+			let datas=$('.product-item');
+			datas.each(function(){
+				
+				if($(this).hasClass($data)){
+					$(this).addClass('shows')
+				}else {
+					$(this).removeClass('shows');
+				}
+			})
+		})
 
+	}
 	slickSlider();
 	tabsProduct();
+	filterproduct();
 });

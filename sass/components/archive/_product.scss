@@ -1,0 +1,27 @@
+.content_product-list{
+    width: 100%;
+    padding: 20px 0;
+    .product-list{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-gap: 10px;
+    }
+}
+.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   margin-top: 50px;
+   color:#5A5A5A;
+   .page-numbers{
+       margin:0 10px ;
+       font-size: 16px;
+   }
+   .current{
+       font-weight: bold;
+       font-size: 18px;
+   }
+   .prev, .next{
+    font-weight: bold;
+   }
+}

@@ -182,6 +182,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	margin: 0 0 1.5em;
 }
 
+.shows {
+	display: flex !important;
+}
+
 .product-item {
 	position: relative;
 	height: 100%;
@@ -191,7 +195,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.08);
 	transition: box-shadow 0.2s, transform 0.2s;
 	will-change: box-shadow, transform;
-	display: flex;
+	display: none;
 	margin: 0 5px;
 	width: 100%;
 	flex-direction: column;
@@ -404,11 +408,29 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .header-sidebar {
-	background: #23282D;
+	background: #23282d;
 }
 
 .header-sidebar .widget {
 	margin: 0;
+}
+
+.header-sidebar ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header-sidebar ul li {
+	color: #fff;
+	padding: 0px 5px;
+	font-size: 13px;
+	border-right: #4f5357 solid 1px;
+}
+
+.header-sidebar ul li:last-child {
+	border-right: none;
 }
 
 .header-sidebar .sidebar-top {
@@ -418,54 +440,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	padding: 5px 0;
 }
 
-.header-sidebar .sidebar-top .widget_block {
+.header-sidebar .sidebar-top .box_item {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
-.header-sidebar .sidebar-top .widget_block .item {
+.header-sidebar .sidebar-top .item {
 	display: flex;
 	color: #fff;
 	font-size: 13px;
 	padding: 0px 5px;
-	border-right: #4F5357 solid 1px;
+	border-right: #4f5357 solid 1px;
 }
 
-.header-sidebar .sidebar-top .widget_block .item:last-child {
+.header-sidebar .sidebar-top .item:last-child {
 	border-right: none;
 }
 
-.header-sidebar .sidebar-top .widget_block .item .bi {
+.header-sidebar .sidebar-top .item .bi {
 	margin-right: 5px;
 }
 
-.header-sidebar .sidebar-top .widget_block .item p {
+.header-sidebar .sidebar-top .item p {
 	margin: 0;
-}
-
-.header-sidebar .sidebar-top .menu-menu-top-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.header-sidebar .sidebar-top .menu-menu-top-container .menu {
-	display: flex;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.header-sidebar .sidebar-top .menu-menu-top-container .menu li {
-	color: #fff;
-	padding: 0px 5px;
-	font-size: 13px;
-	border-right: #4F5357 solid 1px;
-}
-
-.header-sidebar .sidebar-top .menu-menu-top-container .menu li:last-child {
-	border-right: none;
 }
 
 .header_top {
@@ -577,7 +573,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .header_bottom-categrory .categroty::after {
 	display: block;
-	content: '';
+	content: "";
 	width: 100%;
 	height: 50px;
 	position: absolute;
@@ -614,6 +610,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	top: 130%;
 	width: 90%;
 	z-index: 100;
+	margin-top: 0;
 	transition: all 2s ease-in;
 	-moz-transition: all 2s ease-in;
 	-webkit-transition: all 2s ease-in;
@@ -622,14 +619,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .header_bottom-categrory .categroty .filter-categroty ul {
 	list-style: none;
+	display: block;
 	margin: 0;
 	padding: 0;
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul li {
 	padding: 10px 15px;
-	border-top: #a7a7a7 solid 1px;
+	border-top: #a7a7a7 solid 1px !important;
 	font-size: 16px;
+	border-radius: 0;
+	border: none;
+	margin: 0;
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul li:hover {
@@ -881,7 +882,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .home_banchay .product-item {
-	width: auto !important;
+	display: flex;
 }
 
 .box_title {
@@ -935,39 +936,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	width: 100%;
 }
 
-.home_filter .filter-categroty {
-	display: flex;
-	margin-top: 15px;
-}
-
-.home_filter .filter-categroty h4 {
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 40px;
-	display: flex;
-	flex: 1;
-	margin: 0;
-	text-align: center;
-	letter-spacing: 0.1px;
-	color: #5a5a5a;
-}
-
-.home_filter .filter-categroty ul {
-	display: flex;
-	list-style: none;
-	padding: 0;
-	flex: 9;
-	flex-wrap: wrap;
-	margin: auto 0 5px 25px;
-}
-
-.home_filter .filter-categroty ul li {
-	padding: 5px;
-	border: #5A5A5A 1px solid;
-	border-radius: 10px;
-	margin: 10px;
-}
-
 .home_filter .product_list-filter {
 	margin-top: 15px;
 	display: grid;
@@ -987,6 +955,46 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	border-radius: 10px;
 	margin: auto;
 	width: fit-content;
+}
+
+.filter-categroty {
+	display: flex;
+	margin-top: 15px;
+}
+
+.filter-categroty h4 {
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 40px;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	margin: 0;
+	text-align: center;
+	letter-spacing: 0.1px;
+	color: #5a5a5a;
+}
+
+.filter-categroty ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	flex: 9;
+	flex-wrap: wrap;
+	margin: auto 0 5px 25px;
+}
+
+.filter-categroty ul li {
+	padding: 5px;
+	border: #5A5A5A 1px solid;
+	border-radius: 10px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.filter-categroty ul li:hover {
+	border-color: #60BB46;
+	color: #60BB46;
 }
 
 /* single
@@ -1369,6 +1377,41 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .product-categrory-content .product-item {
 	width: auto;
+}
+
+/* archive
+--------------------------------------------- */
+.content_product-list {
+	width: 100%;
+	padding: 20px 0;
+}
+
+.content_product-list .product-list {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+}
+
+.navigation {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	color: #5A5A5A;
+}
+
+.navigation .page-numbers {
+	margin: 0 10px;
+	font-size: 16px;
+}
+
+.navigation .current {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.navigation .prev, .navigation .next {
+	font-weight: bold;
 }
 
 /* footer

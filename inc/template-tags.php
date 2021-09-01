@@ -196,7 +196,8 @@ function khoinguyen_get_categrory()
 				foreach ($terms as $term) {
 				?>
 					<li data-tab="<?php echo $term->slug ?>">
-						<a href="<?php echo $term->slug ?>"><?php echo $term->name; ?></a>
+					<a href="<?php echo get_term_link( $term->slug, 'nganh-hang' ); ?>"><?php echo $term->name; ?></a>
+					
 					</li>
 				<?php
 				}
@@ -221,13 +222,13 @@ function kn_filter_home()
 	?>
 
 		<div class="filter-categroty">
-			<h4>Danh mục</h4>
-			<ul>
+			<h4>Danh mục: </h4>
+			<ul >
 				<?php
 				foreach ($terms as $term) {
 				?>
 					<li data-tab="<?php echo $term->slug ?>">
-						<a href="<?php echo $term->slug ?>"><?php echo $term->name; ?></a>
+					<?php echo $term->name; ?>
 					</li>
 				<?php
 				}

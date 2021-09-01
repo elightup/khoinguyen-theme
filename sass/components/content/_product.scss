@@ -1,3 +1,6 @@
+.shows{
+display: flex !important;
+}
 .product-item {
   position: relative;
   height: 100%;
@@ -8,7 +11,7 @@
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.2s, transform 0.2s;
   will-change: box-shadow, transform;
-  display: flex;
+  display: none;
  margin: 0 5px;
   width: 100%;
   flex-direction: column;
