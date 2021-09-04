@@ -484,24 +484,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .header_top-logo {
 	width: 10%;
-	height: fit-content;
 	position: relative;
-	padding-top: 5%;
+	align-items: center;
 	display: flex;
 	flex: 1;
 }
 
-.header_top-logo a {
-	display: flex;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
-}
-
-.header_top-logo a img {
+.header_top-logo img {
 	max-height: 100%;
 	max-width: 100%;
 	object-fit: contain;

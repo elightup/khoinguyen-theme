@@ -33,6 +33,7 @@ add_shortcode('menu_nganh', 'shortcode_get_categrory');
 function shortcode_get_banchay()
 {
 	ob_start();
+
 	$args = [
 		'post_type'      => 'product',
 		'tax_query' => array(
@@ -54,6 +55,8 @@ function shortcode_get_banchay()
 	<?php
 	while ($query->have_posts()) :
 		$query->the_post();
+		$price=rwmb_meta('price',get_the_ID());
+		$priceCV=rwmb_meta('price_nhap',get_the_ID());
 	?>
 
 		<div class="product_sidebar">
@@ -71,8 +74,8 @@ function shortcode_get_banchay()
 				</div>
 			</div>
 			<div class="product_sidebar-price">
-				<p class="price"><?php echo kn_currency_format(4000) ?></p>
-				<p class="price-sale"><?php echo kn_currency_format(3500) ?></p>
+				<p class="price"><?php echo kn_currency_format( $price?$price:0) ?></p>
+				<p class="price-sale"><?php echo kn_currency_format( $priceCV?$priceCV:0) ?></p>
 
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <?php
 $terms = get_the_terms(get_the_ID(), 'nganh-hang');
-
+$price=rwmb_meta('price',get_the_ID());
+$priceCV=rwmb_meta('price_nhap',get_the_ID());
 $class      = '';
 
 if ($terms) {
@@ -23,8 +24,8 @@ if ($terms) {
 			?>
 			<div class="product-price">
 
-				<p class="price-sale"><?php echo kn_currency_format(3500) ?></p>
-				<p class="price"><?php echo kn_currency_format(4000) ?></p>
+				<p class="price-sale"><?php echo kn_currency_format( $price?$price:0) ?></p>
+				<p class="price"><?php echo kn_currency_format( $priceCV?$priceCV:0) ?></p>
 			</div>
 			<div class="product-khuyenmai">
 				<p>Bộ quà tặng lên đến 2.000.000Đ</p>
