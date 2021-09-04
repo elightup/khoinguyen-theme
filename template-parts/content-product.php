@@ -24,8 +24,8 @@ if ($terms) {
 			?>
 			<div class="product-price">
 
-				<p class="price-sale"><?php echo kn_currency_format( $price?$price:0) ?></p>
-				<p class="price"><?php echo kn_currency_format( $priceCV?$priceCV:0) ?></p>
+				<p class="price-sale"><?php echo kn_currency_format( $priceCV?$priceCV:0) ?></p>
+				<p class="price"><?php echo kn_currency_format( $price?$price:0) ?></p>
 			</div>
 			<div class="product-khuyenmai">
 				<p>Bộ quà tặng lên đến 2.000.000Đ</p>
