@@ -1,8 +1,8 @@
 /*!
 Theme Name: khoinguyen
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
+Theme URI: https://elightup.com
+Author: eLightUp
+Author URI: https://elightup.com
 Description: Description
 Version: 1.0.0
 Tested up to: 5.4
@@ -51,8 +51,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 // Import variables and mixins.
-@import "abstracts/abstracts";
 
+@import 'variables';
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/

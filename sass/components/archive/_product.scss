@@ -1,6 +1,8 @@
 .content_product-list{
     width: 100%;
     padding: 20px 0;
+    margin: 20px 0;
+    border-top: #60bb46 solid;
     .product-list{
         display: grid;
         grid-template-columns: repeat(5,1fr);

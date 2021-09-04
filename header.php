@@ -37,33 +37,35 @@
 				</div>
 
 			</div>
-			<div class="header_top container">
-				<div class="header_top-logo">
-					<?php
-					the_custom_logo();
-					?>
-				</div>
-				<div class="header_top-search">
-					<form action="/" method="get" class="header-search">
-						<input type="hidden" name="post_type" value="product">
-						<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm nhanh...">
-						<div class="btn-search">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
+			<div class="header_top ">
+				<div class="container row">
+					<div class="header_top-logo">
+						<?php
+						the_custom_logo();
+						?>
+					</div>
+					<div class="header_top-search">
+						<form action="/" method="get" class="header-search">
+							<input type="hidden" name="post_type" value="product">
+							<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm nhanh...">
+							<div class="btn-search">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
 
-						</div>
-					</form>
-				</div>
-				<div class="header_top-contact">
-				
-					<p class="contact">
-						<strong>
-							<span>Tổng đài:</span>
-						</strong>
-						<strong>
-							<span>0966 000 862</span>
-						</strong>
-					</p>
-					<img src="<?php echo get_template_directory_uri(); ?>/images/support.png" alt="">
+							</div>
+						</form>
+					</div>
+					<div class="header_top-contact">
+
+						<p class="contact">
+							<strong>
+								<span>Tổng đài:</span>
+							</strong>
+							<strong>
+								<span>0966 000 862</span>
+							</strong>
+						</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/images/support.png" alt="">
+					</div>
 				</div>
 			</div>
 			<div class="header_bottom ">

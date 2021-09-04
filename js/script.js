@@ -1,6 +1,9 @@
 
 
 jQuery(function ($) {
+	var $body = $( 'body' );
+
+	var $window = $( window );
 	const slickSlider = () => {
 		$('.home__banner-wrapper').slick({
 			autoplay: true,
@@ -44,6 +47,24 @@ jQuery(function ($) {
 				}
 			]
 		});
+
+
+
+		$('.box_image-product').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.box_image-product-slider'
+		  });
+		  $('.box_image-product-slider').slick({
+			slidesToShow:4,
+			
+			asNavFor: '.box_image-product',
+			centerMode: true,
+		
+			focusOnSelect: true
+		  });
 	};
 
 	const tabsProduct = () => {
@@ -83,7 +104,27 @@ jQuery(function ($) {
 		})
 
 	}
+
+
+	function stickyHeader() {
+		var headerHeight = $( '.header_top' ).outerHeight(),
+			adminBarHeight = $( '#wpadminbar' ).height(),
+			headerContentOffset = $window.width() > 601 ? adminBarHeight : 0;
+
+		$window.on( 'scroll', function () {
+			if ( $window.scrollTop() > headerHeight ) {
+				$( '.header_top' ).addClass( 'is-sticky' );
+				if ( $body.hasClass( 'admin-bar' ) ) {
+					$( '.header_top' ).css( 'top', headerContentOffset );
+				}
+			} else {
+				$( '.header_top' ).removeClass( 'is-sticky' );
+			}
+		} );
+	}
+	
 	slickSlider();
 	tabsProduct();
 	filterproduct();
+	stickyHeader();
 });

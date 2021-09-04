@@ -21,6 +21,7 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
+				
 				<?php
 				khoinguyen_posted_on();
 				khoinguyen_posted_by();

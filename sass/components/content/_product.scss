@@ -26,7 +26,7 @@ display: flex !important;
 
   .product-thumb {
     height: 0;
-    padding-top: 100%;
+    padding-top: 90%;
     position: relative;
     transition: transform .2s;
     &:hover{
@@ -122,6 +122,8 @@ display: flex !important;
       .entry-title{
         font-size: 16px ;
         font-weight: 500;
+        color: #5A5A5A;
+        margin: 0;
 
       }
     }
@@ -133,14 +135,16 @@ display: flex !important;
     justify-content: center;
 
     .price-sale{
-      font-size: 20px;
+      font-size: 22px;
       color: #F43A3A;
       font-weight: 700;
       margin: 0 10px;
     }
     .price{
       margin: 0 10px;
+      font-size: 15px;
       color: #C4C4C4;
+      margin-top: auto;
       text-decoration: line-through;
   }
   }

@@ -1,5 +1,5 @@
 <div class="box_single-bottom row">
-    <div class="box_product-bottom col-8">
+    <div class="box_product-bottom col-9">
         <!--tap menu -->
         <ul class="nav-pill">
             <li class="tab-button active" data-id="mota">Mô tả sản phẩm</li>
@@ -34,7 +34,12 @@
             </div>
         </div>
     </div>
-    <div class="box_sidebar col-4">
+    <div class="box_sidebar col-3">
+        <div class="box_sidebar-product">
+            <label class="title-sidebar">
+                Top bán chạy
+            </label>
+        </div>
         <?php dynamic_sidebar('sidebar-rigth') ?>
     </div>
 </div>

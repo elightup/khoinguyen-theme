@@ -196,8 +196,8 @@ function khoinguyen_get_categrory()
 				foreach ($terms as $term) {
 				?>
 					<li data-tab="<?php echo $term->slug ?>">
-					<a href="<?php echo get_term_link( $term->slug, 'nganh-hang' ); ?>"><?php echo $term->name; ?></a>
-					
+						<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
+
 					</li>
 				<?php
 				}
@@ -223,12 +223,12 @@ function kn_filter_home()
 
 		<div class="filter-categroty">
 			<h4>Danh mục: </h4>
-			<ul >
+			<ul>
 				<?php
 				foreach ($terms as $term) {
 				?>
 					<li data-tab="<?php echo $term->slug ?>">
-					<?php echo $term->name; ?>
+						<?php echo $term->name; ?>
 					</li>
 				<?php
 				}
@@ -238,26 +238,33 @@ function kn_filter_home()
 
 	<?php
 }
-function kn_get_path(){
+function kn_get_path()
+{
 	echo	'<div class="box_path">';
-	yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
 	echo	'</div>';
 }
-function kn_get_mota(){
-	$mota=rwmb_meta('mo_ta',get_queried_object_id());
-	if(empty($mota)){
+function kn_get_mota()
+{
+	$mota = rwmb_meta('mo_ta', get_queried_object_id());
+	if (empty($mota)) {
 		return;
 	}
 	?>
-	<div class="content-mota">
-		<?php echo $mota ?>
-	</div>
+		<div class="content-mota">
+			<?php echo $mota ?>
+		</div>
 	<?php
 }
-function kn_get_posts_categrory(){
+function kn_currency_format( $number ) {
+	$number = $number * 1000;
+	return number_format( $number, 0, ',', '.' ) . ' ₫';
+}
+function kn_get_posts_categrory()
+{
 	$terms = get_the_category(get_queried_object_id());
 
-	
+
 	$ids = array_map(function ($term) {
 		return $term->term_id;
 	}, $terms);
@@ -274,6 +281,30 @@ function kn_get_posts_categrory(){
 	while ($query->have_posts()) :
 		$query->the_post();
 		get_template_part('template-parts/content', 'product');
+	endwhile;
+	wp_reset_postdata();
+}
+function kn_filter_product()
+{
+	$args  = array(
+
+		'post_type'      => 'product',
+
+	);
+	$query = new WP_Query($args);
+
+	?>
+	<div class="select-product">
+		<Label></Label>
+	</div>
+	<input type="text" name="" id="">
+	<?php
+	if (!$query->have_posts()) {
+		return;
+	}
+	while ($query->have_posts()) :
+		$query->the_post();
+		
 	endwhile;
 	wp_reset_postdata();
 }

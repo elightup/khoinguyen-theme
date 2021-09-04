@@ -23,8 +23,8 @@ if ($terms) {
 			?>
 			<div class="product-price">
 
-				<p class="price-sale">3.950.000</p>
-				<p class="price">4.950.000</p>
+				<p class="price-sale"><?php echo kn_currency_format(3500) ?></p>
+				<p class="price"><?php echo kn_currency_format(4000) ?></p>
 			</div>
 			<div class="product-khuyenmai">
 				<p>Bộ quà tặng lên đến 2.000.000Đ</p>

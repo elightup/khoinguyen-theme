@@ -50,9 +50,7 @@ function shortcode_get_banchay()
 
 	$query = new WP_Query($args);
 ?>
-	<div class="title">
-		<h4>Top bán chạy</h4>
-	</div>
+	
 	<?php
 	while ($query->have_posts()) :
 		$query->the_post();
@@ -73,8 +71,8 @@ function shortcode_get_banchay()
 				</div>
 			</div>
 			<div class="product_sidebar-price">
-				<p class="price">4.950.000</p>
-				<p class="price-sale">3.950.000</p>
+				<p class="price"><?php echo kn_currency_format(4000) ?></p>
+				<p class="price-sale"><?php echo kn_currency_format(3500) ?></p>
 
 			</div>
 		</div>

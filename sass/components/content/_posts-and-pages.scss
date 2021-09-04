@@ -1,23 +1,17 @@
-.sticky {
-	display: block;
+.content{
+	margin-top: 15px;
 }
-
-.post,
-.page {
-	margin: 0 0 1.5em;
+.content-post{
+	display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 24px 16px;
+    margin-bottom: 30px;
 }
-
-.updated:not(.published) {
-	display: none;
+.site-main {
+	margin-top: 20px;
 }
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+.danhmuc-sp{
+    background-color: #fff;
+    margin-top: 5px;
+    z-index: 0;
 }
