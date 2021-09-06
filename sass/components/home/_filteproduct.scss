@@ -51,8 +51,8 @@
           margin: 10px;
           cursor: pointer;
           &:hover{
-            border-color: #60BB46;
-            color:#60BB46;
+            border-color: var(--color-accent);
+            color:var(--color-accent);
           }
      }
       

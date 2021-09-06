@@ -35,7 +35,7 @@
   .slick-current{
     margin: 0 5px;
    .box_image{
-    border: #60bb46 solid 1px;
+    border: var(--color-accent) solid 1px;
    }
   }
   .box_image{
@@ -74,7 +74,7 @@
     margin: 15px 0;
     .status {
       display: flex;
-      color: #60bb46;
+      color: var(--color-accent);
       
       .status-item{
         margin: 0 20px;
@@ -151,8 +151,8 @@
       font-size: 16px;
       color: #5a5a5a;
       span {
-        
-        color: #60bb46;
+        font-size: 20px;
+        color: var(--color-accent);
       }
     }
     a {
@@ -205,8 +205,8 @@
     }
   }
   .btn-them {
-    border: 2px solid #60bb46;
-    color: #60bb46;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
     background: #fff;
     &:hover{
       background: #26af00;
@@ -221,7 +221,6 @@
       color: #fff;
     }
   }
-  
 }
 
 .box_featured-product{
@@ -275,7 +274,7 @@
   margin: 0 !important;
   padding-left: 0 !important;
   .active {
-    color: #60bb46 !important;
+    color: var(--color-accent) !important;
     background: #fff;
   }
   .show {
@@ -315,7 +314,7 @@
 
   font-size: 18px;
   font-weight: bold;
-  color: #60bb46;
+  color: var(--color-accent);
   h4 {
     margin: 0;
   }
@@ -349,16 +348,16 @@
   .comment-form-comment{
     label{
       font-size: 20px;
-      color: #60bb46; 
+      color: var(--color-accent); 
     }
     textarea{
-      border:  #60bb46 solid 1px ;
+      border:  var(--color-accent) solid 1px ;
       border-radius: 5px;
     }
   }
   .form-submit{
     input[type='submit']{
-      background: #60bb46;
+      background: var(--color-accent);
       font-size: 16px ;
       color: #fff;
       border-radius: 5px;
@@ -389,7 +388,7 @@
     }
     .reply{
       width: fit-content;
-      background: #60bb46;
+      background: var(--color-accent);
       font-size: 16px ;
       padding: 5px 10px;
       color: #fff;
@@ -423,7 +422,7 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-  color:#60bb46;
+  color:var(--color-accent);
     
   
 }
