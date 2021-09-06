@@ -53,6 +53,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // Import variables and mixins.
 
 @import 'variables';
+@import "mixins";
+@import "base/elements";
+@import "base/bootstrap-grid";
+@import "base/gutenberg";
+@import "base/utility";
+@import "base/slick";
+@import "base/alignment";
+@import "base/accessibility";
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -102,10 +110,3 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 
-@import "base/elements";
-@import "base/bootstrap-grid";
-@import "base/gutenberg";
-@import "base/utility";
-@import "base/slick";
-@import "base/alignment";
-@import "base/accessibility";

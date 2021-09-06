@@ -48,6 +48,731 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+:root {
+	--font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	--text-xs: 12px;
+	--text-sm: 14px;
+	--text-md: 16px;
+	--text-lg: 18px;
+	--text-xl: 20px;
+	--text-2xl: 24px;
+	--text-3xl: 30px;
+	--text-4xl: 36px;
+	--text-5xl: 48px;
+	--text-6xl: 64px;
+	--color-accent: #60BB46;
+	--color-secondary: #F29F05;
+	--color-dark: #1a202c;
+	--color-base: #4a5568;
+	--color-gray: #a0aec0;
+	--color-light: #e2e8f0;
+	--color-lighter: #edf2f7;
+	--color-lightest: #f7fafc;
+	--color-white: #ffffff;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	word-break: break-word;
+	font-size: var(--text-md);
+	line-height: 1.5;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+body::-webkit-scrollbar {
+	width: 1px;
+}
+
+:focus {
+	outline: 1px dotted;
+}
+
+p {
+	margin: 0 0 7.5px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-arial);
+	margin: 0 0 1.5rem;
+	line-height: 1.4;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: var(--text-3xl);
+}
+
+h2 {
+	font-size: var(--text-2xl);
+}
+
+h3 {
+	font-size: var(--text-xl);
+}
+
+h4 {
+	font-size: var(--text-lg);
+}
+
+h5 {
+	font-size: var(--text-md);
+}
+
+h6 {
+	font-size: var(--text-xs);
+}
+
+svg {
+	width: 16px;
+	height: 16px;
+	fill: currentColor;
+}
+
+address,
+blockquote,
+dd,
+dl,
+figure,
+ol,
+pre,
+table,
+ul {
+	margin: 0 0 1.5em;
+}
+
+a {
+	color: var(--color-accent);
+	transition: all 0.25s;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	object-fit: cover;
+}
+
+.btn,
+button,
+input[type='submit'] {
+	background: var(--color-accent);
+	color: #fff;
+	border: 1px solid transparent;
+	padding: 8px 30px;
+	cursor: pointer;
+	line-height: 24px;
+	font-size: var(--text-sm);
+	font-weight: 700;
+	transition: all .25s;
+}
+
+.btn:hover,
+button:hover,
+input[type='submit']:hover {
+	text-decoration: none;
+	opacity: .75;
+}
+
+select,
+input,
+textarea {
+	border: 1px solid var(--color-lighter);
+	background: transparent;
+	padding: 8px 12px;
+	color: var(--color-ee);
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+	outline: 1px dotted #ccc;
+	border-color: var(--color-dark);
+}
+
+textarea {
+	width: 100%;
+}
+
+select {
+	max-width: 100%;
+}
+
+form input[type='email'],
+form input[type='tel'],
+form input[type='text'],
+form input[type='url'] {
+	width: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+table td,
+table th {
+	text-align: center;
+	border: 1px solid var(--color-light);
+	padding: 8px 12px;
+}
+
+iframe {
+	width: 100%;
+}
+
+ul,
+ol {
+	padding-left: 20px;
+}
+
+.icon {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+}
+
+html {
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Roboto, sans-serif;
+}
+
+.home {
+	background: #fff;
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	.container {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 769px) {
+	.container {
+		max-width: 100%;
+		padding: 0 15px;
+	}
+}
+
+@media (max-width: 992px) {
+	.container {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1270px;
+	}
+}
+
+.container-fluid {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -15px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding: 10px;
+}
+
+.col {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+.col-auto {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}
+
+.col-1 {
+	flex: 0 0 8.333333%;
+	max-width: 8.333333%;
+}
+
+.col-2 {
+	flex: 0 0 16.666667%;
+	max-width: 16.666667%;
+}
+
+.col-3 {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+
+.col-4 {
+	flex: 0 0 33.333333%;
+	max-width: 33.333333%;
+}
+
+.col-5 {
+	flex: 0 0 41.666667%;
+	max-width: 41.666667%;
+}
+
+.col-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.col-7 {
+	flex: 0 0 58.333333%;
+	max-width: 58.333333%;
+}
+
+.col-8 {
+	flex: 0 0 66.666667%;
+	max-width: 66.666667%;
+}
+
+.col-9 {
+	flex: 0 0 75%;
+	max-width: 75%;
+}
+
+.col-10 {
+	flex: 0 0 83.333333%;
+	max-width: 83.333333%;
+}
+
+.col-11 {
+	flex: 0 0 91.666667%;
+	max-width: 91.666667%;
+}
+
+.col-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+@media (max-width: 480px) {
+	.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+	.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+	.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+	.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+	.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+	.col-xl-auto {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.col-md {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-md-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+	.col-md-1 {
+		flex: 0 0 8.333333%;
+		max-width: 8.333333%;
+	}
+	.col-md-2 {
+		flex: 0 0 16.666667%;
+		max-width: 16.666667%;
+	}
+	.col-md-3 {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.col-md-4 {
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	.col-md-5 {
+		flex: 0 0 41.666667%;
+		max-width: 41.666667%;
+	}
+	.col-md-6 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.col-md-7 {
+		flex: 0 0 58.333333%;
+		max-width: 58.333333%;
+	}
+	.col-md-8 {
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
+	.col-md-9 {
+		flex: 0 0 75%;
+		max-width: 75%;
+	}
+	.col-md-10 {
+		flex: 0 0 83.333333%;
+		max-width: 83.333333%;
+	}
+	.col-md-11 {
+		flex: 0 0 91.666667%;
+		max-width: 91.666667%;
+	}
+	.col-md-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 992px) {
+	.col-lg {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-lg-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+	.col-lg-1 {
+		flex: 0 0 8.333333%;
+		max-width: 8.333333%;
+	}
+	.col-lg-2 {
+		flex: 0 0 16.666667%;
+		max-width: 16.666667%;
+	}
+	.col-lg-3 {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.col-lg-4 {
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	.col-lg-5 {
+		flex: 0 0 41.666667%;
+		max-width: 41.666667%;
+	}
+	.col-lg-6 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.col-lg-7 {
+		flex: 0 0 58.333333%;
+		max-width: 58.333333%;
+	}
+	.col-lg-8 {
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
+	.col-lg-9 {
+		flex: 0 0 75%;
+		max-width: 75%;
+	}
+	.col-lg-10 {
+		flex: 0 0 83.333333%;
+		max-width: 83.333333%;
+	}
+	.col-lg-11 {
+		flex: 0 0 91.666667%;
+		max-width: 91.666667%;
+	}
+	.col-lg-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.col-xl {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-xl-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+	.col-xl-1 {
+		flex: 0 0 8.333333%;
+		max-width: 8.333333%;
+	}
+	.col-xl-2 {
+		flex: 0 0 16.666667%;
+		max-width: 16.666667%;
+	}
+	.col-xl-3 {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+	.col-xl-4 {
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	.col-xl-5 {
+		flex: 0 0 41.666667%;
+		max-width: 41.666667%;
+	}
+	.col-xl-6 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.col-xl-7 {
+		flex: 0 0 58.333333%;
+		max-width: 58.333333%;
+	}
+	.col-xl-8 {
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
+	.col-xl-9 {
+		flex: 0 0 75%;
+		max-width: 75%;
+	}
+	.col-xl-10 {
+		flex: 0 0 83.333333%;
+		max-width: 83.333333%;
+	}
+	.col-xl-11 {
+		flex: 0 0 91.666667%;
+		max-width: 91.666667%;
+	}
+	.col-xl-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+.d-none {
+	display: none;
+}
+
+.d-block {
+	display: block;
+}
+
+.d-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.d-none {
+	display: none;
+}
+
+.d-block {
+	display: block;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.d-grid {
+	display: grid;
+	grid-gap: 30px;
+}
+
+.has-dash-before {
+	padding-right: 0;
+}
+
+.has-dash-before:after {
+	display: none;
+}
+
+.has-dash-after {
+	padding-left: 0;
+}
+
+.has-dash-after:before {
+	display: none;
+}
+
+.slick-prev,
+.slick-next {
+	width: 25px;
+	height: 25px;
+	background: #E5E5E5;
+	border: 0px solid var(--color-white);
+	border-radius: 100%;
+	z-index: 2;
+	display: flex !important;
+	padding: 5px;
+	justify-content: center;
+}
+
+@media all and (max-width: 600px) {
+	.slick-prev,
+	.slick-next {
+		width: 35px;
+		height: 35px;
+	}
+}
+
+.slick-prev {
+	left: -20px;
+}
+
+.slick-prev::before {
+	content: '';
+	background: url("images/angle-left-solid.svg") no-repeat;
+	background-size: contain;
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: 0 auto;
+}
+
+@media all and (max-width: 600px) {
+	.slick-prev::before {
+		font-size: 14px !important;
+	}
+}
+
+.slick-next {
+	right: -20px;
+}
+
+.slick-next::before {
+	content: '';
+	background: url("images/angle-right-solid.svg") no-repeat;
+	background-size: contain;
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: 0 auto;
+}
+
+@media all and (max-width: 600px) {
+	.slick-next::before {
+		font-size: 12px !important;
+	}
+}
+
+.slick-prev:before, .slick-next:before {
+	font-size: 12px;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #eee;
+	clip: auto !important;
+	clip-path: none;
+	color: var(--color-base);
+	display: block;
+	font-size: 1em;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+#content[tabindex='-1']:focus {
+	outline: 0;
+}
+
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -239,6 +964,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .product-item .entry-title {
 	font-weight: 500;
 	color: #5A5A5A;
+	font-size: 16px;
+}
+
+.product-item .entry-title a {
+	color: #5A5A5A;
 }
 
 .product-item .product-price {
@@ -404,7 +1134,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* _header
 --------------------------------------------- */
 .site-header {
-	background: #60BB46;
+	background: var(--color-accent);
 	z-index: 10;
 }
 
@@ -499,7 +1229,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .header_top-search {
 	display: flex;
 	flex: 4;
-	background: #FFF;
+	background: var(--color-white);
 	border-radius: 50px;
 	margin: 25px 30px 15px 30px;
 }
@@ -528,7 +1258,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: flex;
 	flex: 1;
 	justify-content: flex-end;
-	color: #FFF;
+	color: var(--color-white);
 	margin-top: 25px;
 }
 
@@ -549,7 +1279,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .header_bottom {
 	width: 100%;
-	background: #FFF;
+	background: var(--color-white);
 	display: flex;
 	margin-top: 5px;
 	padding: 10px 0;
@@ -617,7 +1347,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	transition: all 2s ease-in;
 	-moz-transition: all 2s ease-in;
 	-webkit-transition: all 2s ease-in;
-	background-color: #FFF;
+	background-color: var(--color-white);
 	border: 1px solid #ddd;
 }
 
@@ -688,7 +1418,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 	justify-content: center;
 	padding: 6px;
-	color: #FFF;
+	color: var(--color-white);
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
@@ -772,11 +1502,25 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	padding: 10px 30px;
 	display: flex;
 	align-items: center;
+	color: var(--color-dark);
 	transition: all .25s;
+}
+
+.menu-account__wrapper li:hover {
+	color: var(--color-accent);
 }
 
 .menu-account__wrapper svg {
 	margin-right: 8px;
+}
+
+.menu-account__wrapper a {
+	color: var(--color-dark);
+	text-decoration: none;
+}
+
+.menu-account__wrapper a:hover {
+	color: var(--color-accent);
 }
 
 .popup-logout {
@@ -802,7 +1546,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .home-sidebar .widget .filter-categroty {
 	width: 100%;
-	background-color: #FFF;
+	background-color: var(--color-white);
 }
 
 .home-sidebar .widget .filter-categroty ul {
@@ -981,7 +1725,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .box_title .title {
 	font-size: 30px;
 	font-weight: 700;
-	color: #60BB46;
+	color: var(--color-accent);
 	margin: 0;
 }
 
@@ -992,7 +1736,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	content: '';
 	height: 1px;
 	margin-left: 15px;
-	background: #60BB46;
+	background: var(--color-accent);
 	margin-bottom: 1%;
 }
 
@@ -1676,687 +2420,5 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------- */
 /* Alignments
 --------------------------------------------- */
-html {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-
-body {
-	word-break: break-word;
-	background: #f3f3f3;
-	font-family: var(--font-arial);
-	font-size: var(--text-md);
-	color: var(--color-white);
-	overflow-x: hidden;
-	margin: 0;
-	padding: 0;
-}
-
-body::-webkit-scrollbar {
-	width: 1px;
-}
-
-:focus {
-	outline: 1px dotted;
-}
-
-p {
-	margin: 0 0 7.5px 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: var(--font-arial);
-	margin: 0 0 1.5rem;
-	line-height: 1.4;
-	font-weight: 700;
-}
-
-h1 {
-	font-size: var(--text-3xl);
-}
-
-h2 {
-	font-size: var(--text-2xl);
-}
-
-h3 {
-	font-size: var(--text-xl);
-}
-
-h4 {
-	font-size: var(--text-lg);
-}
-
-h5 {
-	font-size: var(--text-md);
-}
-
-h6 {
-	font-size: var(--text-xs);
-}
-
-svg {
-	width: 16px;
-	height: 16px;
-	fill: currentColor;
-}
-
-address,
-blockquote,
-dd,
-dl,
-figure,
-ol,
-pre,
-table,
-ul {
-	margin: 0 0 1.5em;
-}
-
-a {
-	color: var(--color-white);
-	transition: all 0.25s;
-	text-decoration: none;
-}
-
-a:hover {
-	color: var(--color-accent);
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-img {
-	height: auto;
-	max-width: 100%;
-	vertical-align: middle;
-	object-fit: cover;
-}
-
-select,
-input,
-textarea {
-	border: 1px solid var(--color-lighter);
-	background: transparent;
-	padding: 8px 12px;
-	color: var(--color-ee);
-}
-
-select:focus,
-input:focus,
-textarea:focus {
-	outline: 1px dotted #ccc;
-	border-color: var(--color-dark);
-}
-
-textarea {
-	width: 100%;
-}
-
-select {
-	max-width: 100%;
-}
-
-form input[type='email'],
-form input[type='tel'],
-form input[type='text'],
-form input[type='url'] {
-	width: 100%;
-}
-
-table {
-	width: 100%;
-}
-
-table td,
-table th {
-	border: 1px solid var(--color-lighter);
-	text-align: center;
-	padding: 5px;
-}
-
-iframe {
-	width: 100%;
-}
-
-ul,
-ol {
-	padding-left: 20px;
-}
-
-.icon {
-	fill: none;
-	stroke: currentColor;
-	stroke-width: 2;
-}
-
-html {
-	box-sizing: border-box;
-	-ms-overflow-style: scrollbar;
-}
-
-* {
-	box-sizing: inherit;
-}
-
-body {
-	font-family: Roboto, sans-serif;
-}
-
-.home {
-	background: #fff;
-}
-
-.container {
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-	.container {
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 769px) {
-	.container {
-		max-width: 100%;
-		padding: 0 15px;
-	}
-}
-
-@media (max-width: 992px) {
-	.container {
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 1200px) {
-	.container {
-		max-width: 1270px;
-	}
-}
-
-.container-fluid {
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	margin: -15px;
-}
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
-.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
-.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
-.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
-.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
-.col-xl-auto {
-	position: relative;
-	width: 100%;
-	min-height: 1px;
-	padding: 10px;
-}
-
-.col {
-	flex-basis: 0;
-	flex-grow: 1;
-	max-width: 100%;
-}
-
-.col-auto {
-	flex: 0 0 auto;
-	width: auto;
-	max-width: none;
-}
-
-.col-1 {
-	flex: 0 0 8.333333%;
-	max-width: 8.333333%;
-}
-
-.col-2 {
-	flex: 0 0 16.666667%;
-	max-width: 16.666667%;
-}
-
-.col-3 {
-	flex: 0 0 25%;
-	max-width: 25%;
-}
-
-.col-4 {
-	flex: 0 0 33.333333%;
-	max-width: 33.333333%;
-}
-
-.col-5 {
-	flex: 0 0 41.666667%;
-	max-width: 41.666667%;
-}
-
-.col-6 {
-	flex: 0 0 50%;
-	max-width: 50%;
-}
-
-.col-7 {
-	flex: 0 0 58.333333%;
-	max-width: 58.333333%;
-}
-
-.col-8 {
-	flex: 0 0 66.666667%;
-	max-width: 66.666667%;
-}
-
-.col-9 {
-	flex: 0 0 75%;
-	max-width: 75%;
-}
-
-.col-10 {
-	flex: 0 0 83.333333%;
-	max-width: 83.333333%;
-}
-
-.col-11 {
-	flex: 0 0 91.666667%;
-	max-width: 91.666667%;
-}
-
-.col-12 {
-	flex: 0 0 100%;
-	max-width: 100%;
-}
-
-@media (max-width: 480px) {
-	.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
-	.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
-	.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
-	.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
-	.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
-	.col-xl-auto {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 768px) {
-	.col-md {
-		flex-basis: 0;
-		flex-grow: 1;
-		max-width: 100%;
-	}
-	.col-md-auto {
-		flex: 0 0 auto;
-		width: auto;
-		max-width: none;
-	}
-	.col-md-1 {
-		flex: 0 0 8.333333%;
-		max-width: 8.333333%;
-	}
-	.col-md-2 {
-		flex: 0 0 16.666667%;
-		max-width: 16.666667%;
-	}
-	.col-md-3 {
-		flex: 0 0 25%;
-		max-width: 25%;
-	}
-	.col-md-4 {
-		flex: 0 0 33.333333%;
-		max-width: 33.333333%;
-	}
-	.col-md-5 {
-		flex: 0 0 41.666667%;
-		max-width: 41.666667%;
-	}
-	.col-md-6 {
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
-	.col-md-7 {
-		flex: 0 0 58.333333%;
-		max-width: 58.333333%;
-	}
-	.col-md-8 {
-		flex: 0 0 66.666667%;
-		max-width: 66.666667%;
-	}
-	.col-md-9 {
-		flex: 0 0 75%;
-		max-width: 75%;
-	}
-	.col-md-10 {
-		flex: 0 0 83.333333%;
-		max-width: 83.333333%;
-	}
-	.col-md-11 {
-		flex: 0 0 91.666667%;
-		max-width: 91.666667%;
-	}
-	.col-md-12 {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 992px) {
-	.col-lg {
-		flex-basis: 0;
-		flex-grow: 1;
-		max-width: 100%;
-	}
-	.col-lg-auto {
-		flex: 0 0 auto;
-		width: auto;
-		max-width: none;
-	}
-	.col-lg-1 {
-		flex: 0 0 8.333333%;
-		max-width: 8.333333%;
-	}
-	.col-lg-2 {
-		flex: 0 0 16.666667%;
-		max-width: 16.666667%;
-	}
-	.col-lg-3 {
-		flex: 0 0 25%;
-		max-width: 25%;
-	}
-	.col-lg-4 {
-		flex: 0 0 33.333333%;
-		max-width: 33.333333%;
-	}
-	.col-lg-5 {
-		flex: 0 0 41.666667%;
-		max-width: 41.666667%;
-	}
-	.col-lg-6 {
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
-	.col-lg-7 {
-		flex: 0 0 58.333333%;
-		max-width: 58.333333%;
-	}
-	.col-lg-8 {
-		flex: 0 0 66.666667%;
-		max-width: 66.666667%;
-	}
-	.col-lg-9 {
-		flex: 0 0 75%;
-		max-width: 75%;
-	}
-	.col-lg-10 {
-		flex: 0 0 83.333333%;
-		max-width: 83.333333%;
-	}
-	.col-lg-11 {
-		flex: 0 0 91.666667%;
-		max-width: 91.666667%;
-	}
-	.col-lg-12 {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 1200px) {
-	.col-xl {
-		flex-basis: 0;
-		flex-grow: 1;
-		max-width: 100%;
-	}
-	.col-xl-auto {
-		flex: 0 0 auto;
-		width: auto;
-		max-width: none;
-	}
-	.col-xl-1 {
-		flex: 0 0 8.333333%;
-		max-width: 8.333333%;
-	}
-	.col-xl-2 {
-		flex: 0 0 16.666667%;
-		max-width: 16.666667%;
-	}
-	.col-xl-3 {
-		flex: 0 0 25%;
-		max-width: 25%;
-	}
-	.col-xl-4 {
-		flex: 0 0 33.333333%;
-		max-width: 33.333333%;
-	}
-	.col-xl-5 {
-		flex: 0 0 41.666667%;
-		max-width: 41.666667%;
-	}
-	.col-xl-6 {
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
-	.col-xl-7 {
-		flex: 0 0 58.333333%;
-		max-width: 58.333333%;
-	}
-	.col-xl-8 {
-		flex: 0 0 66.666667%;
-		max-width: 66.666667%;
-	}
-	.col-xl-9 {
-		flex: 0 0 75%;
-		max-width: 75%;
-	}
-	.col-xl-10 {
-		flex: 0 0 83.333333%;
-		max-width: 83.333333%;
-	}
-	.col-xl-11 {
-		flex: 0 0 91.666667%;
-		max-width: 91.666667%;
-	}
-	.col-xl-12 {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-}
-
-.d-none {
-	display: none;
-}
-
-.d-block {
-	display: block;
-}
-
-.d-flex {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.space-between {
-	justify-content: space-between;
-}
-
-.justify-center {
-	justify-content: center;
-}
-
-.align-center {
-	align-items: center;
-}
-
-.d-none {
-	display: none;
-}
-
-.d-block {
-	display: block;
-}
-
-.d-flex {
-	display: flex;
-}
-
-.flex-wrap {
-	flex-wrap: wrap;
-}
-
-.space-between {
-	justify-content: space-between;
-}
-
-.justify-center {
-	justify-content: center;
-}
-
-.align-center {
-	align-items: center;
-}
-
-.d-grid {
-	display: grid;
-	grid-gap: 30px;
-}
-
-.has-dash-before {
-	padding-right: 0;
-}
-
-.has-dash-before:after {
-	display: none;
-}
-
-.has-dash-after {
-	padding-left: 0;
-}
-
-.has-dash-after:before {
-	display: none;
-}
-
-.slick-prev,
-.slick-next {
-	width: 25px;
-	height: 25px;
-	background: #E5E5E5;
-	border: 0px solid var(--color-white);
-	border-radius: 100%;
-	z-index: 2;
-	display: flex !important;
-	padding: 5px;
-	justify-content: center;
-}
-
-@media all and (max-width: 600px) {
-	.slick-prev,
-	.slick-next {
-		width: 35px;
-		height: 35px;
-	}
-}
-
-.slick-prev {
-	left: -20px;
-}
-
-.slick-prev::before {
-	content: '';
-	background: url("images/angle-left-solid.svg") no-repeat;
-	background-size: contain;
-	width: 30px;
-	height: 30px;
-	display: block;
-	margin: 0 auto;
-}
-
-@media all and (max-width: 600px) {
-	.slick-prev::before {
-		font-size: 14px !important;
-	}
-}
-
-.slick-next {
-	right: -20px;
-}
-
-.slick-next::before {
-	content: '';
-	background: url("images/angle-right-solid.svg") no-repeat;
-	background-size: contain;
-	width: 30px;
-	height: 30px;
-	display: block;
-	margin: 0 auto;
-}
-
-@media all and (max-width: 600px) {
-	.slick-next::before {
-		font-size: 12px !important;
-	}
-}
-
-.slick-prev:before, .slick-next:before {
-	font-size: 12px;
-}
-
-.screen-reader-text {
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	word-wrap: normal !important;
-}
-
-.screen-reader-text:focus {
-	background-color: #eee;
-	clip: auto !important;
-	clip-path: none;
-	color: var(--color-base);
-	display: block;
-	font-size: 1em;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-}
-
-#content[tabindex='-1']:focus {
-	outline: 0;
-}
 
 /*# sourceMappingURL=style.css.map */

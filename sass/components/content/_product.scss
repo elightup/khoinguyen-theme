@@ -50,10 +50,14 @@ display: flex !important;
   .product-meta{
     margin-top: auto;
   }
-.entry-title{
-    font-weight: 500;
-    color: #5A5A5A;
-}
+  .entry-title{
+      font-weight: 500;
+      color: #5A5A5A;
+      font-size: 16px;
+      a {
+        color: #5A5A5A;
+      }
+  }
   .product-price{
       width: 100%;
       .price-sale{

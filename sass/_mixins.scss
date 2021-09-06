@@ -1,0 +1,16 @@
+@mixin button {
+	background: var(--color-accent);
+	color: #fff;
+	border: 1px solid transparent;
+	padding: 8px 30px;
+	cursor: pointer;
+	line-height: 24px;
+	font-size: var(--text-sm);
+	font-weight: 700;
+	transition: all .25s;
+
+	&:hover {
+		text-decoration: none;
+		opacity: .75;
+	}
+}
