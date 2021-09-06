@@ -1,5 +1,3 @@
-
-
 jQuery(function ($) {
 	var $body = $( 'body' );
 
@@ -105,6 +103,25 @@ jQuery(function ($) {
 
 	}
 
+	let toggleAccount = () => {
+		$( '.menu-account svg' ).on( 'click', function( e ) {
+			e.stopPropagation(); // do not trigger event on .site
+			$( '.menu-account__wrapper' ).toggleClass( 'menu-account-open' );
+		} );
+	}
+
+	let popupLogout = () => {
+		$( '.popup-modal' ).magnificPopup( {
+			type: 'inline',
+			preloader: false,
+			modal: true
+		} );
+		$( document ).on( 'click', '.popup-modal-dismiss', function (e) {
+			e.preventDefault();
+			$.magnificPopup.close();
+		} );
+	}
+
 
 	function stickyHeader() {
 		var headerHeight = $( '.header_top' ).outerHeight(),
@@ -127,4 +144,6 @@ jQuery(function ($) {
 	tabsProduct();
 	filterproduct();
 	stickyHeader();
+	toggleAccount();
+	popupLogout();
 });

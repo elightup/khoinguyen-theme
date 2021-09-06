@@ -95,6 +95,33 @@
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
 				</div>
+				<?php if ( is_user_logged_in() ): ?>
+					<div class="menu-account d-flex">
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+						<div class="menu-account__wrapper">
+							<ul>
+								<li>
+									<svg><use xlink:href="#icon-user" /></svg>
+									<a href="<?php echo esc_url( home_url() ); ?>/thong-tin-tai-khoan/">Thông tin tài khoản</a>
+								</li>
+								<li>
+									<svg><use xlink:href="#icon-check" /></svg>
+									<a href="<?php echo esc_url( home_url() ); ?>/don-hang-cua-toi/">Đơn hàng của tôi</a>
+								</li>
+								<li>
+									<svg><use xlink:href="#icon-logout" /></svg>
+									<a class="popup-modal" href="#popup-logout">Đăng xuất</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="popup-logout" class="popup-logout mfp-hide white-popup-block">
+						<h3>Xin xác nhận</h3>
+						<p>Bạn có muốn chắc đăng xuất.</p>
+						<a class="btn-secondary wp-block-button__link popup-modal-dismiss">Không</a>
+						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( '/' ); ?>">Có</a>
+					</div>
+				<?php endif ?>
 			</div>
 		</header><!-- #masthead -->
 		<div class="content container" id="content">

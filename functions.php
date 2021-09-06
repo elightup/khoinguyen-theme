@@ -208,6 +208,7 @@ add_action( 'widgets_init', 'khoinguyen_widgets_init' );
  */
 function khoinguyen_scripts() {
 	wp_enqueue_style( 'slick', get_template_directory_uri().'/css/slick.css' );
+	wp_enqueue_style( 'magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css', [], '1.1.0' );
 	wp_enqueue_style( 'khoinguyen-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'khoinguyen-style', 'rtl', 'replace' );
 

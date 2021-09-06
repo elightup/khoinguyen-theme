@@ -559,6 +559,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .header_bottom-categrory {
 	flex: 1;
 	display: flex;
+	align-items: center;
 }
 
 .header_bottom-categrory .categroty {
@@ -648,7 +649,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	flex: 2;
 	display: flex;
 	width: 100%;
-	align-items: center;
 	justify-content: center;
 }
 
@@ -732,6 +732,62 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	height: 20px;
 	top: -10px;
 	right: -10px;
+}
+
+.menu-account {
+	position: relative;
+	margin-left: 20px;
+}
+
+.menu-account svg {
+	cursor: pointer;
+}
+
+.menu-account__wrapper {
+	opacity: 0;
+	position: absolute;
+	background: #fff;
+	width: 250px;
+	top: 100%;
+	right: 0;
+	transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	z-index: 99;
+	visibility: hidden;
+}
+
+.menu-account__wrapper.menu-account-open {
+	opacity: 1;
+	visibility: inherit;
+}
+
+.menu-account__wrapper ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.menu-account__wrapper li {
+	padding: 10px 30px;
+	display: flex;
+	align-items: center;
+	transition: all .25s;
+}
+
+.menu-account__wrapper svg {
+	margin-right: 8px;
+}
+
+.popup-logout {
+	position: relative;
+	background: #ffffff;
+	padding: 40px;
+	width: auto;
+	margin: 20px auto;
+	max-width: 500px;
+	z-index: 9999;
+	text-align: center;
 }
 
 /* home

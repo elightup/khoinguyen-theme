@@ -2,6 +2,5 @@
 	<div class="icon-cart">
 		<img src="<?php echo get_template_directory_uri(); ?>/images/cart.png" alt="">
 	</div>
-	<!-- <svg><use xlink:href="#icon-cart" /></svg> -->
 	<span></span>
 </a>
