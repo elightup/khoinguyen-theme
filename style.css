@@ -2088,7 +2088,7 @@ body {
 	display: flex;
 	border-radius: 5px;
 	margin: 0 30px;
-	/* flex: 1; */
+	flex: 1;
 	justify-content: center;
 	align-items: center;
 	font-size: 18px;

@@ -94,7 +94,7 @@ $number = rwmb_meta('number', get_the_ID());
             </div>
             <div class="product_share-item">
                 <a href="#">
-                    Hostline:
+                    Hotline:
                     <span>0966 000 862</span>
                 </a>
             </div>
@@ -110,8 +110,24 @@ $number = rwmb_meta('number', get_the_ID());
         </div>
 
         <div class="box_product-datmua">
-            <a href="#" class="btn btn-them">Thêm vào giỏ hàng </a>
-            <a href="#" class="btn btn-muangay">Mua ngay </a>
+            <?php
+            $id = get_current_user_id();
+            $cart = get_user_meta( $id, 'cart', true );
+            $cart_product_id = [];
+            foreach ( $cart as $key => $value ) {
+                $cart_product_id[] = $key;
+               
+            }
+           
+
+            if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
+                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
+
+            <?php else: ?>
+                <a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
+                <a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+            <?php endif; ?>
         </div>
     </div>
 </div>
