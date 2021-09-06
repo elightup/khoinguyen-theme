@@ -85,13 +85,15 @@
 					?>
 				</nav><!-- #site-navigation -->
 				<div class="header_bottom-cart">
-					<a href="#" class="btn-cart">
-						<span>Giỏ hàng</span>
-						<div class="icon-cart">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/cart.png" alt="">
-						</div>
+					<?php if ( ! is_user_logged_in() ): ?>
+						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
+					<?php else :
+						$current_user = wp_get_current_user();
+					?>
+						<span>Chào bạn, <?php echo $current_user->display_name; ?></span>
+					<?php endif ?>
 
-					</a>
+					<?php get_template_part( 'template-parts/mini-cart' ) ?>
 				</div>
 			</div>
 		</header><!-- #masthead -->

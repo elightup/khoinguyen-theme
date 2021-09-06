@@ -617,6 +617,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	-moz-transition: all 2s ease-in;
 	-webkit-transition: all 2s ease-in;
 	background-color: #FFF;
+	border: 1px solid #ddd;
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul {
@@ -677,6 +678,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	flex: 1;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
+	color: #5A5A5A;
 }
 
 .header_bottom-cart .btn-cart {
@@ -702,6 +705,33 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	height: 100%;
 	filter: invert(100%);
 	object-fit: contain;
+}
+
+.mini-cart-count {
+	position: relative;
+	margin-left: 20px;
+	display: inline-block;
+	color: #fff;
+}
+
+.mini-cart-count svg {
+	width: 24px;
+	height: 24px;
+	display: block;
+	fill: currentColor;
+}
+
+.mini-cart-count span {
+	position: absolute;
+	background: #FF8F2B;
+	border-radius: 10px;
+	font-size: 10px;
+	text-align: center;
+	line-height: 20px;
+	min-width: 20px;
+	height: 20px;
+	top: -10px;
+	right: -10px;
 }
 
 /* home
