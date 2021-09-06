@@ -1,3 +1,6 @@
+.cart {
+	margin: 0 -10px;
+}
 .cart .product-item {
 	display: flex;
 	height: auto;
@@ -5,6 +8,7 @@
 	align-items: center;
 	margin-bottom: 10px;
 	border: 1px solid rgba(0,0,0,0.125);
+	margin: 0;
 	.post-thumbnail {
 		margin-right: 15px;
 		margin-bottom: 0;
@@ -23,27 +27,22 @@
 	.entry-title {
 		margin-bottom: 0;
 	}
+	.price {
+		margin-bottom: 0;
+	}
 	.product-price, .total-price {
 		width: auto;
 		display: block;
 		text-align: center;
 		margin-right: 15px;
-		min-width: 120px;
+		min-width: 90px;
 	}
 
-	.product-voucher {
-		// display: flex;
-		// display: none;
+	.product-voucher button {
+		font-size: 11px;
+		padding: 8px 12px;
+		line-height: unset;
 	}
-	// .product-voucher input {
-	// 	flex: 2;
-	// }
-	// .product-voucher button {
-	// 	flex: 1;
-	// }
-	// .voucher__message {
-	// 	width: 100%;;
-	// }
 }
 
 .quantity {

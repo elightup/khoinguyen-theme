@@ -107,7 +107,7 @@ $number=rwmb_meta('number',get_the_ID());
         <div class="box_product-datmua">
             <a href="#" class="btn btn-them">Thêm vào giỏ hàng </a>
             <a href="#" class="btn btn-muangay">Mua ngay </a>
-            <a href="#" class="btn btn-lienhe">
+            <a href="#">
                 <i class="bi bi-telephone"></i>
                 <p>
                     Đặt mua:<br>0966 000 862
