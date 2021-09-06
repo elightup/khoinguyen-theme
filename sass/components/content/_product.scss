@@ -51,10 +51,26 @@
   .product-meta {
     margin-top: auto;
   }
-  .entry-title {
-    font-weight: 500;
-    color: #5a5a5a;
-    font-size: 16px;
+  .entry-title{
+      font-weight: 500;
+      color: #5A5A5A;
+      font-size: 16px;
+      a {
+        color: #5A5A5A;
+      }
+  }
+  .product-price{
+      width: 100%;
+      .price-sale{
+          font-size: 20px;
+          color: #F43A3A;
+          font-weight: 700;
+      }
+      .price{
+          color: #C4C4C4;
+          text-decoration: line-through;
+      }
+     
   }
   .product-price {
     width: 100%;

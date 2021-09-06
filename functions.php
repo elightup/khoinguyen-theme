@@ -31,7 +31,7 @@ if ( ! function_exists( 'khoinguyen_setup' ) ) :
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
-		add_filter( 'use_block_editor_for_post', '__return_false' );
+		// add_filter( 'use_block_editor_for_post', '__return_false' );
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -208,6 +208,7 @@ add_action( 'widgets_init', 'khoinguyen_widgets_init' );
  */
 function khoinguyen_scripts() {
 	wp_enqueue_style( 'slick', get_template_directory_uri().'/css/slick.css' );
+	wp_enqueue_style( 'magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css', [], '1.1.0' );
 	wp_enqueue_style( 'khoinguyen-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'khoinguyen-style', 'rtl', 'replace' );
 

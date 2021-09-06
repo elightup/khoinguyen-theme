@@ -9,10 +9,10 @@ html {
 
 body {
 	word-break: break-word;
-	background: rgb(243, 243, 243);
-	font-family: var(--font-arial);
+	// font-family: var(--font-arial);
 	font-size: var(--text-md);
-	color: $color__text-main;
+	// color: var(--color-white);
+	line-height: 1.5;
     overflow-x: hidden; // Fix horizontal scrollbar for .alignfull
     margin: 0;
 	padding:0;
@@ -27,7 +27,7 @@ body {
 	outline: 1px dotted;
 }
 p {
-	margin: 0 0 7.5px 0;
+	margin: 0 0 15px 0;
 }
 h1,
 h2,
@@ -85,12 +85,10 @@ ul {
 }
 
 a {
-	color: $color__text-main;
+	color: #5a5a5a;
 	transition: all 0.25s;
 	text-decoration: none;
-	&:hover {
-		color: var(--color-accent);
-	}
+	
 }
 
 table {
@@ -107,14 +105,14 @@ img {
 
 .btn,
 button,
-input[type='submit'] {
-	//@include button;
+input[type='submit'], .wp-block-button__link {
+	@include button;
 }
 
 select,
 input,
 textarea {
-	border: 1px solid var(--color-lighter);
+	border: 1px solid var(--color-light);
 	background: transparent;
 	padding: 8px 12px;
 	color: var(--color-ee);
@@ -144,9 +142,9 @@ table {
 	width: 100%;
 	td,
 	th {
-		border: 1px solid var(--color-lighter);
 		text-align: center;
-		padding: 5px;
+		border: 1px solid var(--color-light);
+		padding: 8px 12px;
 	}
 }
 

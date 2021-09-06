@@ -14,8 +14,7 @@
     .title{
         font-size: 30px;
         font-weight: 700;
-        cursor: default;
-        color: $color__background-body;
+        color: var(--color-accent);
         margin: 0;
     }
     &::after{
@@ -25,7 +24,7 @@
         content: '';
         height: 1px;
         margin-left: 15px;
-        background: $color__background-body;
+        background: var(--color-accent);
         margin-bottom: 1%;
     }
 }

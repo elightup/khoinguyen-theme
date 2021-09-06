@@ -112,7 +112,6 @@ $number = rwmb_meta('number', get_the_ID());
         <div class="box_product-datmua">
             <a href="#" class="btn btn-them">Thêm vào giỏ hàng </a>
             <a href="#" class="btn btn-muangay">Mua ngay </a>
-
         </div>
     </div>
 </div>
