@@ -1239,6 +1239,10 @@ body {
 	align-items: center;
 }
 
+.header_top-search .header-search input {
+	border: none;
+}
+
 .header_top-search .btn-search {
 	position: absolute;
 	right: 1%;
@@ -1961,7 +1965,7 @@ body {
 
 .box_product-discription {
 	width: 100%;
-	margin: 50px 0;
+	margin: 40px 0;
 	padding: 0 15px;
 	color: #5A5A5A;
 }

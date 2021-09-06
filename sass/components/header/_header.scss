@@ -97,6 +97,9 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    input {
+      border: none;
+    }
   }
   .btn-search {
     position: absolute;
