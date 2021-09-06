@@ -1006,6 +1006,14 @@ body {
 	text-decoration: line-through;
 }
 
+.product-item .product-khuyenmai-none {
+	margin: auto;
+	padding: 5px;
+	border-radius: 5px;
+	height: 30px;
+	background-color: #fff;
+}
+
 .product-item .product-khuyenmai {
 	background-color: #f43a3a;
 	margin: auto;
