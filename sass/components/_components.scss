@@ -32,7 +32,7 @@
 @import "home/filteproduct";
 /* single
 --------------------------------------------- */
-@import "single/singleproduct";
+@import "single/single-product";
 
 /* archive
 --------------------------------------------- */
@@ -44,3 +44,5 @@
 /* Galleries
 --------------------------------------------- */
 @import "media/galleries";
+
+@import "page/cart";

@@ -1,0 +1,127 @@
+.cart .product-item {
+	display: flex;
+	height: auto;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 10px;
+	border: 1px solid rgba(0,0,0,0.125);
+	.post-thumbnail {
+		margin-right: 15px;
+		margin-bottom: 0;
+		max-width: 100px;
+
+		img {
+			width: 100px;
+		}
+	}
+
+	.product-title {
+		flex: 50% 1;
+		max-width: 50%;
+	}
+
+	.entry-title {
+		margin-bottom: 0;
+	}
+	.product-price, .total-price {
+		width: auto;
+		display: block;
+		text-align: center;
+		margin-right: 15px;
+		min-width: 120px;
+	}
+
+	.product-voucher {
+		// display: flex;
+		// display: none;
+	}
+	// .product-voucher input {
+	// 	flex: 2;
+	// }
+	// .product-voucher button {
+	// 	flex: 1;
+	// }
+	// .voucher__message {
+	// 	width: 100%;;
+	// }
+}
+
+.quantity {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: initial;
+}
+.button-minus,
+.button-plus {
+	border-radius: 99px;
+	min-width: 24px;
+	height: 24px;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	line-height: 24px;
+	justify-content: center;
+	background: #eee;
+}
+.button-plus {
+	background: #f29f05;
+	color: #fff;
+}
+.quantity_products {
+	margin: 0 8px;
+	height: 24px;
+	flex: 1 1 80px;
+	min-width: 48px;
+	font-size: 14px;
+	line-height: 22px;
+	padding: 0;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.product-cart__wrapper {
+	text-align: center;
+	font-weight: 700;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+	position: sticky;
+	// top: 80px;
+	background-color: #fff;
+}
+
+.product-cart__button {
+	padding: 12px;
+
+	a {
+		width: 100%;
+	}
+}
+
+.product-cart__detail {
+	border-bottom: 1px solid rgba(195, 204, 220, .4);
+
+	.col-md-6:first-child {
+		border-right: 1px solid rgba(195, 204, 220, .4);
+	}
+
+	.color-secondary,
+	.color-primary {
+		font-size: 20px;
+	}
+
+	.color-secondary {
+		color: var(--color-accent);
+	}
+
+	.color-primary {
+		color: var(--color-accent);
+	}
+}
+
+@media (max-width: 767px) {
+	.quantity_products {
+		flex-basis: 60px;
+		margin: 0 4px;
+	}
+}
