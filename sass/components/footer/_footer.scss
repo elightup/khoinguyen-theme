@@ -35,7 +35,7 @@ color: #5A5A5A;
             margin: 6px 0;
             &:hover{
                 a{
-                color: #60BB46;
+                color: var(--color-accent);
             }}
         }
     }

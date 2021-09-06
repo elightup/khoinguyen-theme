@@ -2,7 +2,7 @@
     width: 100%;
     padding: 20px 0;
     margin: 20px 0;
-    border-top: #60bb46 solid;
+    border-top: var(--color-accent) solid;
     .product-list{
         display: grid;
         grid-template-columns: repeat(5,1fr);
