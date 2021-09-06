@@ -123,8 +123,12 @@ jQuery(function ($) {
 		} );
 	}
 	
+	function sosanh (){
+
+	}
 	slickSlider();
 	tabsProduct();
 	filterproduct();
 	stickyHeader();
+	sosanh();
 });

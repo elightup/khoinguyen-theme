@@ -26,9 +26,11 @@ $banner_static = rwmb_meta('banner_static')
 				<img src="<?= $desktop_image ?>" loading="lazy">
 			</a>
 		<?php endforeach ?>
-		<a href="#" class="sale">Khuyến Mãi <i class="bi bi-chevron-right"></i></a>
+	
 	</div>
-	<div class="home_about_us col-12 row">
+
+</section>
+<div class="home_about_us  row">
 		<?php
 		$abouts = rwmb_meta('featured_item');
 
@@ -40,15 +42,14 @@ $banner_static = rwmb_meta('banner_static')
 
 
 		?>
-			<div class="home_about-item col-3">
+			<div class="home_about-item ">
 				<div class="box-image">
 					<img src="<?= $desktop_image ?>" loading="lazy">
 				</div>
 				<div class="box-content">
 					<p class="featured-title"><?= $about['featured-title'] ?></p>
-					<p class="mota"><span><?= $about['featured-sub-title'] ?></span></p>
+					<p class="mota"><?= $about['featured-sub-title'] ?></p>
 				</div>
 			</div>
 		<?php endforeach ?>
 	</div>
-</section>

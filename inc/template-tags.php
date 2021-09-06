@@ -256,9 +256,10 @@ function kn_get_mota()
 		</div>
 	<?php
 }
-function kn_currency_format( $number ) {
+function kn_currency_format($number)
+{
 	$number = $number * 1000;
-	return number_format( $number, 0, ',', '.' ) . ' ₫';
+	return number_format($number, 0, ',', '.') . ' ₫';
 }
 function kn_get_posts_categrory()
 {
@@ -284,27 +285,50 @@ function kn_get_posts_categrory()
 	endwhile;
 	wp_reset_postdata();
 }
-function kn_filter_product()
+function kn_get_phantram($so1, $so2)
+{
+	$phantram = (($so1 - $so2) / $so1) * 100;
+	
+	if ($phantram!=='NAN') {
+		echo '<div class="discount">';
+		echo '-' . number_format((float)$phantram, 0, '.', '') . '%';
+		echo '</div>';
+	}
+}
+
+function kn_get_select_product()
 {
 	$args  = array(
-
+		'posts_per_page'   	=> -1,
 		'post_type'      => 'product',
 
 	);
 	$query = new WP_Query($args);
 
 	?>
-	<div class="select-product">
-		<Label></Label>
-	</div>
-	<input type="text" name="" id="">
+		<div class="select-product">
+			<div class="select-product-title">
+				<p>Chọn sản phẩm để so sánh</p>
+				<button id="filter"> <i class="bi bi-caret-down-fill"></i></button>
+			</div>
+			<div class="seclect-product-list">
+				<input type="text" id="inputFilter" />
+
+				<div class="product-list">
+					<?php
+					if (!$query->have_posts()) {
+						return;
+					}
+					while ($query->have_posts()) :
+						$query->the_post();
+						the_title('<p class="product-title">', '</p>');
+					endwhile;
+					wp_reset_postdata();
+					?>
+				</div>
+			</div>
+		</div>
+
+
 	<?php
-	if (!$query->have_posts()) {
-		return;
-	}
-	while ($query->have_posts()) :
-		$query->the_post();
-		
-	endwhile;
-	wp_reset_postdata();
 }

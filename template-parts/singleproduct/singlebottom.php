@@ -21,12 +21,22 @@
                 <h4>Đánh giá sản phẩm</h4>
             </div>
             <?php if (comments_open() || get_comments_number()) :
-                comments_template();
+            $args=array(
+                'id_form'           => 'commentform',
+                'id_submit'         => 'submit',
+                'title_reply'       => __( 'Leave a Reply','khoinguyen' ),
+                'title_reply_to'    => __( 'Leave a Reply to %s' ,'khoinguyen'),
+                'cancel_reply_link' => __( 'Cancel Reply','khoinguyen' ),
+                'label_submit'      => __( 'Đánh giá','khoinguyen'),
+                'comment_field'=>'<p class="comment-form-comment">
+                <label for="comment">' . __( '', 'khoinguyen' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'		
+            );
+                comment_form($args, get_the_ID());
             endif; ?>
         </div>
         <div class="product-categrory">
             <div class="title">
-                <h4>Đánh giá sản phẩm</h4>
+                <h4>Các sản phẩm tương tự</h4>
             </div>
             <div class="product-categrory-content">
                 <?php kn_get_posts_categrory();

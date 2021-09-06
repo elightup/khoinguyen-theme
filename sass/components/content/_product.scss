@@ -1,23 +1,24 @@
-.shows{
-display: flex !important;
+.shows {
+  display: flex !important;
 }
 .product-item {
   position: relative;
   height: 100%;
   background: var(--color-white);
   padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
- 
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.2s, transform 0.2s;
   will-change: box-shadow, transform;
   display: none;
- margin: 0 5px;
+  margin: 0 5px;
   width: 100%;
   flex-direction: column;
-  &:hover{
-    .product-thumb{
-    transform: scale(0.9);
+  border-radius: 4px;
+  &:hover {
+    .product-thumb {
+      transform: scale(0.9);
     }
   }
   .post-thumbnail {
@@ -28,8 +29,8 @@ display: flex !important;
     height: 0;
     padding-top: 90%;
     position: relative;
-    transition: transform .2s;
-    &:hover{
+    transition: transform 0.2s;
+    &:hover {
       transform: scale(0.9);
     }
     a {
@@ -47,105 +48,117 @@ display: flex !important;
     }
   }
 
-  .product-meta{
+  .product-meta {
     margin-top: auto;
   }
-.entry-title{
+  .entry-title {
     font-weight: 500;
-    color: #5A5A5A;
-}
-  .product-price{
-      width: 100%;
-      .price-sale{
-          font-size: 20px;
-          color: #F43A3A;
-          font-weight: 700;
-      }
-      .price{
-          color: #C4C4C4;
-          text-decoration: line-through;
-      }
-     
+    color: #5a5a5a;
+    font-size: 16px;
   }
-  .product-khuyenmai{
-    background-color: #F43A3A;
+  .product-price {
+    width: 100%;
+    .price-sale {
+      font-size: 20px;
+      color: #f43a3a;
+      font-weight: 700;
+    }
+    .price {
+      color: #c4c4c4;
+      text-decoration: line-through;
+    }
+  }
+  .product-khuyenmai {
+    background-color: #f43a3a;
     margin: auto;
     padding: 5px;
     border-radius: 5px;
-    p{
-        font-size: 14px;
-        text-align: center;
-        color: #fff;
-        margin: 0;
+    p {
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+      margin: 0;
     }
-}
+  }
 }
 //product sidebad
-.product_sidebar{
+.product_sidebar {
   width: 100%;
   background: #fff;
   padding: 5px 20px;
-  .product_sidebar-content{
+  &:first-child{
+    border-radius: 5px 5px 0 0;
+  }
+  &:last-child{
+    border-radius:0 0 5px 5px ;
+  }
+  .product_sidebar-content {
     display: flex;
-    .product-img{
+    .product-img {
       display: flex;
-      flex: 1;
-      position: relative;
       
+      position: relative;
+
       align-items: center;
       justify-content: center;
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         display: block;
         padding-top: 100%;
       }
-      .post-img{
+      .post-img {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        
+        width: 70px;
+        height: 70px;
         margin: auto;
-        img{
+        img {
           width: 100%;
           height: 100%;
-          object-fit:contain;
+          object-fit: contain;
         }
       }
     }
-    .product_sidebar-meta{
+    .product_sidebar-meta {
       display: flex;
-      flex: 2;
+      
       align-items: center;
       padding: 10px;
-      .entry-title{
-        font-size: 16px ;
+      .entry-title {
+        font-size: 14px;
         font-weight: 500;
-        color: #5A5A5A;
+        color: #5a5a5a;
         margin: 0;
-
       }
     }
   }
 
-  .product_sidebar-price{
+  .product_sidebar-price {
     display: flex;
 
     justify-content: center;
 
-    .price-sale{
-      font-size: 22px;
-      color: #F43A3A;
+    .price-sale {
+      font-size: 14px;
+      color: #f43a3a;
       font-weight: 700;
       margin: 0 10px;
     }
-    .price{
+    .price {
       margin: 0 10px;
-      font-size: 15px;
-      color: #C4C4C4;
+      font-size: 14px;
+      color: #c4c4c4;
       margin-top: auto;
       text-decoration: line-through;
+    }
   }
-  }
+}
+.discount{
+  position: absolute;
+  background: #f43a3a;
+  color: #fff;
+  top: 45%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 10px;
 }

@@ -35,7 +35,7 @@
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
-
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 <?php wp_footer(); ?>
 
 </body>

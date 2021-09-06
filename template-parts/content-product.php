@@ -31,4 +31,5 @@ if ($terms) {
 				<p>Bộ quà tặng lên đến 2.000.000Đ</p>
 			</div>
 		</div>
+		<?php  kn_get_phantram($price?$price:0,$priceCV?$priceCV:0) ?>
 	</article>

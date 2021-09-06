@@ -12,10 +12,11 @@ body {
 	background: rgb(243, 243, 243);
 	font-family: var(--font-arial);
 	font-size: var(--text-md);
-	color: var(--color-white);
+	color: $color__text-main;
     overflow-x: hidden; // Fix horizontal scrollbar for .alignfull
     margin: 0;
 	padding:0;
+	line-height: 1.5;
 
 	&::-webkit-scrollbar{
 		width: 1px;
@@ -84,7 +85,7 @@ ul {
 }
 
 a {
-	color: var(--color-white);
+	color: $color__text-main;
 	transition: all 0.25s;
 	text-decoration: none;
 	&:hover {

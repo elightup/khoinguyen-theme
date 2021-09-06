@@ -97,6 +97,9 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    input{
+      border: none;
+    }
   }
   .btn-search {
     position: absolute;
@@ -204,13 +207,13 @@ align-items: center;
         padding: 0;
         li {
           padding: 10px 15px;
-          border-top: rgb(167, 167, 167) solid 1px !important;
+          border-top: rgba(167, 167, 167, 0.274) solid 1px !important;
           font-size: 16px;
           border-radius: 0;
           border: none;
           margin: 0;
           &:hover {
-            background: rgb(216, 216, 216);
+            background: rgba(216, 216, 216, 0.116);
           }
           a {
             color: #232323;
