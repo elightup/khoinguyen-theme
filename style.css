@@ -2178,8 +2178,13 @@ body {
 }
 
 .box_product-datmua .btn-them:hover {
-	background: #26af00;
+	background: var(--color-accent);
 	color: #fff;
+}
+
+.box_product-datmua .btn-them.added {
+	color: #fff;
+	background: var(--color-accent);
 }
 
 .box_product-datmua .btn-muangay {
@@ -2187,7 +2192,7 @@ body {
 }
 
 .box_product-datmua .btn-muangay:hover {
-	background: #26af00;
+	background: var(--color-accent);
 	color: #fff;
 }
 
