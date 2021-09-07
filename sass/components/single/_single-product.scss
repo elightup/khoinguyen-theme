@@ -209,15 +209,19 @@
     color: var(--color-accent);
     background: #fff;
     &:hover{
-      background: #26af00;
+      background: var(--color-accent);
       color: #fff;
+    }
+    &.added {
+      color: #fff;
+      background: var(--color-accent);
     }
   }
   .btn-muangay {
     color: #fff;
     &:hover{
      
-      background: #26af00;
+      background: var(--color-accent);
       color: #fff;
     }
   }
