@@ -158,7 +158,7 @@ ul {
 }
 
 a {
-	color: #5a5a5a;
+	color: var(--color-accent);
 	transition: all 0.25s;
 	text-decoration: none;
 }
