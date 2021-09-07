@@ -905,11 +905,7 @@ body {
 .main-title h2 {
 	margin: 0;
 	font-size: 24px;
-	color: #60BB46;
-}
-
-.entry-title {
-	display: none;
+	color: var(--color-accent);
 }
 
 .shows {
