@@ -35,9 +35,9 @@
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
-<<<<<<< HEAD
+
 <script src="https://sp.zalo.me/plugins/sdk.js"></script>
-=======
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
 	<symbol id="icon-basket" viewBox="0 0 24 24"><path d="M8.132,2.504L4.42,9H3C2.688,9,2.395,9.146,2.205,9.393c-0.189,0.248-0.252,0.57-0.17,0.87l2.799,10.263 C5.07,21.394,5.864,22,6.764,22h10.473c0.898,0,1.692-0.605,1.93-1.475l2.799-10.263c0.082-0.3,0.02-0.622-0.17-0.87 C21.605,9.146,21.312,9,21,9h-1.42l-3.712-6.496l-1.736,0.992L17.277,9H6.723l3.145-5.504L8.132,2.504z M14,13h2v5h-2V13z M8,13h2 v5H8V13z"></path></symbol>
@@ -50,9 +50,8 @@
 	<symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z"></path></symbol>
 </svg>
 
->>>>>>> 48e15ef84f2943026f81937c02033e61876ffcfc
+
 <?php wp_footer(); ?>
 
 </body>
-
 </html>
