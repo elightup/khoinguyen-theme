@@ -1984,7 +1984,7 @@ body {
 	display: flex;
 }
 
-.box_product-price .product-price .price-sale {
+.box_product-price .product-price .price-pre-sale {
 	font-size: 20px;
 	color: #c4c4c4;
 	text-decoration: line-through;

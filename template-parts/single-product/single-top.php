@@ -75,11 +75,9 @@ $number = rwmb_meta('number', get_the_ID());
         <div class="box_product-price">
             <div class="product-price">
                 <?php if( $price_pre_sale ) : ?>
-                    <span class="price-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
-                    <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
-                <?php else : ?>
-                    <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
+                    <span class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
                 <?php endif; ?>
+                <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
             </div>
             <div class="Product-compare">
                 <a href="#">
