@@ -1109,7 +1109,7 @@ body {
 	position: absolute;
 	background: #f43a3a;
 	color: #fff;
-	top: 45%;
+	top: 40%;
 	padding: 5px;
 	border-radius: 5px;
 	font-size: 10px;
@@ -2322,6 +2322,14 @@ body {
 
 .product-comment .depth-2 {
 	background: #F8F8F8;
+}
+
+.product-comment .comment-form-cookies-consent {
+	display: none;
+}
+
+.product-comment .comment-notes {
+	display: none;
 }
 
 .product-categrory-content {
