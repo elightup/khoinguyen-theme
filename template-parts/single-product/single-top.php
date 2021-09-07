@@ -1,6 +1,6 @@
 <?php
 $price = rwmb_meta('price', get_the_ID());
-$priceCV = rwmb_meta('price_nhap', get_the_ID());
+$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
 $code = rwmb_meta('code', get_the_ID());
 $number = rwmb_meta('number', get_the_ID());
 
@@ -42,7 +42,11 @@ $number = rwmb_meta('number', get_the_ID());
 
         <div class="box_product-title">
             <div class="box_name">
-                <?php kn_get_phantram($price ? $price : 0,$priceCV ? $priceCV : 0) ?>
+                <?php
+                if( $price_pre_sale ) {
+                    kn_get_phantram($price_pre_sale ? $price_pre_sale : 0,$price ? $price : 0);
+                }
+                ?>
                 <?php the_title('<h2 class="product-title">', '</h2>') ?>
             </div>
             <div class="box_product-status">
@@ -70,8 +74,12 @@ $number = rwmb_meta('number', get_the_ID());
 
         <div class="box_product-price">
             <div class="product-price">
-                <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
-                <span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
+                <?php if( $price_pre_sale ) : ?>
+                    <span class="price-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
+                    <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
+                <?php else : ?>
+                    <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
+                <?php endif; ?>
             </div>
             <div class="Product-compare">
                 <a href="#">
@@ -112,7 +120,7 @@ $number = rwmb_meta('number', get_the_ID());
         <div class="box_product-datmua">
             <?php
             $id = get_current_user_id();
-            
+
             $cart = get_user_meta( $id, 'cart', true );
             if ( empty( $cart ) || ! is_array( $cart ) ) {
                 $cart = [];

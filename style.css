@@ -1984,14 +1984,14 @@ body {
 	display: flex;
 }
 
-.box_product-price .product-price .price {
+.box_product-price .product-price .price-sale {
 	font-size: 20px;
 	color: #c4c4c4;
 	text-decoration: line-through;
 	margin: auto 15px 0 15px;
 }
 
-.box_product-price .product-price .price-sale {
+.box_product-price .product-price .price {
 	font-size: 30px;
 	color: #f43a3a;
 	font-weight: bold;
