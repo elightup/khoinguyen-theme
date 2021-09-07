@@ -112,14 +112,18 @@ $number = rwmb_meta('number', get_the_ID());
         <div class="box_product-datmua">
             <?php
             $id = get_current_user_id();
+            
             $cart = get_user_meta( $id, 'cart', true );
+            if ( empty( $cart ) || ! is_array( $cart ) ) {
+                $cart = [];
+            }
             $cart_product_id = [];
+
             foreach ( $cart as $key => $value ) {
                 $cart_product_id[] = $key;
                
             }
            
-
             if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
                 <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
                 <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
