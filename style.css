@@ -1205,7 +1205,6 @@ body {
 }
 
 .header-sidebar ul li {
-	color: #fff;
 	padding: 0px 5px;
 	font-size: 13px;
 	border-right: #4f5357 solid 1px;
@@ -1213,6 +1212,10 @@ body {
 
 .header-sidebar ul li:last-child {
 	border-right: none;
+}
+
+.header-sidebar ul li a {
+	color: #c4c4c4;
 }
 
 .header-sidebar .sidebar-top {
@@ -1228,9 +1231,9 @@ body {
 
 .header-sidebar .sidebar-top .item {
 	display: flex;
-	color: #fff;
+	color: #c4c4c4;
 	font-size: 13px;
-	padding: 0px 5px;
+	padding: 0px 10px;
 	border-right: #4f5357 solid 1px;
 }
 
@@ -1312,6 +1315,7 @@ body {
 	height: 50px;
 	filter: invert(1);
 	fill: currentColor;
+	margin-top: -10px;
 }
 
 .header_top-contact .contact {
@@ -1319,6 +1323,7 @@ body {
 	flex-direction: column;
 	font-size: 18px;
 	margin: 0;
+	margin-top: -10px;
 	text-align: end;
 }
 
@@ -1401,6 +1406,7 @@ body {
 	display: block;
 	margin: 0;
 	padding: 0;
+	box-shadow: 5px 5px 20px 5px #d6cccc;
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul li {
@@ -1413,7 +1419,7 @@ body {
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul li:hover {
-	background: rgba(216, 216, 216, 0.116);
+	background: rgba(180, 179, 179, 0.116);
 }
 
 .header_bottom-categrory .categroty .filter-categroty ul li a {
