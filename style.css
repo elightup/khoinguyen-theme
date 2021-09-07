@@ -1391,6 +1391,12 @@ body {
 	margin-left: 5px;
 }
 
+@media (min-width: 1080px) {
+	.header_bottom-categrory .categroty .filter-categroty {
+		display: none;
+	}
+}
+
 .header_bottom-categrory .categroty .filter-categroty {
 	position: absolute;
 	display: none;
