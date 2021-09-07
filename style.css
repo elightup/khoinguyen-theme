@@ -1087,7 +1087,6 @@ body {
 
 .product_sidebar .product_sidebar-price {
 	display: flex;
-	justify-content: center;
 }
 
 .product_sidebar .product_sidebar-price .price-sale {
