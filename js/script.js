@@ -147,5 +147,7 @@ jQuery(function ($) {
 	tabsProduct();
 	filterproduct();
 	stickyHeader();
+	toggleAccount();
+	popupLogout();
 	sosanh();
 });
