@@ -1091,7 +1091,6 @@ body {
 
 .product_sidebar .product_sidebar-price {
 	display: flex;
-	justify-content: center;
 }
 
 .product_sidebar .product_sidebar-price .price-sale {
@@ -1113,7 +1112,7 @@ body {
 	position: absolute;
 	background: #f43a3a;
 	color: #fff;
-	top: 45%;
+	top: 40%;
 	padding: 5px;
 	border-radius: 5px;
 	font-size: 10px;
@@ -1996,14 +1995,14 @@ body {
 	display: flex;
 }
 
-.box_product-price .product-price .price {
+.box_product-price .product-price .price-pre-sale {
 	font-size: 20px;
 	color: #c4c4c4;
 	text-decoration: line-through;
 	margin: auto 15px 0 15px;
 }
 
-.box_product-price .product-price .price-sale {
+.box_product-price .product-price .price {
 	font-size: 30px;
 	color: #f43a3a;
 	font-weight: bold;
@@ -2333,6 +2332,14 @@ body {
 
 .product-comment .depth-2 {
 	background: #F8F8F8;
+}
+
+.product-comment .comment-form-cookies-consent {
+	display: none;
+}
+
+.product-comment .comment-notes {
+	display: none;
 }
 
 .product-categrory-content {

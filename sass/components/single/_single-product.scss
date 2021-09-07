@@ -95,13 +95,13 @@
   .product-price {
     display: flex;
 
-    .price {
+    .price-pre-sale {
       font-size: 20px;
       color: #c4c4c4;
       text-decoration: line-through;
       margin: auto 15px 0 15px;
     }
-    .price-sale {
+    .price {
       font-size: 30px;
       color: #f43a3a;
       font-weight: bold;
@@ -398,6 +398,12 @@
   }
   .depth-2{
     background:#F8F8F8;
+  }
+  .comment-form-cookies-consent{
+    display: none;
+  }
+  .comment-notes{
+    display: none;
   }
 }
 
