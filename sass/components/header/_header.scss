@@ -386,6 +386,15 @@ align-items: center;
   text-align: center;
 }
 @media(max-width:414px){
+
+  .sidebar-top{
+    display: none!important;
+  }
+  .header_bottom-cart{
+    span{
+      display: none;
+    }
+  }
   .is-sticky
   {
     position:relative;
@@ -398,7 +407,7 @@ align-items: center;
   }
   .header_top-logo{
     img {
-      margin-left:50%;
+      margin-left:40%;
     }
   }
   .header_top-search{
@@ -417,7 +426,8 @@ align-items: center;
 
     margin-top:15px!important;
     margin-left:-15px;
-
+    min-width: 400px!important;
+   
   }
 }
 @media(max-width:769px){
@@ -436,6 +446,7 @@ align-items: center;
   }
   .filter-categroty{
     margin-left: -15px;
+    width: 360px!important;
   }
 }
 @media(max-width:600px){
