@@ -95,13 +95,13 @@
   .product-price {
     display: flex;
 
-    .price {
+    .price-pre-sale {
       font-size: 20px;
       color: #c4c4c4;
       text-decoration: line-through;
       margin: auto 15px 0 15px;
     }
-    .price-sale {
+    .price {
       font-size: 30px;
       color: #f43a3a;
       font-weight: bold;
@@ -209,15 +209,19 @@
     color: var(--color-accent);
     background: #fff;
     &:hover{
-      background: #26af00;
+      background: var(--color-accent);
       color: #fff;
+    }
+    &.added {
+      color: #fff;
+      background: var(--color-accent);
     }
   }
   .btn-muangay {
     color: #fff;
     &:hover{
      
-      background: #26af00;
+      background: var(--color-accent);
       color: #fff;
     }
   }

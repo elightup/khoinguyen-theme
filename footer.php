@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="site-info">
-		Copyright © <?= date('Y') ?> giathuoctot.vn. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
+		Copyright © <?= date('Y') ?> titanweb.vn. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->

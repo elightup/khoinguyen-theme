@@ -24,7 +24,7 @@
             ?>
         </div>
         <div class="box-btn">
-            <a href="/san-pham" class="btn-xemthem">
+            <a href="<?= home_url(); ?>/san-pham" class="btn-xemthem">
                 Xem tất cả
             </a>
         </div>
