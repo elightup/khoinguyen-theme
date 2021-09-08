@@ -288,8 +288,8 @@ function kn_get_posts_categrory()
 function kn_get_phantram($so1, $so2)
 {
 	$phantram = (($so1 - $so2) / $so1) * 100;
-	
-	if ($phantram!=='NAN') {
+
+	if ($phantram !== 'NAN') {
 		echo '<div class="discount">';
 		echo '-' . number_format((float)$phantram, 0, '.', '') . '%';
 		echo '</div>';
@@ -307,9 +307,9 @@ function kn_get_select_product()
 
 	?>
 		<div class="select-product">
-			<div class="select-product-title">
-				<p>Chọn sản phẩm để so sánh</p>
-				<button id="filter"> <i class="bi bi-caret-down-fill"></i></button>
+			<div class="select-product-title left">
+				<p class="lable">Chọn sản phẩm để so sánh</p>
+				<button id="filter" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
 			</div>
 			<div class="seclect-product-list">
 				<input type="text" id="inputFilter" />
@@ -321,7 +321,13 @@ function kn_get_select_product()
 					}
 					while ($query->have_posts()) :
 						$query->the_post();
-						the_title('<p class="product-title">', '</p>');
+					?>
+						<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+							<?php
+							the_title('<p class="product-title"  id="product">', '</p>');
+							?>
+						</div>
+					<?php
 					endwhile;
 					wp_reset_postdata();
 					?>
@@ -332,3 +338,131 @@ function kn_get_select_product()
 
 	<?php
 }
+
+function kn_get_select_product2()
+{
+	$args  = array(
+		'posts_per_page'   	=> -1,
+		'post_type'      => 'product',
+
+	);
+	$query = new WP_Query($args);
+
+	?>
+		<div class="select-product">
+			<div class="select-product-title right">
+				<p class="lable2">Chọn sản phẩm để so sánh</p>
+				<button id="filter2" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+			</div>
+			<div class="seclect-product-list2">
+				<input type="text" id="inputFilter2" />
+
+				<div class="product-list2">
+					<?php
+					if (!$query->have_posts()) {
+						return;
+					}
+					while ($query->have_posts()) :
+						$query->the_post();
+					?>
+						<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+							<?php
+							the_title('<p class="product-title"  id="product2">', '</p>');
+							?>
+						</div>
+					<?php
+					endwhile;
+					wp_reset_postdata();
+					?>
+				</div>
+			</div>
+		</div>
+
+
+		<?php
+	}
+	function load_sosanh($id)
+	{
+
+		$args = array(
+			'post_type' => 'product',
+			'p' => $id,
+		);
+
+		$lable = 'filter';
+		$query = new WP_Query($args);
+		while ($query->have_posts()) :
+			$query->the_post();
+			$price = rwmb_meta('price', get_the_ID());
+			$priceCV = rwmb_meta('price_nhap', get_the_ID());
+			$code = rwmb_meta('code', get_the_ID());
+			$kithuat = rwmb_meta('thong_so', get_the_ID());
+		?>
+			<div class="filter-product-content" data-name="<?php echo the_title() ?>">
+				<div class="filter-product-top <?php echo $lable ?>">
+					<div class="box_image">
+						<?php khoinguyen_post_thumbnail(); ?>
+					</div>
+					<div class="box_price">
+						<span class="price"><?php echo kn_currency_format($price ? $price : 0); ?></span>
+						<span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
+					</div>
+					<div class="box_product-datmua">
+						<?php
+						$ID = get_current_user_id();
+						$cart = get_user_meta($ID, 'cart', true);
+						if (empty($cart) || !is_array($cart)) {
+							$cart = [];
+						}
+						$cart_product_id = [];
+
+						foreach ($cart as $key => $value) {
+							$cart_product_id[] = $key;
+						}
+
+						if (in_array(get_the_ID(), $cart_product_id)) : ?>
+							<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+							<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
+
+						<?php else : ?>
+							<a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
+							<a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+						<?php endif; ?>
+					</div>
+				</div>
+				<div class="filter-product-bottom">
+					<div class="box_item">
+						<p class="product-lable">
+							Mã sản phẩm
+						</p>
+
+						<div class="product-content">
+							<?php echo $code ?>
+						</div>
+					</div>
+					<div class="box_item">
+						<p class="product-lable">
+							Thông số kỹ thuật
+						</p>
+
+						<div class="product-content">
+							<?php kn_get_mota() ?>
+						</div>
+					</div>
+					<div class="box_item">
+						<p class="product-lable">
+							Đặc điểm nổi bật
+						</p>
+
+						<div class="product-content">
+							<?php echo $kithuat ?>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	<?php
+
+		endwhile;
+		wp_reset_postdata();
+	}

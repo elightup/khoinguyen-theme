@@ -74,7 +74,7 @@ $number = rwmb_meta('number', get_the_ID());
                 <span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
             </div>
             <div class="Product-compare">
-                <a href="#">
+                <a href="<?= home_url(); ?>/so-sanh?id=<?php echo get_the_ID(); ?>">
                     <i class="bi bi-arrow-left-right"></i>
                     So sánh sản phẩm
                 </a>

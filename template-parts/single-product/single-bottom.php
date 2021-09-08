@@ -12,7 +12,12 @@
                 <?php the_content(); ?>
 
             </div>
-            <div class="content ktthuat">đâsdasd</div>
+            <div class="content ktthuat">
+                <?php
+                $kithuat=rwmb_meta('thong_so',get_the_ID());
+                echo $kithuat;
+                 ?>
+            </div>
         </div>
 
         <!--conment-->
