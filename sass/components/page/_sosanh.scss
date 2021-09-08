@@ -164,12 +164,19 @@
       width: 5px;
     }
     &::-webkit-scrollbar-thumb {
-      background:#FF8F2B;
+      background:var(--color-accent);
       border-radius: 3px;
     }
   }
   &:last-child{
-    border-bottom:none
+    border-bottom:none;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background:var(--color-accent);
+      border-radius: 3px;
+    }
   }
  
   .product-lable{

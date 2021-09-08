@@ -2910,12 +2910,21 @@ body {
 }
 
 .box_item:nth-child(2)::-webkit-scrollbar-thumb {
-	background: #FF8F2B;
+	background: var(--color-accent);
 	border-radius: 3px;
 }
 
 .box_item:last-child {
 	border-bottom: none;
+}
+
+.box_item:last-child::-webkit-scrollbar {
+	width: 5px;
+}
+
+.box_item:last-child::-webkit-scrollbar-thumb {
+	background: var(--color-accent);
+	border-radius: 3px;
 }
 
 .box_item .product-lable {
