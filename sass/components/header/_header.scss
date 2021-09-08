@@ -41,6 +41,11 @@
     padding: 5px 0;
     .box_item{
       display: flex;
+      padding:5px 0!important;
+    
+    }
+    .box_item:last-child{
+      height: unset;
     }
     .item {
       display: flex;

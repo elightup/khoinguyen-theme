@@ -1231,6 +1231,11 @@ body {
 
 .header-sidebar .sidebar-top .box_item {
 	display: flex;
+	padding: 5px 0 !important;
+}
+
+.header-sidebar .sidebar-top .box_item:last-child {
+	height: unset;
 }
 
 .header-sidebar .sidebar-top .item {
