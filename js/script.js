@@ -35,7 +35,7 @@ jQuery(function ($) {
 					}
 				},
 				{
-					breakpoint:400,
+					breakpoint: 400,
 					settings: {
 						slidesToShow: 1,
 						slidesToScroll: 1
@@ -66,7 +66,7 @@ jQuery(function ($) {
 					}
 				},
 				{
-					breakpoint:400,
+					breakpoint: 400,
 					settings: {
 						slidesToShow: 1,
 						slidesToScroll: 1
@@ -111,6 +111,15 @@ jQuery(function ($) {
 				}
 			})
 
+		});
+		$('.categroty-menu').on('click',function(){
+			$('.filter-categroty').toggleClass('show');
+		});
+		$('.categroty').mouseover(function(){
+			$('.filter-categroty').addClass('show');
+		})
+		$('.categroty').mouseout(function(){
+			$('.filter-categroty').removeClass('show');
 		})
 	}
 	const filterproduct = () => {
@@ -197,8 +206,8 @@ jQuery(function ($) {
 					$('.dislay-product').html(response);
 					$('.seclect-product-list').toggleClass('show');
 					$('.lable').text(title);
-				var height=	$('.filter-product-content').height();
-				$('.product-sosanh').css('height', height+200)
+					var height = $('.filter-product-content').height();
+					$('.product-sosanh').css('height', height + 200)
 				}
 			});
 		})
@@ -226,29 +235,29 @@ jQuery(function ($) {
 				data: {
 					action: "filter",
 					id: ID,
-					lable:'right-filter'
+					lable: 'right-filter'
 				},
 
 				success: function (response) {
 					$('.dislay-product2').html(response);
 					$('.seclect-product-list2').toggleClass('show');
 					$('.lable2').text(title);
-					var height=	$('.filter-product-content').height();
-				$('.product-sosanh').css('height', height+200)
+					var height = $('.filter-product-content').height();
+					$('.product-sosanh').css('height', height + 200)
 
 				}
 			});
 		})
-		
-			var height=	$('.filter-product-content').height();
-			name=$('.filter-product-content').data('name');
-			if( name==='undefined'){
-				$('.lable').text('Chọn sản phẩm để so sánh');
-			}else{
-				$('.lable').text(name);
-			}
-		$('.product-sosanh').css('height', height+200)
-		
+
+		var height = $('.filter-product-content').height();
+		name = $('.filter-product-content').data('name');
+		if (name === 'undefined') {
+			$('.lable').text('Chọn sản phẩm để so sánh');
+		} else {
+			$('.lable').text(name);
+		}
+		$('.product-sosanh').css('height', height + 200)
+
 	}
 
 
