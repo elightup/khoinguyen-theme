@@ -15,7 +15,7 @@
 
 get_header();
 ?>
-
+<?php kn_get_path(); ?>
 <main id="primary" class="site-main ">
 	<?php
 	while (have_posts()) :
