@@ -51,8 +51,52 @@ color: #5A5A5A;
       color:#fff;
     }
 }
+@media(max-width:769px){
+  .site-footer{
+    .logo{
+      text-align: center;
+    }
+  }
+  .footer-left{
+    min-width: 100%!important;
+  }
+  .footer-rigth{
+    display: inline-flexbox!important;
+    text-align: justify;
+    min-width: 100%!important;
+    #nav_menu-4, #nav_menu-3{
+      min-width:50%;
+    }
+    #block-23{
+      min-width: 100%;
+    }
+
+  }
+}
 @media(max-width:414px){
-  .site-info{
-    font-size: 14px;
+  .site-footer{
+    .logo{
+      text-align: center;
+    }
+  }
+  .footer-left{
+    min-width: 100%!important;
+  }
+  .footer-rigth{
+    display: block!important;
+    text-align: justify;
+    min-width: 100%!important;
+    #nav_menu-4, #nav_menu-3{
+      min-width:100%;
+    }
+    #block-23{
+      min-width: 100%;
+    }
+
+  }
+}
+.footer-rigth{
+  a{
+    color:#5A5A5A;
   }
 }

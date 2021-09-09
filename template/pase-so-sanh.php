@@ -19,7 +19,7 @@ get_header();
     </div>
     <?php kn_get_path(); ?>
     <div class="row">
-        <div class="col-6  product-left product-sosanh ">
+        <div class="col-md-6  product-left product-sosanh ">
             <?php  kn_get_select_product(); ?>
             <div class="dislay-product">
                 <?php 
@@ -32,7 +32,7 @@ get_header();
                 ?>
             </div>
         </div>
-        <div class="col-6  product-right product-sosanh">
+        <div class="col-md-6  product-right product-sosanh">
         <?php  kn_get_select_product2(); ?>
         <div class="dislay-product2"></div>
         </div>

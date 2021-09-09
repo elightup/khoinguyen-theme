@@ -1231,6 +1231,11 @@ body {
 
 .header-sidebar .sidebar-top .box_item {
 	display: flex;
+	padding: 5px 0 !important;
+}
+
+.header-sidebar .sidebar-top .box_item:last-child {
+	height: unset;
 }
 
 .header-sidebar .sidebar-top .item {
@@ -1592,6 +1597,12 @@ body {
 }
 
 @media (max-width: 414px) {
+	.sidebar-top {
+		display: none !important;
+	}
+	.header_bottom-cart span {
+		display: none;
+	}
 	.is-sticky {
 		position: relative;
 	}
@@ -1602,7 +1613,7 @@ body {
 		display: none;
 	}
 	.header_top-logo img {
-		margin-left: 50%;
+		margin-left: 40%;
 	}
 	.header_top-search {
 		margin: 0 !important;
@@ -1616,12 +1627,16 @@ body {
 	.filter-categroty {
 		margin-top: 15px !important;
 		margin-left: -15px;
+		min-width: 400px !important;
 	}
 }
 
 @media (max-width: 769px) {
 	.is-sticky {
 		position: relative;
+	}
+	.main-navigation {
+		display: none;
 	}
 	.header_top {
 		height: 80px;
@@ -1635,6 +1650,7 @@ body {
 	}
 	.filter-categroty {
 		margin-left: -15px;
+		width: 360px !important;
 	}
 }
 
@@ -2609,10 +2625,48 @@ body {
 	color: #fff;
 }
 
-@media (max-width: 414px) {
-	.site-info {
-		font-size: 14px;
+@media (max-width: 769px) {
+	.site-footer .logo {
+		text-align: center;
 	}
+	.footer-left {
+		min-width: 100% !important;
+	}
+	.footer-rigth {
+		display: inline-flexbox !important;
+		text-align: justify;
+		min-width: 100% !important;
+	}
+	.footer-rigth #nav_menu-4, .footer-rigth #nav_menu-3 {
+		min-width: 50%;
+	}
+	.footer-rigth #block-23 {
+		min-width: 100%;
+	}
+}
+
+@media (max-width: 414px) {
+	.site-footer .logo {
+		text-align: center;
+	}
+	.footer-left {
+		min-width: 100% !important;
+	}
+	.footer-rigth {
+		display: block !important;
+		text-align: justify;
+		min-width: 100% !important;
+	}
+	.footer-rigth #nav_menu-4, .footer-rigth #nav_menu-3 {
+		min-width: 100%;
+	}
+	.footer-rigth #block-23 {
+		min-width: 100%;
+	}
+}
+
+.footer-rigth a {
+	color: #5A5A5A;
 }
 
 /* Galleries
@@ -3028,10 +3082,6 @@ body {
 .box_item .product-content {
 	font-size: 16px;
 	color: #5A5A5A;
-}
-
-.page-template-page_gioi_thieu .entry-title {
-	display: none;
 }
 
 /*--------------------------------------------------------------
