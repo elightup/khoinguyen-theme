@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="site-info">
-		Copyright © <?= date('Y') ?> kangaroohydrogen.vn. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
+		Copyright © <?= date('Y') ?> <?php bloginfo(); ?>. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
