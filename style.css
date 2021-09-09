@@ -908,6 +908,10 @@ body {
 	color: var(--color-accent);
 }
 
+.entry-title {
+	display: none;
+}
+
 .shows {
 	display: flex !important;
 }
