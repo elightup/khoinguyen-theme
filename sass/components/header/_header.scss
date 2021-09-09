@@ -439,6 +439,9 @@ align-items: center;
   .is-sticky{
     position: relative;
   }
+  .main-navigation{
+    display: none;
+  }
   .header_top{
     height: 80px;
     .header_top-search{
