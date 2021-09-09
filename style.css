@@ -2600,10 +2600,13 @@ body {
 	grid-gap: 10px;
 }
 
+.footer-rigth ul {
+	padding-left: unset;
+}
+
 .footer-rigth ul li {
 	list-style: none;
 	margin: 6px 0;
-	margin-left: -20px;
 }
 
 .footer-rigth ul li:hover a {

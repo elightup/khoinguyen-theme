@@ -31,10 +31,10 @@ color: #5A5A5A;
     grid-gap: 10px;
 
     ul{
+      padding-left: unset;
         li{
           list-style:none;
             margin: 6px 0;
-            margin-left:-20px;
             &:hover{
                 a{
                 color: var(--color-accent);
