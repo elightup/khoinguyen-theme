@@ -1,9 +1,14 @@
 <div class="box_single-bottom row">
-    <div class="box_product-bottom col-9">
+    <div class="box_product-bottom col-lg-9">
         <!--tap menu -->
         <ul class="nav-pill">
             <li class="tab-button active" data-id="mota">Mô tả sản phẩm</li>
-            <li class="tab-button" data-id="ktthuat">Thông số kỹ thuật</li>
+            <?php if(empty($kithuat)){
+                echo'<li class="tab-button" ></li>';
+            }else{
+               echo'<li class="tab-button" data-id="ktthuat">Thông số kỹ thuật</li>';
+            } ?>
+           
         </ul>
 
         <!--contennt-->
@@ -49,7 +54,7 @@
             </div>
         </div>
     </div>
-    <div class="box_sidebar col-3">
+    <div class="box_sidebar col-lg-3">
         <div class="box_sidebar-product">
             <label class="title-sidebar">
                 Top bán chạy

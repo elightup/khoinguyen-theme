@@ -5,7 +5,7 @@ $banner_static = rwmb_meta('banner_static')
 ?>
 <section class="home__banner row">
 
-	<div class="home__banner-wrapper col-10">
+	<div class="home__banner-wrapper col-lg-10">
 		<?php
 		foreach ($banners as $banner) :
 			$desktop_image = wp_get_attachment_image_url($banner['banner_image'], 'full');
@@ -16,7 +16,7 @@ $banner_static = rwmb_meta('banner_static')
 			</a>
 		<?php endforeach ?>
 	</div>
-	<div class="home_banner-static col-2">
+	<div class="home_banner-static col-lg-2">
 		<?php
 		foreach ($banner_static as $banner) :
 			$desktop_image = wp_get_attachment_image_url($banner['anh'], 'full');
@@ -42,7 +42,7 @@ $banner_static = rwmb_meta('banner_static')
 
 
 		?>
-			<div class="home_about-item ">
+			<div class="home_about-item col-lg-3 col-md-6 ">
 				<div class="box-image">
 					<img src="<?= $desktop_image ?>" loading="lazy">
 				</div>

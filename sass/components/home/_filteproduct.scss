@@ -6,6 +6,15 @@
       display: grid;
       grid-template-columns: repeat(5,1fr);
       grid-gap: 10px;
+      @media (max-width:768px) {
+        grid-template-columns: repeat(3,1fr);
+      }
+      @media (max-width:576px) {
+        grid-template-columns: repeat(2,1fr);
+      }
+      @media (max-width:400px) {
+        grid-template-columns: repeat(1,1fr);
+      }
   }
 
   .box-btn{
@@ -24,12 +33,15 @@
 .filter-categroty {
   display: flex;
   margin-top: 15px;
+  @media (max-width:576px) {
+    display: none;
+  }
   h4 {
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
    display:flex;
-   flex: 1;
+   
    justify-content: center;
       margin: 0;
     text-align: center;

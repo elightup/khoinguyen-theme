@@ -7,7 +7,7 @@ $number = rwmb_meta('number', get_the_ID());
 ?>
 
 <div class="box_single-top row">
-    <div class="box_img col-4">
+    <div class="box_img col-md-4">
         <div class="box_image-product">
             <?php
             $images = rwmb_meta('anh_san_pham', get_the_ID());
@@ -38,7 +38,7 @@ $number = rwmb_meta('number', get_the_ID());
 
         </div>
     </div>
-    <div class="box_product-content col-8">
+    <div class="box_product-content col-md-8 ">
 
         <div class="box_product-title">
             <div class="box_name">
@@ -50,8 +50,8 @@ $number = rwmb_meta('number', get_the_ID());
                 <?php the_title('<h2 class="product-title">', '</h2>') ?>
             </div>
             <div class="box_product-status">
-                <p class="status">
-                    <span class="status-item">
+                <p class="status row">
+                    <span class="status-item col-lg-4">
                         <i class="bi bi-check-circle"></i>
                         Tình trạng: <?php if ($number > 0) {
                                         echo 'còn hàng';
@@ -60,11 +60,11 @@ $number = rwmb_meta('number', get_the_ID());
                                     }
                                     ?>
                     </span>
-                    <span class="status-item">
+                    <span class="status-item col-lg-4">
                         <i class="bi bi-check-circle"></i>
                         Mã sản phẩm: <?php echo $code ?>
                     </span>
-                    <span class="status-item">
+                    <span class="status-item col-lg-4">
                         <i class="bi bi-check-circle"></i>
                         Vận chuyển: Liên hệ!
                     </span>
@@ -142,7 +142,7 @@ $number = rwmb_meta('number', get_the_ID());
     </div>
 </div>
 <div class="box_featured-product row">
-    <div class="featured-item">
+    <div class="featured-item  col-md-6">
         <div class="box_featured-img">
             <img src="<?php echo get_template_directory_uri() ?>/images/sanpham.jpg" alt="">
         </div>
@@ -152,17 +152,17 @@ $number = rwmb_meta('number', get_the_ID());
         </div>
     </div>
 
-    <div class="featured-item">
+    <div class="featured-item  col-md-6">
         <div class="box_featured-img">
             <img src="<?php echo get_template_directory_uri() ?>/images/sanpham_2.jpg" alt="">
         </div>
-        <div class="box_featured-content">
+        <div class="box_featured-content ">
             <p class="featured-top">Mức Giá Phù Hợp</p>
             <p class="featured-bottom">Tiết kiệm chi phí cho mọi người</p>
         </div>
     </div>
 
-    <div class="featured-item">
+    <div class="featured-item col-md-6">
         <div class="box_featured-img">
             <img src="<?php echo get_template_directory_uri() ?>/images/sanpham_3.jpg" alt="">
         </div>
@@ -172,7 +172,7 @@ $number = rwmb_meta('number', get_the_ID());
         </div>
     </div>
 
-    <div class="featured-item">
+    <div class="featured-item  col-md-6">
         <div class="box_featured-img">
             <img src="<?php echo get_template_directory_uri() ?>/images/sanpham_4.jpg" alt="">
         </div>
@@ -181,7 +181,7 @@ $number = rwmb_meta('number', get_the_ID());
             <p class="featured-bottom">Với hơn 3.000 khách hàng</p>
         </div>
     </div>
-    <div class="featured-item">
+    <div class="featured-item  col-md-6">
         <div class="box_featured-img">
             <img src="<?php echo get_template_directory_uri() ?>/images/sanpham_5.jpg" alt="">
         </div>
