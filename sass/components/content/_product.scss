@@ -107,16 +107,17 @@
   }
 }
 //product sidebad
+
+.box_product_sidebar{
+  border-radius: 5px;
+  padding: 5px 20px;
+  background: #fff;
+  
+}
 .product_sidebar {
   width: 100%;
-  background: #fff;
-  padding: 5px 20px;
-  &:first-child{
-    border-radius: 5px 5px 0 0;
-  }
-  &:last-child{
-    border-radius:0 0 5px 5px ;
-  }
+  
+ 
   .product_sidebar-content {
     display: flex;
     .product-img {

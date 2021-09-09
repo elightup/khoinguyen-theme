@@ -1030,18 +1030,14 @@ body {
 	margin: 0;
 }
 
+.box_product_sidebar {
+	border-radius: 5px;
+	padding: 5px 20px;
+	background: #fff;
+}
+
 .product_sidebar {
 	width: 100%;
-	background: #fff;
-	padding: 5px 20px;
-}
-
-.product_sidebar:first-child {
-	border-radius: 5px 5px 0 0;
-}
-
-.product_sidebar:last-child {
-	border-radius: 0 0 5px 5px;
 }
 
 .product_sidebar .product_sidebar-content {
