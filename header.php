@@ -104,10 +104,19 @@
 									<svg><use xlink:href="#icon-user" /></svg>
 									<a href="<?php echo esc_url( home_url() ); ?>/thong-tin-tai-khoan/">Thông tin tài khoản</a>
 								</li>
-								<li>
-									<svg><use xlink:href="#icon-check" /></svg>
-									<a href="<?php echo esc_url( home_url() ); ?>/don-hang-cua-toi/">Đơn hàng của tôi</a>
-								</li>
+								<?php
+								$role = wp_get_current_user()->roles[0];
+								if ( $role == 'ctv' ): ?>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/san-pham-duoc-ap-dung-voucher-cua-ban/">Lợi nhuận</a>
+									</li>
+								<?php else : ?>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/don-hang-cua-toi/">Đơn hàng của tôi</a>
+									</li>
+								<?php endif ?>
 								<li>
 									<svg><use xlink:href="#icon-logout" /></svg>
 									<a class="popup-modal" href="#popup-logout">Đăng xuất</a>
