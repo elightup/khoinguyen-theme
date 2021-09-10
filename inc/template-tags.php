@@ -2,7 +2,7 @@
 function khoinguyen_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if (get_the_time('U') !== get_the_modified_time('U')) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="hidden updated" datetime="%3$s">%4$s</time>';
 	}
 
 	$time_string = sprintf(
@@ -15,8 +15,8 @@ function khoinguyen_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x('Posted on %s', 'post date', 'khoinguyen'),
-		'<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+		esc_html_x('Đăng vào %s', 'post date', 'khoinguyen'),
+		$time_string
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -362,3 +362,25 @@ function load_sosanh($id) {
 	endwhile;
 	wp_reset_postdata();
 }
+
+
+/**
+ *
+ * @param  [type] $excerpt [description]
+ * @return [type]          [description]
+ */
+function kn_excerpt_more( $excerpt ) {
+	return str_replace( '[&hellip;]', '...', $excerpt );
+}
+add_filter( 'wp_trim_excerpt', 'kn_excerpt_more' );
+
+
+/**
+ * Change excerpt length
+ *
+ * @return int
+ */
+function nk_excerpt_length() {
+	return 20;
+}
+add_filter( 'excerpt_length', 'nk_excerpt_length' );
