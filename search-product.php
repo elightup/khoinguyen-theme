@@ -33,11 +33,7 @@ get_header()
 
 
 
-                <?php the_posts_pagination(array(
-                        'prev_text' => __('<i class="bi bi-chevron-double-left"></i>', 'khoinguyen'),
-                        'next_text' => __('<i class="bi bi-chevron-double-right"></i>', 'khoinguyen'),
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'khoinguyen') . ' </span>',
-                    )); ?>
+                
                 <div class="product-list">
                     <?php
                     while (have_posts()) :

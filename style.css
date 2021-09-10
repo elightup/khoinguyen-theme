@@ -3102,11 +3102,6 @@ body {
 	color: #5A5A5A;
 }
 
-.box-seach-product .navigation {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-
 .page-title {
 	font-size: 20px;
 	margin-bottom: 0;
@@ -3141,6 +3136,7 @@ body {
 }
 
 .product-list {
+	margin-top: 38px;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10px;
