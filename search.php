@@ -1,11 +1,9 @@
 <?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package khoinguyen
- */
+
+if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' ) {
+	get_template_part( 'search', 'product' );
+	return;
+}
 
 get_header();
 ?>
