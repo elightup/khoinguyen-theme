@@ -1,107 +1,62 @@
 <?php
-
-/**
- * Custom template tags for this theme
- *
- * Eventually, some of the functionality here could be replaced by core features.
- *
- * @package khoinguyen
- */
-
-if (!function_exists('khoinguyen_posted_on')) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
-	function khoinguyen_posted_on()
-	{
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if (get_the_time('U') !== get_the_modified_time('U')) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr(get_the_date(DATE_W3C)),
-			esc_html(get_the_date()),
-			esc_attr(get_the_modified_date(DATE_W3C)),
-			esc_html(get_the_modified_date())
-		);
-
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x('Posted on %s', 'post date', 'khoinguyen'),
-			'<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+function khoinguyen_posted_on() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	if (get_the_time('U') !== get_the_modified_time('U')) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 	}
-endif;
 
-if (!function_exists('khoinguyen_posted_by')) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
-	function khoinguyen_posted_by()
-	{
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x('by %s', 'post author', 'khoinguyen'),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
-		);
+	$time_string = sprintf(
+		$time_string,
+		esc_attr(get_the_date(DATE_W3C)),
+		esc_html(get_the_date()),
+		esc_attr(get_the_modified_date(DATE_W3C)),
+		esc_html(get_the_modified_date())
+	);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	$posted_on = sprintf(
+		/* translators: %s: post date. */
+		esc_html_x('Posted on %s', 'post date', 'khoinguyen'),
+		'<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+	);
 
+	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+function khoinguyen_posted_by() {
+	$byline = sprintf(
+		/* translators: %s: post author. */
+		esc_html_x('by %s', 'post author', 'khoinguyen'),
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+	);
+
+	echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+function khoinguyen_entry_footer() {
+	// Hide category and tag text for pages.
+	if ('post' === get_post_type()) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list(esc_html__(', ', 'khoinguyen'));
+		if ($categories_list) {
+			/* translators: 1: list of categories. */
+			printf('<span class="cat-links">' . esc_html__('Posted in %1$s', 'khoinguyen') . '</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'khoinguyen'));
+		if ($tags_list) {
+			/* translators: 1: list of tags. */
+			printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'khoinguyen') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
 	}
-endif;
 
-if (!function_exists('khoinguyen_entry_footer')) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function khoinguyen_entry_footer()
-	{
-		// Hide category and tag text for pages.
-		if ('post' === get_post_type()) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list(esc_html__(', ', 'khoinguyen'));
-			if ($categories_list) {
-				/* translators: 1: list of categories. */
-				printf('<span class="cat-links">' . esc_html__('Posted in %1$s', 'khoinguyen') . '</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'khoinguyen'));
-			if ($tags_list) {
-				/* translators: 1: list of tags. */
-				printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'khoinguyen') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-		}
-
-		if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__('Leave a Comment<span class="screen-reader-text"> on %s</span>', 'khoinguyen'),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post(get_the_title())
-				)
-			);
-			echo '</span>';
-		}
-
-		edit_post_link(
+	if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
+		echo '<span class="comments-link">';
+		comments_popup_link(
 			sprintf(
 				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Edit <span class="screen-reader-text">%s</span>', 'khoinguyen'),
+					/* translators: %s: post title */
+					__('Leave a Comment<span class="screen-reader-text"> on %s</span>', 'khoinguyen'),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -109,76 +64,46 @@ if (!function_exists('khoinguyen_entry_footer')) :
 					)
 				),
 				wp_kses_post(get_the_title())
-			),
-			'<span class="edit-link">',
-			'</span>'
+			)
 		);
+		echo '</span>';
 	}
-endif;
+}
 
-if (!function_exists('khoinguyen_post_thumbnail')) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
-	function khoinguyen_post_thumbnail()
-	{
-		if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
-			return;
-		}
-
-		if (is_singular()) :
-?>
-
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
-
-		<?php else : ?>
-
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-				the_post_thumbnail(
-					'post-thumbnail',
-					array(
-						'alt' => the_title_attribute(
-							array(
-								'echo' => false,
-							)
-						),
-					)
-				);
-				?>
-			</a>
-
+function khoinguyen_post_thumbnail() {
+	if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
+		return;
+	}
+	if (is_singular()) :
+	?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div><!-- .post-thumbnail -->
+	<?php else : ?>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php
+			the_post_thumbnail(
+				'post-thumbnail',
+				array(
+					'alt' => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+			?>
+		</a>
 	<?php
-		endif; // End is_singular().
-	}
-endif;
+	endif; // End is_singular().
+}
 
-if (!function_exists('wp_body_open')) :
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */
-	function wp_body_open()
-	{
-		do_action('wp_body_open');
-	}
-endif;
-
-function khoinguyen_get_categrory()
-{
-
+function khoinguyen_get_categrory() {
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
 
 	));
-
 	?>
 	<div class="categroty">
 		<div class="categroty-menu">
@@ -191,29 +116,23 @@ function khoinguyen_get_categrory()
 		</div>
 		<div class="filter-categroty">
 			<ul>
-
-				<?php
-				foreach ($terms as $term) {
-				?>
+				<?php foreach ($terms as $term) : ?>
 					<li data-tab="<?php echo $term->slug ?>">
 						<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
 
 					</li>
-				<?php
-				}
-				?>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	<?php
 
 }
-function kn_entry_title()
-{
+
+function kn_entry_title() {
 	the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h3>');
 }
-function kn_filter_home()
-{
 
+function kn_filter_home() {
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
@@ -224,56 +143,51 @@ function kn_filter_home()
 		<div class="filter-categroty">
 			<h4>Danh mục: </h4>
 			<ul>
-				<?php
-				foreach ($terms as $term) {
-				?>
+				<?php foreach ($terms as $term) : ?>
 					<li data-tab="<?php echo $term->slug ?>">
 						<?php echo $term->name; ?>
 					</li>
-				<?php
-				}
-				?>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 
 	<?php
 }
-function kn_get_path()
-{
-	echo	'<div class="box_path">';
+
+function kn_get_path() {
+	echo '<div class="box_path">';
 	yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-	echo	'</div>';
+	echo '</div>';
 }
-function kn_get_mota()
-{
-	$mota = rwmb_meta('mo_ta', get_queried_object_id());
+
+function kn_get_mota() {
+	$mota = rwmb_meta('mo_ta');
 	if (empty($mota)) {
 		return;
 	}
 	?>
 		<div class="content-mota">
-			<?php echo $mota ?>
+			<?= wp_kses_post( $mota ) ?>
 		</div>
 	<?php
 }
-function kn_currency_format($number)
-{
+
+function kn_currency_format($number) {
 	$number = $number * 1000;
 	return number_format($number, 0, ',', '.') . ' ₫';
 }
-function kn_get_posts_categrory()
-{
-	$terms = get_the_category(get_queried_object_id());
 
+function kn_get_posts_categrory() {
+	$terms = get_the_category(get_queried_object_id());
 
 	$ids = array_map(function ($term) {
 		return $term->term_id;
 	}, $terms);
 	$args  = array(
-		'posts_per_page'   	=> 10,
+		'posts_per_page' => 10,
 		'post_type'      => 'product',
-		'post__not_in'     	=> array(get_the_ID()),
-		'category__in'		=> $ids,
+		'post__not_in'   => array(get_the_ID()),
+		'category__in'   => $ids,
 	);
 	$query = new WP_Query($args);
 	if (!$query->have_posts()) {
@@ -285,8 +199,8 @@ function kn_get_posts_categrory()
 	endwhile;
 	wp_reset_postdata();
 }
-function kn_get_phantram($so1, $so2)
-{
+
+function kn_get_phantram($so1, $so2) {
 	$phantram = (($so1 - $so2) / $so1) * 100;
 
 	if ($phantram !== 'NAN') {
@@ -296,173 +210,155 @@ function kn_get_phantram($so1, $so2)
 	}
 }
 
-function kn_get_select_product()
-{
+function kn_get_select_product() {
 	$args  = array(
-		'posts_per_page'   	=> -1,
+		'posts_per_page' => -1,
 		'post_type'      => 'product',
-
 	);
 	$query = new WP_Query($args);
 
+	if (!$query->have_posts()) {
+		return;
+	}
 	?>
-		<div class="select-product">
-			<div class="select-product-title left">
-				<p class="lable">Chọn sản phẩm để so sánh</p>
-				<button id="filter" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
-			</div>
-			<div class="seclect-product-list">
-				<input type="text" id="inputFilter" />
+	<div class="select-product">
+		<div class="select-product-title left">
+			<p class="lable">Chọn sản phẩm để so sánh</p>
+			<button id="filter" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+		</div>
+		<div class="seclect-product-list">
+			<input type="text" id="inputFilter" />
 
-				<div class="product-list">
-					<?php
-					if (!$query->have_posts()) {
-						return;
-					}
-					while ($query->have_posts()) :
-						$query->the_post();
-					?>
-						<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-							<?php
-							the_title('<p class="product-title"  id="product">', '</p>');
-							?>
-						</div>
-					<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</div>
+			<div class="product-list">
+				<?php while ($query->have_posts()) : $query->the_post(); ?>
+					<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+						<?php
+						the_title('<p class="product-title"  id="product">', '</p>');
+						?>
+					</div>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
 			</div>
 		</div>
-
-
+	</div>
 	<?php
 }
 
-function kn_get_select_product2()
-{
+function kn_get_select_product2() {
 	$args  = array(
-		'posts_per_page'   	=> -1,
+		'posts_per_page' => -1,
 		'post_type'      => 'product',
-
 	);
 	$query = new WP_Query($args);
-
+	if (!$query->have_posts()) {
+		return;
+	}
 	?>
-		<div class="select-product">
-			<div class="select-product-title right">
-				<p class="lable2">Chọn sản phẩm để so sánh</p>
-				<button id="filter2" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
-			</div>
-			<div class="seclect-product-list2">
-				<input type="text" id="inputFilter2" />
+	<div class="select-product">
+		<div class="select-product-title right">
+			<p class="lable2">Chọn sản phẩm để so sánh</p>
+			<button id="filter2" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+		</div>
+		<div class="seclect-product-list2">
+			<input type="text" id="inputFilter2" />
 
-				<div class="product-list2">
+			<div class="product-list2">
+				<?php while ($query->have_posts()) : $query->the_post(); ?>
+					<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+						<?php
+						the_title('<p class="product-title"  id="product2">', '</p>');
+						?>
+					</div>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+
+function load_sosanh($id) {
+	$args = array(
+		'post_type' => 'product',
+		'p'         => $id,
+	);
+
+	$lable = 'filter';
+	$query = new WP_Query($args);
+	while ($query->have_posts()) :
+		$query->the_post();
+		$price   = rwmb_meta('price');
+		$priceCV = rwmb_meta('price_nhap');
+		$code    = rwmb_meta('code');
+		$kithuat = rwmb_meta('thong_so');
+	?>
+		<div class="filter-product-content" data-name="<?php echo the_title() ?>">
+			<div class="filter-product-top <?php echo $lable ?>">
+				<div class="box_image">
+					<?php khoinguyen_post_thumbnail(); ?>
+				</div>
+				<div class="box_price">
+					<span class="price"><?php echo kn_currency_format($price ? $price : 0); ?></span>
+					<span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
+				</div>
+				<div class="box_product-datmua">
 					<?php
-					if (!$query->have_posts()) {
-						return;
+					$ID = get_current_user_id();
+					$cart = get_user_meta($ID, 'cart', true);
+					if (empty($cart) || !is_array($cart)) {
+						$cart = [];
 					}
-					while ($query->have_posts()) :
-						$query->the_post();
-					?>
-						<div class="product_item" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-							<?php
-							the_title('<p class="product-title"  id="product2">', '</p>');
-							?>
-						</div>
-					<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
+					$cart_product_id = [];
+
+					foreach ($cart as $key => $value) {
+						$cart_product_id[] = $key;
+					}
+
+					if (in_array(get_the_ID(), $cart_product_id)) : ?>
+						<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+						<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
+					<?php else : ?>
+						<a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
+						<a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="filter-product-bottom">
+				<div class="box_item">
+					<p class="product-lable">
+						Mã sản phẩm
+					</p>
+
+					<div class="product-content">
+						<?php echo $code ?>
+					</div>
+				</div>
+				<div class="box_item">
+					<p class="product-lable">
+						Thông số kỹ thuật
+					</p>
+
+					<div class="product-content">
+						<?php kn_get_mota() ?>
+					</div>
+				</div>
+				<div class="box_item">
+					<p class="product-lable">
+						Đặc điểm nổi bật
+					</p>
+
+					<div class="product-content">
+						<?php echo $kithuat ?>
+					</div>
 				</div>
 			</div>
 		</div>
 
-
-		<?php
-	}
-	function load_sosanh($id)
-	{
-
-		$args = array(
-			'post_type' => 'product',
-			'p' => $id,
-		);
-
-		$lable = 'filter';
-		$query = new WP_Query($args);
-		while ($query->have_posts()) :
-			$query->the_post();
-			$price = rwmb_meta('price', get_the_ID());
-			$priceCV = rwmb_meta('price_nhap', get_the_ID());
-			$code = rwmb_meta('code', get_the_ID());
-			$kithuat = rwmb_meta('thong_so', get_the_ID());
-		?>
-			<div class="filter-product-content" data-name="<?php echo the_title() ?>">
-				<div class="filter-product-top <?php echo $lable ?>">
-					<div class="box_image">
-						<?php khoinguyen_post_thumbnail(); ?>
-					</div>
-					<div class="box_price">
-						<span class="price"><?php echo kn_currency_format($price ? $price : 0); ?></span>
-						<span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
-					</div>
-					<div class="box_product-datmua">
-						<?php
-						$ID = get_current_user_id();
-						$cart = get_user_meta($ID, 'cart', true);
-						if (empty($cart) || !is_array($cart)) {
-							$cart = [];
-						}
-						$cart_product_id = [];
-
-						foreach ($cart as $key => $value) {
-							$cart_product_id[] = $key;
-						}
-
-						if (in_array(get_the_ID(), $cart_product_id)) : ?>
-							<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
-							<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
-
-						<?php else : ?>
-							<a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
-							<a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="filter-product-bottom">
-					<div class="box_item">
-						<p class="product-lable">
-							Mã sản phẩm
-						</p>
-
-						<div class="product-content">
-							<?php echo $code ?>
-						</div>
-					</div>
-					<div class="box_item">
-						<p class="product-lable">
-							Thông số kỹ thuật
-						</p>
-
-						<div class="product-content">
-							<?php kn_get_mota() ?>
-						</div>
-					</div>
-					<div class="box_item">
-						<p class="product-lable">
-							Đặc điểm nổi bật
-						</p>
-
-						<div class="product-content">
-							<?php echo $kithuat ?>
-						</div>
-					</div>
-				</div>
-			</div>
-
 	<?php
-
-		endwhile;
-		wp_reset_postdata();
-	}
+	endwhile;
+	wp_reset_postdata();
+}
