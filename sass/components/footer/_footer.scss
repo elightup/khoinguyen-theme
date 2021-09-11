@@ -25,7 +25,7 @@ color: #5A5A5A;
   flex-direction: column;
   justify-content: flex-start;
 }
-.footer-rigth{
+.footer-right{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
@@ -60,7 +60,7 @@ color: #5A5A5A;
   .footer-left{
     min-width: 100%!important;
   }
-  .footer-rigth{
+  .footer-right{
     display: inline-flexbox!important;
     text-align: justify;
     min-width: 100%!important;
@@ -82,7 +82,7 @@ color: #5A5A5A;
   .footer-left{
     min-width: 100%!important;
   }
-  .footer-rigth{
+  .footer-right{
     display: block!important;
     text-align: justify;
     min-width: 100%!important;
@@ -95,7 +95,7 @@ color: #5A5A5A;
 
   }
 }
-.footer-rigth{
+.footer-right{
   a{
     color:#5A5A5A;
   }

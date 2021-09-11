@@ -160,7 +160,7 @@ align-items: center;
   flex: 1;
   display: flex;
   align-items: center;
-  .categroty {
+  .category {
     position: relative;
     cursor: pointer;
     flex: 1;
@@ -174,11 +174,11 @@ align-items: center;
       height: 50px;
       position: absolute;
     }
-    .categroty-menu {
+    .category-menu {
       display: flex;
       justify-content: center;
       align-items: center;
-      .categroty-menu-icon {
+      .category-menu-icon {
         width: 20px;
         height: 20px;
         margin-top:-7px;
@@ -188,7 +188,7 @@ align-items: center;
           object-fit: contain;
         }
       }
-      .categroty-menu-title {
+      .category-menu-title {
         margin: 0;
         font-size: 15px;
         color: #5b5b5b;
@@ -197,7 +197,7 @@ align-items: center;
       }
     }
 }
-    .filter-categroty {
+    .filter-category {
       position: absolute;
       display: none;
       top: 130%;
@@ -420,17 +420,17 @@ align-items: center;
       display: block;
     }
   }
-  .categroty-menu-title, .main-navigation{
+  .category-menu-title, .main-navigation{
     display: none;
   } 
-  .filter-categroty{
+  .filter-category{
 
     margin-top:15px!important;
     margin-left:-15px;
     min-width: 400px!important;
    
   }
-  .categroty{
+  .category{
    
   
     &::after{
@@ -455,7 +455,7 @@ align-items: center;
       display: none;
     }
   }
-  .filter-categroty{
+  .filter-category{
     margin-left: -15px;
     width: 360px!important;
   }

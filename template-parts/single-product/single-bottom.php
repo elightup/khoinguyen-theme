@@ -60,6 +60,6 @@
                 Top bán chạy
             </label>
         </div>
-        <?php dynamic_sidebar('sidebar-rigth') ?>
+        <?php dynamic_sidebar('sidebar-right') ?>
     </div>
 </div>

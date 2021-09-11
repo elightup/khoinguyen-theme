@@ -112,19 +112,19 @@ jQuery(function ($) {
 			})
 
 		});
-		$('.categroty-menu').on('click',function(){
-			$('.filter-categroty').toggleClass('show');
+		$('.category-menu').on('click',function(){
+			$('.filter-category').toggleClass('show');
 		});
-		$('.categroty').mouseover(function(){
-			$('.filter-categroty').addClass('show');
+		$('.category').mouseover(function(){
+			$('.filter-category').addClass('show');
 		})
-		$('.categroty').mouseout(function(){
-			$('.filter-categroty').removeClass('show');
+		$('.category').mouseout(function(){
+			$('.filter-category').removeClass('show');
 		})
 	}
 	const filterproduct = () => {
-		$('.filter-categroty li').on('click', function () {
-			$('.filter-categroty li').removeClass('active');
+		$('.filter-category li').on('click', function () {
+			$('.filter-category li').removeClass('active');
 			$(this).addClass('active');
 			$data = $(this).data('tab');
 

@@ -25,8 +25,8 @@
 
 				<?php dynamic_sidebar('sidebar-footer-left') ?>
 			</div>
-			<div class="footer-rigth col-6">
-				<?php dynamic_sidebar('sidebar-footer-rigth') ?>
+			<div class="footer-right col-6">
+				<?php dynamic_sidebar('sidebar-footer-right') ?>
 			</div>
 		</div>
 	</div>

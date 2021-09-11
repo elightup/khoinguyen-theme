@@ -11,7 +11,7 @@ function shortcode_get_categrory()
 ?>
 
 
-	<div class="filter-categroty">
+	<div class="filter-category">
 		<ul>
 
 			<?php

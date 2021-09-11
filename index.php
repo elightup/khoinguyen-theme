@@ -19,6 +19,7 @@ get_header();
 	<main id="primary" class="main site-main">
 
 		<?php
+		kn_get_path();
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :

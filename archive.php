@@ -13,7 +13,9 @@ get_header();
 
 	<main id="primary" class="main site-main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php 
+		kn_get_path();
+		if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php

@@ -105,8 +105,8 @@ function khoinguyen_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'sidebar rigth', 'khoinguyen' ),
-			'id'            => 'sidebar-rigth',
+			'name'          => esc_html__( 'sidebar right', 'khoinguyen' ),
+			'id'            => 'sidebar-right',
 			'description'   => esc_html__( 'Add widgets here.', 'khoinguyen' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -127,8 +127,8 @@ function khoinguyen_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'sidebar footer-rigth', 'khoinguyen' ),
-			'id'            => 'sidebar-footer-rigth',
+			'name'          => esc_html__( 'sidebar footer-right', 'khoinguyen' ),
+			'id'            => 'sidebar-footer-right',
 			'description'   => esc_html__( 'Add widgets here.', 'khoinguyen' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

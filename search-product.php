@@ -34,7 +34,7 @@ get_header()
 
 
                 
-                <div class="product-list">
+                <div class="products-list">
                     <?php
                     while (have_posts()) :
                         the_post();
