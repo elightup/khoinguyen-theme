@@ -150,13 +150,59 @@ function kn_filter_home()
 		<div class="filter-category">
 			<h4>Danh mục: </h4>
 			<ul>
-				<?php foreach ($terms as $term) : ?>
+			<?php foreach ($terms as $term) : ?>
 					<li data-tab="<?php echo $term->slug ?>">
-						<?php echo $term->name; ?>
+						<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
+
 					</li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
+
+	<?php
+}
+function kn_filter_khuyenmai()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'nganh-hang',
+		'hide_empty' => false,
+
+	));
+	?>
+
+		<div class="filter-category_khuyenmai">
+			<h4>Danh mục: </h4>
+			<ul>
+			<?php foreach ($terms as $term) : ?>
+					<li data-tab="<?php echo $term->slug ?>">
+						<?php echo $term->name; ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+
+	<?php
+}
+function kn_filter_products()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'nganh-hang',
+		'hide_empty' => false,
+
+	));
+	?>
+		<div class="filter-category_product">
+			<ul>
+			<select class="select">
+			<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo $term->slug ?>" selected="selected">
+						<?php echo $term->name; ?>
+					</option>
+			<?php endforeach; ?>
+			</select>
+			</ul>
+		</div>
+
 
 	<?php
 }

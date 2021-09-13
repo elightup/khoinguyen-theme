@@ -13,7 +13,7 @@ get_header();
 
         <?php
         kn_get_path();
-        kn_filter_home();
+        kn_filter_products();
         ?>
         <div class="content_product-list">
             <div class="product-list">

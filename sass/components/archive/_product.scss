@@ -51,3 +51,45 @@
     }
   }
 }
+.filter-category_khuyenmai{
+  display: flex;
+  margin-top: 15px;
+  @media (max-width:576px) {
+    display: none;
+  }
+  h4 {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+   display:flex;
+   
+   justify-content: center;
+      margin: 0;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #5a5a5a;
+  }
+  ul{
+      display: flex;
+      list-style:none ;
+      padding: 0;
+      flex: 9;
+      flex-wrap: wrap;
+      margin: auto 0 5px 25px;
+     li{
+       background: white;
+          padding: 5px ;
+          border: 1px solid rgba(0,0,0,0.1);
+          box-shadow: 0px 3px 2px rgba(0,0,0,0.1);
+          border-radius: 5px;
+          margin: 10px;
+          cursor: pointer;
+          &:hover{
+            border-color: var(--color-accent);
+            color:var(--color-accent);
+          }
+     }
+      
+  }
+}

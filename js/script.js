@@ -123,11 +123,8 @@ jQuery(function ($) {
 		})
 	}
 	const filterproduct = () => {
-		$('.filter-category li').on('click', function () {
-			$('.filter-category li').removeClass('active');
-			$(this).addClass('active');
-			$data = $(this).data('tab');
-
+		$('.filter-category_product .select').change( function () {
+			$data = $(this).children('option:selected').val();
 			let datas = $('.product-item');
 			datas.each(function () {
 
@@ -139,6 +136,22 @@ jQuery(function ($) {
 			})
 		})
 
+	}
+	const filterproduct_khuyenmai = () =>{
+		$('.filter-category_khuyenmai li').on('click', function () {
+			$('.filter-category_khuyenmai li').removeClass('active');
+			$(this).addClass('active');
+			$data = $(this).data('tab');
+			let datas = $('.product-item');
+			datas.each(function () {
+
+				if ($(this).hasClass($data)) {
+					$(this).addClass('shows')
+				} else {
+					$(this).removeClass('shows');
+				}
+			})
+		})
 	}
 
 	let toggleAccount = () => {
@@ -264,6 +277,7 @@ jQuery(function ($) {
 	slickSlider();
 	tabsProduct();
 	filterproduct();
+	filterproduct_khuyenmai();
 	stickyHeader();
 	toggleAccount();
 	popupLogout();
