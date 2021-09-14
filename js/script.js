@@ -278,7 +278,6 @@ jQuery(function ($) {
 	tabsProduct();
 	filterproduct();
 	filterproduct_khuyenmai();
-	stickyHeader();
 	toggleAccount();
 	popupLogout();
 	sosanh();
