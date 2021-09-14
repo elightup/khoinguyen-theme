@@ -211,8 +211,8 @@
         .post-img {
           display: block;
           
-          width: 100px;
-          height: 100px;
+          width: 70px;
+          height: 70px;
           margin: auto;
           img {
             width: 100%;
@@ -227,7 +227,7 @@
         align-items: center;
         padding: 10px;
         .entry-title {
-          font-size: 18px;
+          font-size: 14px;
           font-weight: 500;
           
           margin: 0;
@@ -241,14 +241,14 @@
     .product_sidebar-price {
       display: flex;
       .price-sale {
-        font-size: 18px;
+        font-size: 14px;
         color: #f43a3a;
         font-weight: 700;
         margin: 0 10px;
       }
       .price {
         margin: 0 10px;
-        font-size: 18px;
+        font-size: 14px;
         color: #c4c4c4;
         margin-top: auto;
         text-decoration: line-through;
