@@ -33,9 +33,6 @@
 .filter-category{
   display: flex;
   margin-top: 15px;
-    a{
-      color:inherit;
-    }
   @media (max-width:576px) {
     display: none;
   }
@@ -60,16 +57,20 @@
       flex-wrap: wrap;
       margin: auto 0 5px 25px;
      li{
-       background: white;
-          padding: 5px ;
-          border: 1px solid rgba(0,0,0,0.1);
-          border-radius: 5px;
-          margin: 10px;
+        background: white;
+        padding: 5px ;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 5px;
+        margin:10px;
           cursor: pointer;
-          
           &:hover{
             border-color: var(--color-accent);
             color:var(--color-accent);
+          }
+          a{
+            color:inherit;
+
+
           }
      }
       
