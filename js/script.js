@@ -172,25 +172,6 @@ jQuery(function ($) {
 			$.magnificPopup.close();
 		});
 	}
-
-
-	function stickyHeader() {
-		var headerHeight = $('.header_top').outerHeight(),
-			adminBarHeight = $('#wpadminbar').height(),
-			headerContentOffset = $window.width() > 601 ? adminBarHeight : 0;
-
-		$window.on('scroll', function () {
-			if ($window.scrollTop() > headerHeight) {
-				$('.header_top').addClass('is-sticky');
-				if ($body.hasClass('admin-bar')) {
-					$('.header_top').css('top', headerContentOffset);
-				}
-			} else {
-				$('.header_top').removeClass('is-sticky');
-			}
-		});
-	}
-
 	function sosanh() {
 		$('#filter').on('click', function () {
 			$('.seclect-product-list').toggleClass('show')
