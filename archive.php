@@ -9,8 +9,9 @@
  */
 
 get_header();
+get_sidebar();
 ?>
-
+	
 	<main id="primary" class="main site-main">
 
 		<?php 
@@ -52,5 +53,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();
