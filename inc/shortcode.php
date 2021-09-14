@@ -101,7 +101,7 @@ function shortcode_get_moinhat()
             ob_start();
             $args = [
                 'post_type'      => 'product',
-                'posts_per_page' => 5,
+                'posts_per_page' => 3,
             ];
 
             $query = new WP_Query($args);
