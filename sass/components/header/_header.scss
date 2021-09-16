@@ -17,24 +17,7 @@
   .widget {
     margin: 0;
   }
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li {
-      padding: 0px 5px;
-      font-size: 13px;
-      border-right: #4f5357 solid 1px;
-      &:last-child {
-        border-right: none;
-        
-      }
-      a {
-        color:#c4c4c4;
-      } 
-    }
-  }
+
   .sidebar-top {
     display: flex;
     justify-content: space-between;
@@ -205,7 +188,7 @@
       top: 130%;
       width: 90%;
       z-index: 100;
-      margin-top: 8px;
+      margin-top:4px;
       transition: all 2s ease-in;
       -moz-transition: all 2s ease-in;
       -webkit-transition: all 2s ease-in;
@@ -240,7 +223,6 @@
   flex: 2;
   display: flex;
   width: 100%;
-  justify-content: center;
   ul {
     width: 100%;
     display: flex;

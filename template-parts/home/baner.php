@@ -2,9 +2,7 @@
 $banners = rwmb_meta('banner_group');
 $banner_static = rwmb_meta('banner_static')
 ?>
-<div class="menu_categrory container">
-<?php khoinguyen_get_categrory(); ?>
-</div>
+
 <section class="home__banner row">
 
 	<div class="home__banner-wrapper col-lg-10">

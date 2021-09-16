@@ -39,9 +39,8 @@
 						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
 					<?php else :
 						$current_user = wp_get_current_user();
-						$user_id      = $current_user->ID;
 					?>
-						<span>Chào bạn, <?php echo get_user_meta( $user_id, 'user_name', true ); ?></span>
+						<span>Chào bạn, <?php echo $current_user->display_name; ?></span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
@@ -69,10 +68,6 @@
 									<li>
 										<svg><use xlink:href="#icon-check" /></svg>
 										<a href="<?php echo esc_url( home_url() ); ?>/lich-su-thanh-toan/">Lịch sử thanh toán</a>
-									</li>
-									<li>
-										<svg><use xlink:href="#icon-check" /></svg>
-										<a href="<?php echo esc_url( home_url() ); ?>/tao-ma-giam-gia/">Tạo mã giảm giá</a>
 									</li>
 								<?php endif ?>
 								<li>
@@ -125,7 +120,9 @@
 				</div>
 			</div>
 			<div class="header_bottom">
-
+				<div class="header_bottom-categrory container">
+					<?php khoinguyen_get_categrory(); ?>
+				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
 					<?php
