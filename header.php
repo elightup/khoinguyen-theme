@@ -119,6 +119,10 @@
 										<svg><use xlink:href="#icon-check" /></svg>
 										<a href="<?php echo esc_url( home_url() ); ?>/lich-su-thanh-toan/">Lịch sử thanh toán</a>
 									</li>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/tao-ma-giam-gia/">Tạo mã giảm giá</a>
+									</li>
 								<?php endif ?>
 								<li>
 									<svg><use xlink:href="#icon-logout" /></svg>
