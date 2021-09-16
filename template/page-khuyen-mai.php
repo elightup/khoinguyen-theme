@@ -40,8 +40,6 @@ get_header();
                     $query->the_post();
                     get_template_part('template-parts/content', 'product');
                 endwhile;
-                
-                
                 wp_reset_postdata();
                
                 

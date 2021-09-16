@@ -34,57 +34,7 @@
 			<div class="header-sidebar">
 				<div class="sidebar-top container">
 					<?php dynamic_sidebar('menu-top') ?>
-				</div>
-
-			</div>
-			<div class="header_top ">
-				<div class="container row">
-					<div class="header_top-logo">
-						<?php
-						the_custom_logo();
-						?>
-					</div>
-					<div class="header_top-search">
-						<form action="<?php echo esc_url( home_url() ); ?>/" method="get" class="header-search">
-							<input type="hidden" name="post_type" value="product">
-							<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm nhanh...">
-							<div class="btn-search">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
-
-							</div>
-						</form>
-					</div>
-					<div class="header_top-contact">
-
-						<p class="contact">
-							<strong>
-								<span>Tổng đài:</span>
-							</strong>
-							<strong>
-								<span>0966 000 862</span>
-							</strong>
-						</p>
-						<img src="<?php echo get_template_directory_uri(); ?>/images/support.png" alt="">
-					</div>
-				</div>
-			</div>
-			<div class="header_bottom ">
-
-				<div class="header_bottom-categrory container">
-					<?php khoinguyen_get_categrory(); ?>
-				</div>
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-					?>
-				</nav><!-- #site-navigation -->
-				<div class="header_bottom-cart">
+					<div class="header_bottom-cart">
 					<?php if ( ! is_user_logged_in() ): ?>
 						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
 					<?php else :
@@ -134,6 +84,54 @@
 						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( '/' ); ?>">Có</a>
 					</div>
 				<?php endif ?>
+				</div>
 			</div>
+			
+			<div class="header_top ">
+				<div class="container row">
+					<div class="header_top-logo">
+						<?php
+						the_custom_logo();
+						?>
+					</div>
+					<div class="header_top-contact">
+
+						<p class="contact">
+							<strong>
+								<span>Hotline:</span>
+							</strong>
+							<strong>
+							<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;<span class="phone">0966 000 862</span>
+							</strong>
+						</p>
+					</div>
+					<div class="header_top-search">
+						<form action="<?php echo esc_url( home_url() ); ?>/" method="get" class="header-search">
+							<input type="hidden" name="post_type" value="product">
+							<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm sản phẩm">
+							<div class="btn-search">
+								<span>
+								<img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="">
+								</span>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+			<div class="header_bottom">
+
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+				</div>
 		</header><!-- #masthead -->
 		<div class="content container" id="content">

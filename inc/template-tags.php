@@ -112,9 +112,6 @@ function khoinguyen_get_categrory()
 	?>
 	<div class="category">
 		<div class="category-menu">
-			<div class="category-menu-icon">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
-			</div>
 			<p class="category-menu-title">
 				Danh mục sản phẩm
 			</p>
@@ -188,8 +185,32 @@ function kn_filter_products()
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
+	));
+	
+	?>
+		<div class="filter-category_product">
+			<ul>
+			<select class="select">
+			<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo $term->slug ?>" selected="selected">
+						<?php echo $term->name; ?>
+					</option>
+			<?php endforeach; ?>
+			</select>
+			</ul>
+		</div>
+
+
+	<?php
+}
+function kn_filter_products_price()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'tag',
+		'hide_empty' => false,
 
 	));
+	
 	?>
 		<div class="filter-category_product">
 			<ul>

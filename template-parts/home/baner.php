@@ -1,11 +1,14 @@
 <?php
 $banners = rwmb_meta('banner_group');
 $banner_static = rwmb_meta('banner_static')
-
 ?>
+<div class="menu_categrory container">
+<?php khoinguyen_get_categrory(); ?>
+</div>
 <section class="home__banner row">
 
 	<div class="home__banner-wrapper col-lg-10">
+		
 		<?php
 		foreach ($banners as $banner) :
 			$desktop_image = wp_get_attachment_image_url($banner['banner_image'], 'full');

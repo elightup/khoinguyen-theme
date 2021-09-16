@@ -114,8 +114,9 @@ input,
 textarea {
 	border: 1px solid var(--color-light);
 	background: transparent;
-	padding: 8px 12px;
+	padding: 10px 12px;
 	color: var(--color-ee);
+
 	&:focus {
 		outline: 1px dotted #ccc;
 		border-color: var(--color-dark);
@@ -132,9 +133,12 @@ select {
 form {
 	input[type='email'],
 	input[type='tel'],
-	input[type='text'],
 	input[type='url'] {
 		width: 100%;
+	}
+	input[type='text']{
+		width: 300px;
+		border-radius: 50px;
 	}
 }
 
