@@ -206,10 +206,10 @@ function kn_filter_products()
 
 	<?php
 }
-function kn_filter_products_price()
+function kn_filter_products_hang()
 {
 	$terms = get_terms(array(
-		'taxonomy'   => 'tag',
+		'taxonomy'   => 'hang',
 		'hide_empty' => false,
 
 	));
@@ -230,7 +230,78 @@ function kn_filter_products_price()
 
 	<?php
 }
+function kn_filter_products_gia()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'gia',
+		'hide_empty' => false,
 
+	));
+	
+	?>
+		<div class="filter-category_product">
+			<ul>
+			<select class="select">
+			<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo $term->slug ?>" selected="selected">
+						<?php echo $term->name; ?>
+					</option>
+			<?php endforeach; ?>
+			</select>
+			</ul>
+		</div>
+
+
+	<?php
+}
+function kn_filter_products_kieulapdat()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'kieulapdat',
+		'hide_empty' => false,
+
+	));
+	
+	?>
+		<div class="filter-category_product">
+			<ul>
+			<select class="select">
+			<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo $term->slug ?>" selected="selected">
+						<?php echo $term->name; ?>
+					</option>
+			<?php endforeach; ?>
+			</select>
+			</ul>
+		</div>
+
+
+	<?php
+}
+function kn_filter_products_loaimay()
+{
+	$terms = get_terms(array(
+		'taxonomy'   => 'loaimay',
+		'hide_empty' => false,
+
+	));
+	
+	?>
+		<div class="filter-category_product">
+			<ul>
+			<select class="select">
+			<?php foreach ($terms as $term) : ?>
+					<option value="<?php echo $term->slug ?>" selected="selected">
+						<?php echo $term->name; ?>
+					</option>
+			<?php endforeach; ?>
+			</select>
+			</ul>
+		</div>
+
+
+	<?php
+}
 function kn_get_path()
 {
 	echo '<div class="box_path">';

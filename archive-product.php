@@ -10,11 +10,14 @@ get_header();
 <section id="content" class="danhmuc-sp">
 
     <div id="main" class="container">
-
+       
         <?php
         kn_get_path();
         kn_filter_products();
-        kn_filter_products_price();
+        kn_filter_products_hang();
+        kn_filter_products_gia();
+        kn_filter_products_kieulapdat();
+        kn_filter_products_loaimay();
         ?>
         <div class="content_product-list">
             <div class="product-list">
