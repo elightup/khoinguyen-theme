@@ -254,6 +254,31 @@ jQuery(function ($) {
 
 	}
 
+	let validateForm = () => {
+		$( '#voucher_info' ).validate({
+			rules: {
+				post_title: {
+					required: true,
+					remote: {
+						url: Data.ajaxUrl,
+						type: 'post',
+						data: {
+							post_title: function() {
+								return $( '#post_title' ).val();
+							},
+							action: 'check_title_voucher'
+						},
+					}
+				}
+			},
+			messages: {
+				post_title: {
+					required: "Trường này là bắt buộc. Bạn hãy nhập lại!",
+				}
+			},
+		});
+	}
+
 
 	slickSlider();
 	tabsProduct();
@@ -262,4 +287,5 @@ jQuery(function ($) {
 	toggleAccount();
 	popupLogout();
 	sosanh();
+	validateForm();
 });
