@@ -15,7 +15,6 @@ get_header();
         kn_get_path();
         kn_filter_products();
         kn_filter_products_hang();
-        kn_filter_products_gia();
         kn_filter_products_kieulapdat();
         kn_filter_products_loaimay();
         ?>
