@@ -255,29 +255,35 @@ jQuery(function ($) {
 	}
 
 	let validateForm = () => {
-		$( '#voucher_info' ).validate({
-			rules: {
-				post_title: {
-					required: true,
-					remote: {
-						url: Data.ajaxUrl,
-						type: 'post',
-						data: {
-							post_title: function() {
-								return $( '#post_title' ).val();
-							},
-							action: 'check_title_voucher'
-						},
-					}
+		// Detect 'change' or 'keyup' ở title và check.
+		const $form = $( '#voucher_info' ),
+			$button = $form.find( '.rwmb-form-submit button' ),
+			$title  = $form.find( '#post_title' );
+
+		// Disable button ngay khi load.
+		$button.prop( 'disabled', true );
+
+		$title.on( 'input', function() {
+			$( '.post-title-error' ).remove();
+			$.post( Data.ajaxUrl, {
+				action: 'kn_check_title_voucher',
+				title: $title.val(),
+			}, function( response ) {
+				if ( ! response.success ) {
+					// alert( response.data );
+					$title.after( '<p class="post-title-error">' + response.data + '</p>' );
+					$button.prop( 'disabled', true );
+					return;
 				}
-			},
-			messages: {
-				post_title: {
-					required: "Trường này là bắt buộc. Bạn hãy nhập lại!",
-				}
-			},
-		});
+
+				// Nếu title unique, bật lại button submit.
+				$( '.post-title-error' ).remove();
+				$button.prop( 'disabled', false );
+			} );
+		} );
 	}
+
+
 
 
 	slickSlider();
