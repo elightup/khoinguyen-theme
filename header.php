@@ -39,8 +39,11 @@
 						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
 					<?php else :
 						$current_user = wp_get_current_user();
+						$user_id      = $current_user->ID;
+						$user_name    = get_user_meta( $user_id, 'user_name', true );
+						$user_name    = $user_name ? $user_name : $current_user->display_name;
 					?>
-						<span>Chào bạn, <?php echo $current_user->display_name; ?></span>
+						<span>Chào bạn, <?php echo $user_name; ?></span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
