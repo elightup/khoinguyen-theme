@@ -36,7 +36,8 @@
 					<?php dynamic_sidebar('menu-top') ?>
 					<div class="header_bottom-cart">
 					<?php if ( ! is_user_logged_in() ): ?>
-						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
+						<a href="#form-login-register" class="popup-form">Đăng nhập</a>
+						<?php get_template_part( 'template-parts/form-login-register' ); ?>
 					<?php else :
 						$current_user = wp_get_current_user();
 						$user_id      = $current_user->ID;
