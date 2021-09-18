@@ -96,9 +96,9 @@
   .btn-search {
     cursor: pointer;
     position: absolute;
-    width: 22px;
+    width: 25px;
     height: 25px;
-    right:3%;
+    right:1%;
     img {
       background: #fff;
       text-align: center;
@@ -361,7 +361,7 @@
   }
 }
 
-.white-popup-block {
+.popup-logout {
   position: relative;
   background: #ffffff;
   padding: 40px;
@@ -370,63 +370,10 @@
   max-width: 500px;
   z-index: 9999;
   text-align: center;
-  &.form-login-register {
-    padding: 0;
-    max-width: 650px;
-    .mfp-close {
-      right: -20px;
-      top: -20px;
-      background: #fff;
-      opacity: 1;
-      border-radius: 50%;
-    }
-    .register-user h2 {
-      display: none;
-    }
-  }
 }
 
-
-.form-title {
-  display: flex;
-}
-.item-title {
-  background: #e1e1e2; 
-  width: 50%;
-  margin: 0;
-  padding: 20px;
-  text-transform: uppercase;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .3s;
-  &.active {
-   background: #fff; 
-  }
-  &:hover {
-    background: #fcfcfc;
-  }
-}
-.item-content {
-  display: none;
-  &.show {
-    display: block;
-  }
-}
-.form-content {
-  padding: 20px;
-  text-align: left;
-}
-<<<<<<< HEAD
 @media(max-width:414px){
   .box_item{
-=======
-
-
-
-@media(max-width:415px){
-
-  .sidebar-top{
->>>>>>> a6ee5e434de9763e802d5fe84cfa3a14f059c3c3
     display: none!important;
   }
   .header_bottom-cart{
