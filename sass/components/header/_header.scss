@@ -249,6 +249,10 @@
   justify-content: flex-end;
   align-items: center;
   color: #fff;
+  font-size: 14px;
+  > span {
+    margin-right: 15px;
+  }
   .btn-cart {
     display: flex;
     background: #5b5b5b;
