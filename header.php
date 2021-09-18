@@ -85,7 +85,7 @@
 						<h3>Xin xác nhận</h3>
 						<p>Bạn có muốn chắc đăng xuất.</p>
 						<a class="btn-secondary wp-block-button__link popup-modal-dismiss">Không</a>
-						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( '/' ); ?>">Có</a>
+						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( home_url() ); ?>">Có</a>
 					</div>
 				<?php endif ?>
 				</div>
