@@ -371,9 +371,8 @@
   z-index: 9999;
   text-align: center;
 }
-@media(max-width:415px){
-
-  .sidebar-top{
+@media(max-width:414px){
+  .box_item{
     display: none!important;
   }
   .header_bottom-cart{
@@ -390,11 +389,6 @@
   }
   .header_top-contact{
     display: none;
-  }
-  .header_top-logo{
-    img {
-      margin-left:40%;
-    }
   }
   .header_top-search{
     margin:0!important;
@@ -431,7 +425,9 @@
     display: none;
   }
   .header_top{
-    height: 80px;
+    .header_top-logo{
+      position: relative!important;
+    }
     .header_top-search{
       height: 40px;
       margin-top:20px;
