@@ -283,6 +283,35 @@ jQuery(function ($) {
 		} );
 	}
 
+	let popupForm = () => {
+		$( '.popup-form' ).magnificPopup( {
+			type: 'inline',
+			closeBtnInside: true,
+			preloader: false,
+		} );
+
+		$( '.item-title' ).on( 'click', function () {
+
+			$( '.item-title' ).removeClass( 'active' );
+			$( '.item-content' ).removeClass( 'show' );
+			$(this).addClass( 'active' );
+			$tab = $(this).data( 'id' );
+
+			$( '#' + $tab ).addClass( 'show' );
+
+			// let tabs = $( '.content' );
+			// tabs.each( function () {
+			// 	if ( $(this).hasClass( $tab ) ) {
+			// 		$(this).addClass( 'show' )
+			// 	} else {
+			// 		$(this).removeClass( 'show' );
+			// 	}
+			// } )
+
+		} );
+	}
+
+
 
 
 
@@ -294,4 +323,5 @@ jQuery(function ($) {
 	popupLogout();
 	sosanh();
 	validateForm();
+	popupForm();
 });
