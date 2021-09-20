@@ -63,7 +63,7 @@ function filter_product() {
         </div>
 			</div>
 			<div class="filter-product-bottom">
-				<div class="box_item">
+				<div class="box_items">
 					<?php if(!$lable){
 						echo'<p class="product-lable">
 						Mã sản phẩm
@@ -73,7 +73,7 @@ function filter_product() {
 						<?php echo $code ?>
 					</div>
 				</div>
-				<div class="box_item">
+				<div class="box_items">
 				<?php if(!$lable){
 						echo'<p class="product-lable">
 						Thông số kỹ thuật
@@ -84,7 +84,7 @@ function filter_product() {
 						<?php kn_get_mota() ?>
 					</div>
 				</div>
-				<div class="box_item">
+				<div class="box_items">
 				<?php if(!$lable){
 						echo'<p class="product-lable">
 						Đặc điểm nổi bật

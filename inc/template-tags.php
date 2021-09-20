@@ -411,6 +411,41 @@ function kn_get_select_product2()
 		</div>
 		<?php
 	}
+	function kn_get_select_product3()
+{
+	$args  = array(
+		'posts_per_page' => -1,
+		'post_type'      => 'product',
+	);
+	$query = new WP_Query($args);
+	if (!$query->have_posts()) {
+		return;
+	}
+	?>
+		<div class="select-product">
+			<div class="select-product-title right">
+				<p class="lable3">Chọn sản phẩm để so sánh</p>
+				<button id="filter3" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+			</div>
+			<div class="seclect-product-list3">
+				<input type="text" id="inputFilter3" />
+
+				<div class="product-list3">
+					<?php while ($query->have_posts()) : $query->the_post(); ?>
+						<div class="product_item" id="product3" data-title="<?php the_title(); ?>" data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+							<?php
+							the_title('<p class="product-title" >', '</p>');
+							?>
+						</div>
+					<?php
+					endwhile;
+					wp_reset_postdata();
+					?>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
 
 	function load_sosanh($id)
 	{
