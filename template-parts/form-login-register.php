@@ -5,7 +5,6 @@
 	</div>
 	<div class="form-content">
 		<div id="1" class="item-content show">
-			<?php echo do_shortcode( '[mb_user_profile_login label_username="Tên đăng nhập" label_password="Mật khẩu" label_submit="Đăng nhập" label_remember="Nhớ mật khẩu" label_lost_password="Quên mật khẩu?" confirmation="Bạn đã đăng nhập thành công" ajax="true"]' ); ?>
 			<?php echo do_shortcode( '[mb_user_profile_login label_username="Tên đăng nhập" label_password="Mật khẩu" label_submit="Đăng nhập" label_remember="Nhớ mật khẩu" confirmation="Bạn đã đăng nhập thành công" ajax="true"]' ); ?>
 		</div>
 		<div id="2" class="item-content">
