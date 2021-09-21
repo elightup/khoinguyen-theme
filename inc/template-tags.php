@@ -213,8 +213,8 @@ function kn_filter_sap_xep() {
 	?>
 		<select name="filter-sap-xep">
 			<option value="">Sắp xếp</option>
-			<option value="1">Mới nhất</option>
-			<option value="2">Cũ nhất</option>
+			<option value="1">Sản phẩm mới nhất</option>
+			<option value="2">Sản phẩm cũ nhất</option>
 		</select>
 	<?php
 }
