@@ -29,6 +29,7 @@
 	}
 	.price {
 		margin-bottom: 0;
+		font-size: 15px;
 	}
 	.product-price, .total-price {
 		width: auto;
@@ -121,6 +122,9 @@
 		flex-direction: column;
 		> * {
 			margin-bottom: 10px;
+		}
+		.product-title {
+			max-width: 100%;
 		}
 		.product-voucher {
 			display: flex;
