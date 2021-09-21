@@ -4,7 +4,7 @@ $terms_hang = get_the_terms(get_the_ID(), 'hang');
 $terms_kieulapdat = get_the_terms(get_the_ID(), 'kieu-lap-dat');
 $terms_loaimay = get_the_terms(get_the_ID(), 'loai-may');
 $price = rwmb_meta('price', get_the_ID());
-$priceCV = rwmb_meta('price_nhap', get_the_ID());
+$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
 $Qtang = rwmb_meta('gift', get_the_ID());
 $class     = '';
 $class_hang     = '';
@@ -45,8 +45,13 @@ if ($terms_loaimay) {
 		?>
 		<div class="product-price">
 
-			<p class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></p>
-			<p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
+			<!-- <p class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></p>
+			<p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p> -->
+
+			<?php if( $price_pre_sale ) : ?>
+                <p class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></p>
+            <?php endif; ?>
+            <p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
 		</div>
 
 		<?php
@@ -60,5 +65,5 @@ if ($terms_loaimay) {
 		?>
 	
 	</div>
-	<?php kn_get_phantram($price ? $price : 0, $priceCV ? $priceCV : 0) ?>
+	<?php kn_get_phantram($price ? $price : 0, $price_pre_sale ? $price_pre_sale : 0) ?>
 </article>
