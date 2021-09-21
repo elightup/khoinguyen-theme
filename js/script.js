@@ -198,7 +198,7 @@ jQuery(function ($) {
 				}
 			});
 		})
-
+// filter 2
 
 		$('#filter2').on('click', function () {
 			$('.seclect-product-list2').toggleClass('show')
@@ -234,7 +234,43 @@ jQuery(function ($) {
 
 				}
 			});
+		});
+		// filter 3
+		$('#filter3').on('click', function () {
+			$('.seclect-product-list3').toggleClass('show')
 		})
+		$('#inputFilter3').on('keyup', function () {
+			var val = $(this).val().toLowerCase();
+			$('.product-list3 #product3').filter(function () {
+
+				$(this).toggle($(this).text().toLowerCase().indexOf(val) > -1);
+			})
+		})
+
+		$('.product-list3  .product_item').on('click', function () {
+			let ID = $(this).data('id');
+			let link = $(this).data('link');
+			let title = $(this).data('title');
+			$.ajax({
+				type: "get",
+				dataType: "html",
+				url: link,
+				data: {
+					action: "filter",
+					id: ID,
+					lable: 'right-filter'
+				},
+
+				success: function (response) {
+					$('.dislay-product3').html(response);
+					$('.seclect-product-list3').toggleClass('show');
+					$('.lable3').text(title);
+					var height = $('.filter-product-content').height();
+					$('.product-sosanh').css('height', height + 200)
+
+				}
+			});
+		});
 
 		var height = $('.filter-product-content').height();
 		name = $('.filter-product-content').data('name');

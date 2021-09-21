@@ -71,6 +71,7 @@ function kn_filter_product_archive( $query ) {
 	if ( $gia ) {
 		$meta_query = [];
 
+<<<<<<< HEAD
 		if ( $gia == '5' ) {
 			$meta_query[] = [
 				'key' => 'price',
@@ -115,6 +116,54 @@ function kn_filter_product_archive( $query ) {
 
 		$query->set( 'meta_query', $meta_query );
 	}
+=======
+            if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
+                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
+            <?php else: ?>
+                <a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
+                <a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+            <?php endif; ?>
+        </div>
+			</div>
+			<div class="filter-product-bottom">
+				<div class="box_items">
+					<?php if(!$lable){
+						echo'<p class="product-lable">
+						Mã sản phẩm
+					</p>';
+					} ?>
+					<div class="product-content">
+						<?php echo $code ?>
+					</div>
+				</div>
+				<div class="box_items">
+				<?php if(!$lable){
+						echo'<p class="product-lable">
+						Thông số kỹ thuật
+					</p>';
+					} ?>
+
+					<div class="product-content">
+						<?php kn_get_mota() ?>
+					</div>
+				</div>
+				<div class="box_items">
+				<?php if(!$lable){
+						echo'<p class="product-lable">
+						Đặc điểm nổi bật
+						</p>';
+					} ?>
+					<div class="product-content">
+						<?php echo $kithuat ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+	endwhile;
+	wp_reset_postdata();
+>>>>>>> 8badf0e2e7751bb5cffb5e39ec481128ac20faaa
 }
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){

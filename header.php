@@ -43,8 +43,11 @@
 						$user_id      = $current_user->ID;
 						$user_name    = get_user_meta( $user_id, 'user_name', true );
 						$user_name    = $user_name ? $user_name : $current_user->display_name;
+						$wallet       = get_user_meta( $user_id, 'wallet', true ) ? get_user_meta( $user_id, 'wallet', true ) : 0;
+
 					?>
 						<span>Chào bạn, <?php echo $user_name; ?></span>
+						<span>Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?></span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>

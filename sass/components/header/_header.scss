@@ -96,9 +96,9 @@
   .btn-search {
     cursor: pointer;
     position: absolute;
-    width: 25px;
+    width: 22px;
     height: 25px;
-    right:1%;
+    right: 3%;
     img {
       background: #fff;
       text-align: center;
@@ -249,6 +249,10 @@
   justify-content: flex-end;
   align-items: center;
   color: #fff;
+  font-size: 14px;
+  > span {
+    margin-right: 15px;
+  }
   .btn-cart {
     display: flex;
     background: #5b5b5b;
@@ -361,7 +365,7 @@
   }
 }
 
-.popup-logout {
+.white-popup-block {
   position: relative;
   background: #ffffff;
   padding: 40px;
@@ -370,7 +374,54 @@
   max-width: 500px;
   z-index: 9999;
   text-align: center;
+  &.form-login-register {
+    padding: 0;
+    max-width: 650px;
+    .mfp-close {
+      right: -20px;
+      top: -20px;
+      background: #fff;
+      opacity: 1;
+      border-radius: 50%;
+    }
+    .register-user h2 {
+      display: none;
+    }
+  }
 }
+
+.form-title {
+  display: flex;
+}
+<<<<<<< HEAD
+=======
+.item-title {
+  background: #e1e1e2; 
+  width: 50%;
+  margin: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s;
+  &.active {
+   background: #fff; 
+  }
+  &:hover {
+    background: #fcfcfc;
+  }
+}
+.item-content {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+.form-content {
+  padding: 20px;
+  text-align: left;
+}
+>>>>>>> 8badf0e2e7751bb5cffb5e39ec481128ac20faaa
 
 @media(max-width:414px){
   .box_item{
