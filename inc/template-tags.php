@@ -322,7 +322,6 @@ function kn_get_mota()
 
 function kn_currency_format($number)
 {
-	$number = $number * 1000;
 	return number_format($number, 0, ',', '.') . ' ₫';
 }
 
