@@ -123,4 +123,14 @@
 		flex-basis: 60px;
 		margin: 0 4px;
 	}
+	.cart .product-item {
+		flex-direction: column;
+		> * {
+			margin-bottom: 10px;
+		}
+		.product-voucher {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
 }

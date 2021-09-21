@@ -122,21 +122,14 @@ jQuery(function ($) {
 			$('.filter-category').removeClass('show');
 		})
 	}
-	const filterproduct = () => {
-		$('.filter-category_product .select').change( function () {
-			$data = $(this).children('option:selected').val();
-			let datas = $('.product-item');
-			datas.each(function () {
 
-				if ($(this).hasClass($data)) {
-					$(this).addClass('shows')
-				} else {
-					$(this).removeClass('shows');
-				}
-			})
+	const filterProductArchive = () => {
+		const $form = $( '.filters' );
+		$form.on( 'change', 'select', function () {
+			$form.submit();
 		})
-
 	}
+
 	const filterproduct_khuyenmai = () =>{
 		$('.filter-category_khuyenmai li').on('click', function () {
 			$('.filter-category_khuyenmai li').removeClass('active');
@@ -283,15 +276,45 @@ jQuery(function ($) {
 		} );
 	}
 
+	let popupForm = () => {
+		$( '.popup-form' ).magnificPopup( {
+			type: 'inline',
+			closeBtnInside: true,
+			preloader: false,
+		} );
+
+		$( '.item-title' ).on( 'click', function () {
+
+			$( '.item-title' ).removeClass( 'active' );
+			$( '.item-content' ).removeClass( 'show' );
+			$(this).addClass( 'active' );
+			$tab = $(this).data( 'id' );
+
+			$( '#' + $tab ).addClass( 'show' );
+
+			// let tabs = $( '.content' );
+			// tabs.each( function () {
+			// 	if ( $(this).hasClass( $tab ) ) {
+			// 		$(this).addClass( 'show' )
+			// 	} else {
+			// 		$(this).removeClass( 'show' );
+			// 	}
+			// } )
+
+		} );
+	}
+
+
 
 
 
 	slickSlider();
 	tabsProduct();
-	filterproduct();
+	filterProductArchive();
 	filterproduct_khuyenmai();
 	toggleAccount();
 	popupLogout();
 	sosanh();
 	validateForm();
+	popupForm();
 });

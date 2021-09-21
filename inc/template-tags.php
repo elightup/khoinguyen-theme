@@ -183,99 +183,121 @@ function kn_filter_khuyenmai()
 
 	<?php
 }
-function kn_filter_products()
-{
-	$terms = get_terms(array(
+
+// Em sửa lại các hàm output filter như thế này nhé.
+// Đây là cách để output các option ra và mark option nào được chọn nhé.
+function kn_filter_nganh_hang() {
+	$terms = get_terms( array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
-	));
-	
+	) );
+
+	if ( empty( $terms ) || ! is_array( $terms ) ) {
+		return;
+	}
+
+	$selected = isset( $_GET['filter-nganh-hang'] ) ? wp_strip_all_tags( $_GET['filter-nganh-hang'] ) : '';
 	?>
-		<div class="filter-category_product">
-			<ul>
-			<select class="select">
-			<?php foreach ($terms as $term) : ?>
-					<option value="<?php echo $term->slug ?>" selected="selected">
+		<select name="filter-nganh-hang">
+			<option value="">Ngành hàng</option>
+			<?php foreach ( $terms as $term ) : ?>
+					<option value="<?php echo esc_attr( $term->slug ) ?>" <?php selected( $term->slug, $selected ) ?>>
 						<?php echo $term->name; ?>
 					</option>
 			<?php endforeach; ?>
-			</select>
-			</ul>
-		</div>
-
-
+		</select>
 	<?php
 }
-function kn_filter_products_hang()
+function kn_filter_sap_xep() {
+	$selected = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
+	?>
+		<select name="filter-sap-xep">
+			<option value="">Sắp xếp</option>
+			<option value="1">Mới nhất</option>
+			<option value="2">Cũ nhất</option>
+		</select>
+	<?php
+}
+function kn_filter_gia() {
+	$selected = isset( $_GET['filter-gia'] ) ? wp_strip_all_tags( $_GET['filter-gia'] ) : '';
+	?>
+		<select name="filter-gia">
+			<option value="">Giá</option>
+			<option value="5">Dưới 5 triệu</option>
+			<option value="5-7">Từ 5-7 triệu</option>
+			<option value="7-15">Từ 7-15 triệu</option>
+			<option value="15">Trên 15 triệu</option>
+		</select>
+	<?php
+}
+function kn_filter_hang()
 {
-	$terms = get_terms(array(
+	$terms = get_terms( array(
 		'taxonomy'   => 'hang',
 		'hide_empty' => false,
+	) );
 
-	));
-	
+	if ( empty( $terms ) || ! is_array( $terms ) ) {
+		return;
+	}
+
+	$selected = isset( $_GET['filter-hang'] ) ? wp_strip_all_tags( $_GET['filter-hang'] ) : '';
 	?>
-		<div class="filter-category_product">
-			<ul>
-			<select class="select">
-			<?php foreach ($terms as $term) : ?>
-					<option value="<?php echo $term->slug ?>" selected="selected">
+		<select name="filter-hang">
+			<option value="">Hãng</option>
+			<?php foreach ( $terms as $term ) : ?>
+					<option value="<?php echo esc_attr( $term->slug ) ?>" <?php selected( $term->slug, $selected ) ?>>
 						<?php echo $term->name; ?>
 					</option>
 			<?php endforeach; ?>
-			</select>
-			</ul>
-		</div>
-
-
+		</select>
 	<?php
 }
-function kn_filter_products_kieulapdat()
+function kn_filter_kieu_lap_dat()
 {
-	$terms = get_terms(array(
+	$terms = get_terms( array(
 		'taxonomy'   => 'kieu-lap-dat',
 		'hide_empty' => false,
+	) );
 
-	));
-	
+	if ( empty( $terms ) || ! is_array( $terms ) ) {
+		return;
+	}
+
+	$selected = isset( $_GET['filter-kieu-lap-dat'] ) ? wp_strip_all_tags( $_GET['filter-kieu-lap-dat'] ) : '';
 	?>
-		<div class="filter-category_product">
-			<ul>
-			<select class="select">
-			<?php foreach ($terms as $term) : ?>
-					<option value="<?php echo $term->slug ?>" selected="selected">
+		<select name="filter-kieu-lap-dat">
+			<option value="">Kiểu lắp đặt</option>
+			<?php foreach ( $terms as $term ) : ?>
+					<option value="<?php echo esc_attr( $term->slug ) ?>" <?php selected( $term->slug, $selected ) ?>>
 						<?php echo $term->name; ?>
 					</option>
 			<?php endforeach; ?>
-			</select>
-			</ul>
-		</div>
-
-
+		</select>
 	<?php
 }
-function kn_filter_products_loaimay()
+function kn_filter_loai_may()
 {
-	$terms = get_terms(array(
+	$terms = get_terms( array(
 		'taxonomy'   => 'loai-may',
 		'hide_empty' => false,
+	) );
 
-	));
-	
+	if ( empty( $terms ) || ! is_array( $terms ) ) {
+		return;
+	}
+
+	$selected = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
+
 	?>
-		<div class="filter-category_product">
-			<ul>
-			<select class="select">
-			<?php foreach ($terms as $term) : ?>
-					<option value="<?php echo $term->slug ?>" selected="selected">
+		<select name="filter-loai-may">
+			<option value="">Loại máy</option>
+			<?php foreach ( $terms as $term ) : ?>
+					<option value="<?php echo esc_attr( $term->slug ) ?>" <?php selected( $term->slug, $selected ) ?>>
 						<?php echo $term->name; ?>
 					</option>
 			<?php endforeach; ?>
-			</select>
-			</ul>
-		</div>
-
-
+		</select>
 	<?php
 }
 function kn_get_path()
