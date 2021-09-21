@@ -74,3 +74,12 @@
       
   }
 }
+.filter-category_product{
+    display: inline-block;
+    select{
+      border-radius: 10px;
+      option{
+        border-radius: 10px;
+      }
+    }
+}

@@ -36,14 +36,18 @@
 					<?php dynamic_sidebar('menu-top') ?>
 					<div class="header_bottom-cart">
 					<?php if ( ! is_user_logged_in() ): ?>
-						<a href="<?php echo esc_url( home_url() ); ?>/dang-nhap">Đăng nhập</a>
+						<a href="#form-login-register" class="popup-form">Đăng nhập</a>
+						<?php get_template_part( 'template-parts/form-login-register' ); ?>
 					<?php else :
 						$current_user = wp_get_current_user();
 						$user_id      = $current_user->ID;
 						$user_name    = get_user_meta( $user_id, 'user_name', true );
 						$user_name    = $user_name ? $user_name : $current_user->display_name;
+						$wallet       = get_user_meta( $user_id, 'wallet', true ) ? get_user_meta( $user_id, 'wallet', true ) : 0;
+
 					?>
 						<span>Chào bạn, <?php echo $user_name; ?></span>
+						<span>Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?></span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
@@ -84,7 +88,7 @@
 						<h3>Xin xác nhận</h3>
 						<p>Bạn có muốn chắc đăng xuất.</p>
 						<a class="btn-secondary wp-block-button__link popup-modal-dismiss">Không</a>
-						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( '/' ); ?>">Có</a>
+						<a class="btn-primary wp-block-button__link" href="<?= wp_logout_url( home_url() ); ?>">Có</a>
 					</div>
 				<?php endif ?>
 				</div>
