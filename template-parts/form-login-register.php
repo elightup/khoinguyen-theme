@@ -5,11 +5,8 @@
 	</div>
 	<div class="form-content">
 		<div id="1" class="item-content show">
-<<<<<<< HEAD
 			<?php echo do_shortcode( '[mb_user_profile_login label_username="Tên đăng nhập" label_password="Mật khẩu" label_submit="Đăng nhập" label_remember="Nhớ mật khẩu" label_lost_password="Quên mật khẩu?" confirmation="Bạn đã đăng nhập thành công" ajax="true"]' ); ?>
-=======
 			<?php echo do_shortcode( '[mb_user_profile_login label_username="Tên đăng nhập" label_password="Mật khẩu" label_submit="Đăng nhập" label_remember="Nhớ mật khẩu" confirmation="Bạn đã đăng nhập thành công" ajax="true"]' ); ?>
->>>>>>> 8badf0e2e7751bb5cffb5e39ec481128ac20faaa
 		</div>
 		<div id="2" class="item-content">
 			<?php echo do_shortcode( '[mb_user_profile_register id="thong-tin-user" password_strength="false" label_username="Số điện thoại(dùng để đăng nhập)" label_password="Mật khẩu" label_password2="Xác nhận mật khẩu"  label_submit="Tạo tài khoản" confirmation="Tài khoản của bạn đã được tạo thành công. Vui lòng <a href="/dang-nhap/">đăng nhập</a>" show_if_user_can="create_users" role="subscriber"]' ); ?>
