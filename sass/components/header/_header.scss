@@ -394,6 +394,33 @@
   display: flex;
 }
 
+.item-title {
+  background: #e1e1e2; 
+  width: 50%;
+  margin: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s;
+  &.active {
+   background: #fff; 
+  }
+  &:hover {
+    background: #fcfcfc;
+  }
+}
+.item-content {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+.form-content {
+  padding: 20px;
+  text-align: left;
+}
+
 @media(max-width:414px){
   .box_item{
     display: none!important;
