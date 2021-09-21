@@ -393,35 +393,6 @@
 .form-title {
   display: flex;
 }
-<<<<<<< HEAD
-=======
-.item-title {
-  background: #e1e1e2; 
-  width: 50%;
-  margin: 0;
-  padding: 20px;
-  text-transform: uppercase;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .3s;
-  &.active {
-   background: #fff; 
-  }
-  &:hover {
-    background: #fcfcfc;
-  }
-}
-.item-content {
-  display: none;
-  &.show {
-    display: block;
-  }
-}
-.form-content {
-  padding: 20px;
-  text-align: left;
-}
->>>>>>> 8badf0e2e7751bb5cffb5e39ec481128ac20faaa
 
 @media(max-width:414px){
   .box_item{
