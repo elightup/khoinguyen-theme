@@ -13,11 +13,3 @@
 		</div>
 	</div>
 </div>
-
-<div class="apoiopu">
-	
-</div>
-
-<div class="dàh">
-	
-</div>
