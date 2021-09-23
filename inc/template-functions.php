@@ -1,44 +1,45 @@
 <?php
-function khoinguyen_body_classes($classes) {
-    if (!is_singular()) {
+function khoinguyen_body_classes( $classes ) {
+    if ( !is_singular() ) {
         $classes[] = 'hfeed';
     }
     // Adds a class of no-sidebar when there is no sidebar present.
-    if (!is_active_sidebar('sidebar-1')) {
+    if ( !is_active_sidebar( 'sidebar-1' ) ) {
         $classes[] = 'no-sidebar';
     }
     return $classes;
 }
-add_filter('body_class', 'khoinguyen_body_classes');
-add_action('wp_ajax_filter', 'filter_product');
-add_action('wp_ajax_nopriv_filter', 'filter_product');
+add_filter( 'body_class', 'khoinguyen_body_classes' );
+add_action( 'wp_ajax_filter', 'filter_product' );
+add_action( 'wp_ajax_nopriv_filter', 'filter_product' );
+add_action( 'pre_get_posts', 'kn_filter_product_archive' );
 function filter_product() {
-    $id = isset($_GET['id']) ? $_GET['id'] : false;
-    $lable = isset($_GET['lable']) ? $_GET['lable'] : false;
+    $id = isset( $_GET[ 'id' ] ) ? $_GET[ 'id' ] : false;
+    $lable = isset( $_GET[ 'lable' ] ) ? $_GET[ 'lable' ] : false;
     $args = array(
         'post_type' => 'product',
         'p' => $id,
     );
-    $query = new WP_Query($args);
-    while ($query->have_posts()) :
+    $query = new WP_Query( $args );
+    while ( $query->have_posts() ) :
         $query->the_post();
-        $price   = rwmb_meta('price');
-        $priceCV = rwmb_meta('price_nhap');
-        $code    = rwmb_meta('code');
-        $kithuat = rwmb_meta('thong_so');
+        $price   = rwmb_meta( 'price' );
+        $priceCV = rwmb_meta( 'price_nhap' );
+        $code    = rwmb_meta( 'code' );
+        $kithuat = rwmb_meta( 'thong_so' );
         ?>
         <div class="filter-product-content">
             <div class="filter-product-top <?php echo $lable ?>">
                 <div class="box_image">
-                    <?php khoinguyen_post_thumbnail(); ?>
+                    <?php khoinguyen_post_thumbnail() ?>
                 </div>
                 <div class="box_price">
-                    <span class="price"><?php echo kn_currency_format($price ? $price : 0); ?></span>
-                    <span class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></span>
+                    <span class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></span>
+                    <span class="price-sale"><?php echo kn_currency_format( $priceCV ? $priceCV : 0 ) ?></span>
                 </div>
                 <div class="box_product-datmua">
             <?php
-           $ID = get_current_user_id();
+           	$ID = get_current_user_id();
             $cart = get_user_meta( $ID, 'cart', true );
             if ( empty( $cart ) || ! is_array( $cart ) ) {
                 $cart = [];
@@ -58,7 +59,7 @@ function filter_product() {
             </div>
             <div class="filter-product-bottom">
                 <div class="box_items">
-                    <?php if(!$lable){
+                    <?php if( !$lable ) {
                         echo'<p class="product-lable">
                         Mã sản phẩm
                     </p>';
@@ -68,7 +69,7 @@ function filter_product() {
                     </div>
                 </div>
                 <div class="box_items">
-                <?php if(!$lable){
+                <?php if( !$lable ) {
                         echo'<p class="product-lable">
                         Thông số kỹ thuật
                     </p>';
@@ -78,7 +79,7 @@ function filter_product() {
                     </div>
                 </div>
                 <div class="box_items">
-                <?php if(!$lable){
+                <?php if( !$lable ) {
                         echo'<p class="product-lable">
                         Đặc điểm nổi bật
                         </p>';
@@ -93,8 +94,6 @@ function filter_product() {
     endwhile;
     wp_reset_postdata();
 }
-add_action( 'pre_get_posts', 'kn_filter_product_archive' );
-
 function kn_filter_product_archive( $query ) {
 	// Chỉ lọc ở trang archive product.
 	if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'product' ) ) {
