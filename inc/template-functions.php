@@ -142,6 +142,25 @@ function kn_filter_product_archive( $query ) {
 	}	
 	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
 	$query->set( 'tax_query', $tax_query );
+	//sap xep
+	$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
+		if ($sap_xep) {
+			if ($sap_xep == '1') {
+				$query->set( 'order', 'DESC' );
+				$query->set( 'orderby','date' ); 
+			} elseif ($sap_xep == '2') {
+            	$query->set('orderby', 'date');
+            	$query->set('order', 'ASC' );
+			} elseif ($sap_xep == '3') {
+				$query->set('orderby', 'meta_value_num');
+            	$query->set('order', 'ASC' );
+				$query->set('meta_key', 'price');
+			} elseif ($sap_xep == '4') {
+				$query->set('orderby', 'meta_value_num');
+            	$query->set('order', 'DESC' );
+				$query->set('meta_key', 'price');
+			}
+		}
 
 	// Lọc theo giá.
 	$gia = isset( $_GET['filter-gia'] ) ? wp_strip_all_tags( $_GET['filter-gia'] ) : '';
@@ -191,22 +210,4 @@ function kn_filter_product_archive( $query ) {
 
 		$query->set( 'meta_query', $meta_query );
 	}
-}
-add_action( 'pre_get_posts', 'my_change_sort_order'); 
-
-function my_change_sort_order($query){
-		if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'product' ) ) {
-			return;
-		}
-		$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
-		if($sap_xep) {
-			$meta_query = [];
-			if($sap_xep == '1') {
-				$query->set( 'order', 'DESC' );
-				$query->set( 'orderby', 'date' ); 
-			}elseif ($sap_xep == '2') {
-				$query->set( 'order', 'ASC' );
-				$query->set( 'orderby', 'date' ); 
-			}
-		}
 }

@@ -213,8 +213,10 @@ function kn_filter_sap_xep() {
 	?>
 		<select name="filter-sap-xep">
 			<option value="">Sắp xếp</option>
-			<option value="1">Sản phẩm mới nhất</option>
-			<option value="2">Sản phẩm cũ nhất</option>
+			<option value="1" <?php selected( '1',$selected ) ?>>Sản phẩm mới nhất</option>
+			<option value="2" <?php selected( '2',$selected ) ?>>Sản phẩm cũ nhất</option>
+			<option value="3" <?php selected( '3',$selected ) ?>>Giá từ thấp tới cao</option>
+			<option value="4" <?php selected( '4',$selected ) ?>>Giá từ cao tới thấp</option>
 		</select>
 	<?php
 }
@@ -223,10 +225,10 @@ function kn_filter_gia() {
 	?>
 		<select name="filter-gia">
 			<option value="">Giá</option>
-			<option value="5">Dưới 5 triệu</option>
-			<option value="5-7">Từ 5-7 triệu</option>
-			<option value="7-15">Từ 7-15 triệu</option>
-			<option value="15">Trên 15 triệu</option>
+			<option value="5" <?php selected( '5',$selected ) ?>>Dưới 5 triệu</option>
+			<option value="5-7" <?php selected( '5-7',$selected ) ?>>Từ 5-7 triệu</option>
+			<option value="7-15" <?php selected( '7-15',$selected ) ?>>Từ 7-15 triệu</option>
+			<option value="15" <?php selected( '15',$selected ) ?>>Trên 15 triệu</option>
 		</select>
 	<?php
 }
