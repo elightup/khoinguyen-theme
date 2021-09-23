@@ -94,13 +94,7 @@
   }
 }
 .filters__right{
-  @media(min-width: 1080px) {
     float: right;
-    position: absolute;
-    right:20%;
-    bottom: 97px;
-  }
-
 }
 .filters__left, .filters__right {
   select {

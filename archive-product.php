@@ -23,11 +23,12 @@ get_header();
 				kn_filter_kieu_lap_dat();
 				kn_filter_loai_may();
 				?>
-			</div>
-			<div class="filters__right">
+							<div class="filters__right">
 				<?php kn_filter_sap_xep();
 				?>
 			</div>
+			</div>
+
 		</form>
 		<div class="content_product-list">
 			<div class="product-list">
