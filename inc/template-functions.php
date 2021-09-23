@@ -101,7 +101,7 @@ function kn_filter_product_archive( $query ) {
 	}
 
 	$tax_query = [
-		'relation' => 'AND',		
+		'relation' => 'AND',
 	];
 	// Lọc theo ngành hàng.
 	$nganh_hang = isset( $_GET['filter-nganh-hang'] ) ? wp_strip_all_tags( $_GET['filter-nganh-hang'] ) : '';
@@ -138,7 +138,7 @@ function kn_filter_product_archive( $query ) {
 			'field' => 'slug',
 			'terms' => $loai_may,
 		];
-	}	
+	}
 	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
 	$query->set( 'tax_query', $tax_query );
 	//sap xep
@@ -146,7 +146,7 @@ function kn_filter_product_archive( $query ) {
 	if ($sap_xep) {
 		if ($sap_xep == '1') {
 			$query->set( 'order', 'DESC' );
-			$query->set( 'orderby','date' ); 
+			$query->set( 'orderby','date' );
 		} elseif ($sap_xep == '2') {
             $query->set('orderby', 'date');
             $query->set('order', 'ASC' );
