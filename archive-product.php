@@ -13,6 +13,7 @@ get_header();
 	   
 		<!-- Dùng 1 class của form này là đủ -->
 		<form action="" method="get" class="filters">
+		
 			<div class="filters__left">
 				<?php
 				kn_get_path();
@@ -21,11 +22,11 @@ get_header();
 				kn_filter_hang();
 				kn_filter_kieu_lap_dat();
 				kn_filter_loai_may();
-				kn_filter_sap_xep();
 				?>
 			</div>
 			<div class="filters__right">
-				<!-- Chỗ này hiện ô select sắp xếp theo thời gian, giá nhé -->
+				<?php kn_filter_sap_xep();
+				?>
 			</div>
 		</form>
 		<div class="content_product-list">

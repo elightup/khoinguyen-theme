@@ -93,6 +93,20 @@
       
   }
 }
-.filter_product{
-  display: flex;
+.filters__right{
+  @media(min-width: 1080px) {
+    float: right;
+    position: absolute;
+    right:20%;
+    bottom: 97px;
+  }
+
+}
+.filters__left, .filters__right {
+  select {
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%, rgba(0,0,0,1) 100%);
+  }
 }

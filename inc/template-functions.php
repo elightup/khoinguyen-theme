@@ -144,23 +144,23 @@ function kn_filter_product_archive( $query ) {
 	$query->set( 'tax_query', $tax_query );
 	//sap xep
 	$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
-		if ($sap_xep) {
-			if ($sap_xep == '1') {
-				$query->set( 'order', 'DESC' );
-				$query->set( 'orderby','date' ); 
-			} elseif ($sap_xep == '2') {
-            	$query->set('orderby', 'date');
-            	$query->set('order', 'ASC' );
-			} elseif ($sap_xep == '3') {
-				$query->set('orderby', 'meta_value_num');
-            	$query->set('order', 'ASC' );
-				$query->set('meta_key', 'price');
-			} elseif ($sap_xep == '4') {
-				$query->set('orderby', 'meta_value_num');
-            	$query->set('order', 'DESC' );
-				$query->set('meta_key', 'price');
-			}
+	if ($sap_xep) {
+		if ($sap_xep == '1') {
+			$query->set( 'order', 'DESC' );
+			$query->set( 'orderby','date' ); 
+		} elseif ($sap_xep == '2') {
+            $query->set('orderby', 'date');
+            $query->set('order', 'ASC' );
+		} elseif ($sap_xep == '3') {
+			$query->set('orderby', 'meta_value_num');
+            $query->set('order', 'ASC' );
+			$query->set('meta_key', 'price');
+		} elseif ($sap_xep == '4') {
+			$query->set('orderby', 'meta_value_num');
+            $query->set('order', 'DESC' );
+			$query->set('meta_key', 'price');
 		}
+	}
 
 	// Lọc theo giá.
 	$gia = isset( $_GET['filter-gia'] ) ? wp_strip_all_tags( $_GET['filter-gia'] ) : '';
@@ -207,7 +207,6 @@ function kn_filter_product_archive( $query ) {
 				'type' => 'NUMERIC',
 			];
 		}
-
 		$query->set( 'meta_query', $meta_query );
 	}
 }
