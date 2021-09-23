@@ -37,8 +37,8 @@
     font-weight: bold;
   }
 }
-.archive{
-  .post-list{
+.archive {
+  .post-list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     @media (max-width:768px) {
       grid-template-columns: repeat(3,1fr);
@@ -51,7 +51,7 @@
     }
   }
 }
-.filter-category_khuyenmai{
+.filter-category_khuyenmai {
   display: flex;
   margin-top: 15px;
   @media (max-width:576px) {
@@ -70,14 +70,14 @@
 
     color: #5a5a5a;
   }
-  ul{
+  ul {
       display: flex;
       list-style:none ;
       padding: 0;
       flex: 9;
       flex-wrap: wrap;
       margin: auto 0 5px 25px;
-     li{
+     li {
        background: white;
           padding: 5px ;
           border: 1px solid rgba(0,0,0,0.1);

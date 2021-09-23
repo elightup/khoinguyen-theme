@@ -1,6 +1,5 @@
 <?php
-function khoinguyen_posted_on()
-{
+function khoinguyen_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if (get_the_time('U') !== get_the_modified_time('U')) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="hidden updated" datetime="%3$s">%4$s</time>';
@@ -23,8 +22,7 @@ function khoinguyen_posted_on()
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
-function khoinguyen_posted_by()
-{
+function khoinguyen_posted_by() {
 	$byline = sprintf(
 		/* translators: %s: post author. */
 		esc_html_x('by %s', 'post author', 'khoinguyen'),
@@ -34,8 +32,7 @@ function khoinguyen_posted_by()
 	echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
-function khoinguyen_entry_footer()
-{
+function khoinguyen_entry_footer() {
 	// Hide category and tag text for pages.
 	if ('post' === get_post_type()) {
 		/* translators: used between list items, there is a space after the comma */
@@ -73,8 +70,7 @@ function khoinguyen_entry_footer()
 	}
 }
 
-function khoinguyen_post_thumbnail()
-{
+function khoinguyen_post_thumbnail() {
 	if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
 		return;
 	}
@@ -102,8 +98,7 @@ function khoinguyen_post_thumbnail()
 	endif; // End is_singular().
 }
 
-function khoinguyen_get_categrory()
-{
+function khoinguyen_get_categrory() {
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
@@ -133,13 +128,10 @@ function khoinguyen_get_categrory()
 
 }
 
-function kn_entry_title()
-{
+function kn_entry_title() {
 	the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h3>');
 }
-
-function kn_filter_home()
-{
+function kn_filter_home() {
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
@@ -161,8 +153,7 @@ function kn_filter_home()
 
 	<?php
 }
-function kn_filter_khuyenmai()
-{
+function kn_filter_khuyenmai() {
 	$terms = get_terms(array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
@@ -232,8 +223,7 @@ function kn_filter_gia() {
 		</select>
 	<?php
 }
-function kn_filter_hang()
-{
+function kn_filter_hang() {
 	$terms = get_terms( array(
 		'taxonomy'   => 'hang',
 		'hide_empty' => false,
@@ -255,8 +245,7 @@ function kn_filter_hang()
 		</select>
 	<?php
 }
-function kn_filter_kieu_lap_dat()
-{
+function kn_filter_kieu_lap_dat() {
 	$terms = get_terms( array(
 		'taxonomy'   => 'kieu-lap-dat',
 		'hide_empty' => false,
@@ -278,8 +267,7 @@ function kn_filter_kieu_lap_dat()
 		</select>
 	<?php
 }
-function kn_filter_loai_may()
-{
+function kn_filter_loai_may() {
 	$terms = get_terms( array(
 		'taxonomy'   => 'loai-may',
 		'hide_empty' => false,
@@ -302,15 +290,13 @@ function kn_filter_loai_may()
 		</select>
 	<?php
 }
-function kn_get_path()
-{
+function kn_get_path() {
 	echo '<div class="box_path">';
 	yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
 	echo '</div>';
 }
 
-function kn_get_mota()
-{
+function kn_get_mota() {
 	$mota = rwmb_meta('mo_ta');
 	if (empty($mota)) {
 		return;
@@ -322,13 +308,11 @@ function kn_get_mota()
 	<?php
 }
 
-function kn_currency_format($number)
-{
+function kn_currency_format($number) {
 	return number_format($number, 0, ',', '.') . ' ₫';
 }
 
-function kn_get_posts_categrory()
-{
+function kn_get_posts_categrory() {
 	$terms = get_the_category(get_queried_object_id());
 
 	$ids = array_map(function ($term) {
@@ -351,8 +335,7 @@ function kn_get_posts_categrory()
 	wp_reset_postdata();
 }
 
-function kn_get_phantram($so1, $so2)
-{
+function kn_get_phantram($so1, $so2) {
 	$phantram = (($so1 - $so2) / $so1) * 100;
 
 	if ($phantram !== 'NAN') {
@@ -362,8 +345,7 @@ function kn_get_phantram($so1, $so2)
 	}
 }
 
-function kn_get_select_product()
-{
+function kn_get_select_product() {
 	$args  = array(
 		'posts_per_page' => -1,
 		'post_type'      => 'product',
@@ -399,8 +381,7 @@ function kn_get_select_product()
 	<?php
 }
 
-function kn_get_select_product2()
-{
+function kn_get_select_product2() {
 	$args  = array(
 		'posts_per_page' => -1,
 		'post_type'      => 'product',
@@ -434,8 +415,7 @@ function kn_get_select_product2()
 	</div>
 	<?php
 }
-function kn_get_select_product3()
-{
+function kn_get_select_product3() {
 	$args  = array(
 		'posts_per_page' => -1,
 		'post_type'      => 'product',
@@ -470,8 +450,7 @@ function kn_get_select_product3()
 	<?php
 }
 
-function load_sosanh($id)
-{
+function load_sosanh($id) {
 	$args = array(
 		'post_type' => 'product',
 		'p'         => $id,
@@ -560,8 +539,7 @@ function load_sosanh($id)
  * @param  [type] $excerpt [description]
  * @return [type]          [description]
  */
-function kn_excerpt_more($excerpt)
-{
+function kn_excerpt_more($excerpt) {
 	return str_replace('[&hellip;]', '...', $excerpt);
 }
 add_filter('wp_trim_excerpt', 'kn_excerpt_more');
@@ -572,8 +550,7 @@ add_filter('wp_trim_excerpt', 'kn_excerpt_more');
  *
  * @return int
  */
-function nk_excerpt_length()
-{
+function nk_excerpt_length() {
 	return 20;
 }
 add_filter('excerpt_length', 'nk_excerpt_length');
