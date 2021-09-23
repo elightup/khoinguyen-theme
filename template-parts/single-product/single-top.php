@@ -118,6 +118,7 @@ $number = rwmb_meta('number', get_the_ID());
         <div class="box_product-datmua">
             <?php
             $id = get_current_user_id();
+            $product_id = get_the_ID();
 
             $cart = get_user_meta( $id, 'cart', true );
             if ( empty( $cart ) || ! is_array( $cart ) ) {
@@ -132,11 +133,11 @@ $number = rwmb_meta('number', get_the_ID());
            
             if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
                 <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
-                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay </a>
+                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua ngay </a>
 
             <?php else: ?>
-                <a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ hàng</a>
-                <a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+                <a href="#" class="btn btn-them single-add-to-cart" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
+                <a href="#" class="btn btn-muangay single-buynow" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= $product_id; ?>">Mua ngay</a>
             <?php endif; ?>
         </div>
     </div>
