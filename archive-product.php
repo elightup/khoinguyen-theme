@@ -17,7 +17,6 @@ get_header();
 		kn_filter_hang();
 		kn_filter_kieu_lap_dat();
 		kn_filter_loai_may();
-
 		kn_filter_sap_xep();
 		?>
 	</form>
