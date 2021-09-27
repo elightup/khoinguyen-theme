@@ -415,6 +415,9 @@
   &.show {
     display: block;
   }
+  .edit-form-email {
+    display: none;
+  }
 }
 .form-content {
   padding: 20px;
