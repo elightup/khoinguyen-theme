@@ -209,3 +209,24 @@ function kn_filter_product_archive( $query ) {
 		$query->set( 'meta_query', $meta_query );
 	}
 }
+
+
+/**
+ * Login after register.
+ */
+function kn_login( $object ) {
+	$district  = $_POST[ 'user_district' ] ? $_POST[ 'user_district' ] : '';
+	$ward      = $_POST[ 'user_ward' ] ? $_POST[ 'user_ward' ] : '';
+	$meta_user = get_user_meta( $object->user_id );
+	$user      = new WP_User( $object->user_id );
+
+	// Update.
+	update_user_meta( $object->user_id, 'user_district', $district );
+	update_user_meta( $object->user_id, 'user_ward', $ward );
+
+	// Login after register.
+	wp_set_current_user( $object->user_id, $meta_user['nickname'] );
+	wp_set_auth_cookie( $object->user_id );
+	do_action( 'wp_login', $meta_user['nickname'], $user );
+}
+add_action( 'rwmb_profile_after_save_user', 'kn_login' );

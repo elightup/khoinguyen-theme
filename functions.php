@@ -154,7 +154,12 @@ function khoinguyen_scripts() {
 
 	wp_enqueue_script( 'khoinguyen-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0', true );
 	wp_localize_script( 'khoinguyen-script', 'Data', [
-		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+		'province'      => get_user_meta( get_current_user_id(), 'user_province' ),
+		'district'      => get_user_meta( get_current_user_id(), 'user_district' ),
+		'ward'          => get_user_meta( get_current_user_id(), 'user_ward' ),
+		'all_districts' => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json'), true ),
+		'all_wards'     => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json'), true ),
 	] );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

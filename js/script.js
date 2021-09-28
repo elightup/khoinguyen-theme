@@ -371,6 +371,7 @@ jQuery(function ($) {
 	function get_options_from_response( response, defaultOptions ) {
 		if ( response.success ) {
 			var data = response.data;
+			console.log(data );
 			data.forEach( function( district ) {
 				var entry = Object.entries( district )[0];
 				defaultOptions += '<option value="' + entry[0] + '">' + entry[1] + '</option>';
@@ -379,6 +380,24 @@ jQuery(function ($) {
 		return defaultOptions;
 	}
 
+	function setDistrict() {
+
+		let option_districts = '',
+			option_wards     = '';
+		$.each( Data.all_districts[Data.province], function( index, districts ) {
+			option_districts += '<option value="' + index + '">' + districts + '</option>';
+		} );
+		$.each( Data.all_wards[Data.district], function( index, districts ) {
+			option_wards += '<option value="' + index + '">' + districts + '</option>';
+		} );
+
+		let districts = '<option selected value="' + Data.district + '">' + Data.all_districts[Data.province][Data.district] + '</option>' + option_districts,
+			ward      = '<option selected value="' + Data.ward + '">' + Data.all_wards[Data.district][Data.ward] + '</option>' + option_wards;
+		$( '.districts select' ).html( districts );
+		$( '.wards select' ).html( ward );
+	}
+
+	$( window ).on( 'load', setDistrict );
 
 	slickSlider();
 	tabsProduct();
