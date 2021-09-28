@@ -198,7 +198,7 @@ jQuery(function ($) {
 				}
 			});
 		})
-// filter 2
+		// filter 2
 
 		$('#filter2').on('click', function () {
 			$('.seclect-product-list2').toggleClass('show')
@@ -328,20 +328,56 @@ jQuery(function ($) {
 
 			$( '#' + $tab ).addClass( 'show' );
 
-			// let tabs = $( '.content' );
-			// tabs.each( function () {
-			// 	if ( $(this).hasClass( $tab ) ) {
-			// 		$(this).addClass( 'show' )
-			// 	} else {
-			// 		$(this).removeClass( 'show' );
-			// 	}
-			// } )
+		} );
+	}
 
+
+	let selectDistrictByCity = () => {
+		let defaultDistrict = '<option value="">Chọn Quận / Huyện</option>';
+		$( '.cities select' ).on( 'change', function() {
+			var city = $( this ).val();
+			var $district = $(this).parents( '.cities' ).next().find( 'select' );
+			var data = {
+				action: 'display_districts',
+				city: city
+			};
+
+			$.post( Data.ajaxUrl, data ).done( function( response ) {
+				var options = get_options_from_response( response, defaultDistrict );
+				$district.html( options ).val( null );
+			} );
+		} );
+	}
+
+	let selectWardByDistrict = () => {
+		let defaultWard = '<option value="">Chọn Xã / Phường</option>';
+		$( '.districts select' ).on( 'change', function() {
+			var district = $( this ).val();
+			var $ward = $(this).parents( '.districts' ).next().find( 'select' );
+			var data = {
+				action: 'display_wards',
+				district: district
+			};
+
+			$.post( Data.ajaxUrl, data ).done( function( response ) {
+				var options = get_options_from_response( response, defaultWard );
+				$ward.html( options ).val( null );
+			} );
 		} );
 	}
 
 
 
+	function get_options_from_response( response, defaultOptions ) {
+		if ( response.success ) {
+			var data = response.data;
+			data.forEach( function( district ) {
+				var entry = Object.entries( district )[0];
+				defaultOptions += '<option value="' + entry[0] + '">' + entry[1] + '</option>';
+			} );
+		}
+		return defaultOptions;
+	}
 
 
 	slickSlider();
@@ -353,4 +389,6 @@ jQuery(function ($) {
 	sosanh();
 	validateForm();
 	popupForm();
+	selectDistrictByCity();
+	selectWardByDistrict();
 });

@@ -166,3 +166,4 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/shortcode.php';
 require get_template_directory() . '/inc/validate-form.php';
+require get_template_directory() . '/inc/ajax.php';

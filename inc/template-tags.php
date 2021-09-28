@@ -550,10 +550,10 @@ add_filter('wp_trim_excerpt', 'kn_excerpt_more');
  *
  * @return int
  */
-function nk_excerpt_length() {
+function kn_excerpt_length() {
 	return 20;
 }
-add_filter('excerpt_length', 'nk_excerpt_length');
+add_filter('excerpt_length', 'kn_excerpt_length');
 
 function kn_get_product_info( $id ) {
 	$price      = (float) get_post_meta( $id, 'price', true );
@@ -575,4 +575,14 @@ function kn_get_product_info( $id ) {
 		'link'  => get_permalink( $id ),
 		'ma_sp' => get_post_meta( $id, 'ma_sp', true ),
 	];
+}
+
+function kn_get_districts_from_city( $city_id ) {
+	$all_districts = json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json'), true );
+	return $all_districts[ $city_id ];
+}
+
+function kn_get_wards_from_district( $district_id ) {
+	$all_wards = json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json'), true );
+	return $all_wards[ $district_id ];
 }
