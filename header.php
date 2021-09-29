@@ -47,7 +47,14 @@
 
 					?>
 						<span>Chào bạn, <?php echo $user_name; ?></span>
-						<span>Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?></span>
+						<span class="tichdiem">Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?>
+						<div class="popup_tichdiem">
+						<ul>
+							<p class="popup_tichdiem_thongtin">Thông tin</p>
+							<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm.<br> Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt.<br> Cảm ơn quý khách đã ủng hộ Khởi Nguyên.</p>
+						</ul>
+						</div>
+						</span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
@@ -93,7 +100,7 @@
 				<?php endif ?>
 				</div>
 			</div>
-			
+
 			<div class="header_top ">
 				<div class="container row">
 					<div class="header_top-logo">
@@ -123,7 +130,7 @@
 							</div>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 			<div class="header_bottom">

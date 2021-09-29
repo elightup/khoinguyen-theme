@@ -26,7 +26,7 @@
     .box_item{
       display: flex;
       padding:5px 0!important;
-    
+
     }
     .box_item:last-child{
       height: unset;
@@ -51,7 +51,7 @@
   }
 }
 
- 
+
 
 
 // header top
@@ -75,7 +75,7 @@
       height: 90px;
       padding-bottom: 10px;
     }
-  
+
 }
 .header_top-search {
   height: 45px;
@@ -395,7 +395,7 @@
 }
 
 .item-title {
-  background: #e1e1e2; 
+  background: #e1e1e2;
   width: 50%;
   margin: 0;
   padding: 20px;
@@ -404,7 +404,7 @@
   cursor: pointer;
   transition: all .3s;
   &.active {
-   background: #fff; 
+   background: #fff;
   }
   &:hover {
     background: #fcfcfc;
@@ -428,11 +428,6 @@
   .box_item{
     display: none!important;
   }
-  .header_bottom-cart{
-    span{
-      display: none;
-    }
-  }
   .is-sticky
   {
     position:relative;
@@ -454,21 +449,41 @@
   }
   .category-menu-title, .main-navigation{
     display: none;
-  } 
+  }
   .filter-category{
 
     margin-top:15px!important;
     margin-left:-15px;
     min-width: 400px!important;
-   
+
   }
   .category{
-   
-  
+
+
     &::after{
       display: none !important;
     }
   }
+  .popup_tichdiem {
+  position:absolute;
+  width: 100%;
+  background-color: #fff;
+  color:#000;
+  z-index:99;
+  border-radius:15px;
+  top:95px;
+  right:0;
+  box-shadow: 0px 3px 20px #e1e1e1;
+  ul{
+
+    .popup_tichdiem_thongtin {
+      text-align:center;
+      font-size:24px;
+      margin-left:-20px;
+     border-bottom:1px solid var(--color-accent);
+    }
+  }
+}
 }
 @media(max-width:769px){
   .is-sticky{
@@ -498,4 +513,32 @@
   .main-navigation{
     display: none;
   }
+}
+.popup_tichdiem {
+  display:none;
+}
+span.tichdiem:hover .popup_tichdiem{
+  display:block;
+}
+@media(min-width:1080px) {
+  .popup_tichdiem {
+  position:absolute;
+  max-width:350px;
+  background-color: #fff;
+  color:#000;
+  z-index:99;
+  border-radius:15px;
+  top:82px;
+  right:300px;
+  box-shadow: 0px 3px 20px #e1e1e1;
+  ul{
+
+    .popup_tichdiem_thongtin {
+      text-align:center;
+      font-size:24px;
+      margin-left:-20px;
+     border-bottom:1px solid var(--color-accent);
+    }
+  }
+}
 }
