@@ -477,9 +477,14 @@
   border-radius:15px;
   top:100px;
   right:0;
+  padding:10px;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
-  p {
-    margin-top:10px;
+  ul{
+    padding:unset;
+    margin:unset;
+      p{
+    margin:unset;
+      }
   }
 }
 
@@ -513,19 +518,28 @@
     display: none;
   }
 }
-@media(min-width:1080px) {
+@media(min-width:415px) {
+  .tichdiem {
+    position:relative;
+  }
   .popup_tichdiem {
   position:absolute;
-  max-width:250px;
+  width:250px;
   background-color: #fff;
   color:#000;
   z-index:99;
   border-radius:15px;
-  top:82px;
-  right:400px;
+  top:33px;
+  right:0;
+  padding:15px;
+  visibility: inherit;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
-  p{
-    margin-top:15px;
+  ul{
+    padding:unset;
+    margin:unset;
+      p{
+    margin:unset;
+      }
   }
 }
 .popup_tichdiem {
