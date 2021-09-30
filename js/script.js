@@ -396,7 +396,11 @@ jQuery(function ($) {
 		$( '.districts select' ).html( districts );
 		$( '.wards select' ).html( ward );
 	}
-
+	function clicktichdiem() {
+		$('.tichdiem').on('click',function(){
+			$('.popup_tichdiem').toggleClass('show');
+		});
+	}
 	$( window ).on( 'load', setDistrict );
 
 	slickSlider();
@@ -410,4 +414,5 @@ jQuery(function ($) {
 	popupForm();
 	selectDistrictByCity();
 	selectWardByDistrict();
+	clicktichdiem();
 });

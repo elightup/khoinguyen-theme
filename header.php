@@ -48,10 +48,9 @@
 					?>
 						<span>Chào bạn, <?php echo $user_name; ?></span>
 						<span class="tichdiem">Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?>
-						<div class="popup_tichdiem">
+						<div class="popup_tichdiem show">
 						<ul>
-							<p class="popup_tichdiem_thongtin">Thông tin</p>
-							<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm.<br> Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt.<br> Cảm ơn quý khách đã ủng hộ Khởi Nguyên.</p>
+							<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm. Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt. Cảm ơn quý khách đã ủng hộ Khởi Nguyên.</p>
 						</ul>
 						</div>
 						</span>
