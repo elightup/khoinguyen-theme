@@ -464,13 +464,11 @@
       display: none !important;
     }
   }
-  .tichdiem {
-    .show {
-      display:none!important;
-    }
+  .show1 {
+      display:block;
   }
   .popup_tichdiem {
-    display:block;
+    display:none;
   position:absolute;
   width: 100%;
   background-color: #fff;
