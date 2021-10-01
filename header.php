@@ -86,6 +86,10 @@
 										<svg><use xlink:href="#icon-check" /></svg>
 										<a href="<?php echo esc_url( home_url() ); ?>/tao-ma-giam-gia/">Tạo mã giảm giá</a>
 									</li>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/danh-sach-ma-giam-gia-cua-ban/">Mã giảm giá của bạn</a>
+									</li>
 								<?php endif ?>
 								<li>
 									<svg><use xlink:href="#icon-logout" /></svg>
