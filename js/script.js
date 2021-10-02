@@ -112,25 +112,25 @@ jQuery(function ($) {
 			})
 
 		});
-		$('.category-menu').on('click',function(){
+		$('.category-menu').on('click', function () {
 			$('.filter-category').toggleClass('show');
 		});
-		$('.category').mouseover(function(){
+		$('.category').mouseover(function () {
 			$('.filter-category').addClass('show');
 		})
-		$('.category').mouseout(function(){
+		$('.category').mouseout(function () {
 			$('.filter-category').removeClass('show');
 		})
 	}
 
 	const filterProductArchive = () => {
-		const $form = $( '.filters' );
-		$form.on( 'change', 'select', function () {
+		const $form = $('.filters');
+		$form.on('change', 'select', function () {
 			$form.submit();
 		})
 	}
 
-	const filterproduct_khuyenmai = () =>{
+	const filterproduct_khuyenmai = () => {
 		$('.filter-category_khuyenmai li').on('click', function () {
 			$('.filter-category_khuyenmai li').removeClass('active');
 			$(this).addClass('active');
@@ -171,12 +171,12 @@ jQuery(function ($) {
 		})
 		$('#inputFilter').on('keyup', function () {
 			var val = $(this).val().toLowerCase();
-			$('.product-list #product').filter(function () {
+			$('.product-lists #product').filter(function () {
 
 				$(this).toggle($(this).text().toLowerCase().indexOf(val) > -1);
 			})
 		});
-		$('.product-list  .product_item').on('click', function () {
+		$('.product-lists  .product_item').on('click', function () {
 			let ID = $(this).data('id');
 			let link = $(this).data('link');
 			let title = $(this).data('title');
@@ -198,7 +198,7 @@ jQuery(function ($) {
 				}
 			});
 		})
-// filter 2
+		// filter 2
 
 		$('#filter2').on('click', function () {
 			$('.seclect-product-list2').toggleClass('show')
@@ -273,7 +273,7 @@ jQuery(function ($) {
 		});
 
 		var height = $('.filter-product-content').height();
-		name = $('.filter-product-content').data('name');
+		let name = $('.filter-product-content').data('name');
 		if (name === 'undefined') {
 			$('.lable').text('Chọn sản phẩm để so sánh');
 		} else {
@@ -285,48 +285,48 @@ jQuery(function ($) {
 
 	let validateForm = () => {
 		// Detect 'change' or 'keyup' ở title và check.
-		const $form = $( '#voucher_info' ),
-			$button = $form.find( '.rwmb-form-submit button' ),
-			$title  = $form.find( '#post_title' );
+		const $form = $('#voucher_info'),
+			$button = $form.find('.rwmb-form-submit button'),
+			$title = $form.find('#post_title');
 
 		// Disable button ngay khi load.
-		$button.prop( 'disabled', true );
+		$button.prop('disabled', true);
 
-		$title.on( 'input', function() {
-			$( '.post-title-error' ).remove();
-			$.post( Data.ajaxUrl, {
+		$title.on('input', function () {
+			$('.post-title-error').remove();
+			$.post(Data.ajaxUrl, {
 				action: 'kn_check_title_voucher',
 				title: $title.val(),
-			}, function( response ) {
-				if ( ! response.success ) {
+			}, function (response) {
+				if (!response.success) {
 					// alert( response.data );
-					$title.after( '<p class="post-title-error">' + response.data + '</p>' );
-					$button.prop( 'disabled', true );
+					$title.after('<p class="post-title-error">' + response.data + '</p>');
+					$button.prop('disabled', true);
 					return;
 				}
 
 				// Nếu title unique, bật lại button submit.
-				$( '.post-title-error' ).remove();
-				$button.prop( 'disabled', false );
-			} );
-		} );
+				$('.post-title-error').remove();
+				$button.prop('disabled', false);
+			});
+		});
 	}
 
 	let popupForm = () => {
-		$( '.popup-form' ).magnificPopup( {
+		$('.popup-form').magnificPopup({
 			type: 'inline',
 			closeBtnInside: true,
 			preloader: false,
-		} );
+		});
 
-		$( '.item-title' ).on( 'click', function () {
+		$('.item-title').on('click', function () {
 
-			$( '.item-title' ).removeClass( 'active' );
-			$( '.item-content' ).removeClass( 'show' );
-			$(this).addClass( 'active' );
-			$tab = $(this).data( 'id' );
+			$('.item-title').removeClass('active');
+			$('.item-content').removeClass('show');
+			$(this).addClass('active');
+			$tab = $(this).data('id');
 
-			$( '#' + $tab ).addClass( 'show' );
+			$('#' + $tab).addClass('show');
 
 			// let tabs = $( '.content' );
 			// tabs.each( function () {
@@ -337,7 +337,7 @@ jQuery(function ($) {
 			// 	}
 			// } )
 
-		} );
+		});
 	}
 
 
