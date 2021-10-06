@@ -5,8 +5,8 @@ function kn_check_title_voucher() {
 	global $wpdb;
 
 	$post_title     = isset( $_POST['title'] ) ? $_POST['title'] : '';
-	$options        = get_option( 'gtt_shop' );
-	$prefix_voucher = isset( $options[ 'prefix_voucher' ] ) ? $options[ 'prefix_voucher' ] : '';
+	$user_id        = get_current_user_id();
+	$prefix_voucher = get_user_meta( $user_id, 'prefix_voucher', true ) ? get_user_meta( $user_id, 'prefix_voucher', true ) : '';
 
 	if ( empty( $post_title ) ) {
 		$message = 'Bạn cần nhập tên mã';
@@ -29,8 +29,8 @@ function kn_add_voucher_prefix( $data, $config ) {
 	if ( $config['id'] !== 'voucher_info' ) {
 		return $data;
 	}
-	$options            = get_option( 'gtt_shop' );
-	$prefix_voucher     = isset( $options[ 'prefix_voucher' ] ) ? $options[ 'prefix_voucher' ] : '';
+	$user_id            = get_current_user_id();
+	$prefix_voucher     = get_user_meta( $user_id, 'prefix_voucher', true ) ? get_user_meta( $user_id, 'prefix_voucher', true ) : '';
 	$data['post_title'] = $prefix_voucher . $data['post_title'];
 	return $data;
 }
