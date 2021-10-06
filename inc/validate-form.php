@@ -25,6 +25,7 @@ function kn_check_title_voucher() {
 
 
 add_filter( 'rwmb_frontend_insert_post_data', 'kn_add_voucher_prefix', 10, 2 );
+add_filter( 'rwmb_frontend_update_post_data', 'kn_add_voucher_prefix', 10, 2 );
 function kn_add_voucher_prefix( $data, $config ) {
 	if ( $config['id'] !== 'voucher_info' ) {
 		return $data;
@@ -34,3 +35,14 @@ function kn_add_voucher_prefix( $data, $config ) {
 	$data['post_title'] = $prefix_voucher . $data['post_title'];
 	return $data;
 }
+
+add_action( 'rwmb_frontend_before_form', function() {
+	add_filter( 'rwmb_post_title_field_meta', function( $meta, $field, $saved ) {
+		$prefix = get_user_meta( get_current_user_id(), 'prefix_voucher', true );
+		if ( strpos( $meta, $prefix ) === 0 ) {
+			$meta = substr( $meta, strlen( $prefix ) );
+		}
+
+		return $meta;
+	}, 20, 3 );
+} );
