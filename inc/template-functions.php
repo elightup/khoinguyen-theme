@@ -8,6 +8,12 @@ function khoinguyen_body_classes($classes)
 	if (!is_active_sidebar('sidebar-1')) {
 		$classes[] = 'no-sidebar';
 	}
+
+	if ( is_user_logged_in() ) {
+		$user       = wp_get_current_user();
+		$roles_user = $user->roles[0];
+		$classes[]  = $roles_user;
+	}
 	return $classes;
 }
 add_filter('body_class', 'khoinguyen_body_classes');

@@ -1,6 +1,7 @@
 .select-product {
   width: 100%;
   position: relative;
+  z-index: 9;
   @media (max-width: 960px) {
     width: 100%;
   }
