@@ -181,8 +181,7 @@ jQuery(function ($) {
 			let link = $(this).data('link');
 			let title = $(this).data('title');
 			$.ajax({
-				type: "get",
-				dataType: "html",
+				type: "POST",
 				url: link,
 				data: {
 					action: "filter",
@@ -190,7 +189,7 @@ jQuery(function ($) {
 				},
 
 				success: function (response) {
-					$('.dislay-product').html(response);
+					$('.dislay-product').html(response.product);
 					$('.seclect-product-list').toggleClass('show');
 					$('.lable').text(title);
 					var height = $('.filter-product-content').height();
@@ -216,8 +215,7 @@ jQuery(function ($) {
 			let link = $(this).data('link');
 			let title = $(this).data('title');
 			$.ajax({
-				type: "get",
-				dataType: "html",
+				type: "POST",
 				url: link,
 				data: {
 					action: "filter",
@@ -226,7 +224,7 @@ jQuery(function ($) {
 				},
 
 				success: function (response) {
-					$('.dislay-product2').html(response);
+					$('.dislay-product2').html(response.product);
 					$('.seclect-product-list2').toggleClass('show');
 					$('.lable2').text(title);
 					var height = $('.filter-product-content').height();
@@ -252,8 +250,7 @@ jQuery(function ($) {
 			let link = $(this).data('link');
 			let title = $(this).data('title');
 			$.ajax({
-				type: "get",
-				dataType: "html",
+				type: "POST",
 				url: link,
 				data: {
 					action: "filter",
@@ -262,7 +259,7 @@ jQuery(function ($) {
 				},
 
 				success: function (response) {
-					$('.dislay-product3').html(response);
+					$('.dislay-product3').html(response.product);
 					$('.seclect-product-list3').toggleClass('show');
 					$('.lable3').text(title);
 					var height = $('.filter-product-content').height();

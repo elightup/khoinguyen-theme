@@ -139,13 +139,13 @@
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
-    .price {
+    .price-pre-sale {
       font-size: 18px;
       color: #c4c4c4;
       text-decoration: line-through;
       margin: auto 15px 0 15px;
     }
-    .price-sale {
+    .price {
       font-size: 20px;
       color: #f43a3a;
       font-weight: bold;
@@ -205,6 +205,7 @@
     font-size: 14px;
     font-weight: bold;
     color: #5a5a5a;
+    margin: 10px 0;
   }
   .product-content {
     font-size: 16px;
