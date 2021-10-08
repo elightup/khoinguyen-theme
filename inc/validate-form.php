@@ -32,7 +32,7 @@ function kn_add_voucher_prefix( $data, $config ) {
 	}
 	$user_id            = get_current_user_id();
 	$prefix_voucher     = get_user_meta( $user_id, 'prefix_voucher', true ) ? get_user_meta( $user_id, 'prefix_voucher', true ) : '';
-	$data['post_title'] = $prefix_voucher . $data['post_title'];
+	$data['post_title'] = strtoupper( $prefix_voucher . $data['post_title'] );
 	return $data;
 }
 
