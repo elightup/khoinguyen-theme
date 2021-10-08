@@ -38,7 +38,7 @@ function kn_add_voucher_prefix( $data, $config ) {
 
 add_action( 'rwmb_frontend_before_form', function() {
 	add_filter( 'rwmb_post_title_field_meta', function( $meta, $field, $saved ) {
-		$prefix = get_user_meta( get_current_user_id(), 'prefix_voucher', true );
+		$prefix = strtoupper( get_user_meta( get_current_user_id(), 'prefix_voucher', true ) );
 		if ( strpos( $meta, $prefix ) === 0 ) {
 			$meta = substr( $meta, strlen( $prefix ) );
 		}
