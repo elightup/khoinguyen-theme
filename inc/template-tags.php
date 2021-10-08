@@ -487,10 +487,10 @@ function kn_get_select_product3()
 		$query = new WP_Query($args);
 		while ($query->have_posts()) :
 			$query->the_post();
-			$price   = rwmb_meta('price', get_the_ID());
-			$priceCV = rwmb_meta('price_pre_sale', get_the_ID());
-			$code    = rwmb_meta('code', get_the_ID());
-			$kithuat = rwmb_meta('thong_so', get_the_ID());
+			$price          = rwmb_meta('price', get_the_ID());
+			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
+			$code           = rwmb_meta('code', get_the_ID());
+			$kithuat        = rwmb_meta('thong_so', get_the_ID());
 		?>
     <div class="filter-product-content" data-name="<?php echo get_the_title() ?>">
         <div class="filter-product-top <?php echo $lable ?>">
@@ -498,8 +498,11 @@ function kn_get_select_product3()
                 <?php khoinguyen_post_thumbnail(); ?>
             </div>
             <div class="box_price">
-                <span class="price"><?php echo kn_currency_format($priceCV ? $priceCV : null); ?></span>
-                <span class="price-sale"><?php echo kn_currency_format($price ? $price : 0) ?></span>
+
+                <?php if( $price_pre_sale ) : ?>
+                    <span class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
+                <?php endif; ?>
+                <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
             </div>
             <div class="box_product-datmua">
                 <?php
