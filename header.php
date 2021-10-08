@@ -47,7 +47,13 @@
 
 					?>
 						<span>Chào bạn, <?php echo $user_name; ?></span>
-						<span>Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?></span>
+						<span class="tichdiem">Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?>
+						<div class="popup_tichdiem show1">
+						<ul>
+							<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm. Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt. Cảm ơn quý khách đã ủng hộ Khởi Nguyên.</p>
+						</ul>
+						</div>
+						</span>
 					<?php endif ?>
 
 					<?php get_template_part( 'template-parts/mini-cart' ) ?>
@@ -76,6 +82,14 @@
 										<svg><use xlink:href="#icon-check" /></svg>
 										<a href="<?php echo esc_url( home_url() ); ?>/lich-su-thanh-toan/">Lịch sử thanh toán</a>
 									</li>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/tao-ma-giam-gia/">Tạo mã giảm giá</a>
+									</li>
+									<li>
+										<svg><use xlink:href="#icon-check" /></svg>
+										<a href="<?php echo esc_url( home_url() ); ?>/danh-sach-ma-giam-gia-cua-ban/">Mã giảm giá của bạn</a>
+									</li>
 								<?php endif ?>
 								<li>
 									<svg><use xlink:href="#icon-logout" /></svg>
@@ -93,7 +107,7 @@
 				<?php endif ?>
 				</div>
 			</div>
-			
+
 			<div class="header_top ">
 				<div class="container row">
 					<div class="header_top-logo">
@@ -123,7 +137,7 @@
 							</div>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 			<div class="header_bottom">

@@ -154,7 +154,12 @@ function khoinguyen_scripts() {
 
 	wp_enqueue_script( 'khoinguyen-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0', true );
 	wp_localize_script( 'khoinguyen-script', 'Data', [
-		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+		'province'      => get_user_meta( get_current_user_id(), 'user_province' ),
+		'district'      => get_user_meta( get_current_user_id(), 'user_district' ),
+		'ward'          => get_user_meta( get_current_user_id(), 'user_ward' ),
+		'all_districts' => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json'), true ),
+		'all_wards'     => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json'), true ),
 	] );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -166,3 +171,19 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/shortcode.php';
 require get_template_directory() . '/inc/validate-form.php';
+require get_template_directory() . '/inc/ajax.php';
+
+
+/*
+ * Test send email with mailtrap
+ */
+function mailtrap($phpmailer) {
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 2525;
+	$phpmailer->Username = 'a00c6c3588510d';
+	$phpmailer->Password = '8a3167c5fc0ee9';
+}
+
+add_action('phpmailer_init', 'mailtrap');

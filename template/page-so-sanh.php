@@ -23,9 +23,9 @@ get_header();
             <?php kn_get_select_product(); ?>
             <div class="dislay-product">
                 <?php
-                echo $_GET['id'];
 
-                if ($_GET['id']) {
+
+                if (isset($_GET['id'])) {
 
                     load_sosanh($_GET['id']);
                 }
