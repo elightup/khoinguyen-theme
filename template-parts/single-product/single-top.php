@@ -1,8 +1,8 @@
 <?php
-$price = rwmb_meta('price', get_the_ID());
+$price          = rwmb_meta('price', get_the_ID());
 $price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
-$code = rwmb_meta('code', get_the_ID());
-$number = rwmb_meta('number', get_the_ID());
+$code           = rwmb_meta('code', get_the_ID());
+$number         = rwmb_meta('number', get_the_ID());
 
 ?>
 

@@ -371,7 +371,6 @@ jQuery(function ($) {
 	function get_options_from_response(response, defaultOptions) {
 		if (response.success) {
 			var data = response.data;
-			console.log(data);
 			data.forEach(function (district) {
 				var entry = Object.entries(district)[0];
 				defaultOptions += '<option value="' + entry[0] + '">' + entry[1] + '</option>';

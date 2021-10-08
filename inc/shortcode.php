@@ -37,24 +37,24 @@ function shortcode_get_banchay()
 		'tax_query' => array(
 			'relation' => 'AND',
 			array(
-				'taxonomy' => 'tag',
-				'field' => 'slug',
-				'terms' => array('noi-bat'),
+				'taxonomy'         => 'tag',
+				'field'            => 'slug',
+				'terms'            => array('noi-bat'),
 				'include_children' => true,
-				'operator' => 'IN'
+				'operator'         => 'IN'
 			)
 
 		),
 	];
 
 	$query = new WP_Query($args);
-?>
+	?>
 	<div class="box_product_sidebar">
 		<?php
 		while ($query->have_posts()) :
 			$query->the_post();
-			$price = rwmb_meta('price', get_the_ID());
-			$priceCV = rwmb_meta('price_nhap', get_the_ID());
+			$price          = rwmb_meta('price', get_the_ID());
+			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
 		?>
 
 			<div class="product_sidebar">
@@ -72,8 +72,10 @@ function shortcode_get_banchay()
 					</div>
 				</div>
 				<div class="product_sidebar-price">
-					<p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
-					<p class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></p>
+					<?php if( $price_pre_sale ) : ?>
+	                    <p class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></p>
+	                <?php endif; ?>
+	                <p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
 
 				</div>
 			</div>
@@ -94,28 +96,26 @@ function shortcode_get_moinhat()
 	<section class="product_moinhat">
 		<div class="title">
 			<h2>Sản phẩm mới nhất</h2>
-			</div>
-    <div class="box_filter">
-        <div class="product_list-filter ">
-            <?php
-            ob_start();
-            $args = [
-                'post_type'      => 'product',
-                'posts_per_page' => 3,
-            ];
+		</div>
+	    <div class="box_filter">
+	        <div class="product_list-filter ">
+	            <?php
+	            ob_start();
+	            $args = [
+	                'post_type'      => 'product',
+	                'posts_per_page' => 3,
+	            ];
 
-            $query = new WP_Query($args);
-            while ($query->have_posts()) :
-                $query->the_post();
-                get_template_part('template-parts/content', 'product');
-            endwhile;
-            wp_reset_postdata();
-
-
-            ?>
-        </div>
-    </div>
-</section>
+	            $query = new WP_Query($args);
+	            while ($query->have_posts()) :
+	                $query->the_post();
+	                get_template_part('template-parts/content', 'product');
+	            endwhile;
+	            wp_reset_postdata();
+	            ?>
+	        </div>
+	    </div>
+	</section>
 <?php
 }
 add_shortcode('get_moinhat', 'shortcode_get_moinhat');
@@ -131,27 +131,27 @@ function shortcode_get_banchay_product()
 		'tax_query' => array(
 			'relation' => 'AND',
 			array(
-				'taxonomy' => 'tag',
-				'field' => 'slug',
-				'terms' => array('noi-bat'),
+				'taxonomy'         => 'tag',
+				'field'            => 'slug',
+				'terms'            => array('noi-bat'),
 				'include_children' => true,
-				'operator' => 'IN'
+				'operator'         => 'IN'
 			)
 
 		),
 	];
 
 	$query = new WP_Query($args);
-?>
-			<div class="title">
-				<h2>Sản phẩm bán chạy</h2>
-			</div>
+	?>
+	<div class="title">
+		<h2>Sản phẩm bán chạy</h2>
+	</div>
 	<div class="box_product_sidebar1">
 		<?php
 		while ($query->have_posts()) :
 			$query->the_post();
-			$price = rwmb_meta('price', get_the_ID());
-			$priceCV = rwmb_meta('price_nhap', get_the_ID());
+			$price          = rwmb_meta('price', get_the_ID());
+			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
 		?>
 
 			<div class="product_sidebar">
@@ -169,9 +169,10 @@ function shortcode_get_banchay_product()
 					</div>
 				</div>
 				<div class="product_sidebar-price">
-					<p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
-					<p class="price-sale"><?php echo kn_currency_format($priceCV ? $priceCV : 0) ?></p>
-
+					<?php if( $price_pre_sale ) : ?>
+	                    <p class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></p>
+	                <?php endif; ?>
+	                <p class="price"><?php echo kn_currency_format($price ? $price : 0) ?></p>
 				</div>
 			</div>
 		<?php
