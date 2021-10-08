@@ -1,3 +1,6 @@
+<?php
+    $kithuat = rwmb_meta('thong_so',get_the_ID());
+?>
 <div class="box_single-bottom row">
     <div class="box_product-bottom col-lg-9">
         <!--tap menu -->
@@ -19,7 +22,6 @@
             </div>
             <div class="content ktthuat">
                 <?php
-                $kithuat=rwmb_meta('thong_so',get_the_ID());
                 echo $kithuat;
                  ?>
             </div>
