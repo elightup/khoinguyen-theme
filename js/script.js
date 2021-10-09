@@ -406,7 +406,9 @@ jQuery(function ($) {
 	toggleAccount();
 	popupLogout();
 	sosanh();
-	validateForm();
+	if ( $body.hasClass( 'page-id-191' ) ) {
+		validateForm();
+	}
 	popupForm();
 	selectDistrictByCity();
 	selectWardByDistrict();
