@@ -288,6 +288,7 @@ jQuery(function ($) {
 
 		// Disable button ngay khi load.
 		$button.prop('disabled', true);
+		$( 'input#post_title' ).focus();
 
 		$title.on('input', function () {
 			$('.post-title-error').remove();
