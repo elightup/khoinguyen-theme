@@ -81,11 +81,11 @@ function khoinguyen_post_thumbnail()
 	if (is_singular()) :
 ?>
 <div class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
+	<?php the_post_thumbnail(); ?>
 </div><!-- .post-thumbnail -->
 <?php else : ?>
 <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-    <?php
+	<?php
 			the_post_thumbnail(
 				'post-thumbnail',
 				array(
@@ -111,25 +111,25 @@ function khoinguyen_get_categrory()
 	));
 	?>
 <div class="category">
-    <div class="category-menu">
-        <div class="category-menu-icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
-        </div>
-        <p class="category-menu-title">
-            Danh mục sản phẩm
-        </p>
-    </div>
-    <div class="filter-category">
-        <ul>
-            <?php foreach ($terms as $term) : ?>
-            <li data-tab="<?php echo $term->slug ?>">
-                <a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
+	<div class="category-menu">
+		<div class="category-menu-icon">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
+		</div>
+		<p class="category-menu-title">
+			Danh mục sản phẩm
+		</p>
+	</div>
+	<div class="filter-category">
+		<ul>
+			<?php foreach ($terms as $term) : ?>
+			<li data-tab="<?php echo $term->slug ?>">
+				<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
 
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <?php
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<?php
 
 }
 
@@ -146,20 +146,44 @@ function kn_filter_home()
 	));
 	?>
 
-    <div class="filter-category">
-        <h4>Danh mục: </h4>
-        <ul>
-            <?php foreach ($terms as $term) : ?>
-            <li data-tab="<?php echo $term->slug ?>">
-                <a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
+	<div class="filter-category">
+		<h4>Danh mục: </h4>
+		<ul>
+			<?php foreach ($terms as $term) : ?>
+			<li data-tab="<?php echo $term->slug ?>">
+				<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
 
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 
-    <?php
+	<?php
 }
+
+function kn_nganh_hang_children( $parent ) {
+	$terms = get_term_children( $parent, 'nganh-hang' );
+	if ( ! $terms ) {
+		return;
+	}
+	?>
+
+	<div class="filter-category">
+		<ul>
+			<?php foreach ( $terms as $term_id ) :
+				$term = get_term_by( 'id', $term_id, 'nganh-hang' );
+			?>
+			<li data-tab="<?php echo $term->slug ?>">
+				<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
+
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+
+	<?php
+}
+
 function kn_filter_khuyenmai()
 {
 	$terms = get_terms(array(
@@ -169,18 +193,18 @@ function kn_filter_khuyenmai()
 	));
 	?>
 
-    <div class="filter-category_khuyenmai">
-        <h4>Danh mục: </h4>
-        <ul>
-            <?php foreach ($terms as $term) : ?>
-            <li data-tab="<?php echo $term->slug ?>">
-                <?php echo $term->name; ?></a>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+	<div class="filter-category_khuyenmai">
+		<h4>Danh mục: </h4>
+		<ul>
+			<?php foreach ($terms as $term) : ?>
+			<li data-tab="<?php echo $term->slug ?>">
+				<?php echo $term->name; ?></a>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 
-    <?php
+	<?php
 }
 
 // Em sửa lại các hàm output filter như thế này nhé.
@@ -198,41 +222,41 @@ function kn_filter_nganh_hang()
 
 	$selected = isset($_GET['filter-nganh-hang']) ? wp_strip_all_tags($_GET['filter-nganh-hang']) : '';
 	?>
-    <select name="filter-nganh-hang">
-        <option value="">Ngành hàng</option>
-        <?php foreach ($terms as $term) : ?>
-        <option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-            <?php echo $term->name; ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <?php
+	<select name="filter-nganh-hang">
+		<option value="">Ngành hàng</option>
+		<?php foreach ($terms as $term) : ?>
+		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
+			<?php echo $term->name; ?>
+		</option>
+		<?php endforeach; ?>
+	</select>
+	<?php
 }
 function kn_filter_sap_xep()
 {
 	$selected = isset($_GET['filter-sap-xep']) ? wp_strip_all_tags($_GET['filter-sap-xep']) : '';
 	?>
-    <select name="filter-sap-xep">
-        <option value="">Sắp xếp</option>
-        <option value="1" <?php selected('1', $selected) ?>>Sản phẩm mới nhất</option>
-        <option value="2" <?php selected('2', $selected) ?>>Sản phẩm cũ nhất</option>
-        <option value="3" <?php selected('3', $selected) ?>>Giá từ thấp tới cao</option>
-        <option value="4" <?php selected('4', $selected) ?>>Giá từ cao tới thấp</option>
-    </select>
-    <?php
+	<select name="filter-sap-xep">
+		<option value="">Sắp xếp</option>
+		<option value="1" <?php selected('1', $selected) ?>>Sản phẩm mới nhất</option>
+		<option value="2" <?php selected('2', $selected) ?>>Sản phẩm cũ nhất</option>
+		<option value="3" <?php selected('3', $selected) ?>>Giá từ thấp tới cao</option>
+		<option value="4" <?php selected('4', $selected) ?>>Giá từ cao tới thấp</option>
+	</select>
+	<?php
 }
 function kn_filter_gia()
 {
 	$selected = isset($_GET['filter-gia']) ? wp_strip_all_tags($_GET['filter-gia']) : '';
 	?>
-    <select name="filter-gia">
-        <option value="">Giá</option>
-        <option value="5" <?php selected('5', $selected) ?>>Dưới 5 triệu</option>
-        <option value="5-7" <?php selected('5-7', $selected) ?>>Từ 5-7 triệu</option>
-        <option value="7-15" <?php selected('7-15', $selected) ?>>Từ 7-15 triệu</option>
-        <option value="15" <?php selected('15', $selected) ?>>Trên 15 triệu</option>
-    </select>
-    <?php
+	<select name="filter-gia">
+		<option value="">Giá</option>
+		<option value="5" <?php selected('5', $selected) ?>>Dưới 5 triệu</option>
+		<option value="5-7" <?php selected('5-7', $selected) ?>>Từ 5-7 triệu</option>
+		<option value="7-15" <?php selected('7-15', $selected) ?>>Từ 7-15 triệu</option>
+		<option value="15" <?php selected('15', $selected) ?>>Trên 15 triệu</option>
+	</select>
+	<?php
 }
 function kn_filter_hang()
 {
@@ -247,15 +271,15 @@ function kn_filter_hang()
 
 	$selected = isset($_GET['filter-hang']) ? wp_strip_all_tags($_GET['filter-hang']) : '';
 	?>
-    <select name="filter-hang">
-        <option value="">Hãng</option>
-        <?php foreach ($terms as $term) : ?>
-        <option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-            <?php echo $term->name; ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <?php
+	<select name="filter-hang">
+		<option value="">Hãng</option>
+		<?php foreach ($terms as $term) : ?>
+		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
+			<?php echo $term->name; ?>
+		</option>
+		<?php endforeach; ?>
+	</select>
+	<?php
 }
 function kn_filter_kieu_lap_dat()
 {
@@ -270,15 +294,15 @@ function kn_filter_kieu_lap_dat()
 
 	$selected = isset($_GET['filter-kieu-lap-dat']) ? wp_strip_all_tags($_GET['filter-kieu-lap-dat']) : '';
 	?>
-    <select name="filter-kieu-lap-dat">
-        <option value="">Kiểu lắp đặt</option>
-        <?php foreach ($terms as $term) : ?>
-        <option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-            <?php echo $term->name; ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <?php
+	<select name="filter-kieu-lap-dat">
+		<option value="">Kiểu lắp đặt</option>
+		<?php foreach ($terms as $term) : ?>
+		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
+			<?php echo $term->name; ?>
+		</option>
+		<?php endforeach; ?>
+	</select>
+	<?php
 }
 function kn_filter_loai_may()
 {
@@ -294,15 +318,15 @@ function kn_filter_loai_may()
 	$selected = isset($_GET['filter-loai-may']) ? wp_strip_all_tags($_GET['filter-loai-may']) : '';
 
 	?>
-    <select name="filter-loai-may">
-        <option value="">Loại máy</option>
-        <?php foreach ($terms as $term) : ?>
-        <option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-            <?php echo $term->name; ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <?php
+	<select name="filter-loai-may">
+		<option value="">Loại máy</option>
+		<?php foreach ($terms as $term) : ?>
+		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
+			<?php echo $term->name; ?>
+		</option>
+		<?php endforeach; ?>
+	</select>
+	<?php
 }
 function kn_get_path()
 {
@@ -318,10 +342,10 @@ function kn_get_mota()
 		return;
 	}
 	?>
-    <div class="content-mota">
-        <?= wp_kses_post($mota) ?>
-    </div>
-    <?php
+	<div class="content-mota">
+		<?= wp_kses_post($mota) ?>
+	</div>
+	<?php
 }
 
 function kn_currency_format($number)
@@ -376,30 +400,30 @@ function kn_get_select_product()
 		return;
 	}
 	?>
-    <div class="select-product">
-        <div class="select-product-title left">
-            <p class="lable">Chọn sản phẩm để so sánh</p>
-            <button id="filter" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
-        </div>
-        <div class="seclect-product-list">
-            <input type="text" id="inputFilter" />
+	<div class="select-product">
+		<div class="select-product-title left">
+			<p class="lable">Chọn sản phẩm để so sánh</p>
+			<button id="filter" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+		</div>
+		<div class="seclect-product-list">
+			<input type="text" id="inputFilter" />
 
-            <div class="product-lists">
-                <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <div class="product_item" id="product" data-title="<?php the_title(); ?>"
-                    data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-                    <?php
+			<div class="product-lists">
+				<?php while ($query->have_posts()) : $query->the_post(); ?>
+				<div class="product_item" id="product" data-title="<?php the_title(); ?>"
+					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+					<?php
 							the_title('<p class="product-title"  >', '</p>');
 							?>
-                </div>
-                <?php
+				</div>
+				<?php
 					endwhile;
 					wp_reset_postdata();
 					?>
-            </div>
-        </div>
-    </div>
-    <?php
+			</div>
+		</div>
+	</div>
+	<?php
 }
 
 function kn_get_select_product2()
@@ -413,30 +437,30 @@ function kn_get_select_product2()
 		return;
 	}
 	?>
-    <div class="select-product">
-        <div class="select-product-title right">
-            <p class="lable2">Chọn sản phẩm để so sánh</p>
-            <button id="filter2" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
-        </div>
-        <div class="seclect-product-list2">
-            <input type="text" id="inputFilter2" />
+	<div class="select-product">
+		<div class="select-product-title right">
+			<p class="lable2">Chọn sản phẩm để so sánh</p>
+			<button id="filter2" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+		</div>
+		<div class="seclect-product-list2">
+			<input type="text" id="inputFilter2" />
 
-            <div class="product-list2">
-                <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <div class="product_item" id="product2" data-title="<?php the_title(); ?>"
-                    data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-                    <?php
+			<div class="product-list2">
+				<?php while ($query->have_posts()) : $query->the_post(); ?>
+				<div class="product_item" id="product2" data-title="<?php the_title(); ?>"
+					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+					<?php
 							the_title('<p class="product-title" >', '</p>');
 							?>
-                </div>
-                <?php
+				</div>
+				<?php
 					endwhile;
 					wp_reset_postdata();
 					?>
-            </div>
-        </div>
-    </div>
-    <?php
+			</div>
+		</div>
+	</div>
+	<?php
 }
 function kn_get_select_product3()
 {
@@ -449,30 +473,30 @@ function kn_get_select_product3()
 		return;
 	}
 	?>
-    <div class="select-product">
-        <div class="select-product-title right">
-            <p class="lable3">Chọn sản phẩm để so sánh</p>
-            <button id="filter3" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
-        </div>
-        <div class="seclect-product-list3">
-            <input type="text" id="inputFilter3" />
+	<div class="select-product">
+		<div class="select-product-title right">
+			<p class="lable3">Chọn sản phẩm để so sánh</p>
+			<button id="filter3" class="btn_select"> <i class="bi bi-caret-down-fill"></i></button>
+		</div>
+		<div class="seclect-product-list3">
+			<input type="text" id="inputFilter3" />
 
-            <div class="product-list3">
-                <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <div class="product_item" id="product3" data-title="<?php the_title(); ?>"
-                    data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-                    <?php
+			<div class="product-list3">
+				<?php while ($query->have_posts()) : $query->the_post(); ?>
+				<div class="product_item" id="product3" data-title="<?php the_title(); ?>"
+					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
+					<?php
 							the_title('<p class="product-title" >', '</p>');
 							?>
-                </div>
-                <?php
+				</div>
+				<?php
 					endwhile;
 					wp_reset_postdata();
 					?>
-            </div>
-        </div>
-    </div>
-    <?php
+			</div>
+		</div>
+	</div>
+	<?php
 	}
 
 	function load_sosanh($id)
@@ -492,20 +516,20 @@ function kn_get_select_product3()
 			$code           = rwmb_meta('code', get_the_ID());
 			$kithuat        = rwmb_meta('thong_so', get_the_ID());
 		?>
-    <div class="filter-product-content" data-name="<?php echo get_the_title() ?>">
-        <div class="filter-product-top <?php echo $lable ?>">
-            <div class="box_image">
-                <?php khoinguyen_post_thumbnail(); ?>
-            </div>
-            <div class="box_price">
+	<div class="filter-product-content" data-name="<?php echo get_the_title() ?>">
+		<div class="filter-product-top <?php echo $lable ?>">
+			<div class="box_image">
+				<?php khoinguyen_post_thumbnail(); ?>
+			</div>
+			<div class="box_price">
 
-                <?php if( $price_pre_sale ) : ?>
-                    <span class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
-                <?php endif; ?>
-                <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
-            </div>
-            <div class="box_product-datmua">
-                <?php
+				<?php if( $price_pre_sale ) : ?>
+					<span class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
+				<?php endif; ?>
+				<span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
+			</div>
+			<div class="box_product-datmua">
+				<?php
 						$ID = get_current_user_id();
 						$product_id = get_the_ID();
 						$cart = get_user_meta($ID, 'cart', true);
@@ -519,51 +543,51 @@ function kn_get_select_product3()
 						}
 
 						if (in_array(get_the_ID(), $cart_product_id)) : ?>
-                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
-                <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua
-                    ngay </a>
-                <?php else : ?>
-                <a href="#" class="btn btn-them single-add-to-cart"
-                    data-info="<?= esc_attr(wp_json_encode(kn_get_product_info($product_id))); ?>"
-                    data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
-                <a href="#" class="btn btn-muangay single-buynow"
-                    data-info="<?= esc_attr(wp_json_encode(kn_get_product_info($product_id))); ?>"
-                    data-product="<?= $product_id; ?>">Mua ngay</a>
-                <?php endif; ?>
-            </div>
-        </div>
-        <div class="filter-product-bottom">
-            <div class="box_items">
-                <p class="product-lable">
-                    Mã sản phẩm
-                </p>
+				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
+				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua
+					ngay </a>
+				<?php else : ?>
+				<a href="#" class="btn btn-them single-add-to-cart"
+					data-info="<?= esc_attr(wp_json_encode(kn_get_product_info($product_id))); ?>"
+					data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
+				<a href="#" class="btn btn-muangay single-buynow"
+					data-info="<?= esc_attr(wp_json_encode(kn_get_product_info($product_id))); ?>"
+					data-product="<?= $product_id; ?>">Mua ngay</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="filter-product-bottom">
+			<div class="box_items">
+				<p class="product-lable">
+					Mã sản phẩm
+				</p>
 
-                <div class="product-content">
-                    <?php echo $code ?>
-                </div>
-            </div>
-            <div class="box_items">
-                <p class="product-lable">
-                    Thông số kỹ thuật
-                </p>
+				<div class="product-content">
+					<?php echo $code ?>
+				</div>
+			</div>
+			<div class="box_items">
+				<p class="product-lable">
+					Thông số kỹ thuật
+				</p>
 
-                <div class="product-content">
-                    <?php kn_get_mota() ?>
-                </div>
-            </div>
-            <div class="box_items">
-                <p class="product-lable">
-                    Đặc điểm nổi bật
-                </p>
+				<div class="product-content">
+					<?php kn_get_mota() ?>
+				</div>
+			</div>
+			<div class="box_items">
+				<p class="product-lable">
+					Đặc điểm nổi bật
+				</p>
 
-                <div class="product-content">
-                    <?php echo $kithuat ?>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="product-content">
+					<?php echo $kithuat ?>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <?php
+	<?php
 		endwhile;
 		wp_reset_postdata();
 	}

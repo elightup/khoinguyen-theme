@@ -1,5 +1,6 @@
 .home_filter {
   width: 100%;
+  margin-bottom: 30px;
  
   .product_list-filter {
       margin-top: 15px;
@@ -18,7 +19,6 @@
   }
 
   .box-btn{
-      width: 100%;
       margin: 20px 0;
       .btn-xemthem{
           display: block;
@@ -42,9 +42,9 @@
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-   display:flex;
-   justify-content: center;
-      margin: 0;
+    display:flex;
+    justify-content: center;
+    margin: 0;
     text-align: center;
     letter-spacing: 0.1px;
     color: #5a5a5a;
