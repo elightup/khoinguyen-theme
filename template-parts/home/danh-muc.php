@@ -1,6 +1,10 @@
 <?php
 $nganh_hang = rwmb_meta( 'chon_nganh_hang' );
 
+if ( ! $nganh_hang ) {
+	return;
+}
+
 foreach( $nganh_hang as $value ) :
 	if ( $value->count == 0 ) {
 		continue;
