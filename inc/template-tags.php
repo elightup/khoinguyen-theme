@@ -173,9 +173,8 @@ function kn_nganh_hang_children( $parent ) {
 			<?php foreach ( $terms as $term_id ) :
 				$term = get_term_by( 'id', $term_id, 'nganh-hang' );
 			?>
-			<li data-tab="<?php echo $term->slug ?>">
-				<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
-
+			<li>
+				<a href="<?php echo get_term_link( $term_id, 'nganh-hang' ); ?>"><?php echo $term->name; ?></a>
 			</li>
 			<?php endforeach; ?>
 		</ul>
