@@ -49,6 +49,7 @@
   .page-header {
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -87,5 +88,13 @@
     .entry-title {
       font-size: 15px;
     }
+    .content.container {
+      flex-direction: column-reverse;
+    }
   }
+  .archive.search {
+    .box-seach-product {
+        flex-direction: column-reverse;
+      }
+    }
 }

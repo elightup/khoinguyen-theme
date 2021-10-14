@@ -10,9 +10,11 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'khoinguyen' ); ?></h1>
-	</header><!-- .page-header -->
+	<?php if ( ! isset( $_GET['post_type'] ) ) : ?>
+		<header class="page-header">
+			<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'khoinguyen' ); ?></h1>
+		</header><!-- .page-header -->
+	<?php endif; ?>
 
 	<div class="page-content">
 		<?php
@@ -35,15 +37,21 @@
 			?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'khoinguyen' ); ?></p>
+			<form action="<?php echo esc_url( home_url() ); ?>/" method="get" class="header-search">
+				<input type="hidden" name="post_type" value="product">
+				<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm sản phẩm">
+			</form>
 			<?php
-			get_search_form();
 
 		else :
 			?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'khoinguyen' ); ?></p>
+			<form action="<?php echo esc_url( home_url() ); ?>/" method="get" class="header-search">
+				<input type="hidden" name="post_type" value="product">
+				<input type="text" name="s" id="quick-search" placeholder="Tìm kiếm sản phẩm">
+			</form>
 			<?php
-			get_search_form();
 
 		endif;
 		?>
