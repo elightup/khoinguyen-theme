@@ -192,8 +192,8 @@ jQuery(function ($) {
 					$('.dislay-product').html(response.product);
 					$('.seclect-product-list').toggleClass('show');
 					$('.lable').text(title);
-					var height = $('.filter-product-content').height();
-					$('.product-sosanh').css('height', height + 200)
+
+					$('.product-sosanh').css('height','1500px')
 				}
 			});
 		})
@@ -227,8 +227,8 @@ jQuery(function ($) {
 					$('.dislay-product2').html(response.product);
 					$('.seclect-product-list2').toggleClass('show');
 					$('.lable2').text(title);
-					var height = $('.filter-product-content').height();
-					$('.product-sosanh').css('height', height + 200)
+
+					$( '.product-sosanh' ).css( 'height', '1500px' )
 
 				}
 			});

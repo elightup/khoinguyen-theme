@@ -514,7 +514,7 @@ function kn_get_select_product3()
 			$price          = rwmb_meta('price', get_the_ID());
 			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
 			$code           = rwmb_meta('code', get_the_ID());
-			$kithuat        = rwmb_meta('thong_so', get_the_ID());
+			$kithuat        = rwmb_meta('thong_so_so_sanh', get_the_ID());
 		?>
 	<div class="filter-product-content" data-name="<?php echo get_the_title() ?>">
 		<div class="filter-product-top <?php echo $lable ?>">
