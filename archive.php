@@ -21,7 +21,7 @@ get_sidebar();
 			<div class="box_filter"><?php kn_nganh_hang_children( get_queried_object_id() ); ?></div>
 			<header class="page-header">
 				<?php echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>'; ?>
-				<div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
+				<div class="fb-like" data-href="<?php echo get_term_link( get_queried_object_id(), 'nganh-hang' ); ?>" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
 			</header><!-- .page-header -->
 
 
