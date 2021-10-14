@@ -147,7 +147,6 @@ function kn_filter_home()
 	?>
 
 	<div class="filter-category">
-		<h4>Danh mục: </h4>
 		<ul>
 			<?php foreach ($terms as $term) : ?>
 			<li data-tab="<?php echo $term->slug ?>">
