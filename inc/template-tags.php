@@ -170,7 +170,10 @@ function kn_nganh_hang_children( $parent ) {
 
 	<div class="filter-category">
 		<ul>
-			<?php foreach ( $terms as $term_id ) :
+			<?php foreach ( $terms as $key => $term_id ) :
+				if ( $key > 4 ) {
+					break;
+				}
 				$term = get_term_by( 'id', $term_id, 'nganh-hang' );
 			?>
 			<li>
