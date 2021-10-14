@@ -11,7 +11,7 @@ foreach( $nganh_hang as $value ) :
 	}
 	?>
 	<section class="home_filter danh-muc-nganh-hang">
-		<div class="box_title">
+		<div class="box_title box_filter">
 			<h2 class="title">
 				<a href="<?php echo get_term_link( $value->term_id, 'nganh-hang' ) ?>" class="btn-xemthem">
 					<?php echo $value->name; ?>

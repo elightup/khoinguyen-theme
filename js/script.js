@@ -115,10 +115,10 @@ jQuery(function ($) {
 		$('.category-menu').on('click', function () {
 			$('.filter-category').toggleClass('show');
 		});
-		$('.category').mouseover(function () {
+		$('.header_bottom .category').mouseover(function () {
 			$('.filter-category').addClass('show');
 		})
-		$('.category').mouseout(function () {
+		$('.header_bottom .category').mouseout(function () {
 			$('.filter-category').removeClass('show');
 		})
 	}

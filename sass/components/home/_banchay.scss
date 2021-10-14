@@ -68,7 +68,7 @@
 		}
 	}
 
-	.filter-category {
+	.box_filter .filter-category {
 		margin-top: 0;
 		flex: 1;
 		font-size: 14px;
@@ -79,13 +79,18 @@
 		}
 		li {
 			margin: 0;
+			&:hover a {
+				background: none;
+				color: var(--color-accent);
+			}
 		}
 		a {
 			padding: 0 7px;
 			border: none;
 			border-right: 1px solid var(--color-accent);
 			border-radius: 0;
+			background: none;
+			color: #333;
 		}
 	}
-
 }

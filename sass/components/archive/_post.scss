@@ -46,6 +46,15 @@
   .entry-header {
     margin-top: 15px;
   }
+  .page-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .box_path {
+    padding-bottom: 0;
+  }
 }
 
 .widget-area .widget {

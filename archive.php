@@ -18,12 +18,12 @@ get_sidebar();
 		kn_get_path();
 		if ( have_posts() ) : ?>
 
+			<div class="box_filter"><?php kn_nganh_hang_children( get_queried_object_id() ); ?></div>
 			<header class="page-header">
-				<?php
-				post_type_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+				<?php echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>'; ?>
+				<div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
 			</header><!-- .page-header -->
+
 
 			<div class="post-list grid grid--4">
 				<?php
