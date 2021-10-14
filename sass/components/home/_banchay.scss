@@ -19,6 +19,7 @@
 		background: var(--color-accent);
 		color: #fff;
 		padding: 10px;
+		font-size: 16px;
 	}
 	&::after{
 		display: flex;
@@ -90,6 +91,14 @@
 			border-radius: 0;
 			background: none;
 			color: #333;
+		}
+	}
+}
+
+@media(max-width: 767px) {
+	.box_title {
+		.title {
+			font-size: 14px;
 		}
 	}
 }
