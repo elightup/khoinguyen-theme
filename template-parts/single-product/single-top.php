@@ -47,7 +47,7 @@ $number         = rwmb_meta('number', get_the_ID());
                     kn_get_phantram($price_pre_sale ? $price_pre_sale : 0,$price ? $price : 0);
                 }
                 ?>
-                <?php the_title('<h2 class="product-title">', '</h2>') ?>
+                <?php the_title('<h1 class="product-title">', '</h1>') ?>
             </div>
             <div class="box_product-status">
                 <p class="status row">

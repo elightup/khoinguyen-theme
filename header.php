@@ -111,6 +111,16 @@
 			<div class="header_top ">
 				<div class="container row">
 					<div class="header_top-logo">
+						<?php if ( is_front_page() ) : ?>
+							<h1 class="site-title">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+							</h1>
+						<?php else : ?>
+							<h3 class="site-title">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+							</h3>
+						<?php endif; ?>
+
 						<?php
 						the_custom_logo();
 						?>

@@ -12,13 +12,17 @@ foreach( $nganh_hang as $value ) :
 	?>
 	<section class="home_filter danh-muc-nganh-hang">
 		<div class="box_title">
-			<h2 class="title"><?php echo $value->name; ?></h2>
+			<h2 class="title">
+				<a href="<?php echo get_term_link( $value->term_id, 'nganh-hang' ) ?>" class="btn-xemthem">
+					<?php echo $value->name; ?>
+				</a>
+			</h2>
 			<?php kn_nganh_hang_children( $value->term_id ); ?>
 			<div class="box-btn">
-			<a href="" class="btn-xemthem">
-				Xem tất cả
-			</a>
-		</div>
+				<a href="<?php echo get_term_link( $value->term_id, 'nganh-hang' ) ?>" class="btn-xemthem">
+					Xem tất cả
+				</a>
+			</div>
 		</div>
 		<div class="box_filter">
 			<div class="product_list-filter ">

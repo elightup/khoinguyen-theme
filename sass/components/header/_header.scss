@@ -1,6 +1,9 @@
 .site-header {
   z-index: 10;
 }
+.site-title {
+  display: none;
+}
 .is-sticky {
   position: fixed;
   top: 0;

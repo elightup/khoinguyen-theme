@@ -19,8 +19,6 @@
 				get_template_part('template-parts/content', 'product');
 			endwhile;
 			wp_reset_postdata();
-
-
 			?>
 		</div>
 		<div class="box-btn">
