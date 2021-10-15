@@ -102,32 +102,42 @@ function khoinguyen_post_thumbnail()
 	endif; // End is_singular().
 }
 
-function khoinguyen_get_categrory()
-{
-	$terms = get_terms(array(
-		'taxonomy'   => 'nganh-hang',
-		'hide_empty' => false,
-
-	));
+function khoinguyen_get_categrory() {
+	$terms = rwmb_meta( 'nganh_hang_show', [ 'object_type' => 'setting' ], 'setting' );
 	?>
-<div class="category">
-	<div class="category-menu">
-		<div class="category-menu-icon">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
+	<div class="category">
+		<div class="category-menu">
+			<div class="category-menu-icon">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
+			</div>
+			<p class="category-menu-title">
+				Danh mục sản phẩm
+			</p>
 		</div>
-		<p class="category-menu-title">
-			Danh mục sản phẩm
-		</p>
-	</div>
-	<div class="filter-category">
-		<ul>
-			<?php foreach ($terms as $term) : ?>
-			<li data-tab="<?php echo $term->slug ?>">
-				<a href="<?php echo get_term_link($term->slug, 'nganh-hang'); ?>"><?php echo $term->name; ?></a>
-
-			</li>
-			<?php endforeach; ?>
-		</ul>
+		<div class="filter-category">
+			<ul>
+				<?php foreach ( $terms as $term ) :
+					$childrens = get_term_children( $term->term_id, 'nganh-hang' );
+				?>
+				<li data-tab="<?php echo $term->slug ?>">
+					<?php
+					if ( $childrens ) : ?>
+						<div class="filter-category__children d-flex">
+							<?php foreach ( $childrens as $children ) :
+								$term_child = get_term_by( 'id', $children, 'nganh-hang' );
+							?>
+								<div class="category__children-item">
+									<a href="<?php echo get_term_link( $term_child->slug, 'nganh-hang' ); ?>"><?php echo $term_child->name; ?></a>
+								</div>
+							<?php endforeach; ?>
+						</div>
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+					<?php endif; ?>
+					<a href="<?php echo get_term_link( $term->slug, 'nganh-hang' ); ?>"><?php echo $term->name; ?></a>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
 	</div>
 	<?php
 

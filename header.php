@@ -151,20 +151,22 @@
 				</div>
 			</div>
 			<div class="header_bottom">
-				<div class="header_bottom-categrory container">
-					<?php khoinguyen_get_categrory(); ?>
+				<div class="container d-flex">
+					<div class="header_bottom-categrory">
+						<?php khoinguyen_get_categrory(); ?>
+					</div>
+					<nav id="site-navigation" class="main-navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+							)
+						);
+						?>
+					</nav><!-- #site-navigation -->
 				</div>
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-					?>
-				</nav><!-- #site-navigation -->
-				</div>
+			</div>
 		</header><!-- #masthead -->
 		<div class="content container" id="content">
