@@ -228,7 +228,7 @@
 		position: absolute;
 		left: 100%;
 		top: 0;
-		width: max-content;
+		width: 890px;
 		bottom: 0;
 		z-index: 100;
 		transition: all 2s ease-in;
@@ -241,6 +241,7 @@
 	}
 	.filter-category__children .category__children-item {
 		padding: 0 15px;
+		width: 33.33%;
 		a {
 			color: var(--color-accent);
 		}
