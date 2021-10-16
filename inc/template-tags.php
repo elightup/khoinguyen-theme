@@ -372,26 +372,31 @@ function kn_currency_format($number)
 	return number_format($number, 0, ',', '.') . ' ₫';
 }
 
-function kn_get_posts_categrory()
-{
-	$terms = get_the_category(get_queried_object_id());
+function kn_get_posts_categrory() {
+	$terms = get_the_terms( get_the_ID(), 'nganh-hang' );
 
-	$ids = array_map(function ($term) {
+	$ids = array_map( function ($term) {
 		return $term->term_id;
-	}, $terms);
+	}, $terms );
 	$args  = array(
 		'posts_per_page' => 10,
 		'post_type'      => 'product',
-		'post__not_in'   => array(get_the_ID()),
-		'category__in'   => $ids,
+		'post__not_in'   => array( get_the_ID() ),
+		'tax_query'      => [
+			[
+				'taxonomy' => 'nganh-hang',
+				'field'    => 'id',
+				'terms'    => $ids,
+			]
+		]
 	);
-	$query = new WP_Query($args);
-	if (!$query->have_posts()) {
+	$query = new WP_Query( $args );
+	if ( ! $query->have_posts() ) {
 		return;
 	}
-	while ($query->have_posts()) :
+	while ( $query->have_posts() ) :
 		$query->the_post();
-		get_template_part('template-parts/content', 'product');
+		get_template_part( 'template-parts/content', 'product' );
 	endwhile;
 	wp_reset_postdata();
 }
