@@ -126,7 +126,14 @@ function khoinguyen_get_categrory() {
 							<?php foreach ( $childrens as $children ) :
 								$term_child = get_term_by( 'id', $children, 'nganh-hang' );
 							?>
-								<div class="category__children-item">
+								<div class="category__children-item d-flex">
+									<?php
+									$image = rwmb_meta( 'image_nganh_hang', ['object_type' => 'term'], $children );
+									if ( $image ) :
+										$link_image = wp_get_attachment_image_url( $image['ID'], 'thumbnail' );
+										?>
+										<img src="<?php echo $link_image; ?>" alt="">
+									<?php endif; ?>
 									<a href="<?php echo get_term_link( $term_child->slug, 'nganh-hang' ); ?>"><?php echo $term_child->name; ?></a>
 								</div>
 							<?php endforeach; ?>
