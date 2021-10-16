@@ -28,7 +28,7 @@ get_sidebar();
 						<div class="zalo-share-button icon " data-href="<?php the_permalink(); ?>" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize="true">
 							<img src="<?= get_template_directory_uri(); ?>/images/logo-zalo.jpg" alt="" sizes="50px 50px" srcset="">
 						</div>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_term_link( get_queried_object_id(), 'nganh-hang' ); ?>" class="icon" target="_blank"> <img src="<?= get_template_directory_uri(); ?>/images/facebook.png" alt="" sizes="50px 50px"></a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_term_link( get_queried_object_id() ); ?>" class="icon" target="_blank"> <img src="<?= get_template_directory_uri(); ?>/images/facebook.png" alt="" sizes="50px 50px"></a>
 
 					</div>
 				</div>
