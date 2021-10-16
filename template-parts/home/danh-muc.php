@@ -6,9 +6,9 @@ if ( ! $nganh_hang ) {
 }
 
 foreach( $nganh_hang as $value ) :
-	if ( $value->count == 0 ) {
-		continue;
-	}
+	// if ( $value->count == 0 ) {
+	// 	continue;
+	// }
 	?>
 	<section class="home_filter danh-muc-nganh-hang">
 		<div class="box_title box_filter">
@@ -25,7 +25,7 @@ foreach( $nganh_hang as $value ) :
 			</div>
 		</div>
 		<div class="box_filter">
-			<div class="product_list-filter ">
+			<div class="product_list-filter">
 				<?php
 				ob_start();
 				$args = [

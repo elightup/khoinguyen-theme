@@ -99,7 +99,7 @@ $number         = rwmb_meta('number', get_the_ID());
                 </p>
             </div>
             <div class="product_share-item">
-                <a href="#">
+                <a href="tel:0966000862">
                     Hotline:
                     <span>0966 000 862</span>
                 </a>
