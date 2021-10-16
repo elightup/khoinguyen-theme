@@ -225,7 +225,7 @@
 		background-color: var(--color-white);
 		border: 1px solid #ddd;
 		box-shadow: 5px 5px 20px 5px #d6cccc;
-		padding: 20px 30px;
+		padding: 20px;
 		img {
 			width: 40px;
 			height: 40px;
@@ -235,7 +235,7 @@
 	.filter-category__children .category__children-item {
 		padding: 15px 10px;
 		width: 33.33%;
-		justify-content: center;
+		flex-wrap: no-wrap;
 		a {
 			color: var(--color-accent);
 			margin-top: 10px;
