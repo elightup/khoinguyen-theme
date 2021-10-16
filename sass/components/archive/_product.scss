@@ -21,7 +21,7 @@
 	}
 
 	@media (max-width: 400px) {
-		grid-template-columns: repeat(1, 1fr);
+		// grid-template-columns: repeat(1, 1fr);
 	}
 
 	.product-item {
@@ -65,8 +65,11 @@
 		}
 
 		@media (max-width:400px) {
-			grid-template-columns: repeat(1, 1fr);
+			// grid-template-columns: repeat(1, 1fr);
 		}
+	}
+	.box_product-share {
+		width: auto;
 	}
 }
 
@@ -157,5 +160,11 @@
 .tax-nganh-hang {
 	.box_filter .filter-category {
 		margin: 0 0 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.archive .box_product-share {
+		width: 100%;
 	}
 }

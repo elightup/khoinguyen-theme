@@ -21,7 +21,17 @@ get_sidebar();
 			<div class="box_filter"><?php kn_nganh_hang_children( get_queried_object_id() ); ?></div>
 			<header class="page-header">
 				<?php echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>'; ?>
-				<div class="fb-like" data-href="<?php echo get_term_link( get_queried_object_id(), 'nganh-hang' ); ?>" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
+				<div class="box_product-share">
+					<div class="product_share-item">
+						<p>Chia sẻ:</p>
+
+						<div class="zalo-share-button icon " data-href="<?php the_permalink(); ?>" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize="true">
+							<img src="<?= get_template_directory_uri(); ?>/images/logo-zalo.jpg" alt="" sizes="50px 50px" srcset="">
+						</div>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon" target="_blank"> <img src="<?= get_template_directory_uri(); ?>/images/facebook.png" alt="" sizes="50px 50px"></a>
+
+					</div>
+				</div>
 			</header><!-- .page-header -->
 
 
