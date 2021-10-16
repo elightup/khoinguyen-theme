@@ -78,28 +78,29 @@ function khoinguyen_post_thumbnail()
 	if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
 		return;
 	}
+
 	if (is_singular()) :
-?>
-<div class="post-thumbnail">
-	<?php the_post_thumbnail(); ?>
-</div><!-- .post-thumbnail -->
-<?php else : ?>
-<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+	?>
+	<div class="post-thumbnail">
+		<?php the_post_thumbnail(); ?>
+	</div><!-- .post-thumbnail -->
+	<?php else : ?>
+	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+		<?php
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+				?>
+	</a>
 	<?php
-			the_post_thumbnail(
-				'post-thumbnail',
-				array(
-					'alt' => the_title_attribute(
-						array(
-							'echo' => false,
-						)
-					),
-				)
-			);
-			?>
-</a>
-<?php
-	endif; // End is_singular().
+		endif; // End is_singular().
 }
 
 function khoinguyen_get_categrory() {
@@ -431,8 +432,8 @@ function kn_get_select_product()
 				<div class="product_item" id="product" data-title="<?php the_title(); ?>"
 					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
 					<?php
-							the_title('<p class="product-title"  >', '</p>');
-							?>
+						the_title('<p class="product-title"  >', '</p>');
+						?>
 				</div>
 				<?php
 					endwhile;
@@ -468,8 +469,8 @@ function kn_get_select_product2()
 				<div class="product_item" id="product2" data-title="<?php the_title(); ?>"
 					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
 					<?php
-							the_title('<p class="product-title" >', '</p>');
-							?>
+						the_title('<p class="product-title" >', '</p>');
+						?>
 				</div>
 				<?php
 					endwhile;
@@ -504,8 +505,8 @@ function kn_get_select_product3()
 				<div class="product_item" id="product3" data-title="<?php the_title(); ?>"
 					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
 					<?php
-							the_title('<p class="product-title" >', '</p>');
-							?>
+						the_title('<p class="product-title" >', '</p>');
+						?>
 				</div>
 				<?php
 					endwhile;
@@ -515,29 +516,31 @@ function kn_get_select_product3()
 		</div>
 	</div>
 	<?php
-	}
+}
 
-	function load_sosanh($id)
-	{
+function load_sosanh($id)
+{
 
-		$args = array(
-			'post_type' => 'product',
-			'p'         => $id,
-		);
+	$args = array(
+		'post_type' => 'product',
+		'p'         => $id,
+	);
 
-		$lable = 'filter';
-		$query = new WP_Query($args);
-		while ($query->have_posts()) :
-			$query->the_post();
-			$price          = rwmb_meta('price', get_the_ID());
-			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
-			$code           = rwmb_meta('code', get_the_ID());
-			$kithuat        = rwmb_meta('thong_so_so_sanh', get_the_ID());
-		?>
+	$lable = 'filter';
+	$query = new WP_Query($args);
+	while ($query->have_posts()) :
+		$query->the_post();
+		$price          = rwmb_meta('price', get_the_ID());
+		$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
+		$code           = rwmb_meta('code', get_the_ID());
+		$kithuat        = rwmb_meta('thong_so_so_sanh', get_the_ID());
+	?>
 	<div class="filter-product-content" data-name="<?php echo get_the_title() ?>">
 		<div class="filter-product-top <?php echo $lable ?>">
 			<div class="box_image">
-				<?php khoinguyen_post_thumbnail(); ?>
+				<a class="post-thumbnail" href="<?php echo get_the_permalink(); ?>">
+					<?php echo get_the_post_thumbnail( get_the_ID(), 'medium' ); ?>
+				</a>
 			</div>
 			<div class="box_price">
 
@@ -586,7 +589,7 @@ function kn_get_select_product3()
 			</div>
 			<div class="box_items">
 				<p class="product-lable">
-					Thông số kỹ thuật
+					Đặc điểm nổi bật
 				</p>
 
 				<div class="product-content">
@@ -595,7 +598,7 @@ function kn_get_select_product3()
 			</div>
 			<div class="box_items">
 				<p class="product-lable">
-					Đặc điểm nổi bật
+					Thông số kỹ thuật
 				</p>
 
 				<div class="product-content">
@@ -606,65 +609,65 @@ function kn_get_select_product3()
 	</div>
 
 	<?php
-		endwhile;
-		wp_reset_postdata();
+	endwhile;
+	wp_reset_postdata();
+}
+
+
+/**
+ *
+ * @param  [type] $excerpt [description]
+ * @return [type]          [description]
+ */
+function kn_excerpt_more($excerpt)
+{
+	return str_replace('[&hellip;]', '...', $excerpt);
+}
+add_filter('wp_trim_excerpt', 'kn_excerpt_more');
+
+
+/**
+ * Change excerpt length
+ *
+ * @return int
+ */
+function kn_excerpt_length()
+{
+	return 20;
+}
+add_filter('excerpt_length', 'kn_excerpt_length');
+
+function kn_get_product_info($id)
+{
+	$price      = (float) get_post_meta($id, 'price', true);
+
+	$price_sale = (float) get_post_meta($id, 'flash_sale_price', true);
+	$time_start = (int) rwmb_meta('flash_sale_time_start', '', $id);
+	$time_end   = (int) rwmb_meta('flash_sale_time_end', '', $id);
+	$time_now   = strtotime(current_time('mysql'));
+
+	if ($price_sale && $time_start <= $time_now && $time_now <= $time_end) {
+		$price = $price_sale;
 	}
 
+	return [
+		'id'    => $id,
+		'title' => get_the_title($id),
+		'price' => intval($price),
+		'url'   => get_post_meta($id, 'image_url', true),
+		'link'  => get_permalink($id),
+		'ma_sp' => get_post_meta($id, 'ma_sp', true),
+	];
+}
 
-	/**
-	 *
-	 * @param  [type] $excerpt [description]
-	 * @return [type]          [description]
-	 */
-	function kn_excerpt_more($excerpt)
-	{
-		return str_replace('[&hellip;]', '...', $excerpt);
-	}
-	add_filter('wp_trim_excerpt', 'kn_excerpt_more');
+function kn_get_districts_from_city($city_id)
+{
+	$all_districts = json_decode(file_get_contents(get_stylesheet_directory() . '/js/districts.json'), true);
+	return $all_districts[$city_id];
+}
 
-
-	/**
-	 * Change excerpt length
-	 *
-	 * @return int
-	 */
-	function kn_excerpt_length()
-	{
-		return 20;
-	}
-	add_filter('excerpt_length', 'kn_excerpt_length');
-
-	function kn_get_product_info($id)
-	{
-		$price      = (float) get_post_meta($id, 'price', true);
-
-		$price_sale = (float) get_post_meta($id, 'flash_sale_price', true);
-		$time_start = (int) rwmb_meta('flash_sale_time_start', '', $id);
-		$time_end   = (int) rwmb_meta('flash_sale_time_end', '', $id);
-		$time_now   = strtotime(current_time('mysql'));
-
-		if ($price_sale && $time_start <= $time_now && $time_now <= $time_end) {
-			$price = $price_sale;
-		}
-
-		return [
-			'id'    => $id,
-			'title' => get_the_title($id),
-			'price' => intval($price),
-			'url'   => get_post_meta($id, 'image_url', true),
-			'link'  => get_permalink($id),
-			'ma_sp' => get_post_meta($id, 'ma_sp', true),
-		];
-	}
-
-	function kn_get_districts_from_city($city_id)
-	{
-		$all_districts = json_decode(file_get_contents(get_stylesheet_directory() . '/js/districts.json'), true);
-		return $all_districts[$city_id];
-	}
-
-	function kn_get_wards_from_district($district_id)
-	{
-		$all_wards = json_decode(file_get_contents(get_stylesheet_directory() . '/js/wards.json'), true);
-		return $all_wards[$district_id];
-	}
+function kn_get_wards_from_district($district_id)
+{
+	$all_wards = json_decode(file_get_contents(get_stylesheet_directory() . '/js/wards.json'), true);
+	return $all_wards[$district_id];
+}
