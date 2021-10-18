@@ -14,6 +14,15 @@
 		<header class="page-header">
 			<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'khoinguyen' ); ?></h1>
 		</header><!-- .page-header -->
+		<form action="" method="get" class="filters">
+			<?php
+			kn_filter_gia();
+			kn_filter_hang();
+			kn_filter_kieu_lap_dat();
+			kn_filter_loai_may();
+			kn_filter_sap_xep();
+			?>
+		</form>
 	<?php endif; ?>
 
 	<div class="page-content">

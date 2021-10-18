@@ -19,6 +19,17 @@ get_sidebar();
 		if ( have_posts() ) : ?>
 
 			<div class="box_filter"><?php kn_nganh_hang_children( get_queried_object_id() ); ?></div>
+
+			<form action="" method="get" class="filters">
+				<?php
+				kn_filter_gia();
+				kn_filter_hang();
+				kn_filter_kieu_lap_dat();
+				kn_filter_loai_may();
+				kn_filter_sap_xep();
+				?>
+			</form>
+
 			<header class="page-header">
 				<?php echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>'; ?>
 				<div class="box_product-share">

@@ -116,120 +116,118 @@ function filter_product()
 		'product' => $html,
 	]);
 }
-function kn_filter_product_archive($query)
-{
-	// Chỉ lọc ở trang archive product.
-	if (is_admin() || !$query->is_main_query() || !$query->is_post_type_archive('product')) {
+function kn_filter_product_archive($query) {
+	// Chỉ lọc ở trang archive product và term ngành hàng.
+	if ( is_admin() || ! $query->is_main_query() || ( ! $query->is_post_type_archive( 'product' ) && ! $query->is_tax( 'nganh-hang' ) ) ) {
 		return;
 	}
-
 	$tax_query = [
 		'relation' => 'AND',
 	];
 	// Lọc theo ngành hàng.
-	$nganh_hang = isset($_GET['filter-nganh-hang']) ? wp_strip_all_tags($_GET['filter-nganh-hang']) : '';
-	if ($nganh_hang) {
+	$nganh_hang = isset( $_GET['filter-nganh-hang'] ) ? wp_strip_all_tags( $_GET['filter-nganh-hang'] ) : '';
+	if ( $nganh_hang ) {
 		$tax_query[] = [
 			'taxonomy' => 'nganh-hang',
-			'field' => 'slug',
-			'terms' => $nganh_hang
+			'field'    => 'slug',
+			'terms'    => $nganh_hang,
 		];
 	}
 	// Lọc theo hãng
-	$hang = isset($_GET['filter-hang']) ? wp_strip_all_tags($_GET['filter-hang']) : '';
-	if ($hang) {
+	$hang = isset( $_GET['filter-hang'] ) ? wp_strip_all_tags( $_GET['filter-hang'] ) : '';
+	if ( $hang ) {
 		$tax_query[] = [
 			'taxonomy' => 'hang',
-			'field' => 'slug',
-			'terms' => $hang,
+			'field'    => 'slug',
+			'terms'    => $hang,
 		];
 	}
 	// Lọc theo kiểu lắp đặt
-	$kieu_lap_dat = isset($_GET['filter-kieu-lap-dat']) ? wp_strip_all_tags($_GET['filter-kieu-lap-dat']) : '';
-	if ($kieu_lap_dat) {
+	$kieu_lap_dat = isset( $_GET['filter-kieu-lap-dat'] ) ? wp_strip_all_tags( $_GET['filter-kieu-lap-dat'] ) : '';
+	if ( $kieu_lap_dat ) {
 		$tax_query[] = [
 			'taxonomy' => 'kieu_lap_dat',
-			'field' => 'slug',
-			'terms' => $kieu_lap_dat,
+			'field'    => 'slug',
+			'terms'    => $kieu_lap_dat,
 		];
 	}
 	// Lọc theo loại m
-	$loai_may = isset($_GET['filter-loai-may']) ? wp_strip_all_tags($_GET['filter-loai-may']) : '';
-	if ($loai_may) {
+	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
+	if ( $loai_may ) {
 		$tax_query[] = [
 			'taxonomy' => 'loai_may',
-			'field' => 'slug',
-			'terms' => $loai_may,
+			'field'    => 'slug',
+			'terms'    => $loai_may,
 		];
 	}
-	$loai_may = isset($_GET['filter-loai-may']) ? wp_strip_all_tags($_GET['filter-loai-may']) : '';
+	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
 	$query->set('tax_query', $tax_query);
 	//sap xep
-	$sap_xep = isset($_GET['filter-sap-xep']) ? wp_strip_all_tags($_GET['filter-sap-xep']) : '';
-	if ($sap_xep) {
-		if ($sap_xep == '1') {
-			$query->set('order', 'DESC');
-			$query->set('orderby', 'date');
-		} elseif ($sap_xep == '2') {
-			$query->set('orderby', 'date');
-			$query->set('order', 'ASC');
-		} elseif ($sap_xep == '3') {
-			$query->set('orderby', 'meta_value_num');
-			$query->set('order', 'ASC');
-			$query->set('meta_key', 'price');
-		} elseif ($sap_xep == '4') {
-			$query->set('orderby', 'meta_value_num');
-			$query->set('order', 'DESC');
-			$query->set('meta_key', 'price');
+	$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
+	if ( $sap_xep ) {
+		if ( $sap_xep == '1' ) {
+			$query->set( 'order', 'DESC' );
+			$query->set( 'orderby', 'date' );
+		} elseif ( $sap_xep == '2' ) {
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'ASC' );
+		} elseif ( $sap_xep == '3' ) {
+			$query->set( 'orderby', 'meta_value_num' );
+			$query->set( 'order', 'ASC' );
+			$query->set( 'meta_key', 'price' );
+		} elseif ( $sap_xep == '4' ) {
+			$query->set( 'orderby', 'meta_value_num' );
+			$query->set( 'order', 'DESC' );
+			$query->set( 'meta_key', 'price' );
 		}
 	}
 
 	// Lọc theo giá.
-	$gia = isset($_GET['filter-gia']) ? wp_strip_all_tags($_GET['filter-gia']) : '';
-	if ($gia) {
+	$gia = isset( $_GET['filter-gia'] ) ? wp_strip_all_tags( $_GET['filter-gia'] ) : '';
+	if ( $gia ) {
 		$meta_query = [];
-		if ($gia == '5') {
+		if ( $gia == '5' ) {
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 5000000,
+				'key'     => 'price',
+				'value'   => 5000000,
 				'compare' => '<',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
-		} elseif ($gia == '5-7') {
+		} elseif ( $gia == '5-7' ) {
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 5000000,
+				'key'     => 'price',
+				'value'   => 5000000,
 				'compare' => '>=',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 7000000,
+				'key'     => 'price',
+				'value'   => 7000000,
 				'compare' => '<',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
-		} elseif ($gia == '7-15') {
+		} elseif ( $gia == '7-15' ) {
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 7000000,
+				'key'     => 'price',
+				'value'   => 7000000,
 				'compare' => '>=',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 15000000,
+				'key'     => 'price',
+				'value'   => 15000000,
 				'compare' => '<',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
-		} elseif ($gia == '15') {
+		} elseif ( $gia == '15' ) {
 			$meta_query[] = [
-				'key' => 'price',
-				'value' => 15000000,
+				'key'     => 'price',
+				'value'   => 15000000,
 				'compare' => '>=',
-				'type' => 'NUMERIC',
+				'type'    => 'NUMERIC',
 			];
 		}
-		$query->set('meta_query', $meta_query);
+		$query->set( 'meta_query', $meta_query );
 	}
 }
 
@@ -237,20 +235,19 @@ function kn_filter_product_archive($query)
 /**
  * Login after register.
  */
-function kn_login($object)
-{
+function kn_login($object) {
 	$district  = $_POST['user_district'] ? $_POST['user_district'] : '';
 	$ward      = $_POST['user_ward'] ? $_POST['user_ward'] : '';
-	$meta_user = get_user_meta($object->user_id);
-	$user      = new WP_User($object->user_id);
+	$meta_user = get_user_meta( $object->user_id );
+	$user      = new WP_User( $object->user_id );
 
 	// Update.
-	update_user_meta($object->user_id, 'user_district', $district);
-	update_user_meta($object->user_id, 'user_ward', $ward);
+	update_user_meta( $object->user_id, 'user_district', $district );
+	update_user_meta( $object->user_id, 'user_ward', $ward );
 
 	// Login after register.
-	wp_set_current_user($object->user_id, $meta_user['nickname']);
-	wp_set_auth_cookie($object->user_id);
-	do_action('wp_login', $meta_user['nickname'], $user);
+	wp_set_current_user( $object->user_id, $meta_user['nickname'] );
+	wp_set_auth_cookie( $object->user_id );
+	do_action( 'wp_login', $meta_user['nickname'], $user );
 }
-add_action('rwmb_profile_after_save_user', 'kn_login');
+add_action( 'rwmb_profile_after_save_user', 'kn_login' );
