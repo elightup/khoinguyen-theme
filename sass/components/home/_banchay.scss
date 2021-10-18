@@ -1,17 +1,17 @@
-.home_banchay{
+.home_banchay {
 	width: 100%;
 	margin-top: 50px;
-	.product-item{
+	.product-item {
 
 		display: flex;
 	}
 }
 
-.box_title{
+.box_title {
 	width:100%;
 	display: flex;
 	justify-content: space-between;
-	.title{
+	.title {
 		font-weight: 700;
 		color: var(--color-accent);
 		margin: 0;
@@ -21,7 +21,7 @@
 		padding: 10px;
 		font-size: 16px;
 	}
-	&::after{
+	&::after {
 		display: flex;
 		margin-top: auto;
 		flex: 1;
@@ -30,31 +30,29 @@
 		background: var(--color-accent);
 	}
 }
-.product_list{
+.product_list {
 	margin-top: 15px;
-	height: 400px;
-	.slick-prev, .slick-next{
+	.slick-prev, .slick-next {
 		width: 50px;
 		height: 50px;
 		background: #E5E5E5;
 		align-items: center;
-		&::before{
+		&::before {
 			font-size: 25px;
 			color: #333;
 		}
 	}
-	.slick-track{
+	.slick-list,
+	.slick-track {
 		height: 100%;
-	}
-	.slick-list{
-		height: 100%;
+		display: flex;
 	}
 } 
 
 .danh-muc-nganh-hang {
-	.box_title{
+	.box_title {
 		border-bottom: 1px solid var(--color-accent);
-		&::after{
+		&::after {
 			display: none;
 		}
 		.box-btn {

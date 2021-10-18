@@ -37,6 +37,11 @@ if ( $terms_loaimay ) {
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail(); ?>
 		</a>
+		<?php
+		if ( $price_pre_sale ) {
+			kn_get_phantram( $price ? $price : 0, $price_pre_sale ? $price_pre_sale : 0 );
+		}
+		?>
 	</div>
 	<div class="product-meta">
 		<?php
@@ -59,11 +64,5 @@ if ( $terms_loaimay ) {
 			echo '</div>';
 		}
 		?>
-	
 	</div>
-	<?php
-	if ( $price_pre_sale ) {
-		kn_get_phantram( $price ? $price : 0, $price_pre_sale ? $price_pre_sale : 0 );
-	}
-	?>
 </article>
