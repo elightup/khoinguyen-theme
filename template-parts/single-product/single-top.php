@@ -54,9 +54,9 @@ $number         = rwmb_meta('number', get_the_ID());
                     <span class="status-item col-lg-4">
                         <i class="bi bi-check-circle"></i>
                         Tình trạng: <?php if ($number > 0) {
-                                        echo 'còn hàng';
+                                        echo 'Còn hàng';
                                     } else {
-                                        echo '<pan  style="color: red;">hết hàng </pan>';
+                                        echo '<pan  style="color: red;">Hết hàng </pan>';
                                     }
                                     ?>
                     </span>
@@ -66,7 +66,7 @@ $number         = rwmb_meta('number', get_the_ID());
                     </span>
                     <span class="status-item col-lg-4">
                         <i class="bi bi-check-circle"></i>
-                        Vận chuyển: Liên hệ!
+                        Vận chuyển: Miễn phí
                     </span>
                 </p>
             </div>
