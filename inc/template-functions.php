@@ -17,11 +17,10 @@ function khoinguyen_body_classes($classes)
 	return $classes;
 }
 add_filter('body_class', 'khoinguyen_body_classes');
+
 add_action('wp_ajax_filter', 'filter_product');
 add_action('wp_ajax_nopriv_filter', 'filter_product');
-add_action('pre_get_posts', 'kn_filter_product_archive');
-function filter_product()
-{
+function filter_product() {
 
 	$id    = isset($_POST['id']) ? $_POST['id'] : false;
 	$lable = isset($_POST['lable']) ? $_POST['lable'] : false;
@@ -116,6 +115,8 @@ function filter_product()
 		'product' => $html,
 	]);
 }
+
+add_action('pre_get_posts', 'kn_filter_product_archive');
 function kn_filter_product_archive($query) {
 	// Chỉ lọc ở trang archive product và term ngành hàng.
 	if ( is_admin() || ! $query->is_main_query() || ( ! $query->is_post_type_archive( 'product' ) && ! $query->is_tax( 'nganh-hang' ) ) ) {
@@ -142,26 +143,30 @@ function kn_filter_product_archive($query) {
 			'terms'    => $hang,
 		];
 	}
-	// Lọc theo kiểu lắp đặt
-	$kieu_lap_dat = isset( $_GET['filter-kieu-lap-dat'] ) ? wp_strip_all_tags( $_GET['filter-kieu-lap-dat'] ) : '';
-	if ( $kieu_lap_dat ) {
-		$tax_query[] = [
-			'taxonomy' => 'kieu_lap_dat',
-			'field'    => 'slug',
-			'terms'    => $kieu_lap_dat,
-		];
-	}
-	// Lọc theo loại m
-	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
-	if ( $loai_may ) {
-		$tax_query[] = [
-			'taxonomy' => 'loai_may',
-			'field'    => 'slug',
-			'terms'    => $loai_may,
-		];
-	}
-	$loai_may = isset( $_GET['filter-loai-may'] ) ? wp_strip_all_tags( $_GET['filter-loai-may'] ) : '';
 	$query->set('tax_query', $tax_query);
+
+	// Custom Filter.
+	$total_filter = kn_filter();
+	$meta_query   = [
+		'relation' => 'AND',
+	];
+	foreach( $total_filter as $key => $value ) {
+		$filter = isset( $_GET['filter-' . $key ] ) ? wp_strip_all_tags( $_GET['filter-' . $key ] ) : '';
+		if( $filter ) {
+			$meta_query[] = [
+				[
+					'key'     => $key,
+					'value'   => $filter,
+					'type'    => 'CHAR',
+					'compare' => '=',
+				]
+			];
+			
+		}
+	}
+	$query->set( 'meta_query', $meta_query );
+
+
 	//sap xep
 	$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
 	if ( $sap_xep ) {
@@ -186,14 +191,40 @@ function kn_filter_product_archive($query) {
 	$gia = isset( $_GET['filter-gia'] ) ? wp_strip_all_tags( $_GET['filter-gia'] ) : '';
 	if ( $gia ) {
 		$meta_query = [];
-		if ( $gia == '5' ) {
+		if ( $gia == '1' ) {
+			$meta_query[] = [
+				'key'     => 'price',
+				'value'   => 1000000,
+				'compare' => '<',
+				'type'    => 'NUMERIC',
+			];
+		} elseif ( $gia == '1-3' ) {
+			$meta_query[] = [
+				'key'     => 'price',
+				'value'   => 1000000,
+				'compare' => '>=',
+				'type'    => 'NUMERIC',
+			];
+			$meta_query[] = [
+				'key'     => 'price',
+				'value'   => 3000000,
+				'compare' => '<',
+				'type'    => 'NUMERIC',
+			];
+		} elseif ( $gia == '3-5' ) {
+			$meta_query[] = [
+				'key'     => 'price',
+				'value'   => 3000000,
+				'compare' => '>=',
+				'type'    => 'NUMERIC',
+			];
 			$meta_query[] = [
 				'key'     => 'price',
 				'value'   => 5000000,
 				'compare' => '<',
 				'type'    => 'NUMERIC',
 			];
-		} elseif ( $gia == '5-7' ) {
+		} elseif ( $gia == '5-10' ) {
 			$meta_query[] = [
 				'key'     => 'price',
 				'value'   => 5000000,
@@ -202,27 +233,14 @@ function kn_filter_product_archive($query) {
 			];
 			$meta_query[] = [
 				'key'     => 'price',
-				'value'   => 7000000,
+				'value'   => 10000000,
 				'compare' => '<',
 				'type'    => 'NUMERIC',
 			];
-		} elseif ( $gia == '7-15' ) {
+		} elseif ( $gia == '10' ) {
 			$meta_query[] = [
 				'key'     => 'price',
-				'value'   => 7000000,
-				'compare' => '>=',
-				'type'    => 'NUMERIC',
-			];
-			$meta_query[] = [
-				'key'     => 'price',
-				'value'   => 15000000,
-				'compare' => '<',
-				'type'    => 'NUMERIC',
-			];
-		} elseif ( $gia == '15' ) {
-			$meta_query[] = [
-				'key'     => 'price',
-				'value'   => 15000000,
+				'value'   => 10000000,
 				'compare' => '>=',
 				'type'    => 'NUMERIC',
 			];

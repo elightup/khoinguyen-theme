@@ -1,8 +1,6 @@
 <?php
 $terms            = get_the_terms( get_the_ID(),'nganh-hang' );
 $terms_hang       = get_the_terms( get_the_ID(), 'hang' );
-$terms_kieulapdat = get_the_terms( get_the_ID(), 'kieu-lap-dat' );
-$terms_loaimay    = get_the_terms( get_the_ID(), 'loai-may' );
 $price            = rwmb_meta( 'price', get_the_ID() );
 $price_pre_sale   = rwmb_meta( 'price_pre_sale', get_the_ID() );
 $gift             = rwmb_meta( 'gift', get_the_ID() );
@@ -20,19 +18,10 @@ if ( $terms_hang ) {
 		$class_hang .= $term_hang->slug . ' ';
 	};
 }
-if ( $terms_kieulapdat ) {
-	foreach ( $terms_kieulapdat as $term_kieulapdat ) {
-		$class_kieulapdat .= $term_kieulapdat->slug . ' ';
-	};
-}
-if ( $terms_loaimay ) {
-	foreach ( $terms_loaimay as $term_loaimay ) {
-		$class_loaimay .= $term_loaimay->slug . ' ';
-	};
-}
+
 ?>
 
-<article class="product-item shows <?php echo $class,$class_hang,$class_kieulapdat,$class_loaimay; ?>">
+<article class="product-item shows <?php echo $class,$class_hang ?>">
 	<div class="product-thumb">
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail(); ?>

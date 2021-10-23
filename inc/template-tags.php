@@ -270,10 +270,11 @@ function kn_filter_gia()
 	?>
 	<select name="filter-gia">
 		<option value="">Giá</option>
-		<option value="5" <?php selected('5', $selected) ?>>Dưới 5 triệu</option>
-		<option value="5-7" <?php selected('5-7', $selected) ?>>Từ 5-7 triệu</option>
-		<option value="7-15" <?php selected('7-15', $selected) ?>>Từ 7-15 triệu</option>
-		<option value="15" <?php selected('15', $selected) ?>>Trên 15 triệu</option>
+		<option value="1" <?php selected('1', $selected) ?>>Dưới 1 triệu</option>
+		<option value="1-3" <?php selected('1-3', $selected) ?>>Từ 1-3 triệu</option>
+		<option value="3-5" <?php selected('3-5', $selected) ?>>Từ 3-5 triệu</option>
+		<option value="5-10" <?php selected('5-10', $selected) ?>>Từ 5-10 triệu</option>
+		<option value="10" <?php selected('10', $selected) ?>>Trên 10 triệu</option>
 	</select>
 	<?php
 }
@@ -300,53 +301,110 @@ function kn_filter_hang()
 	</select>
 	<?php
 }
-function kn_filter_kieu_lap_dat()
-{
-	$terms = get_terms(array(
-		'taxonomy'   => 'kieu-lap-dat',
-		'hide_empty' => false,
-	));
 
-	if (empty($terms) || !is_array($terms)) {
+function kn_filter() {
+	$filter = [
+		'color' => [
+			'name'  => 'Màu sắc',
+			'value' => [],
+		],
+		'loai_may' => [
+			'name'  => 'Loại máy',
+			'value' => [
+				'ban_cong_nghiep' => 'Bán công nghiệp',
+				'loc_hydrogen'    => 'Lọc hydrogen'
+			]
+		],
+		'cong_suat' => [
+			'name'  => 'Công suất',
+			'value' => []
+		],
+		'so_cap_loc' => [
+			'name'  => 'Số cấp lọc',
+			'value' => [
+				'1' => '1',
+				'2' => '2',
+				'3' => '3',
+			],
+		],
+		'kieu_lap_dat' => [
+			'name'  => 'Kiểu lắp đặt',
+			'value' => [
+				'de_ban'  => 'Để bàn',
+				'tu_dung' => 'Tủ đứng'
+			]
+		],
+		'cong_nghe_loc' => [
+			'name'  => 'Công nghệ lọc',
+			'value' => [
+				'moi' => 'Mới',
+				'cu'  => 'Cũ'
+			]
+		],
+		'tinh_nang' => [
+			'name'  => 'Tính năng',
+			'value' => []
+		],
+		'dung_tich' => [
+			'name'  => 'Dung tích',
+			'value' => []
+		],
+		'dung_tich_su_dung' => [
+			'name'  => 'Dung tích sử dụng',
+			'value' => []
+		],
+		'bang_dieu_khien' => [
+			'name'  => 'Bảng điều khiển',
+			'value' => []
+		],
+		'pham_vi_loc' => [
+			'name'  => 'Phạm vi lọc hiệu quả',
+			'value' => []
+		],
+		'dien_tich' => [
+			'name'  => 'Diện tích làm mát',
+			'value' => []
+		],
+		'dieu_khien' => [
+			'name'  => 'Điều khiển',
+			'value' => []
+		],
+		'cong_nghe_inverter' => [
+			'name'  => 'Công nghệ Inverter',
+			'value' => []
+		],
+		'so_ngan' => [
+			'name'  => 'Số ngăn',
+			'value' => []
+		],
+	];
+	return $filter;
+}
+
+function kn_custom_filter() {
+	$parent_id     = get_queried_object()->parent;
+	$term_id       = !empty( $parent_id ) ? $parent_id : get_queried_object_id();
+	$custom_filter = rwmb_meta( 'select_filter', ['object_type' => 'term'], $term_id );
+	if ( ! $custom_filter ) {
 		return;
 	}
 
-	$selected = isset($_GET['filter-kieu-lap-dat']) ? wp_strip_all_tags($_GET['filter-kieu-lap-dat']) : '';
+	$total_filter = kn_filter();
+	foreach( $custom_filter as $filter ) :
+		$selected = isset( $_GET['filter-' . $filter ] ) ? wp_strip_all_tags( $_GET['filter-' . $filter ] ) : '';
 	?>
-	<select name="filter-kieu-lap-dat">
-		<option value="">Kiểu lắp đặt</option>
-		<?php foreach ($terms as $term) : ?>
-		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-			<?php echo $term->name; ?>
-		</option>
-		<?php endforeach; ?>
-	</select>
-	<?php
+		<select name="filter-<?php echo $filter ?>">
+			<option value=""><?php echo $total_filter[$filter]['name']; ?></option>
+			<?php foreach ( $total_filter[$filter]['value'] as $key => $value ) : ?>
+			<option value="<?php echo esc_attr($key) ?>" <?php selected($key, $selected) ?>>
+				<?php echo $value; ?>
+			</option>
+			<?php endforeach; ?>
+		</select>
+	<?php endforeach;
 }
-function kn_filter_loai_may()
-{
-	$terms = get_terms(array(
-		'taxonomy'   => 'loai-may',
-		'hide_empty' => false,
-	));
 
-	if (empty($terms) || !is_array($terms)) {
-		return;
-	}
 
-	$selected = isset($_GET['filter-loai-may']) ? wp_strip_all_tags($_GET['filter-loai-may']) : '';
-
-	?>
-	<select name="filter-loai-may">
-		<option value="">Loại máy</option>
-		<?php foreach ($terms as $term) : ?>
-		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
-			<?php echo $term->name; ?>
-		</option>
-		<?php endforeach; ?>
-	</select>
-	<?php
-}
 function kn_get_path()
 {
 	echo '<div class="box_path">';

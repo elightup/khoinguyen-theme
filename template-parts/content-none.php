@@ -18,8 +18,9 @@
 			<?php
 			kn_filter_gia();
 			kn_filter_hang();
-			kn_filter_kieu_lap_dat();
-			kn_filter_loai_may();
+			// kn_filter_kieu_lap_dat();
+			// kn_filter_loai_may();
+			kn_custom_filter();
 			kn_filter_sap_xep();
 			?>
 		</form>
