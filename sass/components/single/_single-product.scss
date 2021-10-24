@@ -444,7 +444,11 @@
   }
   .slick-prev {
     left: -13px;
-}
+  }
+  .product-thumb img {
+    height: 150px;
+    object-fit: contain;
+  }
 }
 
 

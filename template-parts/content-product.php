@@ -24,7 +24,7 @@ if ( $terms_hang ) {
 <article class="product-item shows <?php echo $class,$class_hang ?>">
 	<div class="product-thumb">
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail( 'medium' ); ?>
 		</a>
 		<?php
 		if ( $price_pre_sale ) {

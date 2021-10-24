@@ -292,7 +292,7 @@ function kn_filter_hang()
 	$selected = isset($_GET['filter-hang']) ? wp_strip_all_tags($_GET['filter-hang']) : '';
 	?>
 	<select name="filter-hang">
-		<option value="">Hãng</option>
+		<option value="">Thương hiệu</option>
 		<?php foreach ($terms as $term) : ?>
 		<option value="<?php echo esc_attr($term->slug) ?>" <?php selected($term->slug, $selected) ?>>
 			<?php echo $term->name; ?>
@@ -306,7 +306,11 @@ function kn_filter() {
 	$filter = [
 		'color' => [
 			'name'  => 'Màu sắc',
-			'value' => [],
+			'value' => [
+				'blue'  => 'Xanh',
+				'white' => 'Trắng',
+				'black' => 'Đen'
+			],
 		],
 		'loai_may' => [
 			'name'  => 'Loại máy',
