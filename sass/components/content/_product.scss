@@ -27,6 +27,8 @@
 		img {
 			max-height: 100%;
 			transition: transform 0.2s;
+			height: 150px;
+			object-fit: contain;
 		}
 	}
 
