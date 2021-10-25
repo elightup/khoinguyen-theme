@@ -13,10 +13,10 @@
 				'posts_per_page' => 10,
 			];
 
-			$query = new WP_Query($args);
-			while ($query->have_posts()) :
+			$query = new WP_Query( $args );
+			while ( $query->have_posts() ) :
 				$query->the_post();
-				get_template_part('template-parts/content', 'product');
+				get_template_part( 'template-parts/content', 'product' );
 			endwhile;
 			wp_reset_postdata();
 			?>

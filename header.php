@@ -33,7 +33,7 @@
 		<header id="masthead" class="site-header ">
 			<div class="header-sidebar">
 				<div class="sidebar-top container">
-					<?php dynamic_sidebar('menu-top') ?>
+					<?php dynamic_sidebar( 'menu-top' ) ?>
 					<div class="header_bottom-cart">
 					<?php if ( ! is_user_logged_in() ): ?>
 						<a href="#form-login-register" class="popup-form">Đăng nhập</a>
@@ -126,13 +126,12 @@
 						?>
 					</div>
 					<div class="header_top-contact">
-
 						<p class="contact">
 							<strong>
 								<span>Hotline:</span>
 							</strong>
 							<strong>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;<span class="phone">0966 000 862</span>
+								<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;<span class="phone">0966 000 862</span>
 							</strong>
 						</p>
 					</div>
@@ -156,7 +155,7 @@
 						<?php khoinguyen_get_categrory(); ?>
 					</div>
 					<nav id="site-navigation" class="main-navigation">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'khoinguyen'); ?></button>
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'khoinguyen' ); ?></button>
 						<?php
 						wp_nav_menu(
 							array(

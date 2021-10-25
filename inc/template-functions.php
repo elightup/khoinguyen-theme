@@ -1,123 +1,123 @@
 <?php
-function khoinguyen_body_classes($classes)
-{
-	if (!is_singular()) {
+function khoinguyen_body_classes( $classes ) {
+	if ( !is_singular() ) {
 		$classes[] = 'hfeed';
 	}
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if (!is_active_sidebar('sidebar-1')) {
+	if ( !is_active_sidebar( 'sidebar-1 ' )) {
 		$classes[] = 'no-sidebar';
 	}
 
-	if (is_user_logged_in()) {
+	if ( is_user_logged_in() ) {
 		$user       = wp_get_current_user();
 		$roles_user = $user->roles[0];
 		$classes[]  = $roles_user;
 	}
 	return $classes;
 }
-add_filter('body_class', 'khoinguyen_body_classes');
+add_filter( 'body_class', 'khoinguyen_body_classes' );
 
-add_action('wp_ajax_filter', 'filter_product');
-add_action('wp_ajax_nopriv_filter', 'filter_product');
+add_action( 'wp_ajax_filter', 'filter_product' );
+add_action( 'wp_ajax_nopriv_filter', 'filter_product' );
 function filter_product() {
 
-	$id    = isset($_POST['id']) ? $_POST['id'] : false;
-	$lable = isset($_POST['lable']) ? $_POST['lable'] : false;
+	$id    = isset( $_POST['id'] ) ? $_POST['id'] : false;
+	$lable = isset( $_POST['lable'] ) ? $_POST['lable'] : false;
 	$args = array(
 		'post_type' => 'product',
 		'p' => $id,
 	);
-	$query = new WP_Query($args);
+	$query = new WP_Query( $args );
 	ob_start();
-	while ($query->have_posts()) :
+	while ( $query->have_posts() ) :
 		$query->the_post();
-		$price          = rwmb_meta('price', get_the_ID());
-		$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
-		$code           = rwmb_meta('code', get_the_ID());
-		$kithuat        = rwmb_meta('thong_so_so_sanh', get_the_ID());
+		$price          = rwmb_meta( 'price', get_the_ID() );
+		$price_pre_sale = rwmb_meta( 'price_pre_sale', get_the_ID() );
+		$code           = rwmb_meta( 'code', get_the_ID() );
+		$kithuat        = rwmb_meta( 'thong_so_so_sanh', get_the_ID() );
 	?>
 	<div class="filter-product-content">
-	    <div class="filter-product-top <?php echo $lable ?>">
-	        <div class="box_image">
-	            <a class="post-thumbnail" href="<?php echo get_the_permalink(); ?>">
+		<div class="filter-product-top <?php echo $lable ?>">
+			<div class="box_image">
+				<a class="post-thumbnail" href="<?php echo get_the_permalink(); ?>">
 					<?php echo get_the_post_thumbnail( get_the_ID(), 'medium' ); ?>
 				</a>
-	        </div>
-	        <div class="box_price">
-	            <?php if ($price_pre_sale) : ?>
-	            <span class="price-pre-sale"><?php echo kn_currency_format($price_pre_sale ? $price_pre_sale : 0) ?></span>
-	            <?php endif; ?>
-	            <span class="price"><?php echo kn_currency_format($price ? $price : 0) ?></span>
-	        </div>
-	        <div class="box_product-datmua">
-	            <?php
+			</div>
+			<div class="box_price">
+				<?php if ( $price_pre_sale ) : ?>
+				<span class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></span>
+				<?php endif; ?>
+				<span class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></span>
+			</div>
+			<div class="box_product-datmua">
+				<?php
 					$ID = get_current_user_id();
-					$cart = get_user_meta($ID, 'cart', true);
-					if (empty($cart) || !is_array($cart)) {
+					$cart = get_user_meta( $ID, 'cart', true );
+					if ( empty( $cart ) || !is_array( $cart)) {
 						$cart = [];
 					}
 					$cart_product_id = [];
-					foreach ($cart as $key => $value) {
+					foreach ( $cart as $key => $value ) {
 						$cart_product_id[] = $key;
 					}
-					if (in_array(get_the_ID(), $cart_product_id)) :
+					if ( in_array( get_the_ID(), $cart_product_id ) ) :
 				?>
-	            <a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
-	            <a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay
-	            </a>
-	            <?php else : ?>
-	            <a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ
-	                hàng</a>
-	            <a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
-	            <?php endif; ?>
-	        </div>
-	    </div>
-	    <div class="filter-product-bottom">
-	        <div class="box_items">
-	            <?php if (!$lable) {
+				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay
+				</a>
+				<?php else : ?>
+				<a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ
+					hàng</a>
+				<a href="#" class="btn btn-muangay single-buynow" data-product="<?= get_the_ID(); ?>">Mua ngay</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="filter-product-bottom">
+			<div class="box_items">
+				<?php if (!$lable) {
 							echo '<p class="product-lable">
-		                        Mã sản phẩm
-		                    </p>';
+								Mã sản phẩm
+							</p>';
 						} ?>
-	            <div class="product-content">
-	                <?php echo $code ?>
-	            </div>
-	        </div>
-	        <div class="box_items">
-	            <?php if (!$lable) {
+				<div class="product-content">
+					<?php echo $code ?>
+				</div>
+			</div>
+			<div class="box_items">
+				<?php if (!$lable) {
 							echo '<p class="product-lable">
-		                        Đặc điểm nổi bật
-		                    </p>';
+								Đặc điểm nổi bật
+							</p>';
 						} ?>
-	            <div class="product-content">
-	                <?php kn_get_mota() ?>
-	            </div>
-	        </div>
-	        <div class="box_items">
-	            <?php if (!$lable) {
-							echo '<p class="product-lable">
-
-								  Thông số kỹ thuật
-		                        </p>';
-						} ?>
-	            <div class="product-content">
-	                <?php echo $kithuat ?>
-	            </div>
-	        </div>
-	    </div>
+				<div class="product-content">
+					<?php kn_get_mota() ?>
+				</div>
+			</div>
+			<div class="box_items">
+				<?php
+				if ( !$lable ) {
+					echo '<p class="product-lable">
+							Thông số kỹ thuật
+						</p>';
+				}
+				?>
+				<div class="product-content">
+					<?php echo $kithuat ?>
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php
 	endwhile;
 
 	$html = ob_get_clean();
-	wp_send_json([
+	wp_send_json( [
 		'product' => $html,
-	]);
+	] );
 }
 
-add_action('pre_get_posts', 'kn_filter_product_archive');
-function kn_filter_product_archive($query) {
+add_action( 'pre_get_posts', 'kn_filter_product_archive' );
+function kn_filter_product_archive( $query ) {
 	// Chỉ lọc ở trang archive product và term ngành hàng.
 	if ( is_admin() || ! $query->is_main_query() || ( ! $query->is_post_type_archive( 'product' ) && ! $query->is_tax( 'nganh-hang' ) ) ) {
 		return;
@@ -161,7 +161,6 @@ function kn_filter_product_archive($query) {
 					'compare' => '=',
 				]
 			];
-			
 		}
 	}
 	$query->set( 'meta_query', $meta_query );
@@ -253,7 +252,7 @@ function kn_filter_product_archive($query) {
 /**
  * Login after register.
  */
-function kn_login($object) {
+function kn_login( $object ) {
 	$district  = $_POST['user_district'] ? $_POST['user_district'] : '';
 	$ward      = $_POST['user_ward'] ? $_POST['user_ward'] : '';
 	$meta_user = get_user_meta( $object->user_id );

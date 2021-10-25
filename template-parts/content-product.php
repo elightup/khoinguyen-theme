@@ -39,9 +39,9 @@ if ( $terms_hang ) {
 		?>
 		<div class="product-price">
 			<?php if( $price_pre_sale ) : ?>
-                <p class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></p>
-            <?php endif; ?>
-            <p class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></p>
+				<p class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></p>
+			<?php endif; ?>
+			<p class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></p>
 		</div>
 
 		<?php

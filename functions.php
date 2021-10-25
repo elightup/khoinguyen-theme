@@ -177,7 +177,7 @@ require get_template_directory() . '/inc/ajax.php';
 /*
  * Test send email with mailtrap
  */
-function mailtrap($phpmailer) {
+function mailtrap( $phpmailer ) {
 	$phpmailer->isSMTP();
 	$phpmailer->Host = 'smtp.mailtrap.io';
 	$phpmailer->SMTPAuth = true;
@@ -186,4 +186,4 @@ function mailtrap($phpmailer) {
 	$phpmailer->Password = '8a3167c5fc0ee9';
 }
 
-add_action('phpmailer_init', 'mailtrap');
+add_action( 'phpmailer_init', 'mailtrap' );

@@ -15,18 +15,14 @@
 <footer id="colophon" class="site-footer">
 	<div class="footer-widgets container">
 		<div class="logo">
-			<?php
-			the_custom_logo();
-			?>
+			<?php the_custom_logo(); ?>
 		</div>
 		<div class="footer-widgets__wrapper row ">
-
 			<div class="footer-left col-6">
-
-				<?php dynamic_sidebar('sidebar-footer-left') ?>
+				<?php dynamic_sidebar( 'sidebar-footer-left' ) ?>
 			</div>
 			<div class="footer-right col-6">
-				<?php dynamic_sidebar('sidebar-footer-right') ?>
+				<?php dynamic_sidebar( 'sidebar-footer-right' ) ?>
 			</div>
 		</div>
 	</div>
