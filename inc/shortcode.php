@@ -126,14 +126,14 @@ function shortcode_get_banchay_product() {
 			array(
 				'taxonomy'         => 'tag',
 				'field'            => 'slug',
-				'terms'            => array('noi-bat'),
+				'terms'            => array( 'noi-bat' ),
 				'include_children' => true,
 				'operator'         => 'IN'
 			)
 		),
 	];
 
-	$query = new WP_Query($args);
+	$query = new WP_Query( $args );
 	?>
 	<div class="title">
 		<h2>Sản phẩm bán chạy</h2>
@@ -142,8 +142,8 @@ function shortcode_get_banchay_product() {
 		<?php
 		while ($query->have_posts()) :
 			$query->the_post();
-			$price          = rwmb_meta('price', get_the_ID());
-			$price_pre_sale = rwmb_meta('price_pre_sale', get_the_ID());
+			$price          = rwmb_meta( 'price', get_the_ID() );
+			$price_pre_sale = rwmb_meta( 'price_pre_sale', get_the_ID() );
 		?>
 			<div class="product_sidebar">
 				<div class="product_sidebar-content">
@@ -169,6 +169,6 @@ function shortcode_get_banchay_product() {
 		return ob_get_clean();
 		?>
 	</div>
-<?php
+	<?php
 }
 add_shortcode( 'get_banchay_product', 'shortcode_get_banchay_product' );
