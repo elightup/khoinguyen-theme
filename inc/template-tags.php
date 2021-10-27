@@ -292,82 +292,175 @@ function kn_filter_hang() {
 
 function kn_filter() {
 	$filter = [
-		'color' => [
-			'name'  => 'Màu sắc',
-			'value' => [
-				'blue'  => 'Xanh',
-				'white' => 'Trắng',
-				'black' => 'Đen'
-			],
-		],
-		'loai_may' => [
-			'name'  => 'Loại máy',
-			'value' => [
-				'ban_cong_nghiep' => 'Bán công nghiệp',
-				'loc_hydrogen'    => 'Lọc hydrogen'
-			]
-		],
-		'cong_suat' => [
-			'name'  => 'Công suất',
-			'value' => []
-		],
 		'so_cap_loc' => [
 			'name'  => 'Số cấp lọc',
 			'value' => [
-				'1' => '1',
-				'2' => '2',
-				'3' => '3',
+				'5'  => '5',
+				'6'  => '6',
+				'7'  => '7',
+				'8'  => '8',
+				'9'  => '9',
+				'10' => '10',
+				'11' => '11',
 			],
 		],
 		'kieu_lap_dat' => [
 			'name'  => 'Kiểu lắp đặt',
 			'value' => [
 				'de_ban'  => 'Để bàn',
-				'tu_dung' => 'Tủ đứng'
+				'tu_dung' => 'Tủ đứng',
+				'lap_am'  => 'Lắp âm'
+			]
+		],
+		'loai_may' => [
+			'name'  => 'Loại máy',
+			'value' => [
+				'loc_nong_lanh'       => 'Máy lọc tích hợp nóng lạnh',
+				'loc_hydrogen'        => 'Máy lọc nước Hydrogen',
+				'loc_ion_kiem'        => 'Máy lọc nước Ion kiềm',
+				'loc_ban_cong_nghiep' => 'Máy lọc nước bán công nghiệp',
+				'loc_nuoc_man'        => 'Máy lọc nước mặn, nước lợ',
+				'loc_dau_nguon'       => 'Lọc đầu nguồn',
 			]
 		],
 		'cong_nghe_loc' => [
 			'name'  => 'Công nghệ lọc',
 			'value' => [
-				'moi' => 'Mới',
-				'cu'  => 'Cũ'
+				'ro'      => 'RO',
+				'nano'    => 'Nano',
+				'uf'      => 'UF',
+				'ket_hop' => 'RO kết hợp điện phân',
 			]
+		],
+		'color' => [
+			'name'  => 'Màu sắc',
+			'value' => [
+				'white'  => 'Trắng',
+				'black'  => 'Đen',
+				'red'    => 'Đỏ',
+				'yellow' => 'Vàng',
+				'blue'   => 'Xanh',
+				'pink'   => 'Hồng',
+				'orange' => 'Cam',
+				'silver' => 'Bạc',
+			],
 		],
 		'tinh_nang' => [
 			'name'  => 'Tính năng',
-			'value' => []
+			'value' => [
+				'voi_nuoc_nguoi'         => 'Có vòi nước nguội',
+				'khoa_voi_nong'          => 'Có khóa vòi nóng',
+				'ngan_mat_chua_do'       => 'Có ngăn mát chứa đồ',
+				'ngan_chua_do_khu_trung' => 'Có ngăn chứa đồ khử trùng',
+				'ngan_chua_do'           => 'Có ngăn chứa đồ',
+			]
 		],
 		'dung_tich' => [
 			'name'  => 'Dung tích',
-			'value' => []
-		],
-		'dung_tich_su_dung' => [
-			'name'  => 'Dung tích sử dụng',
-			'value' => []
+			'value' => [
+				'2'    => 'Dưới 2 lít',
+				'2-5'  => 'Từ 2 lít đến 5 lít',
+				'5-10' => 'Từ 5 lít đến 10 lít',
+				'10'   => 'Trên 10 lít'
+			]
 		],
 		'bang_dieu_khien' => [
 			'name'  => 'Bảng điều khiển',
-			'value' => []
+			'value' => [
+				'nut_xoay' => 'Nút xoay',
+				'phim_co'  => 'Phím cơ, nút nhấn điều khiển',
+				'cam_ung'  => 'Cảm ứng'
+			]
+		],
+		'dung_tich_su_dung' => [
+			'name'  => 'Dung tích sử dụng',
+			'value' => [
+				'20'    => 'Dưới 20 lít',
+				'20-30' => 'Từ 20 lít đến 30 lít',
+				'30'    => 'Trên 30 lít',
+			]
 		],
 		'pham_vi_loc' => [
 			'name'  => 'Phạm vi lọc hiệu quả',
-			'value' => []
+			'value' => [
+				'20'    => 'Dưới 20m2',
+				'20-30' => 'Từ 20m2 đến 30m2',
+				'30-40' => 'Từ 30m2 đến 40m2',
+				'40'    => 'Trên 40m2',
+			]
+		],
+		'dung_tich_binh_chua' => [
+			'name'  => 'Dung tích bình chứa',
+			'value' => [
+				'10'    => 'Dưới 10 lít',
+				'10-25' => 'Từ 10 lít đến 25 lít',
+				'25-50' => 'Từ 25 lít đến 50 lít',
+				'50'    => 'Trên 50 lít'
+			]
 		],
 		'dien_tich' => [
 			'name'  => 'Diện tích làm mát',
-			'value' => []
+			'value' => [
+				'20'    => 'Dưới 20m2',
+				'20-30' => 'Từ 20m2 đến 30m2',
+				'30-50' => 'Từ 30m2 đến 50m2',
+				'50'    => 'Trên 50m2',
+			]
 		],
 		'dieu_khien' => [
 			'name'  => 'Điều khiển',
-			'value' => []
+			'value' => [
+				'phim_co'    => 'Phím cơ',
+				'dieu_khien' => 'Điều khiển từ xa'
+			]
+		],
+		'cong_suat' => [
+			'name'  => 'Công suất',
+			'value' => [
+				'100'     => 'Dưới 100W',
+				'100-200' => '100-200W',
+				'200'     => 'Trên 200W'
+			]
+		],
+		'loai_may_dieu_hoa' => [
+			'name'  => 'Loại máy',
+			'value' => [
+				'1_chieu' => '1 chiều',
+				'2_chieu' => '2 chiều',
+			]
+		],
+		'dien_tich_phong_dh' => [
+			'name'  => 'Diện tích phòng phù hợp',
+			'value' => [
+				'15'    => 'Dưới 15m2',
+				'15-20' => 'Từ 25m2 đến 20m2',
+				'20-30' => 'Từ 20m2 đến 30m2',
+				'30-40' => 'Từ 30m2 đến 40m2',
+				'40'    => 'Trên 40m2',
+			]
 		],
 		'cong_nghe_inverter' => [
 			'name'  => 'Công nghệ Inverter',
-			'value' => []
+			'value' => [
+				'yes' => 'Có Inverter',
+				'no'  => 'Không có Inverter',
+			]
+		],
+		'dung_tich_su_dung_tu_lanh' => [
+			'name'  => 'Dung tích sử dụng',
+			'value' => [
+				'150'     => 'Dưới 150 lít',
+				'150-300' => 'Từ 150 lít đến 300 lít',
+				'300-450' => 'Từ 30 lít đến 450 lít',
+				'450'     => 'Trên 450 lít',
+			]
 		],
 		'so_ngan' => [
 			'name'  => 'Số ngăn',
-			'value' => []
+			'value' => [
+				'1_ngan_dong'       => '1 ngăn đông',
+				'1_ngan_dong_1_mat' => '1 ngăn đông - 1 ngăn mát',
+			]
 		],
 	];
 	return $filter;

@@ -110,6 +110,7 @@ function shortcode_get_moinhat() {
 		</div>
 	</section>
 	<?php
+	return ob_get_clean();
 }
 add_shortcode( 'get_moinhat', 'shortcode_get_moinhat' );
 

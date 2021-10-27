@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<div class="site-info">
-		Copyright © <?= date('Y') ?> <?php bloginfo(); ?>. Developed by <a href="https://titanweb.vn/" target="_blank" rel="noopener">TitanWeb</a>.
+		Copyright © <?= date('Y') ?> <?php bloginfo(); ?>
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
