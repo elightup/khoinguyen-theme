@@ -35,25 +35,24 @@
 				<div class="sidebar-top container">
 					<?php dynamic_sidebar( 'menu-top' ) ?>
 					<div class="header_bottom-cart">
-						<?php if ( !is_user_logged_in() ) : ?>
+						<?php if ( ! is_user_logged_in() ) : ?>
 							<a href="#form-login-register" class="popup-form">Đăng nhập</a>
 							<?php get_template_part( 'template-parts/form-login-register' ); ?>
 						<?php else :
 							$current_user = wp_get_current_user();
-							$user_id      = $current_user->ID;
-							$user_name    = get_user_meta( $user_id, 'user_name', true );
-							$user_name    = $user_name ? $user_name : $current_user->display_name;
-							$wallet       = get_user_meta( $user_id, 'wallet', true ) ? get_user_meta( $user_id, 'wallet', true ) : 0;
-
+							$user_id   = $current_user->ID;
+							$user_name = get_user_meta( $user_id, 'user_name', true );
+							$user_name = $user_name ? $user_name : $current_user->display_name;
+							$wallet    = get_user_meta( $user_id, 'wallet', true ) ? get_user_meta( $user_id, 'wallet', true ) : 0;
 						?>
-							<span>Chào bạn, <?php echo $user_name; ?></span>
-							<span class="tichdiem">Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?>
-								<div class="popup_tichdiem show1">
-									<ul>
-										<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm. Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt. Cảm ơn quý khách đã ủng hộ 1368Store.</p>
-									</ul>
-								</div>
-							</span>
+						<span>Chào bạn, <?php echo $user_name; ?></span>
+						<span class="tichdiem">Số dư: <?php echo number_format( $wallet, 0, ',', '.' ) . ' ₫';; ?>
+							<div class="popup_tichdiem show1">
+								<ul>
+									<p>Tài khoản tích điểm khi mua hàng, mỗi 1000đ giá trị đơn hàng sẽ được tính thành 1 điểm. Điểm được sử dụng đổi mã giảm giá, quà tặng, tiền mặt. Cảm ơn quý khách đã ủng hộ 1368Store.</p>
+								</ul>
+							</div>
+						</span>
 						<?php endif ?>
 
 						<?php get_template_part( 'template-parts/mini-cart' ) ?>
@@ -75,7 +74,7 @@
 									</li>
 									<?php
 									$role = wp_get_current_user()->roles[0];
-									if ($role == 'ctv') : ?>
+									if ( $role == 'ctv' ) : ?>
 										<li>
 											<svg><use xlink:href="#icon-check" /></svg>
 											<a href="<?php echo esc_url( home_url() ); ?>/san-pham-duoc-ap-dung-voucher-cua-ban/">Lợi nhuận</a>
@@ -131,7 +130,7 @@
 							</strong>
 							<strong>
 								<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;
-								<span class="phone">0966 000 862</span>
+								<span class="phone">0976 192 128</span>
 							</strong>
 						</p>
 					</div>
