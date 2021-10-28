@@ -130,7 +130,7 @@
 							</strong>
 							<strong>
 								<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;
-								<span class="phone">0976 192 128</span>
+								<span class="phone">0976 192 138</span>
 							</strong>
 						</p>
 					</div>
