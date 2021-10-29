@@ -84,11 +84,12 @@ function filter_product() {
 				</div>
 			</div>
 			<div class="box_items">
-				<?php if (!$lable) {
-							echo '<p class="product-lable">
-								Đặc điểm nổi bật
-							</p>';
-						} ?>
+				<?php
+				if ( !$lable ) {
+					echo '<p class="product-lable">
+						Đặc điểm nổi bật
+					</p>';
+				} ?>
 				<div class="product-content">
 					<?php kn_get_mota() ?>
 				</div>
@@ -97,8 +98,8 @@ function filter_product() {
 				<?php
 				if ( !$lable ) {
 					echo '<p class="product-lable">
-							Thông số kỹ thuật
-						</p>';
+						Thông số kỹ thuật
+					</p>';
 				}
 				?>
 				<div class="product-content">
@@ -152,7 +153,7 @@ function kn_filter_product_archive( $query ) {
 	];
 	foreach( $total_filter as $key => $value ) {
 		$filter = isset( $_GET['filter-' . $key ] ) ? wp_strip_all_tags( $_GET['filter-' . $key ] ) : '';
-		if( $filter ) {
+		if ( $filter ) {
 			$meta_query[] = [
 				[
 					'key'     => $key,

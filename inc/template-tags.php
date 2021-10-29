@@ -1,7 +1,7 @@
 <?php
 function khoinguyen_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time('U') !== get_the_modified_time('U') ) {
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="hidden updated" datetime="%3$s">%4$s</time>';
 	}
 
@@ -15,7 +15,7 @@ function khoinguyen_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x('Đăng vào %s', 'post date', 'khoinguyen'),
+		esc_html_x( 'Đăng vào %s', 'post date', 'khoinguyen' ),
 		$time_string
 	);
 
@@ -83,20 +83,20 @@ function khoinguyen_post_thumbnail() {
 	<?php else : ?>
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 		<?php
-				the_post_thumbnail(
-					'post-thumbnail',
+		the_post_thumbnail(
+			'post-thumbnail',
+			array(
+				'alt' => the_title_attribute(
 					array(
-						'alt' => the_title_attribute(
-							array(
-								'echo' => false,
-							)
-						),
+						'echo' => false,
 					)
-				);
-				?>
+				),
+			)
+		);
+		?>
 	</a>
 	<?php
-		endif; // End is_singular().
+	endif; // End is_singular().
 }
 
 function khoinguyen_get_categrory() {
@@ -107,9 +107,7 @@ function khoinguyen_get_categrory() {
 			<div class="category-menu-icon">
 				<img src="<?php echo get_template_directory_uri(); ?>/images/menu.png" alt="">
 			</div>
-			<p class="category-menu-title">
-				Danh mục sản phẩm
-			</p>
+			<p class="category-menu-title">Danh mục sản phẩm</p>
 		</div>
 		<div class="filter-category">
 			<ul>
@@ -154,7 +152,6 @@ function kn_filter_home() {
 	$terms = get_terms( array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
-
 	) );
 	?>
 
@@ -163,12 +160,10 @@ function kn_filter_home() {
 			<?php foreach ( $terms as $term ) : ?>
 			<li data-tab="<?php echo $term->slug ?>">
 				<a href="<?php echo get_term_link( $term->slug, 'nganh-hang' ); ?>"><?php echo $term->name; ?></a>
-
 			</li>
 			<?php endforeach; ?>
 		</ul>
 	</div>
-
 	<?php
 }
 
@@ -201,7 +196,6 @@ function kn_filter_khuyenmai() {
 	$terms = get_terms( array(
 		'taxonomy'   => 'nganh-hang',
 		'hide_empty' => false,
-
 	) );
 	?>
 
@@ -475,13 +469,13 @@ function kn_custom_filter() {
 	}
 
 	$total_filter = kn_filter();
-	foreach( $custom_filter as $filter ) :
+	foreach ( $custom_filter as $filter ) :
 		$selected = isset( $_GET['filter-' . $filter ] ) ? wp_strip_all_tags( $_GET['filter-' . $filter ] ) : '';
 	?>
 		<select name="filter-<?php echo $filter ?>">
 			<option value=""><?php echo $total_filter[$filter]['name']; ?></option>
 			<?php foreach ( $total_filter[$filter]['value'] as $key => $value ) : ?>
-			<option value="<?php echo esc_attr($key) ?>" <?php selected($key, $selected) ?>>
+			<option value="<?php echo esc_attr( $key ) ?>" <?php selected( $key, $selected ) ?>>
 				<?php echo $value; ?>
 			</option>
 			<?php endforeach; ?>
@@ -556,7 +550,7 @@ function kn_get_select_product() {
 		'posts_per_page' => -1,
 		'post_type'      => 'product',
 	);
-	$query = new WP_Query($args);
+	$query = new WP_Query( $args );
 
 	if ( !$query->have_posts() ) {
 		return;
@@ -571,17 +565,15 @@ function kn_get_select_product() {
 			<input type="text" id="inputFilter" />
 
 			<div class="product-lists">
-				<?php while ($query->have_posts()) : $query->the_post(); ?>
+				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 				<div class="product_item" id="product" data-title="<?php the_title(); ?>"
-					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url('admin-ajax.php') ?>">
-					<?php
-						the_title('<p class="product-title"  >', '</p>');
-						?>
+					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url( 'admin-ajax.php' ) ?>">
+					<?php the_title('<p class="product-title"  >', '</p>'); ?>
 				</div>
 				<?php
 					endwhile;
 					wp_reset_postdata();
-					?>
+				?>
 			</div>
 		</div>
 	</div>
@@ -610,14 +602,12 @@ function kn_get_select_product2() {
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 				<div class="product_item" id="product2" data-title="<?php the_title(); ?>"
 					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url( 'admin-ajax.php' ) ?>">
-					<?php
-						the_title( '<p class="product-title" >', '</p>' );
-						?>
+					<?php the_title( '<p class="product-title" >', '</p>' ); ?>
 				</div>
 				<?php
 					endwhile;
 					wp_reset_postdata();
-					?>
+				?>
 			</div>
 		</div>
 	</div>
@@ -645,22 +635,19 @@ function kn_get_select_product3() {
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 				<div class="product_item" id="product3" data-title="<?php the_title(); ?>"
 					data-id="<?php echo get_the_ID() ?>" data-link="<?php echo admin_url( 'admin-ajax.php' ) ?>">
-					<?php
-						the_title( '<p class="product-title" >', '</p>' );
-						?>
+					<?php the_title( '<p class="product-title" >', '</p>' ); ?>
 				</div>
 				<?php
 					endwhile;
 					wp_reset_postdata();
-					?>
+				?>
 			</div>
 		</div>
 	</div>
 	<?php
 }
 
-function load_sosanh($id) {
-
+function load_sosanh( $id ) {
 	$args = array(
 		'post_type' => 'product',
 		'p'         => $id,
@@ -683,38 +670,38 @@ function load_sosanh($id) {
 				</a>
 			</div>
 			<div class="box_price">
-
-				<?php if( $price_pre_sale ) : ?>
+				<?php if ( $price_pre_sale ) : ?>
 					<span class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></span>
 				<?php endif; ?>
 				<span class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></span>
 			</div>
 			<div class="box_product-datmua">
 				<?php
-						$ID = get_current_user_id();
-						$product_id = get_the_ID();
-						$cart = get_user_meta( $ID, 'cart', true );
-						if ( empty( $cart ) || !is_array( $cart ) ) {
-							$cart = [];
-						}
-						$cart_product_id = [];
+					$ID = get_current_user_id();
+					$product_id = get_the_ID();
+					$cart = get_user_meta( $ID, 'cart', true );
+					if ( empty( $cart ) || !is_array( $cart ) ) {
+						$cart = [];
+					}
+					$cart_product_id = [];
 
-						foreach ( $cart as $key => $value ) {
-							$cart_product_id[] = $key;
-						}
+					foreach ( $cart as $key => $value ) {
+						$cart_product_id[] = $key;
+					}
 
-						if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua
-					ngay </a>
-				<?php else : ?>
-				<a href="#" class="btn btn-them single-add-to-cart"
-					data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>"
-					data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
-				<a href="#" class="btn btn-muangay single-buynow"
-					data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>"
-					data-product="<?= $product_id; ?>">Mua ngay</a>
-				<?php endif; ?>
+					if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
+						<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
+						<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua
+							ngay </a>
+					<?php else : ?>
+						<a href="#" class="btn btn-them single-add-to-cart"
+							data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>"
+							data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
+						<a href="#" class="btn btn-muangay single-buynow"
+							data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>"
+							data-product="<?= $product_id; ?>">Mua ngay</a>
+					<?php endif;
+				?>
 			</div>
 		</div>
 		<div class="filter-product-bottom">
@@ -759,8 +746,8 @@ function load_sosanh($id) {
  * @param  [type] $excerpt [description]
  * @return [type]          [description]
  */
-function kn_excerpt_more($excerpt) {
-	return str_replace('[&hellip;]', '...', $excerpt);
+function kn_excerpt_more( $excerpt ) {
+	return str_replace( '[&hellip;]', '...', $excerpt );
 }
 add_filter( 'wp_trim_excerpt', 'kn_excerpt_more' );
 

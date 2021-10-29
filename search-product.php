@@ -11,7 +11,6 @@ get_header()
 		<div class="col-sm-4 col-md-3">
 			<h2 class="title-taxonomy">Danh mục sản phẩm</h2>
 			<div class="product-taxonomy">
-
 				<?php
 				$type_products = get_terms( array(
 					'taxonomy' => 'nganh-hang',
