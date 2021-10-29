@@ -316,7 +316,6 @@ jQuery( function ( $ ) {
 		let defaultDistrict = '<option value="">Chọn Quận / Huyện</option>';
 		$( document ).on( 'change', '.cities select', function () {
 			var city = $( this ).val();
-			console.log( city);
 			var $district = $( this ).parents( '.cities' ).next().find( 'select' );
 			var data = {
 				action: 'display_districts',
