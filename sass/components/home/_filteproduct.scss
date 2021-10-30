@@ -41,11 +41,6 @@
 	display: flex;
 	margin-top: 15px;
 	font-size: 13px;
-
-	@media (max-width:576px) {
-		display: none;
-	}
-
 	h4 {
 		font-weight: normal;
 		font-size: 20px;
@@ -94,6 +89,13 @@
 
 		option {
 			border-radius: 10px;
+		}
+	}
+}
+@media (max-width:576px) {
+	.home_filter {
+		.box_filter .filter-category {
+			display: none;
 		}
 	}
 }
