@@ -14,7 +14,7 @@
 	transition: all 2s;
 }
 .header-sidebar {
-	background: #23282d;
+	background: var(--color-accent);
 	height: 50px;
 	padding: 5px;
 	.widget {
@@ -26,11 +26,11 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 5px 0;
-		.box_item{
+		.box_item {
 			display: flex;
-			padding:5px 0!important;
+			padding: 5px 0 !important;
 		}
-		.box_item:last-child{
+		.box_item:last-child {
 			height: unset;
 		}
 		.item {
@@ -58,7 +58,7 @@
 	display: flex;
 	justify-content: center;
 	padding: 22px;
-	background: #60BB46;
+	background: var(--color-accent);
 	border-bottom: 1px solid #e5e5e5;
 	.container {
 		align-items: center;
