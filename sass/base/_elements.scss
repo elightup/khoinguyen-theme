@@ -36,7 +36,6 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-arial);
-
 	margin: 0 0 1.5rem;
 	line-height: 1.4;
 	font-weight: 700;
@@ -88,7 +87,6 @@ a {
 	color: var(--color-accent);
 	transition: all 0.25s;
 	text-decoration: none;
-
 }
 
 table {
@@ -116,7 +114,6 @@ textarea {
 	background: transparent;
 	padding: 10px 12px;
 	color: var(--color-ee);
-
 	&:focus {
 		outline: 1px dotted #ccc;
 		border-color: var(--color-dark);
@@ -136,7 +133,7 @@ form {
 	input[type='url'] {
 		width: 100%;
 	}
-	input[type='text']{
+	input[type='text'] {
 		width: 300px;
 	}
 }
@@ -145,7 +142,6 @@ table {
 	width: 100%;
 	td,
 	th {
-
 		border: 1px solid var(--color-light);
 		padding: 8px 12px;
 	}
@@ -165,7 +161,7 @@ ol {
 	stroke: currentColor;
 	stroke-width: 2;
 }
-.aligncenter{
+.aligncenter {
 	margin: auto;
     align-self: center;
     display: block;

@@ -2,7 +2,6 @@
 	width: 100%;
 	position: relative;
 	z-index: 9;
-
 	@media (max-width: 960px) {
 		width: 100%;
 	}
@@ -22,14 +21,11 @@
 
 .select-product-title {
 	display: flex;
-
 	width: 100%;
 	justify-content: space-between;
 	padding: 5px 15px;
-
 	.btn_select {
 		background: none;
-
 		padding: 8px 0;
 	}
 

@@ -7,23 +7,18 @@
 	padding: 20px 0;
 	margin: 20px 0;
 	border-top: var(--color-accent) solid;
-
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 10px;
-
 	@media (max-width: 768px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
-
 	@media (max-width: 576px) {
 		grid-template-columns: repeat(2, 1fr);
 	}
-
 	@media (max-width: 400px) {
 		// grid-template-columns: repeat(1, 1fr);
 	}
-
 	.product-item {
 		margin: 0;
 	}
@@ -35,17 +30,14 @@
 	justify-content: center;
 	margin-top: 50px;
 	color: #5a5a5a;
-
 	.page-numbers {
 		margin: 0 10px;
 		font-size: 16px;
 	}
-
 	.current {
 		font-weight: bold;
 		font-size: 18px;
 	}
-
 	.prev,
 	.next {
 		font-weight: bold;
@@ -55,15 +47,12 @@
 .archive {
 	.post-list {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
-
 		@media (max-width:768px) {
 			grid-template-columns: repeat(3, 1fr);
 		}
-
 		@media (max-width:576px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
-
 		@media (max-width:400px) {
 			// grid-template-columns: repeat(1, 1fr);
 		}
@@ -76,7 +65,6 @@
 .filter-category_khuyenmai {
 	display: flex;
 	margin-top: 15px;
-
 	@media (max-width:576px) {
 		display: none;
 	}
@@ -86,12 +74,10 @@
 		font-size: 20px;
 		line-height: 40px;
 		display: flex;
-
 		justify-content: center;
 		margin: 0;
 		text-align: center;
 		letter-spacing: 0.1px;
-
 		color: #5a5a5a;
 	}
 
@@ -102,7 +88,6 @@
 		flex: 9;
 		flex-wrap: wrap;
 		margin: auto 0 5px 25px;
-
 		li {
 			background: white;
 			padding: 5px;
@@ -111,13 +96,11 @@
 			border-radius: 5px;
 			margin: 10px;
 			cursor: pointer;
-
 			&:hover {
 				border-color: var(--color-accent);
 				color: var(--color-accent);
 			}
 		}
-
 	}
 }
 
@@ -149,7 +132,6 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: 4px;
-
 		select:not(:first-child),
 		select[name="filter-sap-xep"] {
 			margin-left: 0;

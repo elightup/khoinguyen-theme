@@ -1,36 +1,36 @@
-.content{
+.content {
 	margin-top: 15px;
 }
-.content-post{
+.content-post {
 	display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-gap: 24px 16px;
-    margin-bottom: 30px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-gap: 24px 16px;
+	margin-bottom: 30px;
 }
 .site-main {
 	margin-top: 20px;
 }
-.danhmuc-sp{
-    background-color: #fff;
-    margin-top: 5px;
-    z-index: 0;
+.danhmuc-sp {
+	background-color: #fff;
+	margin-top: 5px;
+	z-index: 0;
 }
-.main-title{
-    h2{
-        margin: 0;
-        font-size: 24px;
-        color: var(--color-accent);
-    }
+.main-title {
+	h2 {
+		margin: 0;
+		font-size: 24px;
+		color: var(--color-accent);
+	}
 }
 
 .entry-meta {
-    margin-bottom: 15px;
-    color: var(--color-gray);
+	margin-bottom: 15px;
+	color: var(--color-gray);
 }
 .post-thumbnail {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 .hidden {
-    display: none;
+	display: none;
 }
 

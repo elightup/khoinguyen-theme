@@ -1,16 +1,14 @@
 .widget {
 	margin: 0 0 1.5em;
-
 	// Make sure select elements fit in widgets.
 	select {
 		max-width: 100%;
 	}
 
-
-	h2{
+	h2 {
 		color: var(--color-accent);
 		font-size: 20px;
-		padding:5px 0px;
+		padding: 5px 0px;
 		font-weight: bold ;
 		margin: 0;
 	}
