@@ -130,7 +130,11 @@
 							</strong>
 							<strong>
 								<img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="">&nbsp;
-								<span class="phone">0976 192 138</span>
+								<span class="phone">
+									<a href="tel:0836491368">083.649.1368</a>
+									-
+									<a href="tel:0837421368">083.742.1368</a>
+								</span>
 							</strong>
 						</p>
 					</div>

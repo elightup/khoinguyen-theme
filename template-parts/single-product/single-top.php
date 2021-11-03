@@ -98,11 +98,15 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 					<span>Hà Nội</span>
 				</p>
 			</div>
-			<div class="product_share-item">
-				<a href="tel:0976192138">
-					Hotline:
-					<span>0976.192.138</span>
+			<div class="">
+                Hotline:
+				<a href="tel:0836491368">	
+                    <span>083.649.1368</span>
 				</a>
+                -
+                <a href="tel:0837421368">   
+                    <span>083.742.1368</span>
+                </a>
 			</div>
 			<div class="product_share-item">
 				<p>Chia sẻ:</p>

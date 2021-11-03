@@ -134,11 +134,15 @@
 .box_product-share {
 	display: flex;
 	width: 100%;
+  align-items: center;
 	.product_share-item {
 		display: flex;
 		flex: 1;
 		justify-content: flex-start;
 		align-items: flex-end;
+    &:last-child {
+      justify-content: center;
+    }
 		p {
 			margin: 0;
 			font-size: 16px;
@@ -454,6 +458,9 @@
 			font-size: 18px !important;
 		}
 	}
+  .box_product-share .product_share-item:last-child {
+    justify-content: flex-start;
+  }
 }
 @media (max-width:400px) {
 	.box_product-title .product-title {
