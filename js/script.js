@@ -379,6 +379,26 @@ jQuery( function ( $ ) {
 			$( '.popup_tichdiem' ).toggleClass( 'show' );
 		} );
 	}
+	function scrolltop() {
+
+		var offset = 220;
+		var duration = 500;
+
+		$( window ).scroll( function() {
+			if ( $( this ).scrollTop() > offset ) {
+				console.log('ádasdas');
+				$( '#back-to-top' ).fadeIn( duration );
+			} else {
+				$( '#back-to-top' ).fadeOut( duration );
+			}
+		} );
+
+		$( '#back-to-top' ).click( function( event ) {
+			event.preventDefault();
+			$( 'html, body' ).animate( { scrollTop: 0 }, duration );
+			return false;
+		} );
+	}
 	$( window ).on( 'load', setDistrict );
 
 	slickSlider();
@@ -387,6 +407,7 @@ jQuery( function ( $ ) {
 	filterproduct_khuyenmai();
 	toggleAccount();
 	popupLogout();
+	scrolltop();
 	sosanh();
 	if ( $body.hasClass( 'page-id-191' ) ) {
 		validateForm();
@@ -395,4 +416,5 @@ jQuery( function ( $ ) {
 	selectDistrictByCity();
 	selectWardByDistrict();
 	clicktichdiem();
+
 } );

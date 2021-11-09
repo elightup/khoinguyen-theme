@@ -33,4 +33,16 @@
 .hidden {
 	display: none;
 }
-
+.pagination{
+margin: 15px auto;
+width: fit-content;
+.page-numbers{
+padding: 10px ;
+background: #f2f2f2;
+border-radius: 8px;
+}
+.current{
+	color: #fff !important;
+	background: var(--color-accent) !important;
+}
+}
