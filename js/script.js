@@ -386,7 +386,6 @@ jQuery( function ( $ ) {
 
 		$( window ).scroll( function() {
 			if ( $( this ).scrollTop() > offset ) {
-				console.log('ádasdas');
 				$( '#back-to-top' ).fadeIn( duration );
 			} else {
 				$( '#back-to-top' ).fadeOut( duration );
@@ -400,6 +399,39 @@ jQuery( function ( $ ) {
 		} );
 	}
 	$( window ).on( 'load', setDistrict );
+
+	let caculatorLoiNhuan = () => {
+		$( 'input[name="by_price"]' ).on( 'input', function () {
+			const $by_price = $(this).val(),
+				$parent      = $(this).parent(),
+				$price_web   = $parent.siblings( 'td[data-price-web]' ).data( 'price-web' ),
+				$price_ship  = $parent.siblings( 'td[data-price-ship]' ).data( 'price-ship' ),
+				$price_ctv   = $parent.siblings( 'td[data-price-ctv]' ).data( 'price-ctv' ),
+				$sales_bonus = $parent.siblings( 'td[data-sales-bonus]' ).data( 'sales-bonus' ),
+				$loi_nhuan   = $price_web - $by_price - $price_ctv - $price_ship + $sales_bonus;
+
+			$parent.siblings( '.column-loi-nhuan' ).text( eFormatNumber( 0, 3, '.', ',', parseFloat( $loi_nhuan ) ) + '₫' );
+		} );
+		$( 'input[name="by_percent"]' ).on( 'input', function () {
+			const $by_percent = $(this).val(),
+				$parent           = $(this).parent(),
+				$price_web        = $parent.siblings( 'td[data-price-web]' ).data( 'price-web' ),
+				$price_ship       = $parent.siblings( 'td[data-price-ship]' ).data( 'price-ship' ),
+				$price_ctv        = $parent.siblings( 'td[data-price-ctv]' ).data( 'price-ctv' ),
+				$sales_bonus      = $parent.siblings( 'td[data-sales-bonus]' ).data( 'sales-bonus' ),
+				$price_by_percent = $price_web * $by_percent / 100;
+				$loi_nhuan   = $price_web - $price_by_percent - $price_ctv - $price_ship + $sales_bonus;
+
+			$parent.siblings( '.column-loi-nhuan' ).text( eFormatNumber( 0, 3, '.', ',', parseFloat( $loi_nhuan ) ) + '₫' );
+		} );
+	}
+
+	function eFormatNumber(n, x, s, c, number) {
+		var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+			num = number.toFixed(Math.max(0, ~~n));
+		return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+	}
+
 
 	slickSlider();
 	tabsProduct();
@@ -416,5 +448,5 @@ jQuery( function ( $ ) {
 	selectDistrictByCity();
 	selectWardByDistrict();
 	clicktichdiem();
-
+	caculatorLoiNhuan();
 } );
