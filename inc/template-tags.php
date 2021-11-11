@@ -349,6 +349,19 @@ function kn_filter() {
 				'ngan_chua_do'           => 'Có ngăn chứa đồ',
 			]
 		],
+		'color_nhabep' => [
+			'name'  => 'Màu sắc',
+			'value' => [
+				'white'  => 'Trắng',
+				'black'  => 'Đen',
+				'red'    => 'Đỏ',
+				'yellow' => 'Vàng',
+				'blue'   => 'Xanh',
+				'pink'   => 'Hồng',
+				'orange' => 'Cam',
+				'silver' => 'Bạc',
+			],
+		],
 		'dung_tich' => [
 			'name'  => 'Dung tích',
 			'value' => [
@@ -373,6 +386,19 @@ function kn_filter() {
 				'20-30' => 'Từ 20 lít đến 30 lít',
 				'30'    => 'Trên 30 lít',
 			]
+		],
+		'color_mayloc' => [
+			'name'  => 'Màu sắc',
+			'value' => [
+				'white'  => 'Trắng',
+				'black'  => 'Đen',
+				'red'    => 'Đỏ',
+				'yellow' => 'Vàng',
+				'blue'   => 'Xanh',
+				'pink'   => 'Hồng',
+				'orange' => 'Cam',
+				'silver' => 'Bạc',
+			],
 		],
 		'pham_vi_loc' => [
 			'name'  => 'Phạm vi lọc hiệu quả',
@@ -415,6 +441,19 @@ function kn_filter() {
 				'100-200' => '100-200W',
 				'200'     => 'Trên 200W'
 			]
+		],
+		'color_giadung' => [
+			'name'  => 'Màu sắc',
+			'value' => [
+				'white'  => 'Trắng',
+				'black'  => 'Đen',
+				'red'    => 'Đỏ',
+				'yellow' => 'Vàng',
+				'blue'   => 'Xanh',
+				'pink'   => 'Hồng',
+				'orange' => 'Cam',
+				'silver' => 'Bạc',
+			],
 		],
 		'loai_may_dieu_hoa' => [
 			'name'  => 'Loại máy',
