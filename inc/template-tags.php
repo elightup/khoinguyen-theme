@@ -177,7 +177,7 @@ function kn_nganh_hang_children( $parent ) {
 	<div class="filter-category">
 		<ul>
 			<?php foreach ( $terms as $key => $term_id ) :
-				if ( $key > 4 ) {
+				if ( $key > 4 && is_front_page() ) {
 					break;
 				}
 				$term = get_term_by( 'id', $term_id, 'nganh-hang' );
