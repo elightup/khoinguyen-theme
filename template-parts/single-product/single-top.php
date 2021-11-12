@@ -91,6 +91,13 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 			<?php kn_get_mota() ?>
 		</div>
 
+		<?php if ( rwmb_meta( 'gift' ) ): ?>
+			<div class="box_product-khuyenmai">
+				<h3>Khuyến mãi</h3>
+				<span><?= rwmb_meta( 'gift' ); ?></span>
+			</div>
+		<?php endif ?>
+
 		<div class="box_product-share">
 			<div class="product_share-item">
 				<p>

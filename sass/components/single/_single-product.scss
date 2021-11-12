@@ -117,9 +117,25 @@
 }
 .box_product-discription {
 	width: 100%;
-	margin: 40px 0;
+	margin: 30px 0;
 	padding: 0 15px;
 	color: #5A5A5A;
+}
+.box_product-khuyenmai {
+	width: 100%;
+	border: 1px solid #e3e3e3;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	h3 {
+		background-color: #f5f5f5;
+		text-align: center;
+		padding: 10px;
+		margin: 0;
+	}
+	span {
+		display: block;
+		padding: 10px 15px;
+	}
 }
 .content-mota {
 	width: 100%;
