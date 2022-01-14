@@ -17,9 +17,9 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 			foreach ( $images as $image ) :
 				$image_product = wp_get_attachment_image_url( $image['image_product'], 'full' );
 
-			?>
+				?>
 				<div class="box_image">
-					<img src="<?= $image_product ?>" loading="lazy">
+					<img src="<?= esc_url( $image_product ) ?>" loading="lazy">
 				</div>
 
 			<?php endforeach ?>
@@ -30,9 +30,9 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 			foreach ( $images as $image ) :
 				$image_product = wp_get_attachment_image_url( $image['image_product'], 'full' );
 
-			?>
+				?>
 				<div class="box_image">
-					<img src="<?= $image_product ?>" loading="lazy">
+					<img src="<?= esc_url( $image_product ) ?>" loading="lazy">
 				</div>
 			<?php endforeach ?>
 
@@ -43,7 +43,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 		<div class="box_product-title">
 			<div class="box_name">
 				<?php
-				if( $price_pre_sale ) {
+				if ( $price_pre_sale ) {
 					kn_get_phantram( $price_pre_sale ? $price_pre_sale : 0, $price ? $price : 0 );
 				}
 				?>
@@ -53,16 +53,18 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 				<p class="status row">
 					<span class="status-item col-lg-4">
 						<i class="bi bi-check-circle"></i>
-						Tình trạng: <?php if ( $number > 0 ) {
-										echo 'Còn hàng';
-									} else {
-										echo '<pan  style="color: red;">Hết hàng </pan>';
-									}
-									?>
+						Tình trạng:
+						<?php
+						if ( $number > 0 ) {
+							echo 'Còn hàng';
+						} else {
+							echo '<pan  style="color: red;">Hết hàng </pan>';
+						}
+						?>
 					</span>
 					<span class="status-item col-lg-4">
 						<i class="bi bi-check-circle"></i>
-						Mã sản phẩm: <?php echo $code ?>
+						Mã sản phẩm: <?php echo esc_html( $code ) ?>
 					</span>
 					<span class="status-item col-lg-4">
 						<i class="bi bi-check-circle"></i>
@@ -74,13 +76,13 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 
 		<div class="box_product-price">
 			<div class="product-price">
-				<?php if( $price_pre_sale ) : ?>
+				<?php if ( $price_pre_sale ) : ?>
 					<span class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></span>
 				<?php endif; ?>
 				<span class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></span>
 			</div>
 			<div class="Product-compare">
-				<a href="<?= home_url(); ?>/so-sanh?id=<?php echo get_the_ID(); ?>">
+				<a href="<?= esc_url( home_url() ); ?>/so-sanh?id=<?php echo get_the_ID(); ?>">
 					<i class="bi bi-arrow-left-right"></i>
 					So sánh sản phẩm
 				</a>
@@ -91,10 +93,10 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 			<?php kn_get_mota() ?>
 		</div>
 
-		<?php if ( rwmb_meta( 'gift' ) ): ?>
+		<?php if ( rwmb_meta( 'gift' ) ) : ?>
 			<div class="box_product-khuyenmai">
 				<h3>Khuyến mãi</h3>
-				<span><?= rwmb_meta( 'gift' ); ?></span>
+				<span><?= esc_html( rwmb_meta( 'gift' ) ); ?></span>
 			</div>
 		<?php endif ?>
 
@@ -106,32 +108,32 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 				</p>
 			</div>
 			<div class="">
-                Hotline:
-				<a href="tel:0836491368">	
-                    <span>083.649.1368</span>
+				Hotline:
+				<a href="tel:0836491368">
+					<span>083.649.1368</span>
 				</a>
-                -
-                <a href="tel:0837421368">   
-                    <span>083.742.1368</span>
-                </a>
+				-
+				<a href="tel:0837421368">
+					<span>083.742.1368</span>
+				</a>
 			</div>
 			<div class="product_share-item">
 				<p>Chia sẻ:</p>
 
 				<div class="zalo-share-button icon " data-href="<?php the_permalink(); ?>" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize="true">
-					<img src="<?= get_template_directory_uri(); ?>/images/logo-zalo.jpg" alt="" sizes="50px 50px" srcset="">
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/images/logo-zalo.jpg" alt="" sizes="50px 50px" srcset="">
 				</div>
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon"> <img src="<?= get_template_directory_uri(); ?>/images/facebook.png" alt="" sizes="50px 50px" srcset=""></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon"> <img src="<?= esc_url( get_template_directory_uri() ); ?>/images/facebook.png" alt="" sizes="50px 50px" srcset=""></a>
 
 			</div>
 		</div>
 
 		<div class="box_product-datmua">
 			<?php
-			$id = get_current_user_id();
+			$user_id    = get_current_user_id();
 			$product_id = get_the_ID();
 
-			$cart = get_user_meta( $id, 'cart', true );
+			$cart = get_user_meta( $user_id, 'cart', true );
 			if ( empty( $cart ) || ! is_array( $cart ) ) {
 				$cart = [];
 			}
@@ -140,13 +142,14 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 			foreach ( $cart as $key => $value ) {
 				$cart_product_id[] = $key;
 			}
-			if ( in_array( get_the_ID(), $cart_product_id ) ) : ?>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= $product_id; ?>">Mua ngay </a>
+			if ( in_array( get_the_ID(), $cart_product_id ) ) :
+				?>
+				<a href="<?= esc_url( home_url() ); ?>/gio-hang" class="btn btn-them added">Đã thêm vào giỏ </a>
+				<a href="<?= esc_url( home_url() ); ?>/gio-hang" class="btn btn-muangay" data-product="<?= esc_attr( $product_id ); ?>">Mua ngay </a>
 
-			<?php else: ?>
-				<a href="#" class="btn btn-them single-add-to-cart" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= $product_id; ?>">Thêm vào giỏ hàng</a>
-				<a href="#" class="btn btn-muangay single-buynow" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= $product_id; ?>">Mua ngay</a>
+			<?php else : ?>
+				<a href="#" class="btn btn-them single-add-to-cart" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= esc_attr( $product_id ); ?>">Thêm vào giỏ hàng</a>
+				<a href="#" class="btn btn-muangay single-buynow" data-info="<?= esc_attr( wp_json_encode( kn_get_product_info( $product_id ) ) ); ?>" data-product="<?= esc_attr( $product_id ); ?>">Mua ngay</a>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -154,7 +157,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 <div class="box_featured-product row">
 	<div class="featured-item  col-md-6">
 		<div class="box_featured-img">
-			<img src="<?php echo get_template_directory_uri() ?>/images/sanpham.jpg" alt="">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/sanpham.jpg" alt="">
 		</div>
 		<div class="box_featured-content">
 			<p class="featured-top">Sản Phẩm Mới Nhất</p>
@@ -164,7 +167,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 
 	<div class="featured-item  col-md-6">
 		<div class="box_featured-img">
-			<img src="<?php echo get_template_directory_uri() ?>/images/sanpham_2.jpg" alt="">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/sanpham_2.jpg" alt="">
 		</div>
 		<div class="box_featured-content ">
 			<p class="featured-top">Mức Giá Phù Hợp</p>
@@ -174,7 +177,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 
 	<div class="featured-item col-md-6">
 		<div class="box_featured-img">
-			<img src="<?php echo get_template_directory_uri() ?>/images/sanpham_3.jpg" alt="">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/sanpham_3.jpg" alt="">
 		</div>
 		<div class="box_featured-content">
 			<p class="featured-top">Sản Phẩm Chính Hãng</p>
@@ -184,7 +187,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 
 	<div class="featured-item  col-md-6">
 		<div class="box_featured-img">
-			<img src="<?php echo get_template_directory_uri() ?>/images/sanpham_4.jpg" alt="">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/sanpham_4.jpg" alt="">
 		</div>
 		<div class="box_featured-content">
 			<p class="featured-top">An toàn & Uy Tín</p>
@@ -193,7 +196,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 	</div>
 	<div class="featured-item  col-md-6">
 		<div class="box_featured-img">
-			<img src="<?php echo get_template_directory_uri() ?>/images/sanpham_5.jpg" alt="">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/sanpham_5.jpg" alt="">
 		</div>
 		<div class="box_featured-content">
 			<p class="featured-top">Thanh Toán Bảo Mật</p>

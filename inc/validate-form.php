@@ -14,16 +14,15 @@ function kn_check_title_voucher() {
 		wp_send_json_error( $message );
 	}
 
+	$pattern = '/[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/';
 
-	$pattern = "/[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/";
-
-	# $pattern = "/[^A-Za-z0-9]/";
+	// $pattern = "/[^A-Za-z0-9]/";
 
 	if ( preg_match( $pattern, $post_title ) ) {
 		$message = 'Bạn hãy nhập tên không dấu';
 		wp_send_json_error( $message );
 	}
-	
+
 	$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_type = 'voucher' AND post_title = '" . $prefix_voucher . $post_title . "'" );
 	if ( $post_id ) {
 		$message = 'Mã voucher đã tồn tại';
@@ -31,7 +30,7 @@ function kn_check_title_voucher() {
 	} else {
 		wp_send_json_success();
 	}
-	
+
 }
 
 

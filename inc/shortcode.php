@@ -13,11 +13,11 @@ function shortcode_get_categrory() {
 
 			<?php
 			foreach ( $terms as $term ) {
-			?>
+				?>
 				<li data-tab="<?php echo $term->slug ?>">
 					<a href="<?php echo $term->slug ?>"><?php echo $term->name; ?></a>
 				</li>
-			<?php
+				<?php
 			}
 			?>
 		</ul>
@@ -39,8 +39,8 @@ function shortcode_get_banchay() {
 				'field'            => 'slug',
 				'terms'            => array( 'noi-bat' ),
 				'include_children' => true,
-				'operator'         => 'IN'
-			)
+				'operator'         => 'IN',
+			),
 
 		),
 	];
@@ -53,7 +53,7 @@ function shortcode_get_banchay() {
 			$query->the_post();
 			$price          = rwmb_meta( 'price', get_the_ID() );
 			$price_pre_sale = rwmb_meta( 'price_pre_sale', get_the_ID() );
-		?>
+			?>
 
 			<div class="product_sidebar">
 				<div class="product_sidebar-content">
@@ -67,13 +67,13 @@ function shortcode_get_banchay() {
 					</div>
 				</div>
 				<div class="product_sidebar-price">
-					<?php if( $price_pre_sale ) : ?>
+					<?php if ( $price_pre_sale ) : ?>
 						<p class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></p>
 					<?php endif; ?>
 					<p class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></p>
 				</div>
 			</div>
-		<?php
+			<?php
 		endwhile;
 		wp_reset_postdata();
 		return ob_get_clean();
@@ -128,8 +128,8 @@ function shortcode_get_banchay_product() {
 				'field'            => 'slug',
 				'terms'            => array( 'noi-bat' ),
 				'include_children' => true,
-				'operator'         => 'IN'
-			)
+				'operator'         => 'IN',
+			),
 		),
 	];
 
@@ -140,11 +140,11 @@ function shortcode_get_banchay_product() {
 	</div>
 	<div class="box_product_sidebar1">
 		<?php
-		while ($query->have_posts()) :
+		while ( $query->have_posts() ) :
 			$query->the_post();
 			$price          = rwmb_meta( 'price', get_the_ID() );
 			$price_pre_sale = rwmb_meta( 'price_pre_sale', get_the_ID() );
-		?>
+			?>
 			<div class="product_sidebar">
 				<div class="product_sidebar-content">
 					<div class="product-img">
@@ -157,13 +157,13 @@ function shortcode_get_banchay_product() {
 					</div>
 				</div>
 				<div class="product_sidebar-price">
-					<?php if( $price_pre_sale ) : ?>
+					<?php if ( $price_pre_sale ) : ?>
 						<p class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></p>
 					<?php endif; ?>
 					<p class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></p>
 				</div>
 			</div>
-		<?php
+			<?php
 		endwhile;
 		wp_reset_postdata();
 		return ob_get_clean();
