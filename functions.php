@@ -172,6 +172,12 @@ function khoinguyen_scripts() {
 		'all_districts' => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json' ), true ),
 		'all_wards'     => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json' ), true ),
 	] );
+	wp_enqueue_script( 'otp-sms', get_template_directory_uri() . '/js/otp-sms.js', array( 'jquery' ), '1.0', true );
+	wp_localize_script( 'otp-sms', 'Data', [
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'user_id' => isset( $_GET['user_id'] ) ? $_GET['user_id'] : 0,
+	] );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -181,6 +187,7 @@ add_action( 'wp_enqueue_scripts', 'khoinguyen_scripts' );
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/shortcode.php';
+require get_template_directory() . '/inc/sms-otp.php';
 require get_template_directory() . '/inc/validate-form.php';
 require get_template_directory() . '/inc/ajax.php';
 

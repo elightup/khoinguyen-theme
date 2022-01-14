@@ -1,10 +1,10 @@
 <?php
 function khoinguyen_body_classes( $classes ) {
-	if ( !is_singular() ) {
+	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( !is_active_sidebar( 'sidebar-1 ' )) {
+	if ( ! is_active_sidebar( 'sidebar-1 ' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -23,9 +23,9 @@ function filter_product() {
 
 	$id    = isset( $_POST['id'] ) ? $_POST['id'] : false;
 	$lable = isset( $_POST['lable'] ) ? $_POST['lable'] : false;
-	$args = array(
+	$args  = array(
 		'post_type' => 'product',
-		'p' => $id,
+		'p'         => $id,
 	);
 	$query = new WP_Query( $args );
 	ob_start();
@@ -35,7 +35,7 @@ function filter_product() {
 		$price_pre_sale = rwmb_meta( 'price_pre_sale', get_the_ID() );
 		$code           = rwmb_meta( 'code', get_the_ID() );
 		$kithuat        = rwmb_meta( 'thong_so_so_sanh', get_the_ID() );
-	?>
+		?>
 	<div class="filter-product-content">
 		<div class="filter-product-top <?php echo $lable ?>">
 			<div class="box_image">
@@ -51,20 +51,20 @@ function filter_product() {
 			</div>
 			<div class="box_product-datmua">
 				<?php
-					$ID = get_current_user_id();
-					$cart = get_user_meta( $ID, 'cart', true );
-					if ( empty( $cart ) || !is_array( $cart)) {
-						$cart = [];
-					}
-					$cart_product_id = [];
-					foreach ( $cart as $key => $value ) {
-						$cart_product_id[] = $key;
-					}
-					if ( in_array( get_the_ID(), $cart_product_id ) ) :
-				?>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
-				<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay
-				</a>
+				$ID   = get_current_user_id();
+				$cart = get_user_meta( $ID, 'cart', true );
+				if ( empty( $cart ) || ! is_array( $cart ) ) {
+					$cart = [];
+				}
+				$cart_product_id = [];
+				foreach ( $cart as $key => $value ) {
+					$cart_product_id[] = $key;
+				}
+				if ( in_array( get_the_ID(), $cart_product_id ) ) :
+					?>
+					<a href="<?= home_url(); ?>/gio-hang" class="btn btn-them">Đã thêm vào giỏ </a>
+					<a href="<?= home_url(); ?>/gio-hang" class="btn btn-muangay" data-product="<?= get_the_ID(); ?>">Mua ngay
+					</a>
 				<?php else : ?>
 				<a href="#" class="btn btn-them single-add-to-cart" data-product="<?= get_the_ID(); ?>">Thêm vào giỏ
 					hàng</a>
@@ -74,29 +74,32 @@ function filter_product() {
 		</div>
 		<div class="filter-product-bottom">
 			<div class="box_items">
-				<?php if (!$lable) {
-							echo '<p class="product-lable">
-								Mã sản phẩm
-							</p>';
-						} ?>
+				<?php
+				if ( ! $lable ) {
+					echo '<p class="product-lable">
+						Mã sản phẩm
+					</p>';
+				}
+				?>
 				<div class="product-content">
 					<?php echo $code ?>
 				</div>
 			</div>
 			<div class="box_items">
 				<?php
-				if ( !$lable ) {
+				if ( ! $lable ) {
 					echo '<p class="product-lable">
 						Đặc điểm nổi bật
 					</p>';
-				} ?>
+				}
+				?>
 				<div class="product-content">
 					<?php kn_get_mota() ?>
 				</div>
 			</div>
 			<div class="box_items">
 				<?php
-				if ( !$lable ) {
+				if ( ! $lable ) {
 					echo '<p class="product-lable">
 						Thông số kỹ thuật
 					</p>';
@@ -108,7 +111,7 @@ function filter_product() {
 			</div>
 		</div>
 	</div>
-	<?php
+		<?php
 	endwhile;
 
 	$html = ob_get_clean();
@@ -144,15 +147,15 @@ function kn_filter_product_archive( $query ) {
 			'terms'    => $hang,
 		];
 	}
-	$query->set('tax_query', $tax_query);
+	$query->set( 'tax_query', $tax_query );
 
 	// Custom Filter.
 	$total_filter = kn_filter();
 	$meta_query   = [
 		'relation' => 'AND',
 	];
-	foreach( $total_filter as $key => $value ) {
-		$filter = isset( $_GET['filter-' . $key ] ) ? wp_strip_all_tags( $_GET['filter-' . $key ] ) : '';
+	foreach ( $total_filter as $key => $value ) {
+		$filter = isset( $_GET[ 'filter-' . $key ] ) ? wp_strip_all_tags( $_GET[ 'filter-' . $key ] ) : '';
 		if ( $filter ) {
 			$meta_query[] = [
 				[
@@ -160,14 +163,13 @@ function kn_filter_product_archive( $query ) {
 					'value'   => $filter,
 					'type'    => 'CHAR',
 					'compare' => '=',
-				]
+				],
 			];
 		}
 	}
 	$query->set( 'meta_query', $meta_query );
 
-
-	//sap xep
+	// sap xep
 	$sap_xep = isset( $_GET['filter-sap-xep'] ) ? wp_strip_all_tags( $_GET['filter-sap-xep'] ) : '';
 	if ( $sap_xep ) {
 		if ( $sap_xep == '1' ) {
@@ -264,8 +266,8 @@ function kn_login( $object ) {
 	update_user_meta( $object->user_id, 'user_ward', $ward );
 
 	// Login after register.
-	wp_set_current_user( $object->user_id, $meta_user['nickname'] );
-	wp_set_auth_cookie( $object->user_id );
-	do_action( 'wp_login', $meta_user['nickname'], $user );
+	// wp_set_current_user( $object->user_id, $meta_user['nickname'] );
+	// wp_set_auth_cookie( $object->user_id );
+	// do_action( 'wp_login', $meta_user['nickname'], $user );
 }
 add_action( 'rwmb_profile_after_save_user', 'kn_login' );
