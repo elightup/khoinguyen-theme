@@ -121,6 +121,11 @@ jQuery( function ( $ ) {
 		$form.on( 'change', 'select', function () {
 			$form.submit();
 		} )
+
+		const $hang_form = $( '.gia-nhap-ctv' );
+		$hang_form.on( 'change', 'select', function () {
+			$hang_form.submit();
+		} )
 	}
 
 	const filterproduct_khuyenmai = () => {
@@ -401,7 +406,7 @@ jQuery( function ( $ ) {
 	$( window ).on( 'load', setDistrict );
 
 	let caculatorLoiNhuan = () => {
-		$( 'input[name="by_price"]' ).on( 'input', function () {
+		$( '.by-price' ).on( 'input', function () {
 			const $by_price = $(this).val(),
 				$parent      = $(this).parent(),
 				$price_web   = $parent.siblings( 'td[data-price-web]' ).data( 'price-web' ),
@@ -412,7 +417,7 @@ jQuery( function ( $ ) {
 
 			$parent.siblings( '.column-loi-nhuan' ).text( eFormatNumber( 0, 3, '.', ',', parseFloat( $loi_nhuan ) ) + '₫' );
 		} );
-		$( 'input[name="by_percent"]' ).on( 'input', function () {
+		$( '.by-percent' ).on( 'input', function () {
 			const $by_percent = $(this).val(),
 				$parent           = $(this).parent(),
 				$price_web        = $parent.siblings( 'td[data-price-web]' ).data( 'price-web' ),

@@ -169,3 +169,15 @@
 		padding-right: 20px;
 	}
 }
+
+.price-org {
+	.price-nganh-hang {
+		select {
+			width: 110px;
+			padding: 5px 5px;
+		}
+		form {
+			margin: 0;
+		}
+	}
+}
