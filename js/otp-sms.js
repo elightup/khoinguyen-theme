@@ -2,7 +2,6 @@ jQuery( function ( $ ) {
 	let check_otp = () => {
 		$( '.form-otp input' ).on( 'keydown', function (e) {
 			if ( e.keyCode == 13 ) {
-				console.log( $(this).val() );
 				var user_id = Data.user_id;
 
 				$.post( Data.ajaxUrl, {

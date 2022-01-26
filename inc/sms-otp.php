@@ -33,6 +33,7 @@ function gtt_update_user( $object ) {
 	if ( $id_form === 'thong-tin-user,thong-tin-khac-ctv' || $id_form === 'thong-tin-user' ) {
 		$random_otp = rand( 100000, 999999 );
 		update_user_meta( $object->user_id, 'random_otp', $random_otp );
+		update_user_meta( $object->user_id, 'random_otp_time', strtotime( current_time( 'mysql' ) ) );
 		// Send random_otp to phone user
 		$user_data  = get_userdata( $object->user_id );
 		$user_phone = $user_data->user_login;
@@ -88,8 +89,16 @@ function kn_check_otp_message() {
 	$user_id         = isset( $_POST['user_id'] ) ? $_POST['user_id'] : '';
 	$random_otp_user = get_user_meta( $user_id, 'random_otp', true );
 
+	$random_otp_time = (int) get_user_meta( $user_id, 'random_otp_time', true );
+	$current_time    = strtotime( current_time( 'mysql' ) );
+
 	if ( empty( $otp ) ) {
 		$message = 'Bạn cần nhập OTP';
+		wp_send_json_success( $message );
+	}
+
+	if ( $current_time > $random_otp_time + 900 ) {
+		$message = 'Mã OTP đã hết hạn';
 		wp_send_json_success( $message );
 	}
 
