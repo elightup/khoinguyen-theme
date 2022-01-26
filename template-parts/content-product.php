@@ -1,5 +1,5 @@
 <?php
-$terms            = get_the_terms( get_the_ID(),'nganh-hang' );
+$terms            = get_the_terms( get_the_ID(), 'nganh-hang' );
 $terms_hang       = get_the_terms( get_the_ID(), 'hang' );
 $price            = rwmb_meta( 'price', get_the_ID() );
 $price_pre_sale   = rwmb_meta( 'price_pre_sale', get_the_ID() );
@@ -9,8 +9,8 @@ $class_hang       = '';
 $class_kieulapdat = '';
 $class_loaimay    = '';
 if ( $terms ) {
-	foreach ( $terms as $term ) {
-		$class .= $term->slug . ' ';
+	foreach ( $terms as $term_product ) {
+		$class .= $term_product->slug . ' ';
 	};
 }
 if ( $terms_hang ) {
@@ -38,7 +38,7 @@ if ( $terms_hang ) {
 
 		?>
 		<div class="product-price">
-			<?php if( $price_pre_sale ) : ?>
+			<?php if ( $price_pre_sale ) : ?>
 				<p class="price-pre-sale"><?php echo kn_currency_format( $price_pre_sale ? $price_pre_sale : 0 ) ?></p>
 			<?php endif; ?>
 			<p class="price"><?php echo kn_currency_format( $price ? $price : 0 ) ?></p>

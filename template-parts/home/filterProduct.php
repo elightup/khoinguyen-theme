@@ -22,7 +22,7 @@
 			?>
 		</div>
 		<div class="box-btn">
-			<a href="<?= home_url(); ?>/san-pham" class="btn-xemthem">
+			<a href="<?= esc_url( home_url() ); ?>/san-pham" class="btn-xemthem">
 				Xem tất cả
 			</a>
 		</div>

@@ -6,6 +6,7 @@
  *
  * @package khoinguyen
  */
+
 get_header();
 ?>
 

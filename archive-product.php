@@ -31,9 +31,9 @@ get_header();
 	</div>
 	<?php
 	the_posts_pagination([
-		'prev_text'          => __('<i class="bi bi-chevron-double-left"></i>', 'khoinguyen'),
-		'next_text'          => __('<i class="bi bi-chevron-double-right"></i>', 'khoinguyen'),
-		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'khoinguyen') . ' </span>',
+		'prev_text'          => __( '<i class="bi bi-chevron-double-left"></i>', 'khoinguyen' ),
+		'next_text'          => __( '<i class="bi bi-chevron-double-right"></i>', 'khoinguyen' ),
+		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'khoinguyen' ) . ' </span>',
 	]);
 	?>
 </main>

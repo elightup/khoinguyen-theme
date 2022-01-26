@@ -36,7 +36,8 @@ get_header();
 			<div class="dislay-product2"></div>
 		</div>
 		<!-- <div class="col-md-3  product-right product-sosanh">
-			<?php //kn_get_select_product3();
+			<?php
+			// kn_get_select_product3();
 			?>
 			<div class="dislay-product3"></div>
 		</div> -->

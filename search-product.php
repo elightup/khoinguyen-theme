@@ -13,11 +13,11 @@ get_header()
 			<div class="product-taxonomy">
 				<?php
 				$type_products = get_terms( array(
-					'taxonomy' => 'nganh-hang',
-					'hide_empty' => false
+					'taxonomy'   => 'nganh-hang',
+					'hide_empty' => false,
 				) );
 				foreach ( $type_products as $type_product ) :
-				?>
+					?>
 					<div class="product-taxonomy__item">
 						<a href="<?php echo get_term_link( $type_product->slug, 'nganh-hang' ); ?>"><?php echo $type_product->name; ?></a>
 					</div>
@@ -35,10 +35,10 @@ get_header()
 					endwhile;
 					?>
 				</div>
-			<?php
+				<?php
 				the_posts_pagination( array(
-					'prev_text' => __( '<i class="bi bi-chevron-double-left"></i>', 'khoinguyen' ),
-					'next_text' => __( '<i class="bi bi-chevron-double-right"></i>', 'khoinguyen' ),
+					'prev_text'          => __( '<i class="bi bi-chevron-double-left"></i>', 'khoinguyen' ),
+					'next_text'          => __( '<i class="bi bi-chevron-double-right"></i>', 'khoinguyen' ),
 					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'khoinguyen' ) . ' </span>',
 				) );
 			else :

@@ -12,10 +12,10 @@
 				array(
 					'taxonomy'         => 'tag',
 					'field'            => 'slug',
-					'terms'            => array('noi-bat'),
+					'terms'            => array( 'noi-bat' ),
 					'include_children' => true,
-					'operator'         => 'IN'
-				)
+					'operator'         => 'IN',
+				),
 
 			),
 		];
@@ -40,9 +40,9 @@ if ( empty( $banners ) ) {
 
 <div class="home_banner-bottom">
 	<div class="box-image">
-		<img src="<?=  $img_1 ?>" loading="lazy">
+		<img src="<?= esc_url( $img_1 ) ?>" loading="lazy">
 	</div>
 	<div class="box-image">
-		<img src="<?= $img_2 ?>" loading="lazy">
+		<img src="<?= esc_url( $img_2 ) ?>" loading="lazy">
 	</div>
 </div>

@@ -10,12 +10,11 @@ function shortcode_get_categrory() {
 	?>
 	<div class="filter-category">
 		<ul>
-
 			<?php
 			foreach ( $terms as $term ) {
 				?>
-				<li data-tab="<?php echo $term->slug ?>">
-					<a href="<?php echo $term->slug ?>"><?php echo $term->name; ?></a>
+				<li data-tab="<?php echo esc_attr( $term->slug ) ?>">
+					<a href="<?php echo esc_url( $term->slug ) ?>"><?php echo esc_html( $term->name ); ?></a>
 				</li>
 				<?php
 			}

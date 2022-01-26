@@ -5,6 +5,7 @@
  *
  * @package khoinguyen
  */
+
 get_header();
 ?>
 
@@ -25,27 +26,27 @@ get_header();
 						array(
 							'taxonomy'         => 'tag',
 							'field'            => 'slug',
-							'terms'            => array('khuyen-mai'),
+							'terms'            => array( 'khuyen-mai' ),
 							'include_children' => true,
-							'operator'         => 'IN'
-						)
+							'operator'         => 'IN',
+						),
 
 					),
 				];
 
-				$query = new WP_Query($args);
-				while ($query->have_posts()) :
+				$query = new WP_Query( $args );
+				while ( $query->have_posts() ) :
 					$query->the_post();
-					get_template_part('template-parts/content', 'product');
+					get_template_part( 'template-parts/content', 'product' );
 				endwhile;
 				wp_reset_postdata();
 				?>
 			</div>
 			<?php
 			the_posts_pagination( array(
-				'prev_text'          => __('<i class="bi bi-chevron-double-left"></i>', 'khoinguyen'),
-				'next_text'          => __('<i class="bi bi-chevron-double-right"></i>', 'khoinguyen'),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'khoinguyen') . ' </span>',
+				'prev_text'          => __( '<i class="bi bi-chevron-double-left"></i>', 'khoinguyen' ),
+				'next_text'          => __( '<i class="bi bi-chevron-double-right"></i>', 'khoinguyen' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'khoinguyen' ) . ' </span>',
 			) );
 			?>
 		</div>

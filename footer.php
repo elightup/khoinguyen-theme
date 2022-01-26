@@ -17,18 +17,18 @@
 	<div class="footer-widgets container">
 		<div class="footer-widgets__wrapper row ">
 			<div class="footer-left col-4">
-				<?php dynamic_sidebar('sidebar-footer-left') ?>
+				<?php dynamic_sidebar( 'sidebar-footer-left' ) ?>
 			</div>
 			<div class="footer-center col-4">
-				<?php dynamic_sidebar('sidebar-footer-center') ?>
+				<?php dynamic_sidebar( 'sidebar-footer-center' ) ?>
 			</div>
 			<div class="footer-right col-4">
-				<?php dynamic_sidebar('sidebar-footer-right') ?>
+				<?php dynamic_sidebar( 'sidebar-footer-right' ) ?>
 			</div>
 		</div>
 	</div>
 	<div class="site-info">
-		Copyright © <?= date('Y') ?> <?php bloginfo(); ?>
+		Copyright © <?= date( 'Y' ) ?> <?php bloginfo(); ?>
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->

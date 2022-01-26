@@ -5,9 +5,9 @@ if ( ! $nganh_hang ) {
 	return;
 }
 
-foreach( $nganh_hang as $value ) :
+foreach ( $nganh_hang as $value ) :
 	// if ( $value->count == 0 ) {
-	// 	continue;
+	// continue;
 	// }
 	?>
 	<section class="home_filter danh-muc-nganh-hang">
@@ -36,7 +36,7 @@ foreach( $nganh_hang as $value ) :
 							'taxonomy' => 'nganh-hang',
 							'field'    => 'id',
 							'terms'    => $value->term_id,
-						]
+						],
 					],
 				];
 
