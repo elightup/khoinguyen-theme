@@ -2,7 +2,7 @@
 add_action( 'wp_ajax_display_districts', 'display_districts' );
 add_action( 'wp_ajax_nopriv_display_districts', 'display_districts' );
 function display_districts() {
-	$city = (int) filter_input( INPUT_POST, 'city', FILTER_SANITIZE_NUMBER_INT );
+	$city = filter_input( INPUT_POST, 'city', FILTER_SANITIZE_NUMBER_INT );
 
 	if ( empty( $city ) ) {
 		wp_send_json_error();
@@ -21,7 +21,7 @@ function display_districts() {
 add_action( 'wp_ajax_display_wards', 'display_wards' );
 add_action( 'wp_ajax_nopriv_display_wards', 'display_wards' );
 function display_wards() {
-	$district = (int) filter_input( INPUT_POST, 'district', FILTER_SANITIZE_NUMBER_INT );
+	$district = filter_input( INPUT_POST, 'district', FILTER_SANITIZE_NUMBER_INT );
 
 	if ( empty( $district ) ) {
 		wp_send_json_error();
