@@ -5,10 +5,10 @@
 function kn_send_otp( $random_otp, $phone ) {
 	$body = json_encode( [
 		'ApiKey'    => '6FAFC2B53487D4A40D1D6C7C3EDE5D',
-		'Content'   => $random_otp . ' la ma xac minh dang ky Baotrixemay cua ban',
+		'Content'   => '1368Store : Ma OTP dang ky cua quy khach la ' . $random_otp . ', truy cap website https://1368store.vn/ de nhap thong tin. Vui long su dung ma OTP nay trong vong 15 phut.',
 		'Phone'     => $phone,
 		'SecretKey' => 'E990A5FF385519F7E23E26F031AE24',
-		'Brandname' => 'Baotrixemay',
+		'Brandname' => '1368Store',
 		'SmsType'   => '2',
 	], JSON_UNESCAPED_UNICODE );
 
