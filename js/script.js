@@ -282,6 +282,7 @@ jQuery( function ( $ ) {
 			$( '.post-title-error' ).remove();
 			$.post( Data.ajaxUrl, {
 				action: 'kn_check_title_voucher',
+				prefix_voucher: Data.prefix_voucher,
 				title: $title.val(),
 			}, function ( response ) {
 				if ( !response.success ) {

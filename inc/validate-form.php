@@ -5,6 +5,7 @@ function kn_check_title_voucher() {
 	global $wpdb;
 
 	$post_title     = isset( $_POST['title'] ) ? $_POST['title'] : '';
+	$prefix_voucher = isset( $_POST['prefix_voucher'] ) ? $_POST['prefix_voucher'] : '';
 	$user_id        = get_current_user_id();
 	$prefix_voucher = get_user_meta( $user_id, 'prefix_voucher', true ) ? get_user_meta( $user_id, 'prefix_voucher', true ) : '';
 	// $unicode        = ["à","á","ạ","ả","ã","â","ầ","ấ","ậ","ẩ","ẫ","ă","ằ","ắ","ặ","ẳ","ẵ","è","é","ẹ","ẻ","ẽ","ê","ề","ế","ệ","ể","ễ","ì","í","ị","ỉ","ĩ","ò","ó","ọ","ỏ","õ","ô","ồ","ố","ộ","ổ","ỗ","ơ","ờ","ớ","ợ","ở","ỡ","ù","ú","ụ","ủ","ũ","ư","ừ","ứ","ự","ử","ữ","ỳ","ý","ỵ","ỷ","ỹ","đ","À","Á","Ạ","Ả","Ã","Â","Ầ","Ấ","Ậ","Ẩ","Ẫ","Ă","Ằ","Ắ","Ặ","Ẳ","Ẵ","È","É","Ẹ","Ẻ","Ẽ","Ê","Ề","Ế","Ệ","Ể","Ễ","Ì","Í","Ị","Ỉ","Ĩ","Ò","Ó","Ọ","Ỏ","Õ","Ô","Ồ","Ố","Ộ","Ổ","Ỗ","Ơ","Ờ","Ớ","Ợ","Ở","Ỡ","Ù","Ú","Ụ","Ủ","Ũ","Ư","Ừ","Ứ","Ự","Ử","Ữ","Ỳ","Ý","Ỵ","Ỷ","Ỹ","Đ"];
@@ -23,6 +24,11 @@ function kn_check_title_voucher() {
 		wp_send_json_error( $message );
 	}
 
+	if ( empty( $prefix_voucher ) ) {
+		$message = 'Bạn chưa cập nhật Mã giảm giá mặc định';
+		wp_send_json_error( $message );
+	}
+
 	$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_type = 'voucher' AND post_title = '" . $prefix_voucher . $post_title . "'" );
 	if ( $post_id ) {
 		$message = 'Mã voucher đã tồn tại';
@@ -33,7 +39,9 @@ function kn_check_title_voucher() {
 
 }
 
-
+/**
+ * Add prefix voucher khi tạo voucher
+ */
 add_filter( 'rwmb_frontend_insert_post_data', 'kn_add_voucher_prefix', 10, 2 );
 add_filter( 'rwmb_frontend_update_post_data', 'kn_add_voucher_prefix', 10, 2 );
 function kn_add_voucher_prefix( $data, $config ) {
@@ -46,6 +54,9 @@ function kn_add_voucher_prefix( $data, $config ) {
 	return $data;
 }
 
+/**
+ * Ở trang edit mã giảm giá, phân tách prefix ra
+ */
 add_action( 'rwmb_frontend_before_form', function() {
 	add_filter( 'rwmb_post_title_field_meta', function( $meta, $field, $saved ) {
 		$prefix = strtoupper( get_user_meta( get_current_user_id(), 'prefix_voucher', true ) );
