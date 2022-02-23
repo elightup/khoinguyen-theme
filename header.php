@@ -81,8 +81,10 @@
 										<a href="<?php echo esc_url( home_url() ); ?>/don-hang-cua-toi/">Đơn hàng của tôi</a>
 									</li>
 									<?php
-									$user_role = wp_get_current_user()->roles[0];
-									if ( $user_role === 'ctv' ) :
+									$user_role   = wp_get_current_user()->roles[0];
+									$user_id     = wp_get_current_user()->ID;
+									$user_active = get_user_meta( $user_id, 'active_user', true );
+									if ( $user_role === 'ctv' && $user_active === '1' ) :
 										?>
 										<li>
 											<svg>
