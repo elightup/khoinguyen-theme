@@ -191,6 +191,7 @@ require get_template_directory() . '/inc/shortcode.php';
 require get_template_directory() . '/inc/sms-otp.php';
 require get_template_directory() . '/inc/validate-form.php';
 require get_template_directory() . '/inc/ajax.php';
+require get_template_directory() . '/inc/optimize.php';
 
 
 /**
