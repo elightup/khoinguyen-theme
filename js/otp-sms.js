@@ -24,9 +24,14 @@ jQuery( function ( $ ) {
 				otp: $(this).prev().val(),
 				user_id: user_id,
 			}, function ( response ) {
-				if ( response ) {
+				if ( ! response.success ) {
 					$( '.form-otp__message' ).html( response.data );
+					return;
 				}
+				$( '.form-otp__message' ).html( response.data.message );
+				setTimeout( () => {
+					location.href = response.data.url;
+				}, 5000);
 			} );
 		} );
 	}

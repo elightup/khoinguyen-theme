@@ -94,20 +94,32 @@ function kn_check_otp_message() {
 
 	if ( empty( $otp ) ) {
 		$message = 'Bạn cần nhập OTP';
-		wp_send_json_success( $message );
+		wp_send_json_error( $message );
 	}
 
 	if ( $current_time > $random_otp_time + 900 ) {
 		$message = 'Mã OTP đã hết hạn';
-		wp_send_json_success( $message );
+		wp_send_json_error( $message );
 	}
 
 	if ( $otp === $random_otp_user ) {
 		update_user_meta( $user_id, 'otp_code', $random_otp_user );
-		$message = 'Tài khoản của bạn đã xác thực thành công!';
-		wp_send_json_success( $message );
+		$message = 'Tài khoản của bạn đã xác thực thành công! <br> Website sẽ tự động chuyển hướng về trang chủ sau 5s';
+
+		// Login after register.
+		$meta_user = get_user_meta( $user_id );
+		$user      = new WP_User( $user_id );
+		wp_set_current_user( $user_id, $meta_user['nickname'] );
+		wp_set_auth_cookie( $user_id );
+		do_action( 'wp_login', $meta_user['nickname'], $user );
+
+		$return = [
+			'message' => $message,
+			'url'     => home_url(),
+		];
+		wp_send_json_success( $return );
 	} else {
 		$message = 'Mã OTP không đúng!';
-		wp_send_json_success( $message );
+		wp_send_json_error( $message );
 	}
 }
