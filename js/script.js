@@ -315,6 +315,10 @@ jQuery( function ( $ ) {
 
 			$( '#' + $tab ).addClass( 'show' );
 		} );
+
+		if ( location.href.indexOf( 'rwmb-lost-password' ) > -1 ) {
+			$( '.popup-form' ).trigger( 'click' );
+		}
 	}
 
 
