@@ -49,7 +49,7 @@ if ( $terms_hang ) {
 			echo '<div class="product-khuyenmai-none"></div>';
 		} else {
 			echo '<div class="product-khuyenmai">';
-			echo '<p>' . $gift . '</p>';
+			echo '<p>' . wp_kses_post( $gift ) . '</p>';
 			echo '</div>';
 		}
 		?>

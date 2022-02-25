@@ -96,7 +96,7 @@ $number         = rwmb_meta( 'number', get_the_ID() );
 		<?php if ( rwmb_meta( 'gift' ) ) : ?>
 			<div class="box_product-khuyenmai">
 				<h3>Khuyến mãi</h3>
-				<span><?= esc_html( rwmb_meta( 'gift' ) ); ?></span>
+				<span><?= wp_kses_post( rwmb_meta( 'gift' ) ); ?></span>
 			</div>
 		<?php endif ?>
 
