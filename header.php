@@ -90,7 +90,13 @@
 											<svg>
 												<use xlink:href="#icon-check" />
 											</svg>
-											<a href="<?php echo esc_url( home_url() ); ?>/san-pham-duoc-ap-dung-voucher-cua-ban/">Lợi nhuận</a>
+											<a href="<?php echo esc_url( home_url() ); ?>/san-pham-duoc-ap-dung-voucher-cua-ban/">Các sản phẩm được áp dụng mã giảm giá</a>
+										</li>
+										<li>
+											<svg>
+												<use xlink:href="#icon-check" />
+											</svg>
+											<a href="<?php echo esc_url( home_url() ); ?>/loi-nhuan/">Lợi nhuận</a>
 										</li>
 										<li>
 											<svg>
