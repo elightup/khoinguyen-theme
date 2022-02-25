@@ -197,15 +197,15 @@ require get_template_directory() . '/inc/optimize.php';
 /**
  * Test send email with mailtrap
  */
-function mailtrap( $phpmailer ) {
-	$phpmailer->isSMTP();
-	$phpmailer->Host     = 'smtp.mailtrap.io';
-	$phpmailer->SMTPAuth = true;
-	$phpmailer->Port     = 2525;
-	$phpmailer->Username = 'a00c6c3588510d';
-	$phpmailer->Password = '8a3167c5fc0ee9';
-}
-add_action( 'phpmailer_init', 'mailtrap' );
+// function mailtrap( $phpmailer ) {
+// $phpmailer->isSMTP();
+// $phpmailer->Host     = 'smtp.mailtrap.io';
+// $phpmailer->SMTPAuth = true;
+// $phpmailer->Port     = 2525;
+// $phpmailer->Username = 'a00c6c3588510d';
+// $phpmailer->Password = '8a3167c5fc0ee9';
+// }
+// add_action( 'phpmailer_init', 'mailtrap' );
 
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
