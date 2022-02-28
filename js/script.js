@@ -126,6 +126,11 @@ jQuery( function ( $ ) {
 		$hang_form.on( 'change', 'select', function () {
 			$hang_form.submit();
 		} )
+
+		const $all_loi_nhuan = $( '.all-loi-nhuan' );
+		$all_loi_nhuan.on( 'change', 'select', function () {
+			$all_loi_nhuan.submit();
+		} )
 	}
 
 	const filterproduct_khuyenmai = () => {
