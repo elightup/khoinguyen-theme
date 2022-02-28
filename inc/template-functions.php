@@ -271,3 +271,52 @@ function kn_login( $object ) {
 	// do_action( 'wp_login', $meta_user['nickname'], $user );
 }
 add_action( 'rwmb_profile_after_save_user', 'kn_login' );
+
+
+function wp_insert_pay_ctv( $row_arrays = array(), $wp_table_name ) {
+	global $wpdb;
+	$wp_table_name = esc_sql( $wp_table_name );
+	// Setup arrays for Actual Values, and Placeholders.
+	$values        = array();
+	$place_holders = array();
+	$query         = '';
+	$query_columns = '';
+
+	$query .= "INSERT INTO {$wp_table_name} (";
+
+	// var_dump( $row_arrays );
+	foreach ( $row_arrays as $count => $row_array ) {
+
+		foreach ( $row_array as $key => $value ) {
+
+			if ( $count == 0 ) {
+				if ( $query_columns ) {
+					$query_columns .= ',' . $key . '';
+				} else {
+					$query_columns .= '' . $key . '';
+				}
+			}
+
+			$values[] = $value;
+
+			if ( isset( $place_holders[ $count ] ) ) {
+				$place_holders[ $count ] .= ", '%s'";
+			} else {
+				$place_holders[ $count ] .= "( '%s'";
+			}
+		}
+		// mind closing the GAP.
+		$place_holders[ $count ] .= ')';
+	}
+
+	$query .= ' pay_date, id_ctv, amount, month_profit, note ) VALUES ';
+
+	$query .= implode( ', ', $place_holders );
+
+	if ( $wpdb->query( $wpdb->prepare( $query, $values ) ) ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
