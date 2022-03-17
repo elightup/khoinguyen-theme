@@ -273,6 +273,19 @@ function kn_login( $object ) {
 add_action( 'rwmb_profile_after_save_user', 'kn_login' );
 
 
+function kb_update_cities( $user_id, $old_user_data ) {
+	$district  = $_POST['user_district'] ? $_POST['user_district'] : '';
+	$ward      = $_POST['user_ward'] ? $_POST['user_ward'] : '';
+	$user_meta = get_user_meta( $user_id );
+	$user_data = get_userdata( $user_id );
+
+	// Update.
+	update_user_meta( $user_id, 'user_district', $district );
+	update_user_meta( $user_id, 'user_ward', $ward );
+}
+add_action( 'profile_update', 'kb_update_cities', 99, 2 );
+
+
 function wp_insert_pay_ctv( $row_arrays = array(), $wp_table_name ) {
 	global $wpdb;
 	$wp_table_name = esc_sql( $wp_table_name );

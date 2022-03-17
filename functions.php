@@ -167,12 +167,18 @@ function khoinguyen_scripts() {
 	wp_localize_script( 'khoinguyen-script', 'Data', [
 		'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 		'prefix_voucher' => get_user_meta( get_current_user_id(), 'prefix_voucher' ),
-		'province'       => get_user_meta( get_current_user_id(), 'user_province' ),
-		'district'       => get_user_meta( get_current_user_id(), 'user_district' ),
-		'ward'           => get_user_meta( get_current_user_id(), 'user_ward' ),
-		'all_districts'  => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json' ), true ),
-		'all_wards'      => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json' ), true ),
 	] );
+
+	wp_enqueue_script( 'district-script', get_template_directory_uri() . '/js/ajax-districts.js', array( 'jquery' ), '1.0', true );
+	wp_localize_script( 'district-script', 'Data', [
+		'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+		'province'      => get_user_meta( get_current_user_id(), 'user_province' ),
+		'district'      => get_user_meta( get_current_user_id(), 'user_district' ),
+		'ward'          => get_user_meta( get_current_user_id(), 'user_ward' ),
+		'all_districts' => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json' ), true ),
+		'all_wards'     => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json' ), true ),
+	] );
+
 	wp_enqueue_script( 'otp-sms', get_template_directory_uri() . '/js/otp-sms.js', array( 'jquery' ), '1.0', true );
 	wp_localize_script( 'otp-sms', 'OTP', [
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
@@ -184,6 +190,24 @@ function khoinguyen_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'khoinguyen_scripts' );
+
+/**
+ * Enqueue admin scripts.
+ */
+function khoinguyen_admin_scripts() {
+	$user_id      = isset( $_GET['user_id'] ) ? sanitize_text_field( wp_unslash( $_GET['user_id'] ) ) : get_current_user_id();
+	$current_user = is_admin() ? $user_id : get_current_user_id();
+	wp_enqueue_script( 'district-script', get_template_directory_uri() . '/js/ajax-districts.js', array( 'jquery' ), '1.0', true );
+	wp_localize_script( 'district-script', 'Data', [
+		'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+		'province'      => get_user_meta( $current_user, 'user_province' ),
+		'district'      => get_user_meta( $current_user, 'user_district' ),
+		'ward'          => get_user_meta( $current_user, 'user_ward' ),
+		'all_districts' => json_decode( file_get_contents( get_stylesheet_directory() . '/js/districts.json' ), true ),
+		'all_wards'     => json_decode( file_get_contents( get_stylesheet_directory() . '/js/wards.json' ), true ),
+	] );
+}
+add_action( 'admin_enqueue_scripts', 'khoinguyen_admin_scripts' );
 
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
