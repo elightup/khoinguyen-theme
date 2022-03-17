@@ -272,7 +272,9 @@ function kn_login( $object ) {
 }
 add_action( 'rwmb_profile_after_save_user', 'kn_login' );
 
-
+/**
+ * Update cites, ward ở admin.
+ */
 function kb_update_cities( $user_id, $old_user_data ) {
 	$district  = $_POST['user_district'] ? $_POST['user_district'] : '';
 	$ward      = $_POST['user_ward'] ? $_POST['user_ward'] : '';
