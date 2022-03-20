@@ -9,13 +9,18 @@ jQuery( function ( $ ) {
 					otp: $(this).val(),
 					user_id: user_id,
 				}, function ( response ) {
-					if ( response ) {
+					if ( ! response.success ) {
 						$( '.form-otp__message' ).html( response.data );
+						return;
 					}
+					$( '.form-otp__message' ).html( response.data.message );
+					setTimeout( () => {
+						location.href = response.data.url;
+					}, 5000);
 				} );
 			}
 		} );
-		$( '.form-otp a' ).on( 'click', function (e) {
+		$( '.form-otp a.btn' ).on( 'click', function (e) {
 			e.preventDefault();
 			var user_id = OTP.user_id;
 
@@ -36,5 +41,24 @@ jQuery( function ( $ ) {
 		} );
 	}
 
+	let resend_otp = () => {
+		$( '.form-otp-resend a' ).on( 'click', function (e) {
+			e.preventDefault();
+			var user_id = OTP.user_id;
+
+			$.post( OTP.ajaxUrl, {
+				action: 'kn_resend_otp',
+				user_id: user_id,
+			}, function ( response ) {
+				if ( ! response.success ) {
+					$( '.form-otp__message' ).html( response.data );
+					return;
+				}
+				$( '.form-otp__message' ).html( response.data );
+			} );
+		} );
+	}
+
 	check_otp();
+	resend_otp();
 } );

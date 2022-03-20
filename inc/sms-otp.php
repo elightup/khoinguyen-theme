@@ -123,3 +123,29 @@ function kn_check_otp_message() {
 		wp_send_json_error( $message );
 	}
 }
+
+
+/**
+ * Gửi lại mã OTP
+ */
+add_action( 'wp_ajax_kn_resend_otp', 'kn_resend_otp' );
+add_action( 'wp_ajax_nopriv_kn_resend_otp', 'kn_resend_otp' );
+function kn_resend_otp() {
+	$random_otp = rand( 100000, 999999 );
+	$user_id    = isset( $_POST['user_id'] ) ? $_POST['user_id'] : '';
+
+	if ( empty( $user_id ) ) {
+		$message = 'Tài khoản không hợp lệ';
+		wp_send_json_error( $message );
+	}
+
+	update_user_meta( $user_id, 'random_otp', $random_otp );
+	update_user_meta( $user_id, 'random_otp_time', strtotime( current_time( 'mysql' ) ) );
+	// Send random_otp to phone user
+	$user_data  = get_userdata( $user_id );
+	$user_phone = $user_data->user_login;
+	kn_send_otp( $random_otp, $user_phone );
+
+	$message = 'Đã gửi lại mã OTP';
+	wp_send_json_success( $message );
+}
