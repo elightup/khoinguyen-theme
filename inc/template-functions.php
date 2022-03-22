@@ -126,6 +126,8 @@ function kn_filter_product_archive( $query ) {
 	if ( is_admin() || ! $query->is_main_query() || ( ! $query->is_post_type_archive( 'product' ) && ! $query->is_tax( 'nganh-hang' ) ) ) {
 		return;
 	}
+	$query->set( 'posts_per_page', 20 );
+
 	$tax_query = [
 		'relation' => 'AND',
 	];
