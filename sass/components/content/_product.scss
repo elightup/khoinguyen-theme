@@ -81,6 +81,18 @@
 		}
 	}
 }
+
+.home,
+.post-type-archive,
+.tax-nganh-hang,
+.tax-loai-may,
+.tax-kieu-lap-dat,
+.tax-hang {
+	.product-khuyenmai {
+		display: none;
+	}
+}
+
 // product sidebar.
 .box_product_sidebar {
 	border-radius: 5px;
