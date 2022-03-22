@@ -73,7 +73,8 @@ function kn_check_otp( $user ) {
 	}
 	$otp_code = get_user_meta( $user->ID, 'otp_code' );
 	if ( empty( $otp_code ) ) {
-		$user = new WP_Error( 'broke', 'Tài khoản của bạn chưa được xác thực!' );
+		$text = 'Tài khoản của bạn chưa được xác thực! Bấm <a href="' . esc_url( home_url() ) . '/nhap-ma-otp?user_id=' . $user->ID . '"> vào đây </a> để nhập mã OTP';
+		$user = new WP_Error( 'broke', $text );
 	}
 	return $user;
 }
