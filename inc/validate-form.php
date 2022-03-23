@@ -29,6 +29,12 @@ function kn_check_title_voucher() {
 		wp_send_json_error( $message );
 	}
 
+	$number_voucher = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( `post_author` ) FROM $wpdb->posts WHERE post_type = 'voucher' AND post_author = %d", $user_id ) );
+	if ( $number_voucher >= 5 ) {
+		$message = 'Bạn chỉ được tạo tối đa 5 mã giảm giá!';
+		wp_send_json_error( $message );
+	}
+
 	$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_type = 'voucher' AND post_title = '" . $prefix_voucher . $post_title . "'" );
 	if ( $post_id ) {
 		$message = 'Mã voucher đã tồn tại';
