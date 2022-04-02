@@ -274,6 +274,14 @@ jQuery( function ( $ ) {
 	}
 
 	let validateForm = () => {
+		// Check if page edit.
+		let url = window.location.href;
+		if ( url.includes( '?' ) ) {
+			$( '#post_title' ).css( { 'pointer-events': 'none', 'opacity': '0.5' } );
+			$( '.rwmb-form-submit button' ).html( 'Cập nhật' );
+			return;
+		}
+
 		// Detect 'change' or 'keyup' ở title và check.
 		const $form = $( '#voucher_info' ),
 			$button = $form.find( '.rwmb-form-submit button' ),
