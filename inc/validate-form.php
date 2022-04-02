@@ -25,7 +25,7 @@ function kn_check_title_voucher() {
 	}
 
 	if ( empty( $prefix_voucher ) ) {
-		$message = 'Bạn chưa cập nhật Mã giảm giá mặc định';
+		$message = 'Bạn chưa cập nhập Mã giảm giá mặc định (Vui lòng thêm mã giảm giá mặc định của CTV ở thông tin tài khoản )';
 		wp_send_json_error( $message );
 	}
 
