@@ -60,7 +60,9 @@ jQuery( function( $ ) {
 		$( '.districts select' ).html( districts );
 		$( '.wards select' ).html( ward );
 	}
-	$( window ).on( 'load', setDistrict );
+	$( document ).ready( function () {
+		setDistrict();
+	} );
 
 	selectDistrictByCity();
 	selectWardByDistrict();
