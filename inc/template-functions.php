@@ -266,6 +266,7 @@ function kn_login( $object ) {
 	// Update.
 	update_user_meta( $object->user_id, 'user_district', $district );
 	update_user_meta( $object->user_id, 'user_ward', $ward );
+	update_user_meta( $object->user_id, 'user_id', $object->user_id );
 
 	// Login after register.
 	// wp_set_current_user( $object->user_id, $meta_user['nickname'] );
