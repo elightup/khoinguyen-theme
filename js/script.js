@@ -1,4 +1,9 @@
 jQuery( function ( $ ) {
+	$( document ).ready( function() {
+		// Bắt đầu viết
+	} );
+
+
 	var $body = $( 'body' );
 
 	var $window = $( window );
@@ -385,6 +390,12 @@ jQuery( function ( $ ) {
 		} );
 	}
 
+	let submitSearch = () => {
+		$( document ).on( 'click', '.btn-search', function() {
+			$( '.header-search' ).submit();
+		} );
+	}
+
 	function eFormatNumber(n, x, s, c, number) {
 		var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
 			num = number.toFixed(Math.max(0, ~~n));
@@ -406,4 +417,5 @@ jQuery( function ( $ ) {
 	popupForm();
 	clicktichdiem();
 	caculatorLoiNhuan();
+	submitSearch();
 } );
