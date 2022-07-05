@@ -132,6 +132,12 @@ jQuery( function ( $ ) {
 			$hang_form.submit();
 		} )
 
+		$( '.filter-search' ).on( 'keydown', function (e) {
+			if ( e.keyCode == 13 ) {
+				$hang_form.submit();
+			}
+		} )
+
 		const $all_loi_nhuan = $( '.all-loi-nhuan' );
 		$all_loi_nhuan.on( 'change', 'select', function () {
 			$all_loi_nhuan.submit();
