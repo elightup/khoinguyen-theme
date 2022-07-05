@@ -137,6 +137,9 @@ jQuery( function ( $ ) {
 				$hang_form.submit();
 			}
 		} )
+		$( '.form-btn-search span' ).on( 'click', function() {
+			$hang_form.submit();
+		} );
 
 		const $all_loi_nhuan = $( '.all-loi-nhuan' );
 		$all_loi_nhuan.on( 'change', 'select', function () {
