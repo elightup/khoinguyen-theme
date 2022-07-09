@@ -33,6 +33,14 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
+<!-- Modal -->
+<div id="popupkm" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<img src="https://1368store.vn/wp-content/uploads/2022/06/popup.png"/>
+	</div>
+</div>
+
 <script src="https://sp.zalo.me/plugins/sdk.js"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=199776704968988&autoLogAppEvents=1" nonce="yQNhQFXA"></script>

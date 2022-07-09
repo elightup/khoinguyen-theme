@@ -405,6 +405,20 @@ jQuery( function ( $ ) {
 		} );
 	}
 
+	let popupKM = () => {
+		if( window.location.href == 'https://1368store.vn/' ){
+			$(window).on( 'load',function(){
+				setTimeout( function(){
+					$( '#popupkm' ).show();
+				}, 2000 );
+			} );
+		}
+		var span = $( '#popupkm .close' );
+		span.click( function () {
+			$( '#popupkm' ).hide();
+		} );
+	}
+
 	function eFormatNumber(n, x, s, c, number) {
 		var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
 			num = number.toFixed(Math.max(0, ~~n));
@@ -427,4 +441,5 @@ jQuery( function ( $ ) {
 	clicktichdiem();
 	caculatorLoiNhuan();
 	submitSearch();
+	popupKM();
 } );
