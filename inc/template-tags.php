@@ -507,7 +507,8 @@ function kn_filter() {
 
 function kn_custom_filter() {
 	$parent_id     = get_queried_object()->parent;
-	$term_id       = ! empty( $parent_id ) ? $parent_id : get_queried_object_id();
+	// $term_id       = ! empty( $parent_id ) ? $parent_id : get_queried_object_id();
+	$term_id       = get_queried_object_id();
 	$custom_filter = rwmb_meta( 'select_filter', [ 'object_type' => 'term' ], $term_id );
 	if ( ! $custom_filter ) {
 		return;
